@@ -492,6 +492,16 @@ git stash branch <name> stash@{1}
 
 查看当前仓库文件状态
 
+### grep
+
+`git grep` grep 的方式匹配 tracked 文件，[官方文档](https://git-scm.com/docs/git-grep/2.9.5)
+
+可以检查自己的内容有没有什么敏感信息
+
+btw 速度很快
+
+
+
 ## .gitignore
 
 ### 基本配置

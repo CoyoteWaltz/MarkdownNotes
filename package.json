@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CoyoteWaltz/Markdown.git"
+    "url": "git+https://github.com/CoyoteWaltz/MarkdownNotes.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CoyoteWaltz/Markdown/issues"
+    "url": "https://github.com/CoyoteWaltz/MarkdownNotes/issues"
   },
-  "homepage": "https://github.com/CoyoteWaltz/Markdown#readme",
+  "homepage": "https://github.com/CoyoteWaltz/MarkdownNotes#readme",
   "devDependencies": {
     "prettier": "^2.1.2"
   }
