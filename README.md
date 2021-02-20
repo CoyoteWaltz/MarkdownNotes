@@ -1,6 +1,6 @@
 # Markdown Repo
 
-> I am using Markdown files to recording everthing right now with *[Typora](https://typora.io/)*
+> I am using Markdown files to recording everthing right now with _[Typora](https://typora.io/)_
 >
 > README is WIP because I'm not ready for how to describe this repo...
 
@@ -10,5 +10,4 @@
 
 The example:
 
-![image-20210213235816984](imgs/README.assets/image-20210213235816984.png)
-
+![image-20210213235816984](09other/typora_themes/README.assets/image-20210213235816984.png)
