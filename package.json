@@ -1,0 +1,23 @@
+{
+  "name": "markdown",
+  "description": "for the storage of Markdown notes.",
+  "version": "1.0.0",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write '**/*.{md,json}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoyoteWaltz/Markdown.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoyoteWaltz/Markdown/issues"
+  },
+  "homepage": "https://github.com/CoyoteWaltz/Markdown#readme",
+  "devDependencies": {
+    "prettier": "^2.1.2"
+  }
+}

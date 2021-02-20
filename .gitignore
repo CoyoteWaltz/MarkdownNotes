@@ -1,0 +1,13 @@
+.vscode/
+.idea/
+
+.DS_Store
+
+node_modules/
+
+01journal/
+# 02learning_notes/
+07work/
+08reading/
+# 09other/
+10personal/

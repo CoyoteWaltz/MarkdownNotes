@@ -1,0 +1,677 @@
+/* forked from SimonAKing */
+/* modified by CoyoteWaltz */
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  color: #000;
+}
+::-webkit-scrollbar-thumb {
+  color: transparent;
+  background-image: linear-gradient(
+    180deg,
+    #b7f8db 0%,
+    #90ffde 25%,
+    #8bffdc 50%,
+    #a5ece6 75%,
+    #8feeff 100%
+  );
+}
+
+/* selection */
+::selection {
+  background: #dafafa;
+  color: #bd9529;
+  text-shadow: 0 0 1px #af9f10, 0 0 1px rgb(172, 169, 169), 0 0 2px #e2dfc2;
+}
+
+/* variable */
+:root {
+  --side-bar-bg-color: #d4f0e9;
+  --text-color: #4d5564;
+  --text-code-color: #8b8e8f;
+  --item-hover-bg-color: #eafaf5;
+  --window-border: 1px solid #93a1a1;
+  --active-file-bg-color: #eafaf5;
+  --active-file-text-color: #93a1a1;
+  --item-hover-text-color: #93a1a1;
+  --anchor-color: #f77474;
+  /* ?? title 在哪里的 */
+  --title-color: #59e9a2;
+  /* focus mode color */
+  --blur-text-color: #8b8e8f;
+}
+
+/* general */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Source Code Pro', 'Microsoft YaHei', monospace;
+  /* 字体颜色 */
+  color: var(--text-color);
+  /* 背景色 */
+  background-color: #eafaf5;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  text-shadow: 0 0 1px #ccc;
+  text-rendering: optimizeLegibility;
+}
+
+body > *:first-child {
+  margin-top: 0 !important;
+}
+
+body > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* big sur 之后 这个高度和 content 的 margin-top 不匹配 */
+titlebar {
+  height: 28px;
+}
+
+/* title */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 1.4;
+  cursor: text;
+}
+
+h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  /* border-bottom: 1px solid #accdff; */
+}
+h2 {
+  font-size: 1.75em;
+  line-height: 1.225;
+}
+h2,
+h3 {
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #b5ccc5;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  padding-left: 5px;
+  opacity: 0.9;
+}
+h3 {
+  border-bottom: none;
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 1em;
+  color: #777;
+}
+h2:hover,
+h3:hover {
+  text-shadow: 3px 3px 1px rgba(3, 9, 80, 0.3);
+}
+/* 新增 标题后的级别 */
+h2:hover::after {
+  content: 'h2';
+  color: #627aa7;
+  font-size: 0.5em;
+  font-style: italic;
+  border: 1px solid #627aa7;
+  text-align: center;
+  vertical-align: top;
+  text-shadow: none;
+}
+h3:hover::after {
+  content: 'h3';
+  color: #627aa7;
+  font-size: 0.5em;
+  font-style: italic;
+  border: 1px solid #627aa7;
+  text-align: center;
+  vertical-align: top;
+  text-shadow: none;
+}
+h4:hover::after {
+  content: 'h4';
+  color: #627aa7;
+  font-size: 0.5em;
+  font-style: italic;
+  border: 1px solid #627aa7;
+  text-align: center;
+  vertical-align: top;
+  text-shadow: none;
+}
+h5:hover::after {
+  content: 'h5';
+  color: #627aa7;
+  font-size: 0.5em;
+  font-style: italic;
+  border: 1px solid #627aa7;
+  text-align: center;
+  vertical-align: top;
+  text-shadow: none;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+  text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+  font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+  font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+  font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+  font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+  font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+  font-size: inherit;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body > h1:first-child + h2 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+  margin-top: 0;
+}
+
+p,
+ul,
+ol,
+dl,
+table {
+  margin: 0.8em 0;
+}
+
+li > ol,
+li > ul {
+  margin: 0 0;
+}
+
+hr {
+  height: 1px;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e3fdf5;
+  border: 0 none;
+  overflow: hidden;
+  box-sizing: content-box;
+  border-bottom: 1px solid #b5ccc5;
+}
+
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+li p.first {
+  display: inline-block;
+}
+
+ul,
+ol {
+  padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+  margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+  margin-bottom: 0;
+}
+
+/* blockquote 引用 >  */
+blockquote {
+  margin: 1em 0.7em;
+  color: #aca8a8;
+  text-shadow: -1px 0px 1px #e2e1dc;
+  transition: 0.3s;
+  position: relative;
+  padding: 3px 14px;
+  background: rgba(255, 255, 226, 0.6);
+  border-left: 5px solid rgb(227, 228, 173);
+  border-radius: 0 2px 2px 0;
+  transition: 0.2s 0.1s;
+}
+blockquote:hover {
+  background: rgba(255, 255, 226, 1);
+}
+
+blockquote blockquote {
+  padding-right: 0;
+}
+
+/* table */
+table {
+  padding: 0;
+  word-break: initial;
+}
+
+table tr {
+  border-top: 1px solid #cccccc;
+  margin: 0;
+  padding: 0;
+}
+
+table tr:nth-child(2n) {
+  background-color: #fafafa;
+}
+
+table tr th {
+  font-weight: bold;
+  border: 1px solid #cccccc;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table tr td {
+  border: 1px solid #cccccc;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+  margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+  margin-bottom: 0;
+}
+
+.CodeMirror-gutters {
+  border-right: 1px solid #ddd;
+}
+
+.md-fences,
+code,
+tt {
+  background-color: #e4ebe8;
+  color: #848f97;
+  border-radius: 2px;
+  font-family: Consolas, 'Roboto Mono', 'Liberation Mono', Courier, monospace;
+  padding: 1px 4px 1px 4px;
+  font-size: 0.9em;
+}
+
+.md-fences {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 0.2em 1em;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+
+/* taskList */
+.task-list {
+  padding-left: 0;
+}
+
+.task-list-item {
+  padding-left: 32px;
+}
+
+.task-list-item p,
+.task-list-done p {
+  padding-left: 8px;
+  transition: color 0.3s ease-in-out;
+}
+
+.task-list-item input {
+  /* mac 环境 很奇怪。。。 */
+  top: -1px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #eafaf5;
+}
+
+/* 重新画 checkbox mac 下的渲染有问题... */
+.task-list-item > input:before,
+.task-list-done > input:before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #4d5564;
+  border-radius: 2px;
+  /* 内侧阴影1, 内侧2, 外侧1, 外侧2 */
+  box-shadow: inset 0 0 0 1px rgba(118, 255, 250, 0.6),
+    inset 0 0 0 2px rgb(175, 247, 224, 0.5), 0 0 0 1px rgba(118, 255, 250, 0.6),
+    0 0 0 2px rgb(175, 247, 224, 0.5);
+  margin-top: -0.4rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.task-list-done > input:before {
+  border: 1px solid rgba(77, 85, 100, 0.4);
+  border-radius: 50%;
+  box-shadow: none;
+  background-color: rgba(15, 69, 94, 0.5);
+}
+
+.task-list-done p {
+  /* text-decoration: line-through; */
+  /* font-style: italic; */
+  color: rgba(77, 85, 100, 0.4);
+  text-shadow: 0 0 1px rgb(180, 244, 255);
+}
+
+@media print {
+  html {
+    font-size: 13px;
+  }
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+  pre {
+    word-wrap: break-word;
+  }
+}
+
+
+#write pre.md-meta-block {
+  padding: 1rem;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border: 0;
+  border-radius: 3px;
+  color: #777777;
+  margin-top: 0 !important;
+}
+
+.mathjax-block > .code-tooltip {
+  bottom: 0.375rem;
+}
+
+/* post */
+#write {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 20px 30px 40px 30px;
+  padding-top: 80px !important;
+  padding-bottom: 100px;
+}
+
+#write > ul:first-child,
+#write > ol:first-child {
+  margin-top: 30px;
+}
+#write h1 {
+  color: rgb(121, 121, 121);
+  text-align: center;
+  text-shadow: 0 0 1px rgb(191, 190, 190);
+  letter-spacing: 4px;
+  font-size: 28px;
+  /* border-bottom: none; */
+  padding-bottom: 30px;
+}
+#write > h3.md-focus:before {
+  left: -1.5625rem;
+  top: 0.375rem;
+}
+
+#write > h4.md-focus:before {
+  left: -1.5625rem;
+  top: 0.285714286rem;
+}
+
+#write > h5.md-focus:before {
+  left: -1.5625rem;
+  top: 0.285714286rem;
+}
+
+#write > h6.md-focus:before {
+  left: -1.5625rem;
+  top: 0.285714286rem;
+}
+
+.md-image > .md-meta {
+  border-radius: 3px;
+  font-family: Consolas, 'Roboto Mono', 'Liberation Mono', Courier, monospace;
+  padding: 8px 16px;
+  font-size: 0.9em;
+  color: inherit;
+}
+
+.md-tag {
+  color: inherit;
+}
+
+.md-toc {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+.md-toc-inner {
+  color: #93a1a1 !important;
+}
+
+.sidebar-tabs {
+  border-bottom: none;
+}
+
+#typora-quick-open {
+  background-color: #eee8d5;
+}
+
+#typora-quick-open-item {
+  background-color: #fafafa;
+  border-color: #fefefe #e5e5e5 #e5e5e5 #eee;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#md-notification:before {
+  top: 10px;
+}
+
+.on-focus-mode blockquote {
+  border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+  font-family: Consolas, 'Roboto Mono', 'Liberation Mono', monospace;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+  visibility: visible;
+}
+
+#typora-sidebar {
+  background-color: var(--side-bar-bg-color);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+  transition: all 0.3s;
+  color: #414242;
+}
+#typora-sidebar:hover {
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.outline-label {
+  text-decoration: none;
+}
+.outline-label:hover {
+  text-decoration: none;
+}
+
+#write mark,
+#write strong {
+  color: #5c5c5c;
+  font-weight: bold;
+  text-shadow: 0 0 1px rgb(35, 45, 73);
+}
+
+/* a 标签 */
+#write a:not(.md-toc-inner) {
+  color: var(--anchor-color);
+  position: relative;
+  border-bottom-style: dotted;
+  border-bottom-color: var(--anchor-color);
+  padding-bottom: 3px;
+  border-bottom-width: 0.02rem;
+  background: transparent;
+  text-decoration: none;
+  white-space: normal;
+}
+#write a:not(.md-toc-inner)::after {
+  position: absolute;
+  bottom: -0.01rem;
+  /* 这里的 left 100% 在过渡的时候会往左走！！ */
+  left: 100%;
+  /* 同时这里的 width 为 0 就消失了 */
+  width: 0;
+  border-bottom: 0.08rem solid var(--anchor-color);
+  content: '';
+  /* 所以只需要过渡 left 就可以实现往左走的效果 */
+  transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+}
+#write a:not(.md-toc-inner):hover::after {
+  /* left 0 归位！ 不用过渡 */
+  left: 0;
+  /* 过渡 width 即可让元素从左往右渲染 */
+  width: 100%;
+  outline: 0;
+  /* text-decoration: underline; */
+  /* 进入 hover 状态只需要 width 的过渡 */
+  transition: width 0.4s ease-in-out;
+}
+
+#write em {
+  border-bottom: 1px #ccc dashed;
+}
+.md-toc-content {
+  box-shadow: 0 0 8px #adcece;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.md-toc-content:hover {
+  box-shadow: 0 0 15px #adcece;
+}
+.md-toc-item {
+  margin: 5px auto;
+  transition: 0.3s;
+}
+.md-toc-item:hover {
+  background-color: #d6e9ea;
+}
+.ty-table-edit {
+  background-color: var(--active-file-bg-color);
+  margin: 0;
+  width: 90%;
+  min-width: 90%;
+}
+.right-th-button {
+  transform: translateX(-5px);
+}
+tr,
+th {
+  transition: 0.3s;
+}
+tr:hover,
+th:hover {
+  background-color: #e3fdf5;
+}
+#write u {
+  padding-bottom: 1px;
+  text-decoration: none;
+  border-bottom: 1px rgb(128, 122, 122) solid;
+}
+/* 代码块 在这 */
+.md-fences {
+  box-shadow: 0px 3px 5px 0px #adcece;
+  background-color: #fffed4;
+  border-radius: 5px;
+  font-family: Consolas, 'Courier New', Courier, FreeMono, monospace;
+}
+#write code {
+  color: var(--text-color);
+}
+
+#typora-sidebar {
+  overflow: hidden !important;
+}
