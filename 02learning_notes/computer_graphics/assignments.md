@@ -91,7 +91,7 @@ Matrix<typename Scalar, int RowsAtCompileTime, int ColsAtCompileTime>
 
 `v.dot`点积
 
-`v.cross`叉积
+`v.cross`**叉积**(给忘了，自己手写的。。。。)
 
 `v.transpose()`转置
 
@@ -161,5 +161,28 @@ void task()
 
 然后发现 brew 在`/usr/local/include`中软连接的还是`opencv/opencv4`这个路径，代码中一般都是导入`opencv2`这个前缀，那就多做一步
 
-` ln -s /usr/local/Cellar/opencv/4.5.0_2/include/opencv4/opencv2 /usr/local/include`
+` ln -s /usr/local/Cellar/opencv/4.5.1_2/include/opencv4/opencv2 /usr/local/include`
+
+如果某一天发现软连接失效了，那就是某次安装依赖的时候悄悄升级了 opencv，重新去原路径看一眼版本，重新连接一下就行
+
+
+
+## 2
+
+### SSAA
+
+super sample anti-alias 通过超采样来消除锯齿
+
+思路：
+
+1. 采样：的时候直接扩大四个采样点，也就是 1 * 1 => 2 * 2
+   1. 由于整个采样区域都翻倍了，相当于是每一帧画布都是两倍的数据量
+2. 着色：计算出在三角形内部之后，更新超采样的 z-buffer
+3. 渲染：用超采样的 frame buffer 做 2 * 2 => 1 * 1 的融合（直接平均）
+
+效果：左为 ssaa
+
+![image-20210304204702541](imgs/assignments.assets/image-20210304204702541.png)
+
+
 

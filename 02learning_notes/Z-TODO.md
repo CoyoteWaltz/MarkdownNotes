@@ -36,7 +36,7 @@ last updated：2021.01.02 19:46:35
 - [ ] Google-closure-library [GitHub](https://github.com/google/closure-library)（这个可以慢慢品）
   - [ ] [docs](https://developers.google.com/closure/library/docs/gettingstarted)
 - [ ] [TimeCat](https://github.com/oct16/TimeCat)（网页录屏器，感觉很神奇）
-  - [ ] [how it works](https://github.com/oct16/TimeCat/blob/master/articles/technology.md)
+  - [ ] [Docs](https://timecatjs.com/docs/)
 
 ### Computer Graphics
 

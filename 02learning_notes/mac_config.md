@@ -34,6 +34,21 @@
 
 编译：`⌘ + ⇧ + b`
 
+#### in VScode
+
+1. Codelldb 插件启动 mac 上的 lldb（win 和 linux 用的是 gdb）
+2. 替换成`${fileBasenameNoExtension}`，在[官网](https://code.visualstudio.com/docs/editor/variables-reference)可以找到配置文件的变量含义
+3. 在面板配置 clang++ 的 build task，记得设置 c++ 的标准 `-std=c++2a`（其实本质还是用命令行去调用 clang++，配置一个脚本点点就行）
+4. 记得在 debug 的 launch task 中增加 `preLaunchTask` 值为 build task 的 label，让 debug 任务之前先做 build task
+
+*说白了就是一套自动化的脚本，clang++ build 出的产物，被 lldb 执行 debug*
+
+
+
+
+
+
+
 ### Golang
 
 `brew info go` 先看看 info
@@ -55,6 +70,8 @@
 创建环境的时候有点坑。。
 
 - `conda create -n <envName> python=3.7`一定要指定一下解释器版本，不然默认是 python2.7
+
+后来我放弃了 anaconda3 觉得太大太臃肿了，还是直接装 python 比较简单
 
 ### Java
 
