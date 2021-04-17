@@ -40,7 +40,25 @@ last updated：2021.01.02 19:46:35
 
 ### Computer Graphics
 
+> 看课程、书写代码为主吧，书能看多少看多少。。
+
 #### Games 101
+
+ [笔记](computer_graphics/games101) 
+
+#### 基本图形学的书
+
+#### Computer Graphics from Scratch
+
+- [笔记](computer_graphics/computer_graphics_from_scratch/reading_note.md)
+
+#### GPU 编程与 CG 语言之阳春白雪下里巴人
+
+#### 虎书
+
+#### Real-Time Volume Graphics
+
+
 
 ### Computer System
 
@@ -53,3 +71,8 @@ last updated：2021.01.02 19:46:35
 
 
 ### C++
+
+openGL & GLSL
+
+[现代 c++](cpp/cpp_on_the_fly.md)
+

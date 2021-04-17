@@ -215,6 +215,24 @@ http://xnipapp.com/
 
 命令行`code`指令直接[官方的操作](https://code.visualstudio.com/docs/editor/command-line#_common-questions)，`⇧ + ⌘ + p`然后输入类似`shell command install 'code'`的语句就让 vscode 自己帮我们在环境变量中加 code 指令
 
+#### 开启长按键盘
+
+```bash
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+```
+
+让 vim 插件按着 j 可以一路往下
+
+mac 下全局，不建议这么做
+
+```bash
+defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global default
+```
+
+
+
+
+
 #### 工具插件推荐
 
 - 主题啥的自己挑吧
@@ -227,6 +245,32 @@ http://xnipapp.com/
 - Prettier: 可以用`.prettierrc.js`文件自定义格式要求，是一个 module，也可以在设置里面配置
 - code runner：跑代码的，推荐
 - javascript console utils：写 JS 的时候让`console.log`更加方便，`⌘ + ⇧ + L`生成`console.log`行（选中变量会自动填充），`⌘ + ⇧ + D`删除文档内所有的`console.log`行（但那一行不会被删。。），PS：由于删除的快捷键被 Dato 占用了，就改成了`⌘ + ⌥ + D`
+
+#### 如何干光 vscode
+
+统统删光
+
+```bash
+#!/bin/sh
+
+rm -rfv "$HOME/.vscode"
+rm -rfv "$HOME/Library/Application Support/Code"
+rm -rfv "$HOME/Library/Caches/com.microsoft.VSCode"
+rm -rfv "$HOME/Library/Saved Application State/com.microsoft.VSCode.savedState"
+```
+
+
+
+```bash
+#!/bin/sh
+
+rm -rfv "$HOME/.vscode-insiders"
+rm -rfv "$HOME/Library/Application Support/Code - Insiders"
+rm -rfv "$HOME/Library/Caches/com.microsoft.VSCodeInsiders"
+rm -rfv "$HOME/Library/Saved Application State/com.microsoft.VSCodeInsiders.savedState"
+```
+
+
 
 ### homebrew
 
@@ -276,7 +320,6 @@ sudo chown -R $USER $(brew --prefix)
 - nmap
 - cask
 - geoiplookup
--
 
 ### git
 
@@ -345,9 +388,16 @@ Preferences -> Pointer 按住 ⌘ 点击文件/目录就会打开 finder，**贼
 
 `⌘ + ⇧ + .` 打开面板输入指令，当复制很长文本的时候可以一口气放入这个面板。
 
+#### 插件
+
+- [imgcat](https://iterm2.com/documentation-images.html) 在终端查看图片，[如何安装](https://apple.stackexchange.com/questions/256322/how-to-install-imgcat-on-iterm2)
+- 上面这个安装方法还装了一堆东西。。
+
+
+
 ### oh-my-zsh
 
-基于 `zsh` 的增强配置, 附带各种常用的插件
+基于 `zsh` 的增强配置, 附带各种常用的插件，以及一些自带的 [tricks](https://www.twilio.com/blog/zsh-tricks-to-blow-your-mind)
 
 #### zsh 是什么
 
@@ -366,6 +416,36 @@ HIST_STAMPS="yyyy-mm-dd"
 HISTFILESIZE=100000
 HISTFILE=~/.zsh_history
 ```
+
+#### tricks
+
+> https://www.twilio.com/blog/zsh-tricks-to-blow-your-mind
+
+take
+
+- 同时做到了 mkdir xxx && cd xxx
+
+zmv
+
+- 批量重命名文件，感觉就是这个 mv
+- 需要安装，执行 `autoload zmv` 就行
+- 例子：`zmv '(*).(jpg|jpeg)' 'epcot-$1.$2'`
+  - 可以用 `()` 做 group，用 `$n` 取 group 的值
+  - 可以加 `-n` 参数展示具体对应的 mv 操作，但他不会执行
+
+web-search
+
+- 可以直接在命令行 `google sth`
+
+sudo
+
+- 可以通过两次的 `esc` 在 command 前补充 `sudo`
+
+Park a command
+
+- 通过 `⌃ + q` ctrl + q 暂存本次输入的 command，在输入完下次指令之后再让他出现
+
+
 
 #### 插件
 
@@ -416,6 +496,10 @@ zsh-syntax-highlighting
   ```
 
 - 参考色彩配置：https://coderwall.com/p/qmvfya/syntax-highlighting-for-zsh
+
+
+
+
 
 TODO 还有好用的插件
 

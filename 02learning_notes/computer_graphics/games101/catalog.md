@@ -1,0 +1,7 @@
+- CG-intro-1-4: Intro, Linear algebra, MVP
+- CG-intro-5-6: Rasterization
+- CG-intro-7-9: Shading
+- CG-intro-10-12: Geometry
+- CG-intro-13-14: Raytracing Part-1
+- CG-intro-15-16: Raytracing Part-2
+- CG-intro-

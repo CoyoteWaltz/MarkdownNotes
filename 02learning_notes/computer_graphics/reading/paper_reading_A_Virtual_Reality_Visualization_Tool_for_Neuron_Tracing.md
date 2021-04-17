@@ -13,7 +13,7 @@
 - 海量的数据集大小 terabytes
 - 神经元重建，人工 & 半自动
 
-![image-20210305112550661](imgs/paper_reading.assets/image-20210305112550661.png)
+![image-20210305112550661](imgs/paper_reading_A_Virtual_Reality_Visualization_Tool_for_Neuron_Tracing.assets/image-20210305112550661.png)
 
 
 

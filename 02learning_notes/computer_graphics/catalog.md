@@ -1,5 +1,0 @@
-- CG-intro-1-4: Intro, Linear algebra, MVP
-- CG-intro-5-6: Rasterization
-- CG-intro-7-9:
-- CG-intro-10-12
-- CG-intro-13-16

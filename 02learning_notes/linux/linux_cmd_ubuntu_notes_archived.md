@@ -8,6 +8,12 @@ Ubuntu 18.04(自己的电脑)/16.04(腾讯云服务器)
 
 ## 指令回顾 linux & macOS
 
+### xargs
+
+eXtended ARGuments
+
+参考阮一峰的[教程](https://www.ruanyifeng.com/blog/2019/08/xargs-tutorial.html)
+
 ### du
 
 > disk usage 命令行递归的查看静态文件占用的硬盘大小
@@ -24,9 +30,14 @@ Ubuntu 18.04(自己的电脑)/16.04(腾讯云服务器)
 
 Link？
 
+关于什么是软连接/硬连接可以简单看[这篇](https://www.cnblogs.com/itech/archive/2009/04/10/1433052.html)，简单来说
+
+- 硬连接：多个路径可以指向同一个文件（磁盘上的 Inode index），最后一个指针被删除，文件空间才被释放
+- 软连接：多个路径指向一个“地址文件”，这个“地址文件”包含了真实的文件 Inode index
+
 `ln [-Ffhinsv] source_file ... target_dir`
 
-- `-s`软连接，symbolic
+- `-s ` 软连接，symbolic
 
   `ln -s <source_dir> <target_dir>`
 
@@ -274,12 +285,17 @@ p.s. : 不要和 chown 这个指令搞起来哦
 ### cd
 
 最简单最使用的命令之一了
+
 change directory
+
+`cd -`：cd 到上一个 cd 的目录
 
 ### mv
 
 move 指令
+
 妙用：修改文件夹的名字
+
 `mv old/ new`将旧的文件夹所有东西 move 到新的文件夹来实现效果
 
 ### pwd

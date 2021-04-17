@@ -1,7 +1,5 @@
 # Understanding blockstack white paper v2.0
 
-17122336 LiJingWei 2020-5-10
-
 [TOC]
 
 ## 论文标题：blockstack white paper v2.0

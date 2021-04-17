@@ -1,5 +1,27 @@
 [toc]
 
+### 浏览器 cookie async api
+
+> 活久见系列，不过我还没用过上古世纪就有的 `document.cookie`。。。
+>
+> 来自 medium 的[文章](https://medium.com/nmc-techblog/introducing-the-async-cookie-store-api-89cbecf401f)
+
+#### 上古 `document.cookie`
+
+我们可以从 [stackoverflow](https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript/24103596#24103596) 的这个 answer 看到是如何封装一层 cookie 的使用的
+
+#### cookieStore
+
+现在我们能用这个浏览器提供的对象了（chrome 87 开始）
+
+不过感觉还是需要去了解一波 cookie（从数据结构，存的方式开始）
+
+[官网](https://wicg.github.io/cookie-store/)上有很多案例，用到再继续学吧
+
+
+
+
+
 ### 键盘事件 key code
 
 > 参考：https://www.zhangxinxu.com/wordpress/2021/01/js-keycode-deprecated/
