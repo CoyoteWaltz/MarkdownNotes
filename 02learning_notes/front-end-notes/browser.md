@@ -18,10 +18,6 @@
 
 [官网](https://wicg.github.io/cookie-store/)上有很多案例，用到再继续学吧
 
-
-
-
-
 ### 键盘事件 key code
 
 > 参考：https://www.zhangxinxu.com/wordpress/2021/01/js-keycode-deprecated/
@@ -37,10 +33,6 @@
 
 - Event.key：匹配对应的字符
 - Event.code：对应按键的唯一码
-
-
-
-
 
 ### HTTP 1.1
 

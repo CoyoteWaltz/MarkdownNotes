@@ -44,8 +44,6 @@ The root or top level folder that you run the cmake command from is known as you
 
 就是在 `CMakeLists.txt` 文件所在的地方直接 cmake
 
-
-
 #### out-of-source
 
 可以新建个 build 目录，然后再 `cmake ..` keeping your source tree clean
@@ -54,14 +52,14 @@ The root or top level folder that you run the cmake command from is known as you
 
 cmake 中可以用到的一些有用的目录变量
 
-| Variable                 | Info                                                         |
-| ------------------------ | ------------------------------------------------------------ |
-| CMAKE_SOURCE_DIR         | The root source directory                                    |
-| CMAKE_CURRENT_SOURCE_DIR | The current source directory if using sub-projects and directories. |
-| PROJECT_SOURCE_DIR       | The source directory of the current cmake project.           |
+| Variable                 | Info                                                                                           |
+| ------------------------ | ---------------------------------------------------------------------------------------------- |
+| CMAKE_SOURCE_DIR         | The root source directory                                                                      |
+| CMAKE_CURRENT_SOURCE_DIR | The current source directory if using sub-projects and directories.                            |
+| PROJECT_SOURCE_DIR       | The source directory of the current cmake project.                                             |
 | CMAKE_BINARY_DIR         | The root binary or build directory. This is the directory **where you ran the cmake command**. |
-| CMAKE_CURRENT_BINARY_DIR | The build directory you are currently in.                    |
-| PROJECT_BINARY_DIR       | The build directory for the current project.                 |
+| CMAKE_CURRENT_BINARY_DIR | The build directory you are currently in.                                                      |
+| PROJECT_BINARY_DIR       | The build directory for the current project.                                                   |
 
 ### Source Files Variable
 
@@ -83,7 +81,7 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 file(GLOB SOURCES "src/*.cpp")
 ```
 
-*For modern CMake it is **NOT recommended to use a variable for sources**. Instead it is typical to directly declare the sources in the add_xxx function.*
+_For modern CMake it is **NOT recommended to use a variable for sources**. Instead it is typical to directly declare the sources in the add_xxx function._
 
 ### 设置需要 include 的目录
 
@@ -102,9 +100,9 @@ target_include_directories(target
 
 如果是 `PUBLIC`（下面这个例子），这个目录会在：1）编译这个 lib 的时候和 2）编译其他会 link 到这个 lib 的 target
 
-* PRIVATE - the directory is added to this target’s include directories
-* INTERFACE - the directory is added to the include directories for any targets that link this library.
-* PUBLIC - As above, it is included in this library and also any targets that link this library.
+- PRIVATE - the directory is added to this target’s include directories
+- INTERFACE - the directory is added to the include directories for any targets that link this library.
+- PUBLIC - As above, it is included in this library and also any targets that link this library.
 
 #### TIPs
 
@@ -145,7 +143,7 @@ add_library(hello_library STATIC
 ```cmake
 # link the new hello_library target with the hello_binary target
 target_link_libraries(hello_binary
-    PRIVATE 
+    PRIVATE
         hello_library
 )
 ```
@@ -222,10 +220,10 @@ cmake 内置了一些编译配置，不同的优化等级对应不同的指令 f
 
 The levels provided are:
 
-* Release - Adds the `-O3 -DNDEBUG` flags to the compiler
-* Debug - Adds the `-g` flag
-* MinSizeRel - Adds `-Os -DNDEBUG`
-* RelWithDebInfo - Adds `-O2 -g -DNDEBUG` flags
+- Release - Adds the `-O3 -DNDEBUG` flags to the compiler
+- Debug - Adds the `-g` flag
+- MinSizeRel - Adds `-Os -DNDEBUG`
+- RelWithDebInfo - Adds `-O2 -g -DNDEBUG` flags
 
 #### 设置 type
 
@@ -248,8 +246,8 @@ endif()
 
 ### 设置 compile flags
 
-* using target_compile_definitions() function
-* using the CMAKE_C_FLAGS and CMAKE_CXX_FLAGS variables.
+- using target_compile_definitions() function
+- using the CMAKE_C_FLAGS and CMAKE_CXX_FLAGS variables.
 
 ### Including Third Party Library
 
@@ -263,10 +261,10 @@ Mac 应该会在 `/usr/local/lib/cmake/` 这里去找
 find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
 ```
 
-* Boost - Name of the library. This is part of used to find the module file FindBoost.cmake（对应 FindXXX.cmake）
-* 1.46.1 - The minimum version of boost to find
-* REQUIRED - Tells the module that this is required and to fail it it cannot be found
-* COMPONENTS - The list of libraries to find.
+- Boost - Name of the library. This is part of used to find the module file FindBoost.cmake（对应 FindXXX.cmake）
+- 1.46.1 - The minimum version of boost to find
+- REQUIRED - Tells the module that this is required and to fail it it cannot be found
+- COMPONENTS - The list of libraries to find.
 
 #### 是否找到 library
 
@@ -285,9 +283,9 @@ endif()
 
 cmake 提供了一些选项来控制编译和 link
 
-* CMAKE_C_COMPILER - The program used to compile c code.
-* CMAKE_CXX_COMPILER - The program used to compile c++ code.
-* CMAKE_LINKER - The program used to link your binary.
+- CMAKE_C_COMPILER - The program used to compile c code.
+- CMAKE_CXX_COMPILER - The program used to compile c++ code.
+- CMAKE_LINKER - The program used to link your binary.
 
 传递给 cmake：
 
@@ -336,7 +334,7 @@ set(CMAKE_CXX_STANDARD 11)  # 20
 
 #### Using target_compile_features
 
-用 target_compile_features 这个方法来设置支持，又是一个 `target_*` 的函数，可以设置 scope
+用 target*compile_features 这个方法来设置支持，又是一个 `target*\*` 的函数，可以设置 scope
 
 ```cmake
 # 目标都使用 auto 类型的标准来编译 cxx_auto_type 这个 feature 可以是其他的
@@ -348,12 +346,3 @@ target_compile_features(hello_cpp11 PUBLIC cxx_auto_type)
 ```cmake
 message("List of compile features: ${CMAKE_CXX_COMPILE_FEATURES}")
 ```
-
-
-
-
-
-
-
-
-

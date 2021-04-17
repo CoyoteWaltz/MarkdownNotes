@@ -41,13 +41,7 @@
 3. 在面板配置 clang++ 的 build task，记得设置 c++ 的标准 `-std=c++2a`（其实本质还是用命令行去调用 clang++，配置一个脚本点点就行）
 4. 记得在 debug 的 launch task 中增加 `preLaunchTask` 值为 build task 的 label，让 debug 任务之前先做 build task
 
-*说白了就是一套自动化的脚本，clang++ build 出的产物，被 lldb 执行 debug*
-
-
-
-
-
-
+_说白了就是一套自动化的脚本，clang++ build 出的产物，被 lldb 执行 debug_
 
 ### Golang
 
@@ -229,10 +223,6 @@ mac 下全局，不建议这么做
 defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global default
 ```
 
-
-
-
-
 #### 工具插件推荐
 
 - 主题啥的自己挑吧
@@ -259,8 +249,6 @@ rm -rfv "$HOME/Library/Caches/com.microsoft.VSCode"
 rm -rfv "$HOME/Library/Saved Application State/com.microsoft.VSCode.savedState"
 ```
 
-
-
 ```bash
 #!/bin/sh
 
@@ -269,8 +257,6 @@ rm -rfv "$HOME/Library/Application Support/Code - Insiders"
 rm -rfv "$HOME/Library/Caches/com.microsoft.VSCodeInsiders"
 rm -rfv "$HOME/Library/Saved Application State/com.microsoft.VSCodeInsiders.savedState"
 ```
-
-
 
 ### homebrew
 
@@ -393,8 +379,6 @@ Preferences -> Pointer 按住 ⌘ 点击文件/目录就会打开 finder，**贼
 - [imgcat](https://iterm2.com/documentation-images.html) 在终端查看图片，[如何安装](https://apple.stackexchange.com/questions/256322/how-to-install-imgcat-on-iterm2)
 - 上面这个安装方法还装了一堆东西。。
 
-
-
 ### oh-my-zsh
 
 基于 `zsh` 的增强配置, 附带各种常用的插件，以及一些自带的 [tricks](https://www.twilio.com/blog/zsh-tricks-to-blow-your-mind)
@@ -445,8 +429,6 @@ Park a command
 
 - 通过 `⌃ + q` ctrl + q 暂存本次输入的 command，在输入完下次指令之后再让他出现
 
-
-
 #### 插件
 
 _在`.zshrc`中写入`plugins=(name)`，安装完 oh-my-zsh 就会有，找到即可_
@@ -496,10 +478,6 @@ zsh-syntax-highlighting
   ```
 
 - 参考色彩配置：https://coderwall.com/p/qmvfya/syntax-highlighting-for-zsh
-
-
-
-
 
 TODO 还有好用的插件
 

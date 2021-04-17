@@ -29,7 +29,7 @@ last updated：2021.01.02 19:46:35
 
 #### CSS and others
 
-* [ ] [tailwindcss](https://tailwindcss.com/)
+- [ ] [tailwindcss](https://tailwindcss.com/)
 
 #### Open source projects
 
@@ -44,7 +44,7 @@ last updated：2021.01.02 19:46:35
 
 #### Games 101
 
- [笔记](computer_graphics/games101) 
+[笔记](computer_graphics/games101)
 
 #### 基本图形学的书
 
@@ -58,21 +58,14 @@ last updated：2021.01.02 19:46:35
 
 #### Real-Time Volume Graphics
 
-
-
 ### Computer System
-
-
 
 ### Golang
 
 [Go history](https://github.com/golang-design/history)
-
-
 
 ### C++
 
 openGL & GLSL
 
 [现代 c++](cpp/cpp_on_the_fly.md)
-

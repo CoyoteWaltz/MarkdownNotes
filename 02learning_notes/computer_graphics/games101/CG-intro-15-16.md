@@ -45,7 +45,7 @@
 
 **衰减的不是 intensity 而是 irradiance**
 
-*angular*
+_angular_
 
 ![image-20210310191350676](imgs/CG-intro-15-16.assets/image-20210310191350676.png)
 
@@ -59,7 +59,7 @@ Radiance is the fundamental field quantity that describes the distribution of li
 
 好复杂啊。。
 
-***cos(t) accounts for projected surface area***
+**_cos(t) accounts for projected surface area_**
 
 一个单位面积上，会有法向量与光线存在夹角，那就有立体角 => 单位立体角 + 单位面积上的能量
 
@@ -72,13 +72,11 @@ So
 
 ### Incident Radiance
 
-*Incident radiance is the irradiance per unit solid angle arriving at the surface.*
+_Incident radiance is the irradiance per unit solid angle arriving at the surface._
 
 可以理解为 irradiance 是一块面积上任何方向（立体角）的强度之和（积分），我们现在关注一个单位立体角上的强度（微分），就是 Radiance，换句话说是一个光线沿着某一个方向到达表面的强度
 
 ![image-20210310192514572](imgs/CG-intro-15-16.assets/image-20210310192514572.png)
-
-
 
 ### Exiting Radiance
 
@@ -100,8 +98,6 @@ Radiance：某个区域，某个方向进来收到的能量
 
 ![image-20210310193914889](imgs/CG-intro-15-16.assets/image-20210310193914889.png)
 
-
-
 ### BRDF
 
 **Bidirectional Reflectance Distribution Function 描述了光线和物体是如何作用的（材质）**
@@ -121,7 +117,7 @@ Radiance：某个区域，某个方向进来收到的能量
 1. incoming 吸收：radiance -> 结合立体角 -> irradiance
 2. exiting 辐射：BRDF
 
-***从 dA 这块小区域得到的 irradiance（和面积有关，立体角无关）如何从各个方向/某个方向再出去所产生的能力是多少，BRDF 来描述这个如何分配到各个立体角，其实也就是一个比例值***
+**_从 dA 这块小区域得到的 irradiance（和面积有关，立体角无关）如何从各个方向/某个方向再出去所产生的能力是多少，BRDF 来描述这个如何分配到各个立体角，其实也就是一个比例值_**
 
 ![image-20210310200448211](imgs/CG-intro-15-16.assets/image-20210310200448211.png)
 
@@ -149,11 +145,7 @@ The Rendering Equation
 
 解释下半球：从下面的光线打上来的肯定是 0 了
 
-**前面那么多概念就是为了这个最终的渲染方程**，是 CG 的祭奠，论文名就叫 *the rendering equation*
-
-
-
-
+**前面那么多概念就是为了这个最终的渲染方程**，是 CG 的祭奠，论文名就叫 _the rendering equation_
 
 物体的材质如何定义：
 
@@ -166,8 +158,6 @@ The Rendering Equation
 结合课件 & 再看几遍[视频](https://www.bilibili.com/video/BV1X7411F744?p=15) 去理解渲染方程 -> 多次弹射光照 -> 全局光照 -> 光追和光栅化的区别
 
 全局光照必定会收敛
-
-
 
 如何去解这个渲染方程就是关键，后面路径追踪会讲
 
@@ -214,7 +204,7 @@ estimate the integral of a function by averaging **random samples of the functio
 
 理解一下这个蒙特卡洛积分：
 
-1. 定积分可以看成是某个范围内，分成无数个小的矩形面积求和，矩形面积 = dx * f(x)
+1. 定积分可以看成是某个范围内，分成无数个小的矩形面积求和，矩形面积 = dx \* f(x)
 2. 某个采样点 x 在函数上的矩形面积，他的宽（dx 部分）其实可以用概率密度去定量，概率是 p(x) 表示它出现的可能，那么它真正出现的次数就是 1/px 了，也就是宽所占的比例，高还是 f(x)
 3. 将每个采样点的面积求一个平均就完事了
 4. 采样点越多，和真实的积分差距就越小
@@ -301,7 +291,7 @@ This is Path Tracing
 1. 从相机位置 camPos 要去看屏幕上的某个像素 pixel
 2. 对像素范围内进行 N 个采样（N 条 eye ray）
 3. 计算每个击中物体采样得到的 radiance（`shade(p, sample_to_cam)` 物体表面的光从采样点到相机的光线角度）
-4. 然后求一个平均，就能得到 pixel_radiance 了 
+4. 然后求一个平均，就能得到 pixel_radiance 了
 
 我们的目标是渲染一个像素嘛，从像素出发来解决问题就很棒！
 
@@ -318,15 +308,13 @@ This is Path Tracing
 1. 自定义一定的概率 p 去发射一条 ray，那么不发射 ray 的概率就是 1-p
 2. p 概率下，发出的光线得到的结果 Lo 去除 p（可以理解和上面的蒙特卡洛是一样的，求一个占比） => Lo / p
 3. 1 - p 的概率下，得到的就是 0
-4. 我们可以得到最后的 **Expection** = sum(p * x) = (1 - p) * 0 + p * (Lo / p) = Lo（妙啊）
+4. 我们可以得到最后的 **Expection** = sum(p _ x) = (1 - p) _ 0 + p \* (Lo / p) = Lo（妙啊）
 
 所以可以通过这样的概率性弹射，来解决计算量过大的问题（递归）但是也能保证质量（但还是会有 noise）
 
 - 会不会运气差到 1 个像素上每个 sample 都在第一次就 0 了呢。。应该能避免的，比如限制必须直接光照，或者限制的到达一定的 bounce 数之后再进行 RR
 
 ![image-20210311171749823](imgs/CG-intro-15-16.assets/image-20210311171749823.png)
-
-
 
 到此为止，path tracing 就没毛病了！
 
@@ -342,7 +330,7 @@ samples per pixel，采样少就快啊，但是有噪声，并且采样的光线
 
 采样问题
 
-*蒙特卡洛的要求：在 x 上采样，在 x 上积分*
+_蒙特卡洛的要求：在 x 上采样，在 x 上积分_
 
 在光源上采样，把渲染方程写成在光源表面上的积分 dA，找到 dw 和 dA 的关系就行了
 
@@ -392,4 +380,3 @@ Ray tracing：其实就是光线传播方法的大集合（path tracing、单向
 ![image-20210311174659746](imgs/CG-intro-15-16.assets/image-20210311174659746.png)
 
 路漫漫其修远兮，fear the science
-

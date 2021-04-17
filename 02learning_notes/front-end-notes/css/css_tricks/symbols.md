@@ -20,7 +20,7 @@
 | Check Mark                                 | ✓         | U+02713 | &#x2713; | &#10003;  | &check;     | \2713    |
 | Degree Celsius                             | ℃         | U+02103 | &#x2103; | &#8451;   |             | \2103    |
 | Degree Fahrenheit                          | ℉         | U+02109 | &#x2109; | &#8457;   |             | \2109    |
-| Dollar Sign                                | $         | U+00024 | &#x24;   | &#36;     | &dollar;    | \0024    |
+| Dollar Sign                                | \$        | U+00024 | \$       | \$        | \$          | \0024    |
 | Cent Sign                                  | ¢         | U+000A2 | &#xa2;   | &#162;    | &cent;      | \00A2    |
 | Pound Sign                                 | £         | U+000A3 | &#xa3;   | &#163;    | &pound;     | \00A3    |
 | Euro Sign                                  | €         | U+020AC | &#x20AC; | &#8364;   | &euro;      | \20AC    |
@@ -55,310 +55,310 @@
 
 ## 箭头相关符号
 
-| 描述                                                         | 符号/显示 | UNICODE | HEX CODE | HTML CODE | HTML ENTITY           | CSS CODE |
-| :----------------------------------------------------------- | :-------- | :------ | :------- | :-------- | :-------------------- | :------- |
-| Left Arrow                                                   | ←         | U+02190 | &#x2190; | &#8592;   | &larr;                | \2190    |
-| Up Arrow                                                     | ↑         | U+02191 | &#x2191; | &#8593;   | &uarr;                | \2191    |
-| Right Arrow                                                  | →         | U+02192 | &#x2192; | &#8594;   | &rarr;                | \2192    |
-| Down Arrow                                                   | ↓         | U+02193 | &#x2193; | &#8595;   | &darr;                | \2193    |
-| Left Right Arrow                                             | ↔         | U+02194 | &#x2194; | &#8596;   | &harr;                | \2194    |
-| Up Down Arrow                                                | ↕         | U+02195 | &#x2195; | &#8597;   | &varr;                | \2195    |
-| North West Arrow                                             | ↖         | U+02196 | &#x2196; | &#8598;   | &nwarr;               | \2196    |
-| North East Arrow                                             | ↗         | U+02197 | &#x2197; | &#8599;   | &nearr;               | \2197    |
-| South East Arrow                                             | ↘         | U+02198 | &#x2198; | &#8600;   | &searr;               | \2198    |
-| South West Arrow                                             | ↙         | U+02199 | &#x2199; | &#8601;   | &swarr;               | \2199    |
-| Left Arrow with Stroke                                       | ↚         | U+0219A | &#x219a; | &#8602;   | &nlarr;               | \219A    |
-| Right Arrow with Stroke                                      | ↛         | U+0219B | &#x219b; | &#8603;   | &nrarr;               | \219B    |
-| Left Wave Arrow                                              | ↜         | U+0219C | &#x219c; | &#8604;   | &larrw;               | \219C    |
-| Right Wave Arrow                                             | ↝         | U+0219D | &#x219d; | &#8605;   | &rarrw;               | \219D    |
-| Left Two Headed Arrow                                        | ↞         | U+0219E | &#x219e; | &#8606;   | &Larr;                | \219E    |
-| Up Two Headed Arrow                                          | ↟         | U+0219F | &#x219f; | &#8607;   | &Uarr;                | \219F    |
-| Right Two Headed Arrow                                       | ↠         | U+021A0 | &#x21a0; | &#8608;   | &Rarr;                | \21A0    |
-| Down Two Headed Arrow                                        | ↡         | U+021A1 | &#x21a1; | &#8609;   | &Darr;                | \21A1    |
-| Left Arrow with Tail                                         | ↢         | U+021A2 | &#x21a2; | &#8610;   | &larrtl;              | \21A2    |
-| Right Arrow with Tail                                        | ↣         | U+021A3 | &#x21a3; | &#8611;   | &rarrtl;              | \21A3    |
-| Left Arrow from Bar                                          | ↤         | U+021A4 | &#x21a4; | &#8612;   | &mapstoleft;          | \21A4    |
-| Up Arrow from Bar                                            | ↥         | U+021A5 | &#x21a5; | &#8613;   | &mapstoup;            | \21A5    |
-| Right Arrow from Bar                                         | ↦         | U+021A6 | &#x21a6; | &#8614;   | &mapstoright;         | \21A6    |
-| Down Arrow from Bar                                          | ↧         | U+021A7 | &#x21a7; | &#8615;   | &mapstodown;          | \21A7    |
-| Up Down Arrow with Base                                      | ↨         | U+021A8 | &#x21a8; | &#8616;   |                       | \21A8    |
-| Left Arrow with Hook                                         | ↩         | U+021A9 | &#x21a9; | &#8617;   | &larrhk;              | \21A9    |
-| Right Arrow with Hook                                        | ↪         | U+021AA | &#x21aa; | &#8618;   | &rarrhk;              | \21AA    |
-| Left Arrow with Loop                                         | ↫         | U+021AB | &#x21ab; | &#8619;   | &larrlp;              | \21AB    |
-| Right Arrow with Loop                                        | ↬         | U+021AC | &#x21ac; | &#8620;   | &rarrlp;              | \21AC    |
-| Left Right Wave Arrow                                        | ↭         | U+021AD | &#x21ad; | &#8621;   | &harrw;               | \21AD    |
-| Left Right Arrow with Stroke                                 | ↮         | U+021AE | &#x21ae; | &#8622;   | &nharr;               | \21AE    |
-| Down Zigzag Arrow                                            | ↯         | U+021AF | &#x21af; | &#8623;   |                       | \21AF    |
-| Up Arrow with Tip Left                                       | ↰         | U+021B0 | &#x21b0; | &#8624;   | &lsh;                 | \21B0    |
-| Up Arrow with Tip Right                                      | ↱         | U+021B1 | &#x21b1; | &#8625;   | &rsh;                 | \21B1    |
-| Down Arrow with Tip Left                                     | ↲         | U+021B2 | &#x21b2; | &#8626;   | &ldsh;                | \21B2    |
-| Down Arrow with Tip Right                                    | ↳         | U+021B3 | &#x21b3; | &#8627;   | &rdsh;                | \21B3    |
-| Right Arrow with Corner Down                                 | ↴         | U+021B4 | &#x21b4; | &#8628;   |                       | \21B4    |
-| Down Arrow with Corner Left                                  | ↵         | U+021B5 | &#x21b5; | &#8629;   | &crarr;               | \21B5    |
-| Anticlockwise Top Semicircle Arrow                           | ↶         | U+021B6 | &#x21b6; | &#8630;   | &cularr;              | \21B6    |
-| Clockwise Top Semicircle Arrow                               | ↷         | U+021B7 | &#x21b7; | &#8631;   | &curarr;              | \21B7    |
-| North West Arrow to Long Bar                                 | ↸         | U+021B8 | &#x21b8; | &#8632;   |                       | \21B8    |
-| Left Arrow to Bar over Right Arrow to bar                    | ↹         | U+021B9 | &#x21b9; | &#8633;   |                       | \21B9    |
-| Anticlockwise Open Circle Arrow                              | ↺         | U+021BA | &#x21ba; | &#8634;   | &olarr;               | \21BA    |
-| Clockwise Open Circle Arrow                                  | ↻         | U+021BB | &#x21bb; | &#8635;   | &orarr;               | \21BB    |
-| Left Harpoon with Barb Up                                    | ↼         | U+021BC | &#x21bc; | &#8636;   | &lharu;               | \21BC    |
-| Left Harpoon with Barb Down                                  | ↽         | U+021BD | &#x21bd; | &#8637;   | &lhard;               | \21BD    |
-| Up Harpoon with Barb Right                                   | ↾         | U+021BE | &#x21be; | &#8638;   | &uharr;               | \21BE    |
-| Up Harpoon with Barb Left                                    | ↿         | U+021BF | &#x21bf; | &#8639;   | &uharl;               | \21BF    |
-| Right Harpoon with Barb Up                                   | ⇀         | U+021C0 | &#x21c0; | &#8640;   | &rharu;               | \21C0    |
-| Right Harpoon with Barb Down                                 | ⇁         | U+021C1 | &#x21c1; | &#8641;   | &rhard;               | \21C1    |
-| Down Harpoon with Barb Right                                 | ⇂         | U+021C2 | &#x21c2; | &#8642;   | &dharr;               | \21C2    |
-| Down Harpoon with Barb Left                                  | ⇃         | U+021C3 | &#x21c3; | &#8643;   | &dharl;               | \21C3    |
-| Right Arrow over Left Arrow                                  | ⇄         | U+021C4 | &#x21c4; | &#8644;   | &rlarr;               | \21C4    |
-| Up Arrow Left of Down Arrow                                  | ⇅         | U+021C5 | &#x21c5; | &#8645;   | &udarr;               | \21C5    |
-| Left Arrow over Right Arrow                                  | ⇆         | U+021C6 | &#x21c6; | &#8646;   | &lrarr;               | \21C6    |
-| Left Paired Arrows                                           | ⇇         | U+021C7 | &#x21c7; | &#8647;   | &llarr;               | \21C7    |
-| Up Paired Arrows                                             | ⇈         | U+021C8 | &#x21c8; | &#8648;   | &uuarr;               | \21C8    |
-| Right Paired Arrows                                          | ⇉         | U+021C9 | &#x21c9; | &#8649;   | &rrarr;               | \21C9    |
-| Downards Paired Arrows                                       | ⇊         | U+021CA | &#x21cA; | &#8650;   | &ddarr;               | \21CA    |
-| Left Harpoon over Right Harpoon                              | ⇋         | U+021CB | &#x21cb; | &#8651;   | &lrhar;               | \21CB    |
-| Right Harpoon over Left Harpoon                              | ⇌         | U+021CC | &#x21cc; | &#8652;   | &rlhar;               | \21CC    |
-| Left Double Arrow with Stroke                                | ⇍         | U+021CD | &#x21cd; | &#8653;   | &nlArr;               | \21CD    |
-| Left Right Double Arrow with Stroke                          | ⇎         | U+021CE | &#x21ce; | &#8654;   | &nhArr;               | \21CE    |
-| Right Double Arrow with Stroke                               | ⇏         | U+021CF | &#x21cf; | &#8655;   | &nrArr;               | \21CF    |
-| Left Double Arrow                                            | ⇐         | U+021D0 | &#x21d0; | &#8656;   | &lArr;                | \21D0    |
-| Up Double Arrow                                              | ⇑         | U+021D1 | &#x21d1; | &#8657;   | &uArr;                | \21D1    |
-| Right Double Arrow                                           | ⇒         | U+021D2 | &#x21d2; | &#8658;   | &rArr;                | \21D2    |
-| Down Double Arrow                                            | ⇓         | U+021D3 | &#x21d3; | &#8659;   | &dArr;                | \21D3    |
-| Left Right Double Arrow                                      | ⇔         | U+021D4 | &#x21d4; | &#8660;   | &hArr;                | \21D4    |
-| Up Down Double Arrow                                         | ⇕         | U+021D5 | &#x21d5; | &#8661;   | &vArr;                | \21D5    |
-| North West Double Arrow                                      | ⇖         | U+021D6 | &#x21d6; | &#8662;   | &nwArr;               | \21D6    |
-| North East Double Arrow                                      | ⇗         | U+021D7 | &#x21d7; | &#8663;   | &neArr;               | \21D7    |
-| South East Double Arrow                                      | ⇘         | U+021D8 | &#x21d8; | &#8664;   | &seArr;               | \21D8    |
-| South West Double Arrow                                      | ⇙         | U+021D9 | &#x21d9; | &#8665;   | &swArr;               | \21D9    |
-| Left Triple Arrow                                            | ⇚         | U+021DA | &#x21da; | &#8666;   | &lAarr;               | \21DA    |
-| Right Triple Arrow                                           | ⇛         | U+021DB | &#x21db; | &#8667;   | &rAarr;               | \21DB    |
-| Left Squiggle Arrow                                          | ⇜         | U+021DC | &#x21dc; | &#8668;   | &ziglarr;             | \21DC    |
-| Right Squiggle Arrow                                         | ⇝         | U+021DD | &#x21dd; | &#8669;   | &zigrarr;             | \21DD    |
-| Up Arrow with Double Stroke                                  | ⇞         | U+021DE | &#x21de; | &#8670;   |                       | \21DE    |
-| Down Arrow with Double Stroke                                | ⇟         | U+021DF | &#x21df; | &#8671;   |                       | \21DF    |
-| Left Dashed Arrow                                            | ⇠         | U+021E0 | &#x21e0; | &#8672;   |                       | \21E0    |
-| Up Dashed Arrow                                              | ⇡         | U+021E1 | &#x21e1; | &#8673;   |                       | \21E1    |
-| Right Dashed Arrow                                           | ⇢         | U+021E2 | &#x21e2; | &#8674;   |                       | \21E2    |
-| Down Dashed Arrow                                            | ⇣         | U+021E3 | &#x21e3; | &#8675;   |                       | \21E3    |
-| Left Arrow to Bar                                            | ⇤         | U+021E4 | &#x21e4; | &#8676;   | &larrb;               | \21E4    |
-| Right Arrow to Bar                                           | ⇥         | U+021E5 | &#x21e5; | &#8677;   | &rarrb;               | \21E5    |
-| Right Arrow to Bar                                           | ⇥         | U+021E5 | &#x21e5; | &#8677;   | &rarrb;               | \21E5    |
-| Left White Arrow                                             | ⇦         | U+021E6 | &#x21e6; | &#8678;   |                       | \21E6    |
-| Up White Arrow                                               | ⇧         | U+021E7 | &#x21e7; | &#8679;   |                       | \21E7    |
-| Right White Arrow                                            | ⇨         | U+021E8 | &#x21e8; | &#8680;   |                       | \21E8    |
-| Down White Arrow                                             | ⇩         | U+021E9 | &#x21e9; | &#8681;   |                       | \21E9    |
-| Up White Arrow from Bar                                      | ⇪         | U+021EA | &#x21ea; | &#8682;   |                       | \21EA    |
-| Up White Arrow on Pedestal                                   | ⇫         | U+021EB | &#x21eb; | &#8683;   |                       | \21EB    |
-| Up White Arrow on Pedestal with Horizontal Bar               | ⇬         | U+021EC | &#x21ec; | &#8684;   |                       | \21EC    |
-| Up White Arrow on Pedestal with Vertical Bar                 | ⇭         | U+021ED | &#x21ed; | &#8685;   |                       | \21ED    |
-| Up White Double Arrow                                        | ⇮         | U+021EE | &#x21ee; | &#8686;   |                       | \21EE    |
-| Up White Double Arrow on Pedestal                            | ⇯         | U+021EF | &#x21ef; | &#8687;   |                       | \21EF    |
-| Right White Arrow from Wall                                  | ⇰         | U+021F0 | &#x21f0; | &#8688;   |                       | \21F0    |
-| North West Arrow to Corner                                   | ⇱         | U+021F1 | &#x21f1; | &#8689;   |                       | \21F1    |
-| South East Arrow to Corner                                   | ⇲         | U+021F2 | &#x21f2; | &#8690;   |                       | \21F2    |
-| Up Down White Arrow                                          | ⇳         | U+021F3 | &#x21f3; | &#8691;   |                       | \21F3    |
-| Right Arrow with Small Circle                                | ⇴         | U+021F4 | &#x21f4; | &#8692;   |                       | \21F4    |
-| Down Arrow Left of Up Arrow                                  | ⇵         | U+021F5 | &#x21f5; | &#8693;   | &duarr;               | \21F5    |
-| Three Right Arrows                                           | ⇶         | U+021F6 | &#x21f6; | &#8694;   |                       | \21F6    |
-| Left Arrow with Vertical Stroke                              | ⇷         | U+021F7 | &#x21f7; | &#8695;   |                       | \21F7    |
-| Right Arrow with Vertical Stroke                             | ⇸         | U+021F8 | &#x21f8; | &#8696;   |                       | \21F8    |
-| Left Right Arrow with Vertical Stroke                        | ⇹         | U+021F9 | &#x21f9; | &#8697;   |                       | \21F9    |
-| Left Arrow with Double Vertical Stroke                       | ⇺         | U+021FA | &#x21fa; | &#8698;   |                       | \21FA    |
-| Right Arrow with Double Vertical Stroke                      | ⇻         | U+021FB | &#x21fb; | &#8699;   |                       | \21FB    |
-| Left Right Arrow with Double Vertical Stroke                 | ⇼         | U+021FC | &#x21fc; | &#8700;   |                       | \21FC    |
-| Left Open-headed Arrow                                       | ⇽         | U+021FD | &#x21fd; | &#8701;   | &loarr;               | \21FD    |
-| Right Open-headed Arrow                                      | ⇾         | U+021FE | &#x21fe; | &#8702;   | &roarr;               | \21FE    |
-| Left Right Open-headed Arrow                                 | ⇿         | U+021FF | &#x21ff; | &#8703;   | &hoarr;               | \21FF    |
-| Up Quadruple Arrow                                           | ⟰         | U+027F0 | &#x27F0; | &#10224;  |                       | \27F0    |
-| Down Quadruple Arrow                                         | ⟱         | U+027F1 | &#x27F1; | &#10225;  |                       | \27F1    |
-| Anticlockwise Gapped Circle Arrow                            | ⟲         | U+027F2 | &#x27F2; | &#10226;  |                       | \27F2    |
-| Clockwise Gapped Circle Arrow                                | ⟳         | U+027F3 | &#x27F3; | &#10227;  |                       | \27F3    |
-| Right Arrow With Circled Plus                                | ⟴         | U+027F4 | &#x27F4; | &#10228;  |                       | \27F4    |
-| Long Left Arrow                                              | ⟵         | U+027F5 | &#x27F5; | &#10229;  | &xlarr;               | \27F5    |
-| Long Right Arrow                                             | ⟶         | U+027F6 | &#x27F6; | &#10230;  | &xrarr;               | \27F6    |
-| Long Left Right Arrow                                        | ⟷         | U+027F7 | &#x27F7; | &#10231;  | &xharr;               | \27F7    |
-| Long Left Double Arrow                                       | ⟸         | U+027F8 | &#x27F8; | &#10232;  | &xlArr;               | \27F8    |
-| Long Right Double Arrow                                      | ⟹         | U+027F9 | &#x27F9; | &#10233;  | &xrArr;               | \27F9    |
-| Long Left Right Double Arrow                                 | ⟺         | U+027FA | &#x27FA; | &#10234;  | &xhArr;               | \27FA    |
-| Long Left Arrow From Bar                                     | ⟻         | U+027FB | &#x27FB; | &#10235;  |                       | \27FB    |
-| Long Right Arrow From Bar                                    | ⟼         | U+027FC | &#x27FC; | &#10236;  | &xmap;                | \27FC    |
-| Long Left Double Arrow From Bar                              | ⟽         | U+027FD | &#x27FD; | &#10237;  |                       | \27FD    |
-| Long Right Double Arrow From Bar                             | ⟾         | U+027FE | &#x27FE; | &#10238;  |                       | \27FE    |
-| Long Right Squiggle Arrow                                    | ⟿         | U+027FF | &#x27FF; | &#10239;  | &dzigrarr;            | \27FF    |
-| Right Two-Headed Arrow With Vertical Stroke                  | ⤀         | U+02900 | &#x2900; | &#10496;  |                       | \2900    |
-| Right Two-Headed Arrow With Double Vertical Stroke           | ⤁         | U+02901 | &#x2901; | &#10497;  |                       | \2901    |
-| Left Double Arrow With Vertical Stroke                       | ⤂         | U+02902 | &#x2902; | &#10498;  | &nvlArr;              | \2902    |
-| Right Double Arrow With Vertical Stroke                      | ⤃         | U+02903 | &#x2903; | &#10499;  | &nvrArr;              | \2903    |
-| Left Right Double Arrow With Vertical Stroke                 | ⤄         | U+02904 | &#x2904; | &#10500;  | &nvHarr;              | \2904    |
-| Right Two-Headed Arrow From Bar                              | ⤅         | U+02905 | &#x2905; | &#10501;  | &Map;                 | \2905    |
-| Left Double Arrow From Bar                                   | ⤆         | U+02906 | &#x2906; | &#10502;  |                       | \2906    |
-| Right Double Arrow From Bar                                  | ⤇         | U+02907 | &#x2907; | &#10503;  |                       | \2907    |
-| Down Arrow With Horizontal Stroke                            | ⤈         | U+02908 | &#x2908; | &#10504;  |                       | \2908    |
-| Up Arrow With Horizontal Stroke                              | ⤉         | U+02909 | &#x2909; | &#10505;  |                       | \2909    |
-| Up Triple Arrow                                              | ⤊         | U+0290A | &#x290A; | &#10506;  |                       | \290A    |
-| Down Triple Arrow                                            | ⤋         | U+0290B | &#x290B; | &#10507;  |                       | \290B    |
-| Left Double Dash Arrow                                       | ⤌         | U+0290C | &#x290C; | &#10508;  | &lbarr;               | \290C    |
-| Right Double Dash Arrow                                      | ⤍         | U+0290D | &#x290D; | &#10509;  | &rbarr;               | \290D    |
-| Left Triple Dash Arrow                                       | ⤎         | U+0290E | &#x290E; | &#10510;  | &lBarr;               | \290E    |
-| Right Triple Dash Arrow                                      | ⤏         | U+0290F | &#x290F; | &#10511;  | &rBarr;               | \290F    |
-| Right Two-Headed Triple Dash Arrow                           | ⤐         | U+02910 | &#x2910; | &#10512;  | &RBarr;               | \2910    |
-| Right Arrow With Dotted Stem                                 | ⤑         | U+02911 | &#x2911; | &#10513;  | &DDotrahd;            | \2911    |
-| Up Arrow to Bar                                              | ⤒         | U+02912 | &#x2912; | &#10514;  | &UpArrowBar;          | \2912    |
-| Down Arrow to Bar                                            | ⤓         | U+02913 | &#x2913; | &#10515;  | &DownArrowBar;        | \2913    |
-| Right Arrow With Tail With Vertical Stroke                   | ⤔         | U+02914 | &#x2914; | &#10516;  |                       | \2914    |
-| Right Arrow With Tail With Double Vertical Stroke            | ⤕         | U+02915 | &#x2915; | &#10517;  |                       | \2915    |
-| Right Two-Headed Arrow With Tail                             | ⤖         | U+02916 | &#x2916; | &#10518;  | &Rarrtl;              | \2916    |
-| Right Two-Headed Arrow With Tail With Vertical Stroke        | ⤗         | U+02917 | &#x2917; | &#10519;  |                       | \2917    |
-| Right Two-Headed Arrow With Tail With Double Vertical Stroke | ⤘         | U+02918 | &#x2918; | &#10520;  |                       | \2918    |
-| Left Arrow-Tail                                              | ⤙         | U+02919 | &#x2919; | &#10521;  | &latail;              | \2919    |
-| Right Arrow-Tail                                             | ⤚         | U+0291A | &#x291A; | &#10522;  | &ratail;              | \291A    |
-| Left Double Arrow-Tail                                       | ⤛         | U+0291B | &#x291B; | &#10523;  | &lAtail;              | \291B    |
-| Right Double Arrow-Tail                                      | ⤜         | U+0291C | &#x291C; | &#10524;  | &rAtail;              | \291C    |
-| Left Arrow to Black Diamond                                  | ⤝         | U+0291D | &#x291D; | &#10525;  | &larrfs;              | \291D    |
-| Right Arrow to Black Diamond                                 | ⤞         | U+0291E | &#x291E; | &#10526;  | &rarrfs;              | \291E    |
-| Left Arrow From Bar to Black Diamond                         | ⤟         | U+0291F | &#x291F; | &#10527;  | &larrbfs;             | \291F    |
-| Right Arrow From Bar to Black Diamond                        | ⤠         | U+02920 | &#x2920; | &#10528;  | &rarrbfs;             | \2920    |
-| North West and South East Arrow                              | ⤡         | U+02921 | &#x2921; | &#10529;  |                       | \2921    |
-| North East and South West Arrow                              | ⤢         | U+02922 | &#x2922; | &#10530;  |                       | \2922    |
-| North West Arrow With Hook                                   | ⤣         | U+02923 | &#x2923; | &#10531;  | &nwarhk;              | \2923    |
-| North East Arrow With Hook                                   | ⤤         | U+02924 | &#x2924; | &#10532;  | &nearhk;              | \2924    |
-| South East Arrow With Hook                                   | ⤥         | U+02925 | &#x2925; | &#10533;  | &searhk;              | \2925    |
-| South West Arrow With Hook                                   | ⤦         | U+02926 | &#x2926; | &#10534;  | &swarhk;              | \2926    |
-| North West Arrow and North East Arrow                        | ⤧         | U+02927 | &#x2927; | &#10535;  | &nwnear;              | \2927    |
-| North East Arrow and South East Arrow                        | ⤨         | U+02928 | &#x2928; | &#10536;  | &nesear;              | \2928    |
-| South East Arrow and South West Arrow                        | ⤩         | U+02929 | &#x2929; | &#10537;  | &seswar;              | \2929    |
-| South West Arrow and North West Arrow                        | ⤪         | U+0292A | &#x292A; | &#10538;  | &swnwar;              | \292A    |
-| Rising Diagonal Crossing Falling Diagonal                    | ⤫         | U+0292B | &#x292B; | &#10539;  |                       | \292B    |
-| Falling Diagonal Crossing Rising Diagonal                    | ⤬         | U+0292C | &#x292C; | &#10540;  |                       | \292C    |
-| South East Arrow Crossing North East Arrow                   | ⤭         | U+0292D | &#x292D; | &#10541;  |                       | \292D    |
-| North East Arrow Crossing South East Arrow                   | ⤮         | U+0292E | &#x292E; | &#10542;  |                       | \292E    |
-| Falling Diagonal Crossing North East Arrow                   | ⤯         | U+0292F | &#x292F; | &#10543;  |                       | \292F    |
-| Rising Diagonal Crossing South East Arrow                    | ⤰         | U+02930 | &#x2930; | &#10544;  |                       | \2930    |
-| North East Arrow Crossing North West Arrow                   | ⤱         | U+02931 | &#x2931; | &#10545;  |                       | \2931    |
-| North West Arrow Crossing North East Arrow                   | ⤲         | U+02932 | &#x2932; | &#10546;  |                       | \2932    |
-| Wave Arrow Pointing Directly Right                           | ⤳         | U+02933 | &#x2933; | &#10547;  | &rarrc;               | \2933    |
-| Arrow Pointing Right Then Curving Up                         | ⤴         | U+02934 | &#x2934; | &#10548;  |                       | \2934    |
-| Arrow Pointing Right Then Curving Down                       | ⤵         | U+02935 | &#x2935; | &#10549;  | &cudarrr;             | \2935    |
-| Arrow Pointing Down Then Curving Left                        | ⤶         | U+02936 | &#x2936; | &#10550;  | &ldca;                | \2936    |
-| Arrow Pointing Down Then Curving Right                       | ⤷         | U+02937 | &#x2937; | &#10551;  | &rdca;                | \2937    |
-| Right-Side Arc Clockwise Arrow                               | ⤸         | U+02938 | &#x2938; | &#10552;  | &cudarrl;             | \2938    |
-| Left-Side Arc Anticlockwise Arrow                            | ⤹         | U+02939 | &#x2939; | &#10553;  | &larrpl;              | \2939    |
-| Top Arc Anticlockwise Arrow                                  | ⤺         | U+0293A | &#x293A; | &#10554;  |                       | \293A    |
-| Bottom Arc Anticlockwise Arrow                               | ⤻         | U+0293B | &#x293B; | &#10555;  |                       | \293B    |
-| Top Arc Clockwise Arrow With Minus                           | ⤼         | U+0293C | &#x293C; | &#10556;  | &curarrm;             | \293C    |
-| Top Arc Anticlockwise Arrow With Plus                        | ⤽         | U+0293D | &#x293D; | &#10557;  | &cularrp;             | \293D    |
-| Lower Right Semicircular Clockwise Arrow                     | ⤾         | U+0293E | &#x293E; | &#10558;  |                       | \293E    |
-| Lower Left Semicircular Anticlockwise Arrow                  | ⤿         | U+0293F | &#x293F; | &#10559;  |                       | \293F    |
-| Anticlockwise Closed Circle Arrow                            | ⥀         | U+02940 | &#x2940; | &#10560;  |                       | \2940    |
-| Clockwise Closed Circle Arrow                                | ⥁         | U+02941 | &#x2941; | &#10561;  |                       | \2941    |
-| Right Arrow Above Short Left Arrow                           | ⥂         | U+02942 | &#x2942; | &#10562;  |                       | \2942    |
-| Left Arrow Above Short Right Arrow                           | ⥃         | U+02943 | &#x2943; | &#10563;  |                       | \2943    |
-| Short Right Arrow Above Left Arrow                           | ⥄         | U+02944 | &#x2944; | &#10564;  |                       | \2944    |
-| Right Arrow With Plus Below                                  | ⥅         | U+02945 | &#x2945; | &#10565;  | &rarrpl;              | \2945    |
-| Left Arrow With Plus Below                                   | ⥆         | U+02946 | &#x2946; | &#10566;  |                       | \2946    |
-| Right Arrow Through X                                        | ⥇         | U+02947 | &#x2947; | &#10567;  |                       | \2947    |
-| Left Right Arrow Through Small Circle                        | ⥈         | U+02948 | &#x2948; | &#10568;  | &harrcir;             | \2948    |
-| Up Two-Headed Arrow From Small Circle                        | ⥉         | U+02949 | &#x2949; | &#10569;  | &Uarrocir;            | \2949    |
-| Left Barb Up Right Barb Down Harpoon                         | ⥊         | U+0294A | &#x294A; | &#10570;  | &lurdshar;            | \294A    |
-| Left Barb Down Right Barb Up Harpoon                         | ⥋         | U+0294B | &#x294B; | &#10571;  | &ldrushar;            | \294B    |
-| Up Barb Right Down Barb Left Harpoon                         | ⥌         | U+0294C | &#x294C; | &#10572;  |                       | \294C    |
-| Up Barb Left Down Barb Right Harpoon                         | ⥍         | U+0294D | &#x294D; | &#10573;  |                       | \294D    |
-| Left Barb Up Right Barb Up Harpoon                           | ⥎         | U+0294E | &#x294E; | &#10574;  | &LeftRightVector;     | \294E    |
-| Up Barb Right Down Barb Right Harpoon                        | ⥏         | U+0294F | &#x294F; | &#10575;  | &RightUpDownVector;   | \294F    |
-| Left Barb Down Right Barb Down Harpoon                       | ⥐         | U+02950 | &#x2950; | &#10576;  | &DownLeftRightVector; | \2950    |
-| Up Barb Left Down Barb Left Harpoon                          | ⥑         | U+02951 | &#x2951; | &#10577;  | &LeftUpDownVector;    | \2951    |
-| Left Harpoon With Barb Up to Bar                             | ⥒         | U+02952 | &#x2952; | &#10578;  | &LeftVectorBar;       | \2952    |
-| Right Harpoon With Barb Up to Bar                            | ⥓         | U+02953 | &#x2953; | &#10579;  | &RightVectorBar;      | \2953    |
-| Up Harpoon With Barb Right to Bar                            | ⥔         | U+02954 | &#x2954; | &#10580;  | &RightUpVectorBar;    | \2954    |
-| Down Harpoon With Barb Right to Bar                          | ⥕         | U+02955 | &#x2955; | &#10581;  | &RightDownVectorBar;  | \2955    |
-| Left Harpoon With Barb Down to Bar                           | ⥖         | U+02956 | &#x2956; | &#10582;  | &DownLeftVectorBar;   | \2956    |
-| Right Harpoon With Barb Down to Bar                          | ⥗         | U+02957 | &#x2957; | &#10583;  | &DownRightVectorBar;  | \2957    |
-| Up Harpoon With Barb Left to Bar                             | ⥘         | U+02958 | &#x2958; | &#10584;  | &LeftUpVectorBar;     | \2958    |
-| Down Harpoon With Barb Left to Bar                           | ⥙         | U+02959 | &#x2959; | &#10585;  | &LeftDownVectorBar;   | \2959    |
-| Left Harpoon With Barb Up From Bar                           | ⥚         | U+0295A | &#x295A; | &#10586;  | &LeftTeeVector;       | \295A    |
-| Right Harpoon With Barb Up From Bar                          | ⥛         | U+0295B | &#x295B; | &#10587;  | &RightTeeVector;      | \295B    |
-| Up Harpoon With Barb Right From Bar                          | ⥜         | U+0295C | &#x295C; | &#10588;  | &RightUpTeeVector;    | \295C    |
-| Down Harpoon With Barb Right From Bar                        | ⥝         | U+0295D | &#x295D; | &#10589;  | &RightDownTeeVector;  | \295D    |
-| Left Harpoon With Barb Down From Bar                         | ⥞         | U+0295E | &#x295E; | &#10590;  | &DownLeftTeeVector;   | \295E    |
-| Right Harpoon With Barb Down From Bar                        | ⥟         | U+0295F | &#x295F; | &#10591;  | &DownRightTeeVector;  | \295F    |
-| Up Harpoon With Barb Left From Bar                           | ⥠         | U+02960 | &#x2960; | &#10592;  | &LeftUpTeeVector;     | \2960    |
-| Down Harpoon With Barb Left From Bar                         | ⥡         | U+02961 | &#x2961; | &#10593;  | &LeftDownTeeVector;   | \2961    |
-| Left Harpoon With Barb Up Above Left Harpoon With Barb Down  | ⥢         | U+02962 | &#x2962; | &#10594;  | &lHar;                | \2962    |
-| Up Harpoon With Barb Left Beside Up Harpoon With Barb Right  | ⥣         | U+02963 | &#x2963; | &#10595;  | &uHar;                | \2963    |
-| Right Harpoon With Barb Up Above Right Harpoon With Barb Down | ⥤         | U+02964 | &#x2964; | &#10596;  | &rHar;                | \2964    |
+| 描述                                                            | 符号/显示 | UNICODE | HEX CODE | HTML CODE | HTML ENTITY           | CSS CODE |
+| :-------------------------------------------------------------- | :-------- | :------ | :------- | :-------- | :-------------------- | :------- |
+| Left Arrow                                                      | ←         | U+02190 | &#x2190; | &#8592;   | &larr;                | \2190    |
+| Up Arrow                                                        | ↑         | U+02191 | &#x2191; | &#8593;   | &uarr;                | \2191    |
+| Right Arrow                                                     | →         | U+02192 | &#x2192; | &#8594;   | &rarr;                | \2192    |
+| Down Arrow                                                      | ↓         | U+02193 | &#x2193; | &#8595;   | &darr;                | \2193    |
+| Left Right Arrow                                                | ↔         | U+02194 | &#x2194; | &#8596;   | &harr;                | \2194    |
+| Up Down Arrow                                                   | ↕         | U+02195 | &#x2195; | &#8597;   | &varr;                | \2195    |
+| North West Arrow                                                | ↖         | U+02196 | &#x2196; | &#8598;   | &nwarr;               | \2196    |
+| North East Arrow                                                | ↗         | U+02197 | &#x2197; | &#8599;   | &nearr;               | \2197    |
+| South East Arrow                                                | ↘         | U+02198 | &#x2198; | &#8600;   | &searr;               | \2198    |
+| South West Arrow                                                | ↙         | U+02199 | &#x2199; | &#8601;   | &swarr;               | \2199    |
+| Left Arrow with Stroke                                          | ↚         | U+0219A | &#x219a; | &#8602;   | &nlarr;               | \219A    |
+| Right Arrow with Stroke                                         | ↛         | U+0219B | &#x219b; | &#8603;   | &nrarr;               | \219B    |
+| Left Wave Arrow                                                 | ↜         | U+0219C | &#x219c; | &#8604;   | &larrw;               | \219C    |
+| Right Wave Arrow                                                | ↝         | U+0219D | &#x219d; | &#8605;   | &rarrw;               | \219D    |
+| Left Two Headed Arrow                                           | ↞         | U+0219E | &#x219e; | &#8606;   | &Larr;                | \219E    |
+| Up Two Headed Arrow                                             | ↟         | U+0219F | &#x219f; | &#8607;   | &Uarr;                | \219F    |
+| Right Two Headed Arrow                                          | ↠         | U+021A0 | &#x21a0; | &#8608;   | &Rarr;                | \21A0    |
+| Down Two Headed Arrow                                           | ↡         | U+021A1 | &#x21a1; | &#8609;   | &Darr;                | \21A1    |
+| Left Arrow with Tail                                            | ↢         | U+021A2 | &#x21a2; | &#8610;   | &larrtl;              | \21A2    |
+| Right Arrow with Tail                                           | ↣         | U+021A3 | &#x21a3; | &#8611;   | &rarrtl;              | \21A3    |
+| Left Arrow from Bar                                             | ↤         | U+021A4 | &#x21a4; | &#8612;   | &mapstoleft;          | \21A4    |
+| Up Arrow from Bar                                               | ↥         | U+021A5 | &#x21a5; | &#8613;   | &mapstoup;            | \21A5    |
+| Right Arrow from Bar                                            | ↦         | U+021A6 | &#x21a6; | &#8614;   | &mapstoright;         | \21A6    |
+| Down Arrow from Bar                                             | ↧         | U+021A7 | &#x21a7; | &#8615;   | &mapstodown;          | \21A7    |
+| Up Down Arrow with Base                                         | ↨         | U+021A8 | &#x21a8; | &#8616;   |                       | \21A8    |
+| Left Arrow with Hook                                            | ↩         | U+021A9 | &#x21a9; | &#8617;   | &larrhk;              | \21A9    |
+| Right Arrow with Hook                                           | ↪         | U+021AA | &#x21aa; | &#8618;   | &rarrhk;              | \21AA    |
+| Left Arrow with Loop                                            | ↫         | U+021AB | &#x21ab; | &#8619;   | &larrlp;              | \21AB    |
+| Right Arrow with Loop                                           | ↬         | U+021AC | &#x21ac; | &#8620;   | &rarrlp;              | \21AC    |
+| Left Right Wave Arrow                                           | ↭         | U+021AD | &#x21ad; | &#8621;   | &harrw;               | \21AD    |
+| Left Right Arrow with Stroke                                    | ↮         | U+021AE | &#x21ae; | &#8622;   | &nharr;               | \21AE    |
+| Down Zigzag Arrow                                               | ↯         | U+021AF | &#x21af; | &#8623;   |                       | \21AF    |
+| Up Arrow with Tip Left                                          | ↰         | U+021B0 | &#x21b0; | &#8624;   | &lsh;                 | \21B0    |
+| Up Arrow with Tip Right                                         | ↱         | U+021B1 | &#x21b1; | &#8625;   | &rsh;                 | \21B1    |
+| Down Arrow with Tip Left                                        | ↲         | U+021B2 | &#x21b2; | &#8626;   | &ldsh;                | \21B2    |
+| Down Arrow with Tip Right                                       | ↳         | U+021B3 | &#x21b3; | &#8627;   | &rdsh;                | \21B3    |
+| Right Arrow with Corner Down                                    | ↴         | U+021B4 | &#x21b4; | &#8628;   |                       | \21B4    |
+| Down Arrow with Corner Left                                     | ↵         | U+021B5 | &#x21b5; | &#8629;   | &crarr;               | \21B5    |
+| Anticlockwise Top Semicircle Arrow                              | ↶         | U+021B6 | &#x21b6; | &#8630;   | &cularr;              | \21B6    |
+| Clockwise Top Semicircle Arrow                                  | ↷         | U+021B7 | &#x21b7; | &#8631;   | &curarr;              | \21B7    |
+| North West Arrow to Long Bar                                    | ↸         | U+021B8 | &#x21b8; | &#8632;   |                       | \21B8    |
+| Left Arrow to Bar over Right Arrow to bar                       | ↹         | U+021B9 | &#x21b9; | &#8633;   |                       | \21B9    |
+| Anticlockwise Open Circle Arrow                                 | ↺         | U+021BA | &#x21ba; | &#8634;   | &olarr;               | \21BA    |
+| Clockwise Open Circle Arrow                                     | ↻         | U+021BB | &#x21bb; | &#8635;   | &orarr;               | \21BB    |
+| Left Harpoon with Barb Up                                       | ↼         | U+021BC | &#x21bc; | &#8636;   | &lharu;               | \21BC    |
+| Left Harpoon with Barb Down                                     | ↽         | U+021BD | &#x21bd; | &#8637;   | &lhard;               | \21BD    |
+| Up Harpoon with Barb Right                                      | ↾         | U+021BE | &#x21be; | &#8638;   | &uharr;               | \21BE    |
+| Up Harpoon with Barb Left                                       | ↿         | U+021BF | &#x21bf; | &#8639;   | &uharl;               | \21BF    |
+| Right Harpoon with Barb Up                                      | ⇀         | U+021C0 | &#x21c0; | &#8640;   | &rharu;               | \21C0    |
+| Right Harpoon with Barb Down                                    | ⇁         | U+021C1 | &#x21c1; | &#8641;   | &rhard;               | \21C1    |
+| Down Harpoon with Barb Right                                    | ⇂         | U+021C2 | &#x21c2; | &#8642;   | &dharr;               | \21C2    |
+| Down Harpoon with Barb Left                                     | ⇃         | U+021C3 | &#x21c3; | &#8643;   | &dharl;               | \21C3    |
+| Right Arrow over Left Arrow                                     | ⇄         | U+021C4 | &#x21c4; | &#8644;   | &rlarr;               | \21C4    |
+| Up Arrow Left of Down Arrow                                     | ⇅         | U+021C5 | &#x21c5; | &#8645;   | &udarr;               | \21C5    |
+| Left Arrow over Right Arrow                                     | ⇆         | U+021C6 | &#x21c6; | &#8646;   | &lrarr;               | \21C6    |
+| Left Paired Arrows                                              | ⇇         | U+021C7 | &#x21c7; | &#8647;   | &llarr;               | \21C7    |
+| Up Paired Arrows                                                | ⇈         | U+021C8 | &#x21c8; | &#8648;   | &uuarr;               | \21C8    |
+| Right Paired Arrows                                             | ⇉         | U+021C9 | &#x21c9; | &#8649;   | &rrarr;               | \21C9    |
+| Downards Paired Arrows                                          | ⇊         | U+021CA | &#x21cA; | &#8650;   | &ddarr;               | \21CA    |
+| Left Harpoon over Right Harpoon                                 | ⇋         | U+021CB | &#x21cb; | &#8651;   | &lrhar;               | \21CB    |
+| Right Harpoon over Left Harpoon                                 | ⇌         | U+021CC | &#x21cc; | &#8652;   | &rlhar;               | \21CC    |
+| Left Double Arrow with Stroke                                   | ⇍         | U+021CD | &#x21cd; | &#8653;   | &nlArr;               | \21CD    |
+| Left Right Double Arrow with Stroke                             | ⇎         | U+021CE | &#x21ce; | &#8654;   | &nhArr;               | \21CE    |
+| Right Double Arrow with Stroke                                  | ⇏         | U+021CF | &#x21cf; | &#8655;   | &nrArr;               | \21CF    |
+| Left Double Arrow                                               | ⇐         | U+021D0 | &#x21d0; | &#8656;   | &lArr;                | \21D0    |
+| Up Double Arrow                                                 | ⇑         | U+021D1 | &#x21d1; | &#8657;   | &uArr;                | \21D1    |
+| Right Double Arrow                                              | ⇒         | U+021D2 | &#x21d2; | &#8658;   | &rArr;                | \21D2    |
+| Down Double Arrow                                               | ⇓         | U+021D3 | &#x21d3; | &#8659;   | &dArr;                | \21D3    |
+| Left Right Double Arrow                                         | ⇔         | U+021D4 | &#x21d4; | &#8660;   | &hArr;                | \21D4    |
+| Up Down Double Arrow                                            | ⇕         | U+021D5 | &#x21d5; | &#8661;   | &vArr;                | \21D5    |
+| North West Double Arrow                                         | ⇖         | U+021D6 | &#x21d6; | &#8662;   | &nwArr;               | \21D6    |
+| North East Double Arrow                                         | ⇗         | U+021D7 | &#x21d7; | &#8663;   | &neArr;               | \21D7    |
+| South East Double Arrow                                         | ⇘         | U+021D8 | &#x21d8; | &#8664;   | &seArr;               | \21D8    |
+| South West Double Arrow                                         | ⇙         | U+021D9 | &#x21d9; | &#8665;   | &swArr;               | \21D9    |
+| Left Triple Arrow                                               | ⇚         | U+021DA | &#x21da; | &#8666;   | &lAarr;               | \21DA    |
+| Right Triple Arrow                                              | ⇛         | U+021DB | &#x21db; | &#8667;   | &rAarr;               | \21DB    |
+| Left Squiggle Arrow                                             | ⇜         | U+021DC | &#x21dc; | &#8668;   | &ziglarr;             | \21DC    |
+| Right Squiggle Arrow                                            | ⇝         | U+021DD | &#x21dd; | &#8669;   | &zigrarr;             | \21DD    |
+| Up Arrow with Double Stroke                                     | ⇞         | U+021DE | &#x21de; | &#8670;   |                       | \21DE    |
+| Down Arrow with Double Stroke                                   | ⇟         | U+021DF | &#x21df; | &#8671;   |                       | \21DF    |
+| Left Dashed Arrow                                               | ⇠         | U+021E0 | &#x21e0; | &#8672;   |                       | \21E0    |
+| Up Dashed Arrow                                                 | ⇡         | U+021E1 | &#x21e1; | &#8673;   |                       | \21E1    |
+| Right Dashed Arrow                                              | ⇢         | U+021E2 | &#x21e2; | &#8674;   |                       | \21E2    |
+| Down Dashed Arrow                                               | ⇣         | U+021E3 | &#x21e3; | &#8675;   |                       | \21E3    |
+| Left Arrow to Bar                                               | ⇤         | U+021E4 | &#x21e4; | &#8676;   | &larrb;               | \21E4    |
+| Right Arrow to Bar                                              | ⇥         | U+021E5 | &#x21e5; | &#8677;   | &rarrb;               | \21E5    |
+| Right Arrow to Bar                                              | ⇥         | U+021E5 | &#x21e5; | &#8677;   | &rarrb;               | \21E5    |
+| Left White Arrow                                                | ⇦         | U+021E6 | &#x21e6; | &#8678;   |                       | \21E6    |
+| Up White Arrow                                                  | ⇧         | U+021E7 | &#x21e7; | &#8679;   |                       | \21E7    |
+| Right White Arrow                                               | ⇨         | U+021E8 | &#x21e8; | &#8680;   |                       | \21E8    |
+| Down White Arrow                                                | ⇩         | U+021E9 | &#x21e9; | &#8681;   |                       | \21E9    |
+| Up White Arrow from Bar                                         | ⇪         | U+021EA | &#x21ea; | &#8682;   |                       | \21EA    |
+| Up White Arrow on Pedestal                                      | ⇫         | U+021EB | &#x21eb; | &#8683;   |                       | \21EB    |
+| Up White Arrow on Pedestal with Horizontal Bar                  | ⇬         | U+021EC | &#x21ec; | &#8684;   |                       | \21EC    |
+| Up White Arrow on Pedestal with Vertical Bar                    | ⇭         | U+021ED | &#x21ed; | &#8685;   |                       | \21ED    |
+| Up White Double Arrow                                           | ⇮         | U+021EE | &#x21ee; | &#8686;   |                       | \21EE    |
+| Up White Double Arrow on Pedestal                               | ⇯         | U+021EF | &#x21ef; | &#8687;   |                       | \21EF    |
+| Right White Arrow from Wall                                     | ⇰         | U+021F0 | &#x21f0; | &#8688;   |                       | \21F0    |
+| North West Arrow to Corner                                      | ⇱         | U+021F1 | &#x21f1; | &#8689;   |                       | \21F1    |
+| South East Arrow to Corner                                      | ⇲         | U+021F2 | &#x21f2; | &#8690;   |                       | \21F2    |
+| Up Down White Arrow                                             | ⇳         | U+021F3 | &#x21f3; | &#8691;   |                       | \21F3    |
+| Right Arrow with Small Circle                                   | ⇴         | U+021F4 | &#x21f4; | &#8692;   |                       | \21F4    |
+| Down Arrow Left of Up Arrow                                     | ⇵         | U+021F5 | &#x21f5; | &#8693;   | &duarr;               | \21F5    |
+| Three Right Arrows                                              | ⇶         | U+021F6 | &#x21f6; | &#8694;   |                       | \21F6    |
+| Left Arrow with Vertical Stroke                                 | ⇷         | U+021F7 | &#x21f7; | &#8695;   |                       | \21F7    |
+| Right Arrow with Vertical Stroke                                | ⇸         | U+021F8 | &#x21f8; | &#8696;   |                       | \21F8    |
+| Left Right Arrow with Vertical Stroke                           | ⇹         | U+021F9 | &#x21f9; | &#8697;   |                       | \21F9    |
+| Left Arrow with Double Vertical Stroke                          | ⇺         | U+021FA | &#x21fa; | &#8698;   |                       | \21FA    |
+| Right Arrow with Double Vertical Stroke                         | ⇻         | U+021FB | &#x21fb; | &#8699;   |                       | \21FB    |
+| Left Right Arrow with Double Vertical Stroke                    | ⇼         | U+021FC | &#x21fc; | &#8700;   |                       | \21FC    |
+| Left Open-headed Arrow                                          | ⇽         | U+021FD | &#x21fd; | &#8701;   | &loarr;               | \21FD    |
+| Right Open-headed Arrow                                         | ⇾         | U+021FE | &#x21fe; | &#8702;   | &roarr;               | \21FE    |
+| Left Right Open-headed Arrow                                    | ⇿         | U+021FF | &#x21ff; | &#8703;   | &hoarr;               | \21FF    |
+| Up Quadruple Arrow                                              | ⟰         | U+027F0 | &#x27F0; | &#10224;  |                       | \27F0    |
+| Down Quadruple Arrow                                            | ⟱         | U+027F1 | &#x27F1; | &#10225;  |                       | \27F1    |
+| Anticlockwise Gapped Circle Arrow                               | ⟲         | U+027F2 | &#x27F2; | &#10226;  |                       | \27F2    |
+| Clockwise Gapped Circle Arrow                                   | ⟳         | U+027F3 | &#x27F3; | &#10227;  |                       | \27F3    |
+| Right Arrow With Circled Plus                                   | ⟴         | U+027F4 | &#x27F4; | &#10228;  |                       | \27F4    |
+| Long Left Arrow                                                 | ⟵         | U+027F5 | &#x27F5; | &#10229;  | &xlarr;               | \27F5    |
+| Long Right Arrow                                                | ⟶         | U+027F6 | &#x27F6; | &#10230;  | &xrarr;               | \27F6    |
+| Long Left Right Arrow                                           | ⟷         | U+027F7 | &#x27F7; | &#10231;  | &xharr;               | \27F7    |
+| Long Left Double Arrow                                          | ⟸         | U+027F8 | &#x27F8; | &#10232;  | &xlArr;               | \27F8    |
+| Long Right Double Arrow                                         | ⟹         | U+027F9 | &#x27F9; | &#10233;  | &xrArr;               | \27F9    |
+| Long Left Right Double Arrow                                    | ⟺         | U+027FA | &#x27FA; | &#10234;  | &xhArr;               | \27FA    |
+| Long Left Arrow From Bar                                        | ⟻         | U+027FB | &#x27FB; | &#10235;  |                       | \27FB    |
+| Long Right Arrow From Bar                                       | ⟼         | U+027FC | &#x27FC; | &#10236;  | &xmap;                | \27FC    |
+| Long Left Double Arrow From Bar                                 | ⟽         | U+027FD | &#x27FD; | &#10237;  |                       | \27FD    |
+| Long Right Double Arrow From Bar                                | ⟾         | U+027FE | &#x27FE; | &#10238;  |                       | \27FE    |
+| Long Right Squiggle Arrow                                       | ⟿         | U+027FF | &#x27FF; | &#10239;  | &dzigrarr;            | \27FF    |
+| Right Two-Headed Arrow With Vertical Stroke                     | ⤀         | U+02900 | &#x2900; | &#10496;  |                       | \2900    |
+| Right Two-Headed Arrow With Double Vertical Stroke              | ⤁         | U+02901 | &#x2901; | &#10497;  |                       | \2901    |
+| Left Double Arrow With Vertical Stroke                          | ⤂         | U+02902 | &#x2902; | &#10498;  | &nvlArr;              | \2902    |
+| Right Double Arrow With Vertical Stroke                         | ⤃         | U+02903 | &#x2903; | &#10499;  | &nvrArr;              | \2903    |
+| Left Right Double Arrow With Vertical Stroke                    | ⤄         | U+02904 | &#x2904; | &#10500;  | &nvHarr;              | \2904    |
+| Right Two-Headed Arrow From Bar                                 | ⤅         | U+02905 | &#x2905; | &#10501;  | &Map;                 | \2905    |
+| Left Double Arrow From Bar                                      | ⤆         | U+02906 | &#x2906; | &#10502;  |                       | \2906    |
+| Right Double Arrow From Bar                                     | ⤇         | U+02907 | &#x2907; | &#10503;  |                       | \2907    |
+| Down Arrow With Horizontal Stroke                               | ⤈         | U+02908 | &#x2908; | &#10504;  |                       | \2908    |
+| Up Arrow With Horizontal Stroke                                 | ⤉         | U+02909 | &#x2909; | &#10505;  |                       | \2909    |
+| Up Triple Arrow                                                 | ⤊         | U+0290A | &#x290A; | &#10506;  |                       | \290A    |
+| Down Triple Arrow                                               | ⤋         | U+0290B | &#x290B; | &#10507;  |                       | \290B    |
+| Left Double Dash Arrow                                          | ⤌         | U+0290C | &#x290C; | &#10508;  | &lbarr;               | \290C    |
+| Right Double Dash Arrow                                         | ⤍         | U+0290D | &#x290D; | &#10509;  | &rbarr;               | \290D    |
+| Left Triple Dash Arrow                                          | ⤎         | U+0290E | &#x290E; | &#10510;  | &lBarr;               | \290E    |
+| Right Triple Dash Arrow                                         | ⤏         | U+0290F | &#x290F; | &#10511;  | &rBarr;               | \290F    |
+| Right Two-Headed Triple Dash Arrow                              | ⤐         | U+02910 | &#x2910; | &#10512;  | &RBarr;               | \2910    |
+| Right Arrow With Dotted Stem                                    | ⤑         | U+02911 | &#x2911; | &#10513;  | &DDotrahd;            | \2911    |
+| Up Arrow to Bar                                                 | ⤒         | U+02912 | &#x2912; | &#10514;  | &UpArrowBar;          | \2912    |
+| Down Arrow to Bar                                               | ⤓         | U+02913 | &#x2913; | &#10515;  | &DownArrowBar;        | \2913    |
+| Right Arrow With Tail With Vertical Stroke                      | ⤔         | U+02914 | &#x2914; | &#10516;  |                       | \2914    |
+| Right Arrow With Tail With Double Vertical Stroke               | ⤕         | U+02915 | &#x2915; | &#10517;  |                       | \2915    |
+| Right Two-Headed Arrow With Tail                                | ⤖         | U+02916 | &#x2916; | &#10518;  | &Rarrtl;              | \2916    |
+| Right Two-Headed Arrow With Tail With Vertical Stroke           | ⤗         | U+02917 | &#x2917; | &#10519;  |                       | \2917    |
+| Right Two-Headed Arrow With Tail With Double Vertical Stroke    | ⤘         | U+02918 | &#x2918; | &#10520;  |                       | \2918    |
+| Left Arrow-Tail                                                 | ⤙         | U+02919 | &#x2919; | &#10521;  | &latail;              | \2919    |
+| Right Arrow-Tail                                                | ⤚         | U+0291A | &#x291A; | &#10522;  | &ratail;              | \291A    |
+| Left Double Arrow-Tail                                          | ⤛         | U+0291B | &#x291B; | &#10523;  | &lAtail;              | \291B    |
+| Right Double Arrow-Tail                                         | ⤜         | U+0291C | &#x291C; | &#10524;  | &rAtail;              | \291C    |
+| Left Arrow to Black Diamond                                     | ⤝         | U+0291D | &#x291D; | &#10525;  | &larrfs;              | \291D    |
+| Right Arrow to Black Diamond                                    | ⤞         | U+0291E | &#x291E; | &#10526;  | &rarrfs;              | \291E    |
+| Left Arrow From Bar to Black Diamond                            | ⤟         | U+0291F | &#x291F; | &#10527;  | &larrbfs;             | \291F    |
+| Right Arrow From Bar to Black Diamond                           | ⤠         | U+02920 | &#x2920; | &#10528;  | &rarrbfs;             | \2920    |
+| North West and South East Arrow                                 | ⤡         | U+02921 | &#x2921; | &#10529;  |                       | \2921    |
+| North East and South West Arrow                                 | ⤢         | U+02922 | &#x2922; | &#10530;  |                       | \2922    |
+| North West Arrow With Hook                                      | ⤣         | U+02923 | &#x2923; | &#10531;  | &nwarhk;              | \2923    |
+| North East Arrow With Hook                                      | ⤤         | U+02924 | &#x2924; | &#10532;  | &nearhk;              | \2924    |
+| South East Arrow With Hook                                      | ⤥         | U+02925 | &#x2925; | &#10533;  | &searhk;              | \2925    |
+| South West Arrow With Hook                                      | ⤦         | U+02926 | &#x2926; | &#10534;  | &swarhk;              | \2926    |
+| North West Arrow and North East Arrow                           | ⤧         | U+02927 | &#x2927; | &#10535;  | &nwnear;              | \2927    |
+| North East Arrow and South East Arrow                           | ⤨         | U+02928 | &#x2928; | &#10536;  | &nesear;              | \2928    |
+| South East Arrow and South West Arrow                           | ⤩         | U+02929 | &#x2929; | &#10537;  | &seswar;              | \2929    |
+| South West Arrow and North West Arrow                           | ⤪         | U+0292A | &#x292A; | &#10538;  | &swnwar;              | \292A    |
+| Rising Diagonal Crossing Falling Diagonal                       | ⤫         | U+0292B | &#x292B; | &#10539;  |                       | \292B    |
+| Falling Diagonal Crossing Rising Diagonal                       | ⤬         | U+0292C | &#x292C; | &#10540;  |                       | \292C    |
+| South East Arrow Crossing North East Arrow                      | ⤭         | U+0292D | &#x292D; | &#10541;  |                       | \292D    |
+| North East Arrow Crossing South East Arrow                      | ⤮         | U+0292E | &#x292E; | &#10542;  |                       | \292E    |
+| Falling Diagonal Crossing North East Arrow                      | ⤯         | U+0292F | &#x292F; | &#10543;  |                       | \292F    |
+| Rising Diagonal Crossing South East Arrow                       | ⤰         | U+02930 | &#x2930; | &#10544;  |                       | \2930    |
+| North East Arrow Crossing North West Arrow                      | ⤱         | U+02931 | &#x2931; | &#10545;  |                       | \2931    |
+| North West Arrow Crossing North East Arrow                      | ⤲         | U+02932 | &#x2932; | &#10546;  |                       | \2932    |
+| Wave Arrow Pointing Directly Right                              | ⤳         | U+02933 | &#x2933; | &#10547;  | &rarrc;               | \2933    |
+| Arrow Pointing Right Then Curving Up                            | ⤴         | U+02934 | &#x2934; | &#10548;  |                       | \2934    |
+| Arrow Pointing Right Then Curving Down                          | ⤵         | U+02935 | &#x2935; | &#10549;  | &cudarrr;             | \2935    |
+| Arrow Pointing Down Then Curving Left                           | ⤶         | U+02936 | &#x2936; | &#10550;  | &ldca;                | \2936    |
+| Arrow Pointing Down Then Curving Right                          | ⤷         | U+02937 | &#x2937; | &#10551;  | &rdca;                | \2937    |
+| Right-Side Arc Clockwise Arrow                                  | ⤸         | U+02938 | &#x2938; | &#10552;  | &cudarrl;             | \2938    |
+| Left-Side Arc Anticlockwise Arrow                               | ⤹         | U+02939 | &#x2939; | &#10553;  | &larrpl;              | \2939    |
+| Top Arc Anticlockwise Arrow                                     | ⤺         | U+0293A | &#x293A; | &#10554;  |                       | \293A    |
+| Bottom Arc Anticlockwise Arrow                                  | ⤻         | U+0293B | &#x293B; | &#10555;  |                       | \293B    |
+| Top Arc Clockwise Arrow With Minus                              | ⤼         | U+0293C | &#x293C; | &#10556;  | &curarrm;             | \293C    |
+| Top Arc Anticlockwise Arrow With Plus                           | ⤽         | U+0293D | &#x293D; | &#10557;  | &cularrp;             | \293D    |
+| Lower Right Semicircular Clockwise Arrow                        | ⤾         | U+0293E | &#x293E; | &#10558;  |                       | \293E    |
+| Lower Left Semicircular Anticlockwise Arrow                     | ⤿         | U+0293F | &#x293F; | &#10559;  |                       | \293F    |
+| Anticlockwise Closed Circle Arrow                               | ⥀         | U+02940 | &#x2940; | &#10560;  |                       | \2940    |
+| Clockwise Closed Circle Arrow                                   | ⥁         | U+02941 | &#x2941; | &#10561;  |                       | \2941    |
+| Right Arrow Above Short Left Arrow                              | ⥂         | U+02942 | &#x2942; | &#10562;  |                       | \2942    |
+| Left Arrow Above Short Right Arrow                              | ⥃         | U+02943 | &#x2943; | &#10563;  |                       | \2943    |
+| Short Right Arrow Above Left Arrow                              | ⥄         | U+02944 | &#x2944; | &#10564;  |                       | \2944    |
+| Right Arrow With Plus Below                                     | ⥅         | U+02945 | &#x2945; | &#10565;  | &rarrpl;              | \2945    |
+| Left Arrow With Plus Below                                      | ⥆         | U+02946 | &#x2946; | &#10566;  |                       | \2946    |
+| Right Arrow Through X                                           | ⥇         | U+02947 | &#x2947; | &#10567;  |                       | \2947    |
+| Left Right Arrow Through Small Circle                           | ⥈         | U+02948 | &#x2948; | &#10568;  | &harrcir;             | \2948    |
+| Up Two-Headed Arrow From Small Circle                           | ⥉         | U+02949 | &#x2949; | &#10569;  | &Uarrocir;            | \2949    |
+| Left Barb Up Right Barb Down Harpoon                            | ⥊         | U+0294A | &#x294A; | &#10570;  | &lurdshar;            | \294A    |
+| Left Barb Down Right Barb Up Harpoon                            | ⥋         | U+0294B | &#x294B; | &#10571;  | &ldrushar;            | \294B    |
+| Up Barb Right Down Barb Left Harpoon                            | ⥌         | U+0294C | &#x294C; | &#10572;  |                       | \294C    |
+| Up Barb Left Down Barb Right Harpoon                            | ⥍         | U+0294D | &#x294D; | &#10573;  |                       | \294D    |
+| Left Barb Up Right Barb Up Harpoon                              | ⥎         | U+0294E | &#x294E; | &#10574;  | &LeftRightVector;     | \294E    |
+| Up Barb Right Down Barb Right Harpoon                           | ⥏         | U+0294F | &#x294F; | &#10575;  | &RightUpDownVector;   | \294F    |
+| Left Barb Down Right Barb Down Harpoon                          | ⥐         | U+02950 | &#x2950; | &#10576;  | &DownLeftRightVector; | \2950    |
+| Up Barb Left Down Barb Left Harpoon                             | ⥑         | U+02951 | &#x2951; | &#10577;  | &LeftUpDownVector;    | \2951    |
+| Left Harpoon With Barb Up to Bar                                | ⥒         | U+02952 | &#x2952; | &#10578;  | &LeftVectorBar;       | \2952    |
+| Right Harpoon With Barb Up to Bar                               | ⥓         | U+02953 | &#x2953; | &#10579;  | &RightVectorBar;      | \2953    |
+| Up Harpoon With Barb Right to Bar                               | ⥔         | U+02954 | &#x2954; | &#10580;  | &RightUpVectorBar;    | \2954    |
+| Down Harpoon With Barb Right to Bar                             | ⥕         | U+02955 | &#x2955; | &#10581;  | &RightDownVectorBar;  | \2955    |
+| Left Harpoon With Barb Down to Bar                              | ⥖         | U+02956 | &#x2956; | &#10582;  | &DownLeftVectorBar;   | \2956    |
+| Right Harpoon With Barb Down to Bar                             | ⥗         | U+02957 | &#x2957; | &#10583;  | &DownRightVectorBar;  | \2957    |
+| Up Harpoon With Barb Left to Bar                                | ⥘         | U+02958 | &#x2958; | &#10584;  | &LeftUpVectorBar;     | \2958    |
+| Down Harpoon With Barb Left to Bar                              | ⥙         | U+02959 | &#x2959; | &#10585;  | &LeftDownVectorBar;   | \2959    |
+| Left Harpoon With Barb Up From Bar                              | ⥚         | U+0295A | &#x295A; | &#10586;  | &LeftTeeVector;       | \295A    |
+| Right Harpoon With Barb Up From Bar                             | ⥛         | U+0295B | &#x295B; | &#10587;  | &RightTeeVector;      | \295B    |
+| Up Harpoon With Barb Right From Bar                             | ⥜         | U+0295C | &#x295C; | &#10588;  | &RightUpTeeVector;    | \295C    |
+| Down Harpoon With Barb Right From Bar                           | ⥝         | U+0295D | &#x295D; | &#10589;  | &RightDownTeeVector;  | \295D    |
+| Left Harpoon With Barb Down From Bar                            | ⥞         | U+0295E | &#x295E; | &#10590;  | &DownLeftTeeVector;   | \295E    |
+| Right Harpoon With Barb Down From Bar                           | ⥟         | U+0295F | &#x295F; | &#10591;  | &DownRightTeeVector;  | \295F    |
+| Up Harpoon With Barb Left From Bar                              | ⥠         | U+02960 | &#x2960; | &#10592;  | &LeftUpTeeVector;     | \2960    |
+| Down Harpoon With Barb Left From Bar                            | ⥡         | U+02961 | &#x2961; | &#10593;  | &LeftDownTeeVector;   | \2961    |
+| Left Harpoon With Barb Up Above Left Harpoon With Barb Down     | ⥢         | U+02962 | &#x2962; | &#10594;  | &lHar;                | \2962    |
+| Up Harpoon With Barb Left Beside Up Harpoon With Barb Right     | ⥣         | U+02963 | &#x2963; | &#10595;  | &uHar;                | \2963    |
+| Right Harpoon With Barb Up Above Right Harpoon With Barb Down   | ⥤         | U+02964 | &#x2964; | &#10596;  | &rHar;                | \2964    |
 | Down Harpoon With Barb Left Beside Down Harpoon With Barb Right | ⥥         | U+02965 | &#x2965; | &#10597;  | &dHar;                | \2965    |
-| Left Harpoon With Barb Up Above Right Harpoon With Barb Up   | ⥦         | U+02966 | &#x2966; | &#10598;  | &luruhar;             | \2966    |
-| Left Harpoon With Barb Down Above Right Harpoon With Barb Down | ⥧         | U+02967 | &#x2967; | &#10599;  | &ldrdhar;             | \2967    |
-| Right Harpoon With Barb Up Above Left Harpoon With Barb Up   | ⥨         | U+02968 | &#x2968; | &#10600;  | &ruluhar;             | \2968    |
-| Right Harpoon With Barb Down Above Left Harpoon With Barb Down | ⥩         | U+02969 | &#x2969; | &#10601;  | &rdldhar;             | \2969    |
-| Left Harpoon With Barb Up Above Long Dash                    | ⥪         | U+0296A | &#x296A; | &#10602;  | &lharul;              | \296A    |
-| Left Harpoon With Barb Down Below Long Dash                  | ⥫         | U+0296B | &#x296B; | &#10603;  | &llhard;              | \296B    |
-| Right Harpoon With Barb Up Above Long Dash                   | ⥬         | U+0296C | &#x296C; | &#10604;  | &rharul;              | \296C    |
-| Right Harpoon With Barb Down Below Long Dash                 | ⥭         | U+0296D | &#x296D; | &#10605;  | &lrhard;              | \296D    |
-| Up Harpoon With Barb Left Beside Down Harpoon With Barb Right | ⥮         | U+0296E | &#x296E; | &#10606;  | &udhar;               | \296E    |
-| Down Harpoon With Barb Left Beside Up Harpoon With Barb Right | ⥯         | U+0296F | &#x296F; | &#10607;  | &duhar;               | \296F    |
-| Right Double Arrow With Rounded Head                         | ⥰         | U+02970 | &#x2970; | &#10608;  | &RoundImplies;        | \2970    |
-| Equals Sign Above Right Arrow                                | ⥱         | U+02971 | &#x2971; | &#10609;  | &erarr;               | \2971    |
-| Tilde Operator Above Right Arrow                             | ⥲         | U+02972 | &#x2972; | &#10610;  | &simrarr;             | \2972    |
-| Left Arrow Above Tilde Operator                              | ⥳         | U+02973 | &#x2973; | &#10611;  | &larrsim;             | \2973    |
-| Right Arrow Above Tilde Operator                             | ⥴         | U+02974 | &#x2974; | &#10612;  | &rarrsim;             | \2974    |
-| Right Arrow Above Almost Equal To                            | ⥵         | U+02975 | &#x2975; | &#10613;  | &rarrap;              | \2975    |
-| Less-Than Above Left Arrow                                   | ⥶         | U+02976 | &#x2976; | &#10614;  | &ltlarr;              | \2976    |
-| Left Arrow Through Less-Than                                 | ⥷         | U+02977 | &#x2977; | &#10615;  |                       | \2977    |
-| Greater-Than Above Right Arrow                               | ⥸         | U+02978 | &#x2978; | &#10616;  | &gtrarr;              | \2978    |
-| Subset Above Right Arrow                                     | ⥹         | U+02979 | &#x2979; | &#10617;  | &subrarr;             | \2979    |
-| Left Arrow Through Subset                                    | ⥺         | U+0297A | &#x297A; | &#10618;  |                       | \297A    |
-| Superset Above Left Arrow                                    | ⥻         | U+0297B | &#x297B; | &#10619;  | &suplarr;             | \297B    |
-| Left Fish Tail                                               | ⥼         | U+0297C | &#x297C; | &#10620;  | &lfisht;              | \297C    |
-| Right Fish Tail                                              | ⥽         | U+0297D | &#x297D; | &#10621;  | &rfisht;              | \297D    |
-| Up Fish Tail                                                 | ⥾         | U+0297E | &#x297E; | &#10622;  | &ufisht;              | \297E    |
-| Down Fish Tail                                               | ⥿         | U+0297F | &#x297F; | &#10623;  | &dfisht;              | \297F    |
-| Heavy Wide-Headed Right Arrow                                | ➔         | U+02794 | &#x2794; | &#10132;  |                       | \2794    |
-| Heavy South East Arrow                                       | ➘         | U+02798 | &#x2798; | &#10136;  |                       | \2798    |
-| Heavy Right Arrow                                            | ➙         | U+02799 | &#x2799; | &#10137;  |                       | \2799    |
-| Heavy North East Arrow                                       | ➚         | U+0279A | &#x279A; | &#10138;  |                       | \279A    |
-| Drafting Point Right Arrow                                   | ➛         | U+0279B | &#x279B; | &#10139;  |                       | \279B    |
-| Heavy Round-Tipped Right Arrow                               | ➜         | U+0279C | &#x279C; | &#10140;  |                       | \279C    |
-| Triangle-Headed Right Arrow                                  | ➝         | U+0279D | &#x279D; | &#10141;  |                       | \279D    |
-| Heavy Triangle-Headed Right Arrow                            | ➞         | U+0279E | &#x279E; | &#10142;  |                       | \279E    |
-| Dashed Triangle-Headed Right Arrow                           | ➟         | U+0279F | &#x279F; | &#10143;  |                       | \279F    |
-| Heavy Dashed Triangle-Headed Right Arrow                     | ➠         | U+027A0 | &#x27A0; | &#10144;  |                       | \27A0    |
-| Black Right Arrow                                            | ➡         | U+027A1 | &#x27A1; | &#10145;  |                       | \27A1    |
-| Three-D Top-Lighted Right Arrowhead                          | ➢         | U+027A2 | &#x27A2; | &#10146;  |                       | \27A2    |
-| Three-D Bottom-Lighted Right Arrowhead                       | ➣         | U+027A3 | &#x27A3; | &#10147;  |                       | \27A3    |
-| Black Right Arrowhead                                        | ➤         | U+027A4 | &#x27A4; | &#10148;  |                       | \27A4    |
-| Heavy Black Curved Down and Right Arrow                      | ➥         | U+027A5 | &#x27A5; | &#10149;  |                       | \27A5    |
-| Heavy Black Curved Up and Right Arrow                        | ➦         | U+027A6 | &#x27A6; | &#10150;  |                       | \27A6    |
-| Squat Black Right Arrow                                      | ➧         | U+027A7 | &#x27A7; | &#10151;  |                       | \27A7    |
-| Heavy Concave-Pointed Black Right Arrow                      | ➨         | U+027A8 | &#x27A8; | &#10152;  |                       | \27A8    |
-| Right-Shaded White Right Arrow                               | ➩         | U+027A9 | &#x27A9; | &#10153;  |                       | \27A9    |
-| Left-Shaded White Right Arrow                                | ➪         | U+027AA | &#x27AA; | &#10154;  |                       | \27AA    |
-| Back-Tilted Shadowed White Right Arrow                       | ➫         | U+027AB | &#x27AB; | &#10155;  |                       | \27AB    |
-| Front-Tilted Shadowed White Right Arrow                      | ➬         | U+027AC | &#x27AC; | &#10156;  |                       | \27AC    |
-| Heavy Lower Right-Shadowed White Right Arrow                 | ➭         | U+027AD | &#x27AD; | &#10157;  |                       | \27AD    |
-| Heavy Upper Right-Shadowed White Right Arrow                 | ➮         | U+027AE | &#x27AE; | &#10158;  |                       | \27AE    |
-| Notched Lower Right-Shadowed White Right Arrow               | ➯         | U+027AF | &#x27AF; | &#10159;  |                       | \27AF    |
-| Notched Upper Right-Shadowed White Right Arrow               | ➱         | U+027B1 | &#x27B1; | &#10161;  |                       | \27B1    |
-| Circled Heavy White Right Arrow                              | ➲         | U+027B2 | &#x27B2; | &#10162;  |                       | \27B2    |
-| White-Feathered Right Arrow                                  | ➳         | U+027B3 | &#x27B3; | &#10163;  |                       | \27B3    |
-| Black-Feathered South East Arrow                             | ➴         | U+027B4 | &#x27B4; | &#10164;  |                       | \27B4    |
-| Black-Feathered Right Arrow                                  | ➵         | U+027B5 | &#x27B5; | &#10165;  |                       | \27B5    |
-| Black-Feathered North East Arrow                             | ➶         | U+027B6 | &#x27B6; | &#10166;  |                       | \27B6    |
-| Heavy Black-Feathered South East Arrow                       | ➷         | U+027B7 | &#x27B7; | &#10167;  |                       | \27B7    |
-| Heavy Black-Feathered Right Arrow                            | ➸         | U+027B8 | &#x27B8; | &#10168;  |                       | \27B8    |
-| Heavy Black-Feathered North East Arrow                       | ➹         | U+027B9 | &#x27B9; | &#10169;  |                       | \27B9    |
-| Teardrop-Barbed Right Arrow                                  | ➺         | U+027BA | &#x27BA; | &#10170;  |                       | \27BA    |
-| Heavy Teardrop-Shanked Right Arrow                           | ➻         | U+027BB | &#x27BB; | &#10171;  |                       | \27BB    |
-| Wedge-Tailed Right Arrow                                     | ➼         | U+027BC | &#x27BC; | &#10172;  |                       | \27BC    |
-| Heavy Wedge-Tailed Right Arrow                               | ➽         | U+027BD | &#x27BD; | &#10173;  |                       | \27BD    |
-| Open-Outlined Right Arrow                                    | ➾         | U+027BE | &#x27BE; | &#10174;  |                       | \27BE    |
+| Left Harpoon With Barb Up Above Right Harpoon With Barb Up      | ⥦         | U+02966 | &#x2966; | &#10598;  | &luruhar;             | \2966    |
+| Left Harpoon With Barb Down Above Right Harpoon With Barb Down  | ⥧         | U+02967 | &#x2967; | &#10599;  | &ldrdhar;             | \2967    |
+| Right Harpoon With Barb Up Above Left Harpoon With Barb Up      | ⥨         | U+02968 | &#x2968; | &#10600;  | &ruluhar;             | \2968    |
+| Right Harpoon With Barb Down Above Left Harpoon With Barb Down  | ⥩         | U+02969 | &#x2969; | &#10601;  | &rdldhar;             | \2969    |
+| Left Harpoon With Barb Up Above Long Dash                       | ⥪         | U+0296A | &#x296A; | &#10602;  | &lharul;              | \296A    |
+| Left Harpoon With Barb Down Below Long Dash                     | ⥫         | U+0296B | &#x296B; | &#10603;  | &llhard;              | \296B    |
+| Right Harpoon With Barb Up Above Long Dash                      | ⥬         | U+0296C | &#x296C; | &#10604;  | &rharul;              | \296C    |
+| Right Harpoon With Barb Down Below Long Dash                    | ⥭         | U+0296D | &#x296D; | &#10605;  | &lrhard;              | \296D    |
+| Up Harpoon With Barb Left Beside Down Harpoon With Barb Right   | ⥮         | U+0296E | &#x296E; | &#10606;  | &udhar;               | \296E    |
+| Down Harpoon With Barb Left Beside Up Harpoon With Barb Right   | ⥯         | U+0296F | &#x296F; | &#10607;  | &duhar;               | \296F    |
+| Right Double Arrow With Rounded Head                            | ⥰         | U+02970 | &#x2970; | &#10608;  | &RoundImplies;        | \2970    |
+| Equals Sign Above Right Arrow                                   | ⥱         | U+02971 | &#x2971; | &#10609;  | &erarr;               | \2971    |
+| Tilde Operator Above Right Arrow                                | ⥲         | U+02972 | &#x2972; | &#10610;  | &simrarr;             | \2972    |
+| Left Arrow Above Tilde Operator                                 | ⥳         | U+02973 | &#x2973; | &#10611;  | &larrsim;             | \2973    |
+| Right Arrow Above Tilde Operator                                | ⥴         | U+02974 | &#x2974; | &#10612;  | &rarrsim;             | \2974    |
+| Right Arrow Above Almost Equal To                               | ⥵         | U+02975 | &#x2975; | &#10613;  | &rarrap;              | \2975    |
+| Less-Than Above Left Arrow                                      | ⥶         | U+02976 | &#x2976; | &#10614;  | &ltlarr;              | \2976    |
+| Left Arrow Through Less-Than                                    | ⥷         | U+02977 | &#x2977; | &#10615;  |                       | \2977    |
+| Greater-Than Above Right Arrow                                  | ⥸         | U+02978 | &#x2978; | &#10616;  | &gtrarr;              | \2978    |
+| Subset Above Right Arrow                                        | ⥹         | U+02979 | &#x2979; | &#10617;  | &subrarr;             | \2979    |
+| Left Arrow Through Subset                                       | ⥺         | U+0297A | &#x297A; | &#10618;  |                       | \297A    |
+| Superset Above Left Arrow                                       | ⥻         | U+0297B | &#x297B; | &#10619;  | &suplarr;             | \297B    |
+| Left Fish Tail                                                  | ⥼         | U+0297C | &#x297C; | &#10620;  | &lfisht;              | \297C    |
+| Right Fish Tail                                                 | ⥽         | U+0297D | &#x297D; | &#10621;  | &rfisht;              | \297D    |
+| Up Fish Tail                                                    | ⥾         | U+0297E | &#x297E; | &#10622;  | &ufisht;              | \297E    |
+| Down Fish Tail                                                  | ⥿         | U+0297F | &#x297F; | &#10623;  | &dfisht;              | \297F    |
+| Heavy Wide-Headed Right Arrow                                   | ➔         | U+02794 | &#x2794; | &#10132;  |                       | \2794    |
+| Heavy South East Arrow                                          | ➘         | U+02798 | &#x2798; | &#10136;  |                       | \2798    |
+| Heavy Right Arrow                                               | ➙         | U+02799 | &#x2799; | &#10137;  |                       | \2799    |
+| Heavy North East Arrow                                          | ➚         | U+0279A | &#x279A; | &#10138;  |                       | \279A    |
+| Drafting Point Right Arrow                                      | ➛         | U+0279B | &#x279B; | &#10139;  |                       | \279B    |
+| Heavy Round-Tipped Right Arrow                                  | ➜         | U+0279C | &#x279C; | &#10140;  |                       | \279C    |
+| Triangle-Headed Right Arrow                                     | ➝         | U+0279D | &#x279D; | &#10141;  |                       | \279D    |
+| Heavy Triangle-Headed Right Arrow                               | ➞         | U+0279E | &#x279E; | &#10142;  |                       | \279E    |
+| Dashed Triangle-Headed Right Arrow                              | ➟         | U+0279F | &#x279F; | &#10143;  |                       | \279F    |
+| Heavy Dashed Triangle-Headed Right Arrow                        | ➠         | U+027A0 | &#x27A0; | &#10144;  |                       | \27A0    |
+| Black Right Arrow                                               | ➡         | U+027A1 | &#x27A1; | &#10145;  |                       | \27A1    |
+| Three-D Top-Lighted Right Arrowhead                             | ➢         | U+027A2 | &#x27A2; | &#10146;  |                       | \27A2    |
+| Three-D Bottom-Lighted Right Arrowhead                          | ➣         | U+027A3 | &#x27A3; | &#10147;  |                       | \27A3    |
+| Black Right Arrowhead                                           | ➤         | U+027A4 | &#x27A4; | &#10148;  |                       | \27A4    |
+| Heavy Black Curved Down and Right Arrow                         | ➥         | U+027A5 | &#x27A5; | &#10149;  |                       | \27A5    |
+| Heavy Black Curved Up and Right Arrow                           | ➦         | U+027A6 | &#x27A6; | &#10150;  |                       | \27A6    |
+| Squat Black Right Arrow                                         | ➧         | U+027A7 | &#x27A7; | &#10151;  |                       | \27A7    |
+| Heavy Concave-Pointed Black Right Arrow                         | ➨         | U+027A8 | &#x27A8; | &#10152;  |                       | \27A8    |
+| Right-Shaded White Right Arrow                                  | ➩         | U+027A9 | &#x27A9; | &#10153;  |                       | \27A9    |
+| Left-Shaded White Right Arrow                                   | ➪         | U+027AA | &#x27AA; | &#10154;  |                       | \27AA    |
+| Back-Tilted Shadowed White Right Arrow                          | ➫         | U+027AB | &#x27AB; | &#10155;  |                       | \27AB    |
+| Front-Tilted Shadowed White Right Arrow                         | ➬         | U+027AC | &#x27AC; | &#10156;  |                       | \27AC    |
+| Heavy Lower Right-Shadowed White Right Arrow                    | ➭         | U+027AD | &#x27AD; | &#10157;  |                       | \27AD    |
+| Heavy Upper Right-Shadowed White Right Arrow                    | ➮         | U+027AE | &#x27AE; | &#10158;  |                       | \27AE    |
+| Notched Lower Right-Shadowed White Right Arrow                  | ➯         | U+027AF | &#x27AF; | &#10159;  |                       | \27AF    |
+| Notched Upper Right-Shadowed White Right Arrow                  | ➱         | U+027B1 | &#x27B1; | &#10161;  |                       | \27B1    |
+| Circled Heavy White Right Arrow                                 | ➲         | U+027B2 | &#x27B2; | &#10162;  |                       | \27B2    |
+| White-Feathered Right Arrow                                     | ➳         | U+027B3 | &#x27B3; | &#10163;  |                       | \27B3    |
+| Black-Feathered South East Arrow                                | ➴         | U+027B4 | &#x27B4; | &#10164;  |                       | \27B4    |
+| Black-Feathered Right Arrow                                     | ➵         | U+027B5 | &#x27B5; | &#10165;  |                       | \27B5    |
+| Black-Feathered North East Arrow                                | ➶         | U+027B6 | &#x27B6; | &#10166;  |                       | \27B6    |
+| Heavy Black-Feathered South East Arrow                          | ➷         | U+027B7 | &#x27B7; | &#10167;  |                       | \27B7    |
+| Heavy Black-Feathered Right Arrow                               | ➸         | U+027B8 | &#x27B8; | &#10168;  |                       | \27B8    |
+| Heavy Black-Feathered North East Arrow                          | ➹         | U+027B9 | &#x27B9; | &#10169;  |                       | \27B9    |
+| Teardrop-Barbed Right Arrow                                     | ➺         | U+027BA | &#x27BA; | &#10170;  |                       | \27BA    |
+| Heavy Teardrop-Shanked Right Arrow                              | ➻         | U+027BB | &#x27BB; | &#10171;  |                       | \27BB    |
+| Wedge-Tailed Right Arrow                                        | ➼         | U+027BC | &#x27BC; | &#10172;  |                       | \27BC    |
+| Heavy Wedge-Tailed Right Arrow                                  | ➽         | U+027BD | &#x27BD; | &#10173;  |                       | \27BD    |
+| Open-Outlined Right Arrow                                       | ➾         | U+027BE | &#x27BE; | &#10174;  |                       | \27BE    |
 
 ## 货币相关符号
 
 | 描述                                    | 符号/显示 | UNICODE | HEX CODE | HTML CODE | HTML ENTITY | CSS CODE |
 | :-------------------------------------- | :-------- | :------ | :------- | :-------- | :---------- | :------- |
-| Dollar Sign                             | $         | U+00024 | &#x24;   | &#36;     | &dollar;    | \0024    |
+| Dollar Sign                             | \$        | U+00024 | \$       | \$        | \$          | \0024    |
 | Cent Sign                               | ¢         | U+000A2 | &#xa2;   | &#162;    | &cent;      | \00A2    |
 | Pound Sign                              | £         | U+000A3 | &#xa3;   | &#163;    | &pound;     | \00A3    |
 | Euro Sign                               | €         | U+020AC | &#x20AC; | &#8364;   | &euro;      | \20AC    |
@@ -1077,314 +1077,314 @@
 
 ## 数学相关符号
 
-| 描述                                                         | 符号/显示 | UNICODE | HEX CODE | HTML CODE | HTML ENTITY | CSS CODE |
-| :----------------------------------------------------------- | :-------- | :------ | :------- | :-------- | :---------- | :------- |
-| Plus Sign                                                    | +         | U+0002B | &#x2b;   | &#43;     | &plus;      | \002B    |
-| Minus Sign                                                   | −         | U+02212 | &#x2212; | &#8722;   | &minus;     | \2212    |
-| Multiplication Sign                                          | ×         | U+000D7 | &#xd7;   | &#215;    | &times;     | \00D7    |
-| Division Sign                                                | ÷         | U+000F7 | &#xf7;   | &#247;    | &divide;    | \00F7    |
-| Equal Sign                                                   | =         | U+0003D | &#x3d;   | &#61;     | &equals;    | \003D    |
-| Not Equal To Sign                                            | ≠         | U+02260 | &#x2260; | &#8800;   | &ne;        | \2260    |
-| Plus or Minus Sign                                           | ±         | U+000B1 | &#xb1;   | &#177;    | &plusmn;    | \00B1    |
-| Not Sign                                                     | ¬         | U+000AC | &#xac;   | &#172;    | &not;       | \00AC    |
-| Less-Than Sign                                               | <         | U+0003C | &#x3c;   | &#60;     | &lt;        | \003C    |
-| Greater-Than Sign                                            | >         | U+0003E | &#x3e;   | &#62;     | &gt;        | \003E    |
-| Equal to or Less-Than Sign                                   | ⋜         | U+022DC | &#x22DC; | &#8924;   |             | \22DC    |
-| Equal to or Greater-Than Sign                                | ⋝         | U+022DD | &#x22DD; | &#8925;   |             | \22DD    |
-| Degree Sign                                                  | °         | U+000B0 | &#xb0;   | &#176;    | &deg;       | \00B0    |
-| Superscript One                                              | ¹         | U+000B9 | &#xb9;   | &#185;    | &sup1;      | \00B9    |
-| Superscript Two                                              | ²         | U+000B2 | &#xb2;   | &#178;    | &sup2;      | \00B2    |
-| Superscript Three                                            | ³         | U+000B3 | &#xb3;   | &#179;    | &sup3;      | \00B3    |
-| Function                                                     | ƒ         | U+00192 | &#x192;  | &#402;    | &fnof;      | \0192    |
-| Percent Sign                                                 | %         | U+00025 | &#x25;   | &#37;     | &percnt;    | \0025    |
-| Per Mille Sign                                               | ‰         | U+00089 | &#x89;   | &#137;    | &permil;    | \0089    |
-| Per Ten Thousand Sign                                        | ‱         | U+02031 | &#x2031; | &#8241;   | &pertenk;   | \2031    |
-| For All                                                      | ∀         | U+02200 | &#x2200; | &#8704;   | &forall;    | \2200    |
-| Complement                                                   | ∁         | U+02201 | &#x2201; | &#8705;   | &comp;      | \2201    |
-| Partial Differential                                         | ∂         | U+02202 | &#x2202; | &#8706;   | &part;      | \2202    |
-| There Exists                                                 | ∃         | U+02203 | &#x2203; | &#8707;   | &exist;     | \2203    |
-| There Does Not Exist                                         | ∄         | U+02204 | &#x2204; | &#8708;   | &nexist;    | \2204    |
-| Empty Set                                                    | ∅         | U+02205 | &#x2205; | &#8709;   | &empty;     | \2205    |
-| Increment                                                    | ∆         | U+02206 | &#x2206; | &#8710;   |             | \2206    |
-| Nabla                                                        | ∇         | U+02207 | &#x2207; | &#8711;   | &nabla;     | \2207    |
-| Element Of                                                   | ∈         | U+02208 | &#x2208; | &#8712;   | &isin;      | \2208    |
-| Not an Element Of                                            | ∉         | U+02209 | &#x2209; | &#8713;   | &notin;     | \2209    |
-| Small Element Of                                             | ∊         | U+0220A | &#x220A; | &#8714;   |             | \220A    |
-| Contains as Member                                           | ∋         | U+0220B | &#x220B; | &#8715;   | &ni;        | \220B    |
-| Does Not Contain as Member                                   | ∌         | U+0220C | &#x220C; | &#8716;   | &notni;     | \220C    |
-| Small Contains as Member                                     | ∍         | U+0220D | &#x220D; | &#8717;   |             | \220D    |
-| End of Proof                                                 | ∎         | U+0220E | &#x220E; | &#8718;   |             | \220E    |
-| N-Ary Product                                                | ∏         | U+0220F | &#x220F; | &#8719;   | &prod;      | \220F    |
-| N-Ary Coproduct                                              | ∐         | U+02210 | &#x2210; | &#8720;   | &coprod;    | \2210    |
-| N-Ary Summation                                              | ∑         | U+02211 | &#x2211; | &#8721;   | &sum;       | \2211    |
-| Minus-or-Plus Sign                                           | ∓         | U+02213 | &#x2213; | &#8723;   | &mnplus;    | \2213    |
-| Dot Plus                                                     | ∔         | U+02214 | &#x2214; | &#8724;   | &plusdo;    | \2214    |
-| Division Slash                                               | ∕         | U+02215 | &#x2215; | &#8725;   |             | \2215    |
-| Set Minus                                                    | ∖         | U+02216 | &#x2216; | &#8726;   | &setminus;  | \2216    |
-| Asterisk Operator                                            | ∗         | U+02217 | &#x2217; | &#8727;   | &lowast;    | \2217    |
-| Ring Operator                                                | ∘         | U+02218 | &#x2218; | &#8728;   | &compfn;    | \2218    |
-| Bullet Operator                                              | ∙         | U+02219 | &#x2219; | &#8729;   |             | \2219    |
-| Square Root                                                  | √         | U+0221A | &#x221A; | &#8730;   | &radic;     | \221A    |
-| Cube Root                                                    | ∛         | U+0221B | &#x221B; | &#8731;   |             | \221B    |
-| Fourth Root                                                  | ∜         | U+0221C | &#x221C; | &#8732;   |             | \221C    |
-| Proportional To                                              | ∝         | U+0221D | &#x221D; | &#8733;   | &prop;      | \221D    |
-| Infinity                                                     | ∞         | U+0221E | &#x221E; | &#8734;   | &infin;     | \221E    |
-| Right Angle                                                  | ∟         | U+0221F | &#x221F; | &#8735;   | &angrt;     | \221F    |
-| Angle                                                        | ∠         | U+02220 | &#x2220; | &#8736;   | &ang;       | \2220    |
-| Measured Angle                                               | ∡         | U+02221 | &#x2221; | &#8737;   | &angmsd;    | \2221    |
-| Spherical Angle                                              | ∢         | U+02222 | &#x2222; | &#8738;   | &angsph;    | \2222    |
-| Divides                                                      | ∣         | U+02223 | &#x2223; | &#8739;   | &mid;       | \2223    |
-| Does Not Divide                                              | ∤         | U+02224 | &#x2224; | &#8740;   | &nmid;      | \2224    |
-| Parallel To                                                  | ∥         | U+02225 | &#x2225; | &#8741;   | &parallel;  | \2225    |
-| Not Parallel To                                              | ∦         | U+02226 | &#x2226; | &#8742;   | &npar;      | \2226    |
-| Logical And                                                  | ∧         | U+02227 | &#x2227; | &#8743;   | &and;       | \2227    |
-| Logical Or                                                   | ∨         | U+02228 | &#x2228; | &#8744;   | &or;        | \2228    |
-| Intersection                                                 | ∩         | U+02229 | &#x2229; | &#8745;   | &cap;       | \2229    |
-| Union                                                        | ∪         | U+0222A | &#x222A; | &#8746;   | &cup;       | \222A    |
-| Integral                                                     | ∫         | U+0222B | &#x222B; | &#8747;   | &int;       | \222B    |
-| Double Integral                                              | ∬         | U+0222C | &#x222C; | &#8748;   | &Int;       | \222C    |
-| Triple Integral                                              | ∭         | U+0222D | &#x222D; | &#8749;   | &iiint;     | \222D    |
-| Contour Integral                                             | ∮         | U+0222E | &#x222E; | &#8750;   | &conint;    | \222E    |
-| Surface Integral                                             | ∯         | U+0222F | &#x222F; | &#8751;   | &Conint;    | \222F    |
-| Volume Integral                                              | ∰         | U+02230 | &#x2230; | &#8752;   | &Cconint;   | \2230    |
-| Clockwise Integral                                           | ∱         | U+02231 | &#x2231; | &#8753;   | &cwint;     | \2231    |
-| Clockwise Contour Integral                                   | ∲         | U+02232 | &#x2232; | &#8754;   | &cwconint;  | \2232    |
-| Anticlockwise Contour Integral                               | ∳         | U+02233 | &#x2233; | &#8755;   | &awconint;  | \2233    |
-| Therefore                                                    | ∴         | U+02234 | &#x2234; | &#8756;   | &there4;    | \2234    |
-| Because                                                      | ∵         | U+02235 | &#x2235; | &#8757;   | &because;   | \2235    |
-| Ratio                                                        | ∶         | U+02236 | &#x2236; | &#8758;   | &ratio;     | \2236    |
-| Proportion                                                   | ∷         | U+02237 | &#x2237; | &#8759;   | &Colon;     | \2237    |
-| Dot Minus                                                    | ∸         | U+02238 | &#x2238; | &#8760;   | &minusd;    | \2238    |
-| Excess                                                       | ∹         | U+02239 | &#x2239; | &#8761;   |             | \2239    |
-| Geometric Proportion                                         | ∺         | U+0223A | &#x223A; | &#8762;   | &mDDot;     | \223A    |
-| Homothetic                                                   | ∻         | U+0223B | &#x223B; | &#8763;   | &homtht;    | \223B    |
-| Tilde Operator                                               | ∼         | U+0223C | &#x223C; | &#8764;   | &sim;       | \223C    |
-| Reversed Tilde                                               | ∽         | U+0223D | &#x223D; | &#8765;   | &bsim;      | \223D    |
-| Inverted Lazy S                                              | ∾         | U+0223E | &#x223E; | &#8766;   | &ac;        | \223E    |
-| Sine Wave                                                    | ∿         | U+0223F | &#x223F; | &#8767;   | &acd;       | \223F    |
-| Wreath Product                                               | ≀         | U+02240 | &#x2240; | &#8768;   | &wreath;    | \2240    |
-| Not Tilde                                                    | ≁         | U+02241 | &#x2241; | &#8769;   | &nsim;      | \2241    |
-| Minus Tilde                                                  | ≂         | U+02242 | &#x2242; | &#8770;   | &esim;      | \2242    |
-| Asymptotically Equal To                                      | ≃         | U+02243 | &#x2243; | &#8771;   | &sime;      | \2243    |
-| Not Asymptotically Equal To                                  | ≄         | U+02244 | &#x2244; | &#8772;   | &nsime;     | \2244    |
-| Approximately Equal To                                       | ≅         | U+02245 | &#x2245; | &#8773;   | &cong;      | \2245    |
-| Approximately but Not Actually Equal To                      | ≆         | U+02246 | &#x2246; | &#8774;   | &simne;     | \2246    |
-| Neither Approximately Nor Actually Equal To                  | ≇         | U+02247 | &#x2247; | &#8775;   | &ncong;     | \2247    |
-| Almost Equal To                                              | ≈         | U+02248 | &#x2248; | &#8776;   | &asymp;     | \2248    |
-| Not Almost Equal To                                          | ≉         | U+02249 | &#x2249; | &#8777;   | &nap;       | \2249    |
-| Almost Equal or Equal To                                     | ≊         | U+0224A | &#x224A; | &#8778;   | &approxeq;  | \224A    |
-| Triple Tilde                                                 | ≋         | U+0224B | &#x224B; | &#8779;   | &apid;      | \224B    |
-| All Equal To                                                 | ≌         | U+0224C | &#x224C; | &#8780;   | &bcong;     | \224C    |
-| Equivalent To                                                | ≍         | U+0224D | &#x224D; | &#8781;   | &asympeq;   | \224D    |
-| Geometrically Equivalent To                                  | ≎         | U+0224E | &#x224E; | &#8782;   | &bump;      | \224E    |
-| Difference Between                                           | ≏         | U+0224F | &#x224F; | &#8783;   | &bumpe;     | \224F    |
-| Approaches the Limit                                         | ≐         | U+02250 | &#x2250; | &#8784;   | &esdot;     | \2250    |
-| Geometrically Equal To                                       | ≑         | U+02251 | &#x2251; | &#8785;   | &eDot;      | \2251    |
-| Approximately Equal to or the Image Of                       | ≒         | U+02252 | &#x2252; | &#8786;   | &efDot;     | \2252    |
-| Image of or Approximately Equal To                           | ≓         | U+02253 | &#x2253; | &#8787;   | &erDot;     | \2253    |
-| Colon Equals                                                 | ≔         | U+02254 | &#x2254; | &#8788;   | &colone;    | \2254    |
-| Equals Colon                                                 | ≕         | U+02255 | &#x2255; | &#8789;   | &ecolon;    | \2255    |
-| Ring in Equal To                                             | ≖         | U+02256 | &#x2256; | &#8790;   | &ecir;      | \2256    |
-| Ring Equal To                                                | ≗         | U+02257 | &#x2257; | &#8791;   | &cire;      | \2257    |
-| Corresponds To                                               | ≘         | U+02258 | &#x2258; | &#8792;   |             | \2258    |
-| Estimates                                                    | ≙         | U+02259 | &#x2259; | &#8793;   | &wedgeq;    | \2259    |
-| Equiangular To                                               | ≚         | U+0225A | &#x225A; | &#8794;   | &veeeq;     | \225A    |
-| Star Equals                                                  | ≛         | U+0225B | &#x225B; | &#8795;   |             | \225B    |
-| Delta Equal To                                               | ≜         | U+0225C | &#x225C; | &#8796;   | &trie;      | \225C    |
-| Equal to by Definition                                       | ≝         | U+0225D | &#x225D; | &#8797;   |             | \225D    |
-| Measured By                                                  | ≞         | U+0225E | &#x225E; | &#8798;   |             | \225E    |
-| Questioned Equal To                                          | ≟         | U+0225F | &#x225F; | &#8799;   | &equest;    | \225F    |
-| Identical To                                                 | ≡         | U+02261 | &#x2261; | &#8801;   | &equiv;     | \2261    |
-| Not Identical To                                             | ≢         | U+02262 | &#x2262; | &#8802;   | &nequiv;    | \2262    |
-| Strictly Equivalent To                                       | ≣         | U+02263 | &#x2263; | &#8803;   |             | \2263    |
-| Less-Than or Equal To                                        | ≤         | U+02264 | &#x2264; | &#8804;   | &le;        | \2264    |
-| Greater-Than or Equal To                                     | ≥         | U+02265 | &#x2265; | &#8805;   | &ge;        | \2265    |
-| Less-Than Over Equal To                                      | ≦         | U+02266 | &#x2266; | &#8806;   | &lE;        | \2266    |
-| Greater-Than Over Equal To                                   | ≧         | U+02267 | &#x2267; | &#8807;   | &gE;        | \2267    |
-| Less-Than but Not Equal To                                   | ≨         | U+02268 | &#x2268; | &#8808;   | &lnE;       | \2268    |
-| Greater-Than but Not Equal To                                | ≩         | U+02269 | &#x2269; | &#8809;   | &gnE;       | \2269    |
-| Much Less-Than                                               | ≪         | U+0226A | &#x226A; | &#8810;   | &Lt;        | \226A    |
-| Much Greater-Than                                            | ≫         | U+0226B | &#x226B; | &#8811;   | &Gt;        | \226B    |
-| Between                                                      | ≬         | U+0226C | &#x226C; | &#8812;   | &between;   | \226C    |
-| Not Equivalent To                                            | ≭         | U+0226D | &#x226D; | &#8813;   | &NotCupCap; | \226D    |
-| Not Less-Than                                                | ≮         | U+0226E | &#x226E; | &#8814;   | &nlt;       | \226E    |
-| Not Greater-Than                                             | ≯         | U+0226F | &#x226F; | &#8815;   | &ngt;       | \226F    |
-| Neither Less-Than Nor Equal To                               | ≰         | U+02270 | &#x2270; | &#8816;   | &nle;       | \2270    |
-| Neither Greater-Than Nor Equal To                            | ≱         | U+02271 | &#x2271; | &#8817;   | &nge;       | \2271    |
-| Less-Than or Equivalent To                                   | ≲         | U+02272 | &#x2272; | &#8818;   | &lsim;      | \2272    |
-| Greater-Than or Equivalent To                                | ≳         | U+02273 | &#x2273; | &#8819;   | &gsim;      | \2273    |
-| Neither Less-Than Nor Equivalent To                          | ≴         | U+02274 | &#x2274; | &#8820;   | &nlsim;     | \2274    |
-| Neither Greater-Than Nor Equivalent To                       | ≵         | U+02275 | &#x2275; | &#8821;   | &ngsim;     | \2275    |
-| Less-Than or Greater-Than                                    | ≶         | U+02276 | &#x2276; | &#8822;   | &lg;        | \2276    |
-| Greater-Than or Less-Than                                    | ≷         | U+02277 | &#x2277; | &#8823;   | &gl;        | \2277    |
-| Neither Less-Than Nor Greater-Than                           | ≸         | U+02278 | &#x2278; | &#8824;   | &ntlg;      | \2278    |
-| Neither Greater-Than Nor Less-Than                           | ≹         | U+02279 | &#x2279; | &#8825;   | &ntgl;      | \2279    |
-| Precedes                                                     | ≺         | U+0227A | &#x227A; | &#8826;   | &pr;        | \227A    |
-| Succeeds                                                     | ≻         | U+0227B | &#x227B; | &#8827;   | &sc;        | \227B    |
-| Precedes or Equal To                                         | ≼         | U+0227C | &#x227C; | &#8828;   | &prcue;     | \227C    |
-| Succeeds or Equal To                                         | ≽         | U+0227D | &#x227D; | &#8829;   | &sccue;     | \227D    |
-| Precedes or Equivalent To                                    | ≾         | U+0227E | &#x227E; | &#8830;   | &prsim;     | \227E    |
-| Succeeds or Equivalent To                                    | ≿         | U+0227F | &#x227F; | &#8831;   | &scsim;     | \227F    |
-| Does Not Precede                                             | ⊀         | U+02280 | &#x2280; | &#8832;   | &npr;       | \2280    |
-| Does Not Succeed                                             | ⊁         | U+02281 | &#x2281; | &#8833;   | &nsc;       | \2281    |
-| Subset Of                                                    | ⊂         | U+02282 | &#x2282; | &#8834;   | &sub;       | \2282    |
-| Superset Of                                                  | ⊃         | U+02283 | &#x2283; | &#8835;   | &sup;       | \2283    |
-| Not a Subset Of                                              | ⊄         | U+02284 | &#x2284; | &#8836;   | &nsub;      | \2284    |
-| Not a Superset Of                                            | ⊅         | U+02285 | &#x2285; | &#8837;   | &nsup;      | \2285    |
-| Subset of or Equal To                                        | ⊆         | U+02286 | &#x2286; | &#8838;   | &sube;      | \2286    |
-| Superset of or Equal To                                      | ⊇         | U+02287 | &#x2287; | &#8839;   | &supe;      | \2287    |
-| Neither a Subset of Nor Equal To                             | ⊈         | U+02288 | &#x2288; | &#8840;   | &nsube;     | \2288    |
-| Neither a Superset of Nor Equal To                           | ⊉         | U+02289 | &#x2289; | &#8841;   | &nsupe;     | \2289    |
-| Subset of With Not Equal To                                  | ⊊         | U+0228A | &#x228A; | &#8842;   | &subne;     | \228A    |
-| Superset of With Not Equal To                                | ⊋         | U+0228B | &#x228B; | &#8843;   | &supne;     | \228B    |
-| Multiset                                                     | ⊌         | U+0228C | &#x228C; | &#8844;   |             | \228C    |
-| Multiset Multiplication                                      | ⊍         | U+0228D | &#x228D; | &#8845;   | &cupdot;    | \228D    |
-| Multiset Union                                               | ⊎         | U+0228E | &#x228E; | &#8846;   | &uplus;     | \228E    |
-| Square Image Of                                              | ⊏         | U+0228F | &#x228F; | &#8847;   | &sqsub;     | \228F    |
-| Square Original Of                                           | ⊐         | U+02290 | &#x2290; | &#8848;   | &sqsup;     | \2290    |
-| Square Image of or Equal To                                  | ⊑         | U+02291 | &#x2291; | &#8849;   | &sqsube;    | \2291    |
-| Square Original of or Equal To                               | ⊒         | U+02292 | &#x2292; | &#8850;   | &sqsupe;    | \2292    |
-| Square Cap                                                   | ⊓         | U+02293 | &#x2293; | &#8851;   | &sqcap;     | \2293    |
-| Square Cup                                                   | ⊔         | U+02294 | &#x2294; | &#8852;   | &sqcup;     | \2294    |
-| Circled Plus                                                 | ⊕         | U+02295 | &#x2295; | &#8853;   | &oplus;     | \2295    |
-| Circled Minus                                                | ⊖         | U+02296 | &#x2296; | &#8854;   | &ominus;    | \2296    |
-| Circled Times                                                | ⊗         | U+02297 | &#x2297; | &#8855;   | &otimes;    | \2297    |
-| Circled Division Slash                                       | ⊘         | U+02298 | &#x2298; | &#8856;   | &osol;      | \2298    |
-| Circled Dot Operator                                         | ⊙         | U+02299 | &#x2299; | &#8857;   | &odot;      | \2299    |
-| Circled Ring Operator                                        | ⊚         | U+0229A | &#x229A; | &#8858;   | &ocir;      | \229A    |
-| Circled Asterisk Operator                                    | ⊛         | U+0229B | &#x229B; | &#8859;   | &oast;      | \229B    |
-| Circled Equals                                               | ⊜         | U+0229C | &#x229C; | &#8860;   |             | \229C    |
-| Circled Dash                                                 | ⊝         | U+0229D | &#x229D; | &#8861;   | &odash;     | \229D    |
-| Squared Plus                                                 | ⊞         | U+0229E | &#x229E; | &#8862;   | &plusb;     | \229E    |
-| Squared Minus                                                | ⊟         | U+0229F | &#x229F; | &#8863;   | &minusb;    | \229F    |
-| Squared Times                                                | ⊠         | U+022A0 | &#x22A0; | &#8864;   | &timesb;    | \22A0    |
-| Squared Dot Operator                                         | ⊡         | U+022A1 | &#x22A1; | &#8865;   | &sdotb;     | \22A1    |
-| Right Tack                                                   | ⊢         | U+022A2 | &#x22A2; | &#8866;   | &vdash;     | \22A2    |
-| Left Tack                                                    | ⊣         | U+022A3 | &#x22A3; | &#8867;   | &dashv;     | \22A3    |
-| Down Tack                                                    | ⊤         | U+022A4 | &#x22A4; | &#8868;   | &top;       | \22A4    |
-| Up Tack                                                      | ⊥         | U+022A5 | &#x22A5; | &#8869;   | &perp;      | \22A5    |
-| Assertion                                                    | ⊦         | U+022A6 | &#x22A6; | &#8870;   |             | \22A6    |
-| Models                                                       | ⊧         | U+022A7 | &#x22A7; | &#8871;   | &models;    | \22A7    |
-| True                                                         | ⊨         | U+022A8 | &#x22A8; | &#8872;   | &vDash;     | \22A8    |
-| Forces                                                       | ⊩         | U+022A9 | &#x22A9; | &#8873;   | &Vdash;     | \22A9    |
-| Triple Vertical Bar Right Turnstile                          | ⊪         | U+022AA | &#x22AA; | &#8874;   | &Vvdash;    | \22AA    |
-| Double Vertical Bar Double Right Turnstile                   | ⊫         | U+022AB | &#x22AB; | &#8875;   | &VDash;     | \22AB    |
-| Does Not Prove                                               | ⊬         | U+022AC | &#x22AC; | &#8876;   | &nvdash;    | \22AC    |
-| Not True                                                     | ⊭         | U+022AD | &#x22AD; | &#8877;   | &nvDash;    | \22AD    |
-| Does Not Force                                               | ⊮         | U+022AE | &#x22AE; | &#8878;   | &nVdash;    | \22AE    |
-| Negated Double Vertical Bar Double Right Turnstile           | ⊯         | U+022AF | &#x22AF; | &#8879;   | &nVDash;    | \22AF    |
-| Precedes Under Relation                                      | ⊰         | U+022B0 | &#x22B0; | &#8880;   | &prurel;    | \22B0    |
-| Succeeds Under Relation                                      | ⊱         | U+022B1 | &#x22B1; | &#8881;   |             | \22B1    |
-| Normal Subgroup Of                                           | ⊲         | U+022B2 | &#x22B2; | &#8882;   | &vltri;     | \22B2    |
-| Contains as Normal Subgroup                                  | ⊳         | U+022B3 | &#x22B3; | &#8883;   | &vrtri;     | \22B3    |
-| Normal Subgroup of or Equal To                               | ⊴         | U+022B4 | &#x22B4; | &#8884;   | &ltrie;     | \22B4    |
-| Contains as Normal Subgroup or Equal To                      | ⊵         | U+022B5 | &#x22B5; | &#8885;   | &rtrie;     | \22B5    |
-| Original Of                                                  | ⊶         | U+022B6 | &#x22B6; | &#8886;   | &origof;    | \22B6    |
-| Image Of                                                     | ⊷         | U+022B7 | &#x22B7; | &#8887;   | &imof;      | \22B7    |
-| Multimap                                                     | ⊸         | U+022B8 | &#x22B8; | &#8888;   | &mumap;     | \22B8    |
-| Hermitian Conjugate Matrix                                   | ⊹         | U+022B9 | &#x22B9; | &#8889;   | &hercon;    | \22B9    |
-| Intercalate                                                  | ⊺         | U+022BA | &#x22BA; | &#8890;   | &intcal;    | \22BA    |
-| Xor                                                          | ⊻         | U+022BB | &#x22BB; | &#8891;   | &veebar;    | \22BB    |
-| Nand                                                         | ⊼         | U+022BC | &#x22BC; | &#8892;   |             | \22BC    |
-| Nor                                                          | ⊽         | U+022BD | &#x22BD; | &#8893;   | &barvee;    | \22BD    |
-| Right Angle With Arc                                         | ⊾         | U+022BE | &#x22BE; | &#8894;   | &angrtvb;   | \22BE    |
-| Right Triangle                                               | ⊿         | U+022BF | &#x22BF; | &#8895;   | &lrtri;     | \22BF    |
-| N-Ary Logical And                                            | ⋀         | U+022C0 | &#x22C0; | &#8896;   | &xwedge;    | \22C0    |
-| N-Ary Logical Or                                             | ⋁         | U+022C1 | &#x22C1; | &#8897;   | &xvee;      | \22C1    |
-| N-Ary Intersection                                           | ⋂         | U+022C2 | &#x22C2; | &#8898;   | &xcap;      | \22C2    |
-| N-Ary Union                                                  | ⋃         | U+022C3 | &#x22C3; | &#8899;   | &xcup;      | \22C3    |
-| Diamond Operator                                             | ⋄         | U+022C4 | &#x22C4; | &#8900;   | &diamond;   | \22C4    |
-| Dot Operator                                                 | ⋅         | U+022C5 | &#x22C5; | &#8901;   | &sdot;      | \22C5    |
-| Star Operator                                                | ⋆         | U+022C6 | &#x22C6; | &#8902;   | &Star;      | \22C6    |
-| Division Times                                               | ⋇         | U+022C7 | &#x22C7; | &#8903;   | &divonx;    | \22C7    |
-| Bowtie                                                       | ⋈         | U+022C8 | &#x22C8; | &#8904;   | &bowtie;    | \22C8    |
-| Left Normal Factor Semidirect Product                        | ⋉         | U+022C9 | &#x22C9; | &#8905;   | &ltimes;    | \22C9    |
-| Right Normal Factor Semidirect Product                       | ⋊         | U+022CA | &#x22CA; | &#8906;   | &rtimes;    | \22CA    |
-| Left Semidirect Product                                      | ⋋         | U+022CB | &#x22CB; | &#8907;   | &lthree;    | \22CB    |
-| Right Semidirect Product                                     | ⋌         | U+022CC | &#x22CC; | &#8908;   | &rthree;    | \22CC    |
-| Reversed Tilde Equals                                        | ⋍         | U+022CD | &#x22CD; | &#8909;   | &bsime;     | \22CD    |
-| Curly Logical Or                                             | ⋎         | U+022CE | &#x22CE; | &#8910;   | &cuvee;     | \22CE    |
-| Curly Logical And                                            | ⋏         | U+022CF | &#x22CF; | &#8911;   | &cuwed;     | \22CF    |
-| Double Subset                                                | ⋐         | U+022D0 | &#x22D0; | &#8912;   | &Sub;       | \22D0    |
-| Double Superset                                              | ⋑         | U+022D1 | &#x22D1; | &#8913;   | &Sup;       | \22D1    |
-| Double Intersection                                          | ⋒         | U+022D2 | &#x22D2; | &#8914;   | &Cap;       | \22D2    |
-| Double Union                                                 | ⋓         | U+022D3 | &#x22D3; | &#8915;   | &Cup;       | \22D3    |
-| Pitchfork                                                    | ⋔         | U+022D4 | &#x22D4; | &#8916;   | &fork;      | \22D4    |
-| Equal and Parallel To                                        | ⋕         | U+022D5 | &#x22D5; | &#8917;   | &epar;      | \22D5    |
-| Less-Than With Dot                                           | ⋖         | U+022D6 | &#x22D6; | &#8918;   | &ltdot;     | \22D6    |
-| Greater-Than With Dot                                        | ⋗         | U+022D7 | &#x22D7; | &#8919;   | &gtdot;     | \22D7    |
-| Very Much Less-Than                                          | ⋘         | U+022D8 | &#x22D8; | &#8920;   | &Ll;        | \22D8    |
-| Very Much Greater-Than                                       | ⋙         | U+022D9 | &#x22D9; | &#8921;   | &Gg;        | \22D9    |
-| Less-Than Equal to or Greater-Than                           | ⋚         | U+022DA | &#x22DA; | &#8922;   | &leg;       | \22DA    |
-| Greater-Than Equal to or Less-Than                           | ⋛         | U+022DB | &#x22DB; | &#8923;   | &gel;       | \22DB    |
-| Equal to or Precedes                                         | ⋞         | U+022DE | &#x22DE; | &#8926;   | &cuepr;     | \22DE    |
-| Equal to or Succeeds                                         | ⋟         | U+022DF | &#x22DF; | &#8927;   | &cuesc;     | \22DF    |
-| Does Not Precede or Equal                                    | ⋠         | U+022E0 | &#x22E0; | &#8928;   | &nprcue;    | \22E0    |
-| Does Not Succeed or Equal                                    | ⋡         | U+022E1 | &#x22E1; | &#8929;   | &nsccue;    | \22E1    |
-| Not Square Image of or Equal To                              | ⋢         | U+022E2 | &#x22E2; | &#8930;   | &nsqsube;   | \22E2    |
-| Not Square Original of or Equal To                           | ⋣         | U+022E3 | &#x22E3; | &#8931;   | &nsqsupe;   | \22E3    |
-| Square Image of or Not Equal To                              | ⋤         | U+022E4 | &#x22E4; | &#8932;   |             | \22E4    |
-| Square Original of or Not Equal To                           | ⋥         | U+022E5 | &#x22E5; | &#8933;   |             | \22E5    |
-| Less-Than but Not Equivalent To                              | ⋦         | U+022E6 | &#x22E6; | &#8934;   | &lnsim;     | \22E6    |
-| Greater-Than but Not Equivalent To                           | ⋧         | U+022E7 | &#x22E7; | &#8935;   | &gnsim;     | \22E7    |
-| Precedes but Not Equivalent To                               | ⋨         | U+022E8 | &#x22E8; | &#8936;   | &prnsim;    | \22E8    |
-| Succeeds but Not Equivalent To                               | ⋩         | U+022E9 | &#x22E9; | &#8937;   | &scnsim;    | \22E9    |
-| Not Normal Subgroup Of                                       | ⋪         | U+022EA | &#x22EA; | &#8938;   | &nltri;     | \22EA    |
-| Does Not Contain as Normal Subgroup                          | ⋫         | U+022EB | &#x22EB; | &#8939;   | &nrtri;     | \22EB    |
-| Not Normal Subgroup of or Equal To                           | ⋬         | U+022EC | &#x22EC; | &#8940;   | &nltrie;    | \22EC    |
-| Does Not Contain as Normal Subgroup or Equal                 | ⋭         | U+022ED | &#x22ED; | &#8941;   | &nrtrie;    | \22ED    |
-| Vertical Ellipsis                                            | ⋮         | U+022EE | &#x22EE; | &#8942;   | &vellip;    | \22EE    |
-| Midline Horizontal Ellipsis                                  | ⋯         | U+022EF | &#x22EF; | &#8943;   | &ctdot;     | \22EF    |
-| Up Right Diagonal Ellipsis                                   | ⋰         | U+022F0 | &#x22F0; | &#8944;   | &utdot;     | \22F0    |
-| Down Right Diagonal Ellipsis                                 | ⋱         | U+022F1 | &#x22F1; | &#8945;   | &dtdot;     | \22F1    |
-| Element of With Long Horizontal Stroke                       | ⋲         | U+022F2 | &#x22F2; | &#8946;   | &disin;     | \22F2    |
-| Element of With Vertical Bar at End of Horizontal Stroke     | ⋳         | U+022F3 | &#x22F3; | &#8947;   | &isinsv;    | \22F3    |
+| 描述                                                           | 符号/显示 | UNICODE | HEX CODE | HTML CODE | HTML ENTITY | CSS CODE |
+| :------------------------------------------------------------- | :-------- | :------ | :------- | :-------- | :---------- | :------- |
+| Plus Sign                                                      | +         | U+0002B | &#x2b;   | &#43;     | &plus;      | \002B    |
+| Minus Sign                                                     | −         | U+02212 | &#x2212; | &#8722;   | &minus;     | \2212    |
+| Multiplication Sign                                            | ×         | U+000D7 | &#xd7;   | &#215;    | &times;     | \00D7    |
+| Division Sign                                                  | ÷         | U+000F7 | &#xf7;   | &#247;    | &divide;    | \00F7    |
+| Equal Sign                                                     | =         | U+0003D | &#x3d;   | &#61;     | &equals;    | \003D    |
+| Not Equal To Sign                                              | ≠         | U+02260 | &#x2260; | &#8800;   | &ne;        | \2260    |
+| Plus or Minus Sign                                             | ±         | U+000B1 | &#xb1;   | &#177;    | &plusmn;    | \00B1    |
+| Not Sign                                                       | ¬         | U+000AC | &#xac;   | &#172;    | &not;       | \00AC    |
+| Less-Than Sign                                                 | <         | U+0003C | &#x3c;   | &#60;     | &lt;        | \003C    |
+| Greater-Than Sign                                              | >         | U+0003E | &#x3e;   | &#62;     | &gt;        | \003E    |
+| Equal to or Less-Than Sign                                     | ⋜         | U+022DC | &#x22DC; | &#8924;   |             | \22DC    |
+| Equal to or Greater-Than Sign                                  | ⋝         | U+022DD | &#x22DD; | &#8925;   |             | \22DD    |
+| Degree Sign                                                    | °         | U+000B0 | &#xb0;   | &#176;    | &deg;       | \00B0    |
+| Superscript One                                                | ¹         | U+000B9 | &#xb9;   | &#185;    | &sup1;      | \00B9    |
+| Superscript Two                                                | ²         | U+000B2 | &#xb2;   | &#178;    | &sup2;      | \00B2    |
+| Superscript Three                                              | ³         | U+000B3 | &#xb3;   | &#179;    | &sup3;      | \00B3    |
+| Function                                                       | ƒ         | U+00192 | &#x192;  | &#402;    | &fnof;      | \0192    |
+| Percent Sign                                                   | %         | U+00025 | &#x25;   | &#37;     | &percnt;    | \0025    |
+| Per Mille Sign                                                 | ‰         | U+00089 | &#x89;   | &#137;    | &permil;    | \0089    |
+| Per Ten Thousand Sign                                          | ‱         | U+02031 | &#x2031; | &#8241;   | &pertenk;   | \2031    |
+| For All                                                        | ∀         | U+02200 | &#x2200; | &#8704;   | &forall;    | \2200    |
+| Complement                                                     | ∁         | U+02201 | &#x2201; | &#8705;   | &comp;      | \2201    |
+| Partial Differential                                           | ∂         | U+02202 | &#x2202; | &#8706;   | &part;      | \2202    |
+| There Exists                                                   | ∃         | U+02203 | &#x2203; | &#8707;   | &exist;     | \2203    |
+| There Does Not Exist                                           | ∄         | U+02204 | &#x2204; | &#8708;   | &nexist;    | \2204    |
+| Empty Set                                                      | ∅         | U+02205 | &#x2205; | &#8709;   | &empty;     | \2205    |
+| Increment                                                      | ∆         | U+02206 | &#x2206; | &#8710;   |             | \2206    |
+| Nabla                                                          | ∇         | U+02207 | &#x2207; | &#8711;   | &nabla;     | \2207    |
+| Element Of                                                     | ∈         | U+02208 | &#x2208; | &#8712;   | &isin;      | \2208    |
+| Not an Element Of                                              | ∉         | U+02209 | &#x2209; | &#8713;   | &notin;     | \2209    |
+| Small Element Of                                               | ∊         | U+0220A | &#x220A; | &#8714;   |             | \220A    |
+| Contains as Member                                             | ∋         | U+0220B | &#x220B; | &#8715;   | &ni;        | \220B    |
+| Does Not Contain as Member                                     | ∌         | U+0220C | &#x220C; | &#8716;   | &notni;     | \220C    |
+| Small Contains as Member                                       | ∍         | U+0220D | &#x220D; | &#8717;   |             | \220D    |
+| End of Proof                                                   | ∎         | U+0220E | &#x220E; | &#8718;   |             | \220E    |
+| N-Ary Product                                                  | ∏         | U+0220F | &#x220F; | &#8719;   | &prod;      | \220F    |
+| N-Ary Coproduct                                                | ∐         | U+02210 | &#x2210; | &#8720;   | &coprod;    | \2210    |
+| N-Ary Summation                                                | ∑         | U+02211 | &#x2211; | &#8721;   | &sum;       | \2211    |
+| Minus-or-Plus Sign                                             | ∓         | U+02213 | &#x2213; | &#8723;   | &mnplus;    | \2213    |
+| Dot Plus                                                       | ∔         | U+02214 | &#x2214; | &#8724;   | &plusdo;    | \2214    |
+| Division Slash                                                 | ∕         | U+02215 | &#x2215; | &#8725;   |             | \2215    |
+| Set Minus                                                      | ∖         | U+02216 | &#x2216; | &#8726;   | &setminus;  | \2216    |
+| Asterisk Operator                                              | ∗         | U+02217 | &#x2217; | &#8727;   | &lowast;    | \2217    |
+| Ring Operator                                                  | ∘         | U+02218 | &#x2218; | &#8728;   | &compfn;    | \2218    |
+| Bullet Operator                                                | ∙         | U+02219 | &#x2219; | &#8729;   |             | \2219    |
+| Square Root                                                    | √         | U+0221A | &#x221A; | &#8730;   | &radic;     | \221A    |
+| Cube Root                                                      | ∛         | U+0221B | &#x221B; | &#8731;   |             | \221B    |
+| Fourth Root                                                    | ∜         | U+0221C | &#x221C; | &#8732;   |             | \221C    |
+| Proportional To                                                | ∝         | U+0221D | &#x221D; | &#8733;   | &prop;      | \221D    |
+| Infinity                                                       | ∞         | U+0221E | &#x221E; | &#8734;   | &infin;     | \221E    |
+| Right Angle                                                    | ∟         | U+0221F | &#x221F; | &#8735;   | &angrt;     | \221F    |
+| Angle                                                          | ∠         | U+02220 | &#x2220; | &#8736;   | &ang;       | \2220    |
+| Measured Angle                                                 | ∡         | U+02221 | &#x2221; | &#8737;   | &angmsd;    | \2221    |
+| Spherical Angle                                                | ∢         | U+02222 | &#x2222; | &#8738;   | &angsph;    | \2222    |
+| Divides                                                        | ∣         | U+02223 | &#x2223; | &#8739;   | &mid;       | \2223    |
+| Does Not Divide                                                | ∤         | U+02224 | &#x2224; | &#8740;   | &nmid;      | \2224    |
+| Parallel To                                                    | ∥         | U+02225 | &#x2225; | &#8741;   | &parallel;  | \2225    |
+| Not Parallel To                                                | ∦         | U+02226 | &#x2226; | &#8742;   | &npar;      | \2226    |
+| Logical And                                                    | ∧         | U+02227 | &#x2227; | &#8743;   | &and;       | \2227    |
+| Logical Or                                                     | ∨         | U+02228 | &#x2228; | &#8744;   | &or;        | \2228    |
+| Intersection                                                   | ∩         | U+02229 | &#x2229; | &#8745;   | &cap;       | \2229    |
+| Union                                                          | ∪         | U+0222A | &#x222A; | &#8746;   | &cup;       | \222A    |
+| Integral                                                       | ∫         | U+0222B | &#x222B; | &#8747;   | &int;       | \222B    |
+| Double Integral                                                | ∬         | U+0222C | &#x222C; | &#8748;   | &Int;       | \222C    |
+| Triple Integral                                                | ∭         | U+0222D | &#x222D; | &#8749;   | &iiint;     | \222D    |
+| Contour Integral                                               | ∮         | U+0222E | &#x222E; | &#8750;   | &conint;    | \222E    |
+| Surface Integral                                               | ∯         | U+0222F | &#x222F; | &#8751;   | &Conint;    | \222F    |
+| Volume Integral                                                | ∰         | U+02230 | &#x2230; | &#8752;   | &Cconint;   | \2230    |
+| Clockwise Integral                                             | ∱         | U+02231 | &#x2231; | &#8753;   | &cwint;     | \2231    |
+| Clockwise Contour Integral                                     | ∲         | U+02232 | &#x2232; | &#8754;   | &cwconint;  | \2232    |
+| Anticlockwise Contour Integral                                 | ∳         | U+02233 | &#x2233; | &#8755;   | &awconint;  | \2233    |
+| Therefore                                                      | ∴         | U+02234 | &#x2234; | &#8756;   | &there4;    | \2234    |
+| Because                                                        | ∵         | U+02235 | &#x2235; | &#8757;   | &because;   | \2235    |
+| Ratio                                                          | ∶         | U+02236 | &#x2236; | &#8758;   | &ratio;     | \2236    |
+| Proportion                                                     | ∷         | U+02237 | &#x2237; | &#8759;   | &Colon;     | \2237    |
+| Dot Minus                                                      | ∸         | U+02238 | &#x2238; | &#8760;   | &minusd;    | \2238    |
+| Excess                                                         | ∹         | U+02239 | &#x2239; | &#8761;   |             | \2239    |
+| Geometric Proportion                                           | ∺         | U+0223A | &#x223A; | &#8762;   | &mDDot;     | \223A    |
+| Homothetic                                                     | ∻         | U+0223B | &#x223B; | &#8763;   | &homtht;    | \223B    |
+| Tilde Operator                                                 | ∼         | U+0223C | &#x223C; | &#8764;   | &sim;       | \223C    |
+| Reversed Tilde                                                 | ∽         | U+0223D | &#x223D; | &#8765;   | &bsim;      | \223D    |
+| Inverted Lazy S                                                | ∾         | U+0223E | &#x223E; | &#8766;   | &ac;        | \223E    |
+| Sine Wave                                                      | ∿         | U+0223F | &#x223F; | &#8767;   | &acd;       | \223F    |
+| Wreath Product                                                 | ≀         | U+02240 | &#x2240; | &#8768;   | &wreath;    | \2240    |
+| Not Tilde                                                      | ≁         | U+02241 | &#x2241; | &#8769;   | &nsim;      | \2241    |
+| Minus Tilde                                                    | ≂         | U+02242 | &#x2242; | &#8770;   | &esim;      | \2242    |
+| Asymptotically Equal To                                        | ≃         | U+02243 | &#x2243; | &#8771;   | &sime;      | \2243    |
+| Not Asymptotically Equal To                                    | ≄         | U+02244 | &#x2244; | &#8772;   | &nsime;     | \2244    |
+| Approximately Equal To                                         | ≅         | U+02245 | &#x2245; | &#8773;   | &cong;      | \2245    |
+| Approximately but Not Actually Equal To                        | ≆         | U+02246 | &#x2246; | &#8774;   | &simne;     | \2246    |
+| Neither Approximately Nor Actually Equal To                    | ≇         | U+02247 | &#x2247; | &#8775;   | &ncong;     | \2247    |
+| Almost Equal To                                                | ≈         | U+02248 | &#x2248; | &#8776;   | &asymp;     | \2248    |
+| Not Almost Equal To                                            | ≉         | U+02249 | &#x2249; | &#8777;   | &nap;       | \2249    |
+| Almost Equal or Equal To                                       | ≊         | U+0224A | &#x224A; | &#8778;   | &approxeq;  | \224A    |
+| Triple Tilde                                                   | ≋         | U+0224B | &#x224B; | &#8779;   | &apid;      | \224B    |
+| All Equal To                                                   | ≌         | U+0224C | &#x224C; | &#8780;   | &bcong;     | \224C    |
+| Equivalent To                                                  | ≍         | U+0224D | &#x224D; | &#8781;   | &asympeq;   | \224D    |
+| Geometrically Equivalent To                                    | ≎         | U+0224E | &#x224E; | &#8782;   | &bump;      | \224E    |
+| Difference Between                                             | ≏         | U+0224F | &#x224F; | &#8783;   | &bumpe;     | \224F    |
+| Approaches the Limit                                           | ≐         | U+02250 | &#x2250; | &#8784;   | &esdot;     | \2250    |
+| Geometrically Equal To                                         | ≑         | U+02251 | &#x2251; | &#8785;   | &eDot;      | \2251    |
+| Approximately Equal to or the Image Of                         | ≒         | U+02252 | &#x2252; | &#8786;   | &efDot;     | \2252    |
+| Image of or Approximately Equal To                             | ≓         | U+02253 | &#x2253; | &#8787;   | &erDot;     | \2253    |
+| Colon Equals                                                   | ≔         | U+02254 | &#x2254; | &#8788;   | &colone;    | \2254    |
+| Equals Colon                                                   | ≕         | U+02255 | &#x2255; | &#8789;   | &ecolon;    | \2255    |
+| Ring in Equal To                                               | ≖         | U+02256 | &#x2256; | &#8790;   | &ecir;      | \2256    |
+| Ring Equal To                                                  | ≗         | U+02257 | &#x2257; | &#8791;   | &cire;      | \2257    |
+| Corresponds To                                                 | ≘         | U+02258 | &#x2258; | &#8792;   |             | \2258    |
+| Estimates                                                      | ≙         | U+02259 | &#x2259; | &#8793;   | &wedgeq;    | \2259    |
+| Equiangular To                                                 | ≚         | U+0225A | &#x225A; | &#8794;   | &veeeq;     | \225A    |
+| Star Equals                                                    | ≛         | U+0225B | &#x225B; | &#8795;   |             | \225B    |
+| Delta Equal To                                                 | ≜         | U+0225C | &#x225C; | &#8796;   | &trie;      | \225C    |
+| Equal to by Definition                                         | ≝         | U+0225D | &#x225D; | &#8797;   |             | \225D    |
+| Measured By                                                    | ≞         | U+0225E | &#x225E; | &#8798;   |             | \225E    |
+| Questioned Equal To                                            | ≟         | U+0225F | &#x225F; | &#8799;   | &equest;    | \225F    |
+| Identical To                                                   | ≡         | U+02261 | &#x2261; | &#8801;   | &equiv;     | \2261    |
+| Not Identical To                                               | ≢         | U+02262 | &#x2262; | &#8802;   | &nequiv;    | \2262    |
+| Strictly Equivalent To                                         | ≣         | U+02263 | &#x2263; | &#8803;   |             | \2263    |
+| Less-Than or Equal To                                          | ≤         | U+02264 | &#x2264; | &#8804;   | &le;        | \2264    |
+| Greater-Than or Equal To                                       | ≥         | U+02265 | &#x2265; | &#8805;   | &ge;        | \2265    |
+| Less-Than Over Equal To                                        | ≦         | U+02266 | &#x2266; | &#8806;   | &lE;        | \2266    |
+| Greater-Than Over Equal To                                     | ≧         | U+02267 | &#x2267; | &#8807;   | &gE;        | \2267    |
+| Less-Than but Not Equal To                                     | ≨         | U+02268 | &#x2268; | &#8808;   | &lnE;       | \2268    |
+| Greater-Than but Not Equal To                                  | ≩         | U+02269 | &#x2269; | &#8809;   | &gnE;       | \2269    |
+| Much Less-Than                                                 | ≪         | U+0226A | &#x226A; | &#8810;   | &Lt;        | \226A    |
+| Much Greater-Than                                              | ≫         | U+0226B | &#x226B; | &#8811;   | &Gt;        | \226B    |
+| Between                                                        | ≬         | U+0226C | &#x226C; | &#8812;   | &between;   | \226C    |
+| Not Equivalent To                                              | ≭         | U+0226D | &#x226D; | &#8813;   | &NotCupCap; | \226D    |
+| Not Less-Than                                                  | ≮         | U+0226E | &#x226E; | &#8814;   | &nlt;       | \226E    |
+| Not Greater-Than                                               | ≯         | U+0226F | &#x226F; | &#8815;   | &ngt;       | \226F    |
+| Neither Less-Than Nor Equal To                                 | ≰         | U+02270 | &#x2270; | &#8816;   | &nle;       | \2270    |
+| Neither Greater-Than Nor Equal To                              | ≱         | U+02271 | &#x2271; | &#8817;   | &nge;       | \2271    |
+| Less-Than or Equivalent To                                     | ≲         | U+02272 | &#x2272; | &#8818;   | &lsim;      | \2272    |
+| Greater-Than or Equivalent To                                  | ≳         | U+02273 | &#x2273; | &#8819;   | &gsim;      | \2273    |
+| Neither Less-Than Nor Equivalent To                            | ≴         | U+02274 | &#x2274; | &#8820;   | &nlsim;     | \2274    |
+| Neither Greater-Than Nor Equivalent To                         | ≵         | U+02275 | &#x2275; | &#8821;   | &ngsim;     | \2275    |
+| Less-Than or Greater-Than                                      | ≶         | U+02276 | &#x2276; | &#8822;   | &lg;        | \2276    |
+| Greater-Than or Less-Than                                      | ≷         | U+02277 | &#x2277; | &#8823;   | &gl;        | \2277    |
+| Neither Less-Than Nor Greater-Than                             | ≸         | U+02278 | &#x2278; | &#8824;   | &ntlg;      | \2278    |
+| Neither Greater-Than Nor Less-Than                             | ≹         | U+02279 | &#x2279; | &#8825;   | &ntgl;      | \2279    |
+| Precedes                                                       | ≺         | U+0227A | &#x227A; | &#8826;   | &pr;        | \227A    |
+| Succeeds                                                       | ≻         | U+0227B | &#x227B; | &#8827;   | &sc;        | \227B    |
+| Precedes or Equal To                                           | ≼         | U+0227C | &#x227C; | &#8828;   | &prcue;     | \227C    |
+| Succeeds or Equal To                                           | ≽         | U+0227D | &#x227D; | &#8829;   | &sccue;     | \227D    |
+| Precedes or Equivalent To                                      | ≾         | U+0227E | &#x227E; | &#8830;   | &prsim;     | \227E    |
+| Succeeds or Equivalent To                                      | ≿         | U+0227F | &#x227F; | &#8831;   | &scsim;     | \227F    |
+| Does Not Precede                                               | ⊀         | U+02280 | &#x2280; | &#8832;   | &npr;       | \2280    |
+| Does Not Succeed                                               | ⊁         | U+02281 | &#x2281; | &#8833;   | &nsc;       | \2281    |
+| Subset Of                                                      | ⊂         | U+02282 | &#x2282; | &#8834;   | &sub;       | \2282    |
+| Superset Of                                                    | ⊃         | U+02283 | &#x2283; | &#8835;   | &sup;       | \2283    |
+| Not a Subset Of                                                | ⊄         | U+02284 | &#x2284; | &#8836;   | &nsub;      | \2284    |
+| Not a Superset Of                                              | ⊅         | U+02285 | &#x2285; | &#8837;   | &nsup;      | \2285    |
+| Subset of or Equal To                                          | ⊆         | U+02286 | &#x2286; | &#8838;   | &sube;      | \2286    |
+| Superset of or Equal To                                        | ⊇         | U+02287 | &#x2287; | &#8839;   | &supe;      | \2287    |
+| Neither a Subset of Nor Equal To                               | ⊈         | U+02288 | &#x2288; | &#8840;   | &nsube;     | \2288    |
+| Neither a Superset of Nor Equal To                             | ⊉         | U+02289 | &#x2289; | &#8841;   | &nsupe;     | \2289    |
+| Subset of With Not Equal To                                    | ⊊         | U+0228A | &#x228A; | &#8842;   | &subne;     | \228A    |
+| Superset of With Not Equal To                                  | ⊋         | U+0228B | &#x228B; | &#8843;   | &supne;     | \228B    |
+| Multiset                                                       | ⊌         | U+0228C | &#x228C; | &#8844;   |             | \228C    |
+| Multiset Multiplication                                        | ⊍         | U+0228D | &#x228D; | &#8845;   | &cupdot;    | \228D    |
+| Multiset Union                                                 | ⊎         | U+0228E | &#x228E; | &#8846;   | &uplus;     | \228E    |
+| Square Image Of                                                | ⊏         | U+0228F | &#x228F; | &#8847;   | &sqsub;     | \228F    |
+| Square Original Of                                             | ⊐         | U+02290 | &#x2290; | &#8848;   | &sqsup;     | \2290    |
+| Square Image of or Equal To                                    | ⊑         | U+02291 | &#x2291; | &#8849;   | &sqsube;    | \2291    |
+| Square Original of or Equal To                                 | ⊒         | U+02292 | &#x2292; | &#8850;   | &sqsupe;    | \2292    |
+| Square Cap                                                     | ⊓         | U+02293 | &#x2293; | &#8851;   | &sqcap;     | \2293    |
+| Square Cup                                                     | ⊔         | U+02294 | &#x2294; | &#8852;   | &sqcup;     | \2294    |
+| Circled Plus                                                   | ⊕         | U+02295 | &#x2295; | &#8853;   | &oplus;     | \2295    |
+| Circled Minus                                                  | ⊖         | U+02296 | &#x2296; | &#8854;   | &ominus;    | \2296    |
+| Circled Times                                                  | ⊗         | U+02297 | &#x2297; | &#8855;   | &otimes;    | \2297    |
+| Circled Division Slash                                         | ⊘         | U+02298 | &#x2298; | &#8856;   | &osol;      | \2298    |
+| Circled Dot Operator                                           | ⊙         | U+02299 | &#x2299; | &#8857;   | &odot;      | \2299    |
+| Circled Ring Operator                                          | ⊚         | U+0229A | &#x229A; | &#8858;   | &ocir;      | \229A    |
+| Circled Asterisk Operator                                      | ⊛         | U+0229B | &#x229B; | &#8859;   | &oast;      | \229B    |
+| Circled Equals                                                 | ⊜         | U+0229C | &#x229C; | &#8860;   |             | \229C    |
+| Circled Dash                                                   | ⊝         | U+0229D | &#x229D; | &#8861;   | &odash;     | \229D    |
+| Squared Plus                                                   | ⊞         | U+0229E | &#x229E; | &#8862;   | &plusb;     | \229E    |
+| Squared Minus                                                  | ⊟         | U+0229F | &#x229F; | &#8863;   | &minusb;    | \229F    |
+| Squared Times                                                  | ⊠         | U+022A0 | &#x22A0; | &#8864;   | &timesb;    | \22A0    |
+| Squared Dot Operator                                           | ⊡         | U+022A1 | &#x22A1; | &#8865;   | &sdotb;     | \22A1    |
+| Right Tack                                                     | ⊢         | U+022A2 | &#x22A2; | &#8866;   | &vdash;     | \22A2    |
+| Left Tack                                                      | ⊣         | U+022A3 | &#x22A3; | &#8867;   | &dashv;     | \22A3    |
+| Down Tack                                                      | ⊤         | U+022A4 | &#x22A4; | &#8868;   | &top;       | \22A4    |
+| Up Tack                                                        | ⊥         | U+022A5 | &#x22A5; | &#8869;   | &perp;      | \22A5    |
+| Assertion                                                      | ⊦         | U+022A6 | &#x22A6; | &#8870;   |             | \22A6    |
+| Models                                                         | ⊧         | U+022A7 | &#x22A7; | &#8871;   | &models;    | \22A7    |
+| True                                                           | ⊨         | U+022A8 | &#x22A8; | &#8872;   | &vDash;     | \22A8    |
+| Forces                                                         | ⊩         | U+022A9 | &#x22A9; | &#8873;   | &Vdash;     | \22A9    |
+| Triple Vertical Bar Right Turnstile                            | ⊪         | U+022AA | &#x22AA; | &#8874;   | &Vvdash;    | \22AA    |
+| Double Vertical Bar Double Right Turnstile                     | ⊫         | U+022AB | &#x22AB; | &#8875;   | &VDash;     | \22AB    |
+| Does Not Prove                                                 | ⊬         | U+022AC | &#x22AC; | &#8876;   | &nvdash;    | \22AC    |
+| Not True                                                       | ⊭         | U+022AD | &#x22AD; | &#8877;   | &nvDash;    | \22AD    |
+| Does Not Force                                                 | ⊮         | U+022AE | &#x22AE; | &#8878;   | &nVdash;    | \22AE    |
+| Negated Double Vertical Bar Double Right Turnstile             | ⊯         | U+022AF | &#x22AF; | &#8879;   | &nVDash;    | \22AF    |
+| Precedes Under Relation                                        | ⊰         | U+022B0 | &#x22B0; | &#8880;   | &prurel;    | \22B0    |
+| Succeeds Under Relation                                        | ⊱         | U+022B1 | &#x22B1; | &#8881;   |             | \22B1    |
+| Normal Subgroup Of                                             | ⊲         | U+022B2 | &#x22B2; | &#8882;   | &vltri;     | \22B2    |
+| Contains as Normal Subgroup                                    | ⊳         | U+022B3 | &#x22B3; | &#8883;   | &vrtri;     | \22B3    |
+| Normal Subgroup of or Equal To                                 | ⊴         | U+022B4 | &#x22B4; | &#8884;   | &ltrie;     | \22B4    |
+| Contains as Normal Subgroup or Equal To                        | ⊵         | U+022B5 | &#x22B5; | &#8885;   | &rtrie;     | \22B5    |
+| Original Of                                                    | ⊶         | U+022B6 | &#x22B6; | &#8886;   | &origof;    | \22B6    |
+| Image Of                                                       | ⊷         | U+022B7 | &#x22B7; | &#8887;   | &imof;      | \22B7    |
+| Multimap                                                       | ⊸         | U+022B8 | &#x22B8; | &#8888;   | &mumap;     | \22B8    |
+| Hermitian Conjugate Matrix                                     | ⊹         | U+022B9 | &#x22B9; | &#8889;   | &hercon;    | \22B9    |
+| Intercalate                                                    | ⊺         | U+022BA | &#x22BA; | &#8890;   | &intcal;    | \22BA    |
+| Xor                                                            | ⊻         | U+022BB | &#x22BB; | &#8891;   | &veebar;    | \22BB    |
+| Nand                                                           | ⊼         | U+022BC | &#x22BC; | &#8892;   |             | \22BC    |
+| Nor                                                            | ⊽         | U+022BD | &#x22BD; | &#8893;   | &barvee;    | \22BD    |
+| Right Angle With Arc                                           | ⊾         | U+022BE | &#x22BE; | &#8894;   | &angrtvb;   | \22BE    |
+| Right Triangle                                                 | ⊿         | U+022BF | &#x22BF; | &#8895;   | &lrtri;     | \22BF    |
+| N-Ary Logical And                                              | ⋀         | U+022C0 | &#x22C0; | &#8896;   | &xwedge;    | \22C0    |
+| N-Ary Logical Or                                               | ⋁         | U+022C1 | &#x22C1; | &#8897;   | &xvee;      | \22C1    |
+| N-Ary Intersection                                             | ⋂         | U+022C2 | &#x22C2; | &#8898;   | &xcap;      | \22C2    |
+| N-Ary Union                                                    | ⋃         | U+022C3 | &#x22C3; | &#8899;   | &xcup;      | \22C3    |
+| Diamond Operator                                               | ⋄         | U+022C4 | &#x22C4; | &#8900;   | &diamond;   | \22C4    |
+| Dot Operator                                                   | ⋅         | U+022C5 | &#x22C5; | &#8901;   | &sdot;      | \22C5    |
+| Star Operator                                                  | ⋆         | U+022C6 | &#x22C6; | &#8902;   | &Star;      | \22C6    |
+| Division Times                                                 | ⋇         | U+022C7 | &#x22C7; | &#8903;   | &divonx;    | \22C7    |
+| Bowtie                                                         | ⋈         | U+022C8 | &#x22C8; | &#8904;   | &bowtie;    | \22C8    |
+| Left Normal Factor Semidirect Product                          | ⋉         | U+022C9 | &#x22C9; | &#8905;   | &ltimes;    | \22C9    |
+| Right Normal Factor Semidirect Product                         | ⋊         | U+022CA | &#x22CA; | &#8906;   | &rtimes;    | \22CA    |
+| Left Semidirect Product                                        | ⋋         | U+022CB | &#x22CB; | &#8907;   | &lthree;    | \22CB    |
+| Right Semidirect Product                                       | ⋌         | U+022CC | &#x22CC; | &#8908;   | &rthree;    | \22CC    |
+| Reversed Tilde Equals                                          | ⋍         | U+022CD | &#x22CD; | &#8909;   | &bsime;     | \22CD    |
+| Curly Logical Or                                               | ⋎         | U+022CE | &#x22CE; | &#8910;   | &cuvee;     | \22CE    |
+| Curly Logical And                                              | ⋏         | U+022CF | &#x22CF; | &#8911;   | &cuwed;     | \22CF    |
+| Double Subset                                                  | ⋐         | U+022D0 | &#x22D0; | &#8912;   | &Sub;       | \22D0    |
+| Double Superset                                                | ⋑         | U+022D1 | &#x22D1; | &#8913;   | &Sup;       | \22D1    |
+| Double Intersection                                            | ⋒         | U+022D2 | &#x22D2; | &#8914;   | &Cap;       | \22D2    |
+| Double Union                                                   | ⋓         | U+022D3 | &#x22D3; | &#8915;   | &Cup;       | \22D3    |
+| Pitchfork                                                      | ⋔         | U+022D4 | &#x22D4; | &#8916;   | &fork;      | \22D4    |
+| Equal and Parallel To                                          | ⋕         | U+022D5 | &#x22D5; | &#8917;   | &epar;      | \22D5    |
+| Less-Than With Dot                                             | ⋖         | U+022D6 | &#x22D6; | &#8918;   | &ltdot;     | \22D6    |
+| Greater-Than With Dot                                          | ⋗         | U+022D7 | &#x22D7; | &#8919;   | &gtdot;     | \22D7    |
+| Very Much Less-Than                                            | ⋘         | U+022D8 | &#x22D8; | &#8920;   | &Ll;        | \22D8    |
+| Very Much Greater-Than                                         | ⋙         | U+022D9 | &#x22D9; | &#8921;   | &Gg;        | \22D9    |
+| Less-Than Equal to or Greater-Than                             | ⋚         | U+022DA | &#x22DA; | &#8922;   | &leg;       | \22DA    |
+| Greater-Than Equal to or Less-Than                             | ⋛         | U+022DB | &#x22DB; | &#8923;   | &gel;       | \22DB    |
+| Equal to or Precedes                                           | ⋞         | U+022DE | &#x22DE; | &#8926;   | &cuepr;     | \22DE    |
+| Equal to or Succeeds                                           | ⋟         | U+022DF | &#x22DF; | &#8927;   | &cuesc;     | \22DF    |
+| Does Not Precede or Equal                                      | ⋠         | U+022E0 | &#x22E0; | &#8928;   | &nprcue;    | \22E0    |
+| Does Not Succeed or Equal                                      | ⋡         | U+022E1 | &#x22E1; | &#8929;   | &nsccue;    | \22E1    |
+| Not Square Image of or Equal To                                | ⋢         | U+022E2 | &#x22E2; | &#8930;   | &nsqsube;   | \22E2    |
+| Not Square Original of or Equal To                             | ⋣         | U+022E3 | &#x22E3; | &#8931;   | &nsqsupe;   | \22E3    |
+| Square Image of or Not Equal To                                | ⋤         | U+022E4 | &#x22E4; | &#8932;   |             | \22E4    |
+| Square Original of or Not Equal To                             | ⋥         | U+022E5 | &#x22E5; | &#8933;   |             | \22E5    |
+| Less-Than but Not Equivalent To                                | ⋦         | U+022E6 | &#x22E6; | &#8934;   | &lnsim;     | \22E6    |
+| Greater-Than but Not Equivalent To                             | ⋧         | U+022E7 | &#x22E7; | &#8935;   | &gnsim;     | \22E7    |
+| Precedes but Not Equivalent To                                 | ⋨         | U+022E8 | &#x22E8; | &#8936;   | &prnsim;    | \22E8    |
+| Succeeds but Not Equivalent To                                 | ⋩         | U+022E9 | &#x22E9; | &#8937;   | &scnsim;    | \22E9    |
+| Not Normal Subgroup Of                                         | ⋪         | U+022EA | &#x22EA; | &#8938;   | &nltri;     | \22EA    |
+| Does Not Contain as Normal Subgroup                            | ⋫         | U+022EB | &#x22EB; | &#8939;   | &nrtri;     | \22EB    |
+| Not Normal Subgroup of or Equal To                             | ⋬         | U+022EC | &#x22EC; | &#8940;   | &nltrie;    | \22EC    |
+| Does Not Contain as Normal Subgroup or Equal                   | ⋭         | U+022ED | &#x22ED; | &#8941;   | &nrtrie;    | \22ED    |
+| Vertical Ellipsis                                              | ⋮         | U+022EE | &#x22EE; | &#8942;   | &vellip;    | \22EE    |
+| Midline Horizontal Ellipsis                                    | ⋯         | U+022EF | &#x22EF; | &#8943;   | &ctdot;     | \22EF    |
+| Up Right Diagonal Ellipsis                                     | ⋰         | U+022F0 | &#x22F0; | &#8944;   | &utdot;     | \22F0    |
+| Down Right Diagonal Ellipsis                                   | ⋱         | U+022F1 | &#x22F1; | &#8945;   | &dtdot;     | \22F1    |
+| Element of With Long Horizontal Stroke                         | ⋲         | U+022F2 | &#x22F2; | &#8946;   | &disin;     | \22F2    |
+| Element of With Vertical Bar at End of Horizontal Stroke       | ⋳         | U+022F3 | &#x22F3; | &#8947;   | &isinsv;    | \22F3    |
 | Small Element of With Vertical Bar at End of Horizontal Stroke | ⋴         | U+022F4 | &#x22F4; | &#8948;   | &isins;     | \22F4    |
-| Element of With Dot Above                                    | ⋵         | U+022F5 | &#x22F5; | &#8949;   | &isindot;   | \22F5    |
-| Element of With Overbar                                      | ⋶         | U+022F6 | &#x22F6; | &#8950;   | &notinvc;   | \22F6    |
-| Small Element of With Overbar                                | ⋷         | U+022F7 | &#x22F7; | &#8951;   | &notinvb;   | \22F7    |
-| Element of With Underbar                                     | ⋸         | U+022F8 | &#x22F8; | &#8952;   |             | \22F8    |
-| Element of With Two Horizontal Strokes                       | ⋹         | U+022F9 | &#x22F9; | &#8953;   | &isinE;     | \22F9    |
-| Contains With Long Horizontal Stroke                         | ⋺         | U+022FA | &#x22FA; | &#8954;   | &nisd;      | \22FA    |
-| Contains With Vertical Bar at End of Horizontal Stroke       | ⋻         | U+022FB | &#x22FB; | &#8955;   | &xnis;      | \22FB    |
-| Small Contains With Vertical Bar at End of Horizontal Stroke | ⋼         | U+022FC | &#x22FC; | &#8956;   | &nis;       | \22FC    |
-| Contains With Overbar                                        | ⋽         | U+022FD | &#x22FD; | &#8957;   | &notnivc;   | \22FD    |
-| Small Contains With Overbar                                  | ⋾         | U+022FE | &#x22FE; | &#8958;   | &notnivb;   | \22FE    |
-| Z Notation Bag Membership                                    | ⋿         | U+022FF | &#x22FF; | &#8959;   |             | \22FF    |
-| Superscript Zero                                             | ⁰         | U+02070 | &#x2070; | &#8304;   |             | \2070    |
-| Superscript Latin Small Letter I                             | ⁱ         | U+02071 | &#x2071; | &#8305;   |             | \2071    |
-| Superscript Four                                             | ⁴         | U+02074 | &#x2074; | &#8308;   |             | \2074    |
-| Superscript Five                                             | ⁵         | U+02075 | &#x2075; | &#8309;   |             | \2075    |
-| Superscript Six                                              | ⁶         | U+02076 | &#x2076; | &#8310;   |             | \2076    |
-| Superscript Seven                                            | ⁷         | U+02077 | &#x2077; | &#8311;   |             | \2077    |
-| Superscript Eight                                            | ⁸         | U+02078 | &#x2078; | &#8312;   |             | \2078    |
-| Superscript Nine                                             | ⁹         | U+02079 | &#x2079; | &#8313;   |             | \2079    |
-| Superscript Plus Sign                                        | ⁺         | U+0207A | &#x207A; | &#8314;   |             | \207A    |
-| Superscript Minus                                            | ⁻         | U+0207B | &#x207B; | &#8315;   |             | \207B    |
-| Superscript Equals Sign                                      | ⁼         | U+0207C | &#x207C; | &#8316;   |             | \207C    |
-| Superscript Left Parenthesis                                 | ⁽         | U+0207D | &#x207D; | &#8317;   |             | \207D    |
-| Superscript Right Parenthesis                                | ⁾         | U+0207E | &#x207E; | &#8318;   |             | \207E    |
-| Superscript Latin Small Letter N                             | ⁿ         | U+0207F | &#x207F; | &#8319;   |             | \207F    |
-| Subscript Zero                                               | ₀         | U+02080 | &#x2080; | &#8320;   |             | \2080    |
-| Subscript One                                                | ₁         | U+02081 | &#x2081; | &#8321;   |             | \2081    |
-| Subscript Two                                                | ₂         | U+02082 | &#x2082; | &#8322;   |             | \2082    |
-| Subscript Three                                              | ₃         | U+02083 | &#x2083; | &#8323;   |             | \2083    |
-| Subscript Four                                               | ₄         | U+02084 | &#x2084; | &#8324;   |             | \2084    |
-| Subscript Five                                               | ₅         | U+02085 | &#x2085; | &#8325;   |             | \2085    |
-| Subscript Six                                                | ₆         | U+02086 | &#x2086; | &#8326;   |             | \2086    |
-| Subscript Seven                                              | ₇         | U+02087 | &#x2087; | &#8327;   |             | \2087    |
-| Subscript Eight                                              | ₈         | U+02088 | &#x2088; | &#8328;   |             | \2088    |
-| Subscript Nine                                               | ₉         | U+02089 | &#x2089; | &#8329;   |             | \2089    |
-| Subscript Plus Sign                                          | ₊         | U+0208A | &#x208A; | &#8330;   |             | \208A    |
-| Subscript Minus                                              | ₋         | U+0208B | &#x208B; | &#8331;   |             | \208B    |
-| Subscript Equals Sign                                        | ₌         | U+0208C | &#x208C; | &#8332;   |             | \208C    |
-| Subscript Left Parenthesis                                   | ₍         | U+0208D | &#x208D; | &#8333;   |             | \208D    |
-| Subscript Right Parenthesis                                  | ₎         | U+0208E | &#x208E; | &#8334;   |             | \208E    |
-| Latin Subscript Small Letter A                               | ₐ         | U+02090 | &#x2090; | &#8336;   |             | \2090    |
-| Latin Subscript Small Letter E                               | ₑ         | U+02091 | &#x2091; | &#8337;   |             | \2091    |
-| Latin Subscript Small Letter O                               | ₒ         | U+02092 | &#x2092; | &#8338;   |             | \2092    |
-| Latin Subscript Small Letter X                               | ₓ         | U+02093 | &#x2093; | &#8339;   |             | \2093    |
-| Latin Subscript Small Letter Schwa                           | ₔ         | U+02094 | &#x2094; | &#8340;   |             | \2094    |
+| Element of With Dot Above                                      | ⋵         | U+022F5 | &#x22F5; | &#8949;   | &isindot;   | \22F5    |
+| Element of With Overbar                                        | ⋶         | U+022F6 | &#x22F6; | &#8950;   | &notinvc;   | \22F6    |
+| Small Element of With Overbar                                  | ⋷         | U+022F7 | &#x22F7; | &#8951;   | &notinvb;   | \22F7    |
+| Element of With Underbar                                       | ⋸         | U+022F8 | &#x22F8; | &#8952;   |             | \22F8    |
+| Element of With Two Horizontal Strokes                         | ⋹         | U+022F9 | &#x22F9; | &#8953;   | &isinE;     | \22F9    |
+| Contains With Long Horizontal Stroke                           | ⋺         | U+022FA | &#x22FA; | &#8954;   | &nisd;      | \22FA    |
+| Contains With Vertical Bar at End of Horizontal Stroke         | ⋻         | U+022FB | &#x22FB; | &#8955;   | &xnis;      | \22FB    |
+| Small Contains With Vertical Bar at End of Horizontal Stroke   | ⋼         | U+022FC | &#x22FC; | &#8956;   | &nis;       | \22FC    |
+| Contains With Overbar                                          | ⋽         | U+022FD | &#x22FD; | &#8957;   | &notnivc;   | \22FD    |
+| Small Contains With Overbar                                    | ⋾         | U+022FE | &#x22FE; | &#8958;   | &notnivb;   | \22FE    |
+| Z Notation Bag Membership                                      | ⋿         | U+022FF | &#x22FF; | &#8959;   |             | \22FF    |
+| Superscript Zero                                               | ⁰         | U+02070 | &#x2070; | &#8304;   |             | \2070    |
+| Superscript Latin Small Letter I                               | ⁱ         | U+02071 | &#x2071; | &#8305;   |             | \2071    |
+| Superscript Four                                               | ⁴         | U+02074 | &#x2074; | &#8308;   |             | \2074    |
+| Superscript Five                                               | ⁵         | U+02075 | &#x2075; | &#8309;   |             | \2075    |
+| Superscript Six                                                | ⁶         | U+02076 | &#x2076; | &#8310;   |             | \2076    |
+| Superscript Seven                                              | ⁷         | U+02077 | &#x2077; | &#8311;   |             | \2077    |
+| Superscript Eight                                              | ⁸         | U+02078 | &#x2078; | &#8312;   |             | \2078    |
+| Superscript Nine                                               | ⁹         | U+02079 | &#x2079; | &#8313;   |             | \2079    |
+| Superscript Plus Sign                                          | ⁺         | U+0207A | &#x207A; | &#8314;   |             | \207A    |
+| Superscript Minus                                              | ⁻         | U+0207B | &#x207B; | &#8315;   |             | \207B    |
+| Superscript Equals Sign                                        | ⁼         | U+0207C | &#x207C; | &#8316;   |             | \207C    |
+| Superscript Left Parenthesis                                   | ⁽         | U+0207D | &#x207D; | &#8317;   |             | \207D    |
+| Superscript Right Parenthesis                                  | ⁾         | U+0207E | &#x207E; | &#8318;   |             | \207E    |
+| Superscript Latin Small Letter N                               | ⁿ         | U+0207F | &#x207F; | &#8319;   |             | \207F    |
+| Subscript Zero                                                 | ₀         | U+02080 | &#x2080; | &#8320;   |             | \2080    |
+| Subscript One                                                  | ₁         | U+02081 | &#x2081; | &#8321;   |             | \2081    |
+| Subscript Two                                                  | ₂         | U+02082 | &#x2082; | &#8322;   |             | \2082    |
+| Subscript Three                                                | ₃         | U+02083 | &#x2083; | &#8323;   |             | \2083    |
+| Subscript Four                                                 | ₄         | U+02084 | &#x2084; | &#8324;   |             | \2084    |
+| Subscript Five                                                 | ₅         | U+02085 | &#x2085; | &#8325;   |             | \2085    |
+| Subscript Six                                                  | ₆         | U+02086 | &#x2086; | &#8326;   |             | \2086    |
+| Subscript Seven                                                | ₇         | U+02087 | &#x2087; | &#8327;   |             | \2087    |
+| Subscript Eight                                                | ₈         | U+02088 | &#x2088; | &#8328;   |             | \2088    |
+| Subscript Nine                                                 | ₉         | U+02089 | &#x2089; | &#8329;   |             | \2089    |
+| Subscript Plus Sign                                            | ₊         | U+0208A | &#x208A; | &#8330;   |             | \208A    |
+| Subscript Minus                                                | ₋         | U+0208B | &#x208B; | &#8331;   |             | \208B    |
+| Subscript Equals Sign                                          | ₌         | U+0208C | &#x208C; | &#8332;   |             | \208C    |
+| Subscript Left Parenthesis                                     | ₍         | U+0208D | &#x208D; | &#8333;   |             | \208D    |
+| Subscript Right Parenthesis                                    | ₎         | U+0208E | &#x208E; | &#8334;   |             | \208E    |
+| Latin Subscript Small Letter A                                 | ₐ         | U+02090 | &#x2090; | &#8336;   |             | \2090    |
+| Latin Subscript Small Letter E                                 | ₑ         | U+02091 | &#x2091; | &#8337;   |             | \2091    |
+| Latin Subscript Small Letter O                                 | ₒ         | U+02092 | &#x2092; | &#8338;   |             | \2092    |
+| Latin Subscript Small Letter X                                 | ₓ         | U+02093 | &#x2093; | &#8339;   |             | \2093    |
+| Latin Subscript Small Letter Schwa                             | ₔ         | U+02094 | &#x2094; | &#8340;   |             | \2094    |
 
 ## 数字相关符号
 
@@ -1472,7 +1472,7 @@
 | Apostrophe                                 | ‘         | U+00027 | &#x27;   | &#39;     | &apos;      | \0027    |
 | Left Parenthesis                           | (         | U+00028 | &#x28;   | &#40;     | &lpar;      | \0028    |
 | Right Parenthesis                          | )         | U+00029 | &#x29;   | &#41;     | &rpar;      | \0029    |
-| Asterisk                                   | *         | U+0002A | &#x2a;   | &#42;     | &ast;       | \002A    |
+| Asterisk                                   | \*        | U+0002A | \*       | \*        | \*          | \002A    |
 | Comma                                      | ,         | U+0002C | &#x2c;   | &#44;     | &comma;     | \002C    |
 | Period                                     | .         | U+0002E | &#x2e;   | &#46;     | &period;    | \002E    |
 | Slash                                      | /         | U+0002F | &#x2f;   | &#47;     | &sol;       | \002F    |
@@ -1484,7 +1484,7 @@
 | Backslash                                  | \         | U+0005C | &#x5c;   | &#92;     | &bsol;      | \005C    |
 | Right Bracket                              | ]         | U+0005D | &#x5d;   | &#93;     | &rbrack;    | \005D    |
 | Caret                                      | ^         | U+0005E | &#x5e;   | &#94;     | &Hat        | \005E    |
-| Underscore                                 | _         | U+0005F | &#x5f;   | &#95;     | &lowbar;    | \005F    |
+| Underscore                                 | \_        | U+0005F | \_       | \_        | \_          | \005F    |
 | Grave Accent                               | `         | U+00060 | &#x60;   | &#96;     | &grave;     | \0060    |
 | Left Brace                                 | {         | U+0007B | &#x7b;   | &#123;    | &lbrace;    | \007B    |
 | Vertical Bar                               | \|        | U+0007C | &#x7c;   | &#124;    | &vert;      | \007C    |
@@ -1700,7 +1700,7 @@
 | Black Left Pointing Index                          | ☚         | U+0261A | &#x261A; | &#9754;   |                     | \261A    |
 | Black Right Pointing Index                         | ☛         | U+0261B | &#x261B; | &#9755;   |                     | \261B    |
 | White Left Pointing Index                          | ☜         | U+0261C | &#x261C; | &#9756;   |                     | \261C    |
-| White Up Pointing Index                            | ☝         | U+0261D | &#x261D; | &#9757;   |                     | \261D    |
+| White Up Pointing Index                            | ☝        | U+0261D | &#x261D; | &#9757;   |                     | \261D    |
 | White Right Pointing Index                         | ☞         | U+0261E | &#x261E; | &#9758;   |                     | \261E    |
 | White Down Pointing Index                          | ☟         | U+0261F | &#x261F; | &#9759;   |                     | \261F    |
 | Skull and Crossbones                               | ☠         | U+02620 | &#x2620; | &#9760;   |                     | \2620    |
@@ -1833,7 +1833,7 @@
 | Coffin                                             | ⚰         | U+026B0 | &#x26B0; | &#9904;   |                     | \26B0    |
 | Funeral Urn                                        | ⚱         | U+026B1 | &#x26B1; | &#9905;   |                     | \26B1    |
 | Neuter                                             | ⚲         | U+026B2 | &#x26B2; | &#9906;   |                     | \26B2    |
-| Baseball                                           | ⚾         | U+026BE | &#x26BE; | &#9918;   |                     | \26BE    |
+| Baseball                                           | ⚾        | U+026BE | &#x26BE; | &#9918;   |                     | \26BE    |
 | Astronomical Symbol for Uranus                     | ⛢         | U+026E2 | &#x26E2; | &#9954;   |                     | \26E2    |
 | Upper Blade Scissors                               | ✁         | U+02701 | &#x2701; | &#9985;   |                     | \2701    |
 | Black Scissors                                     | ✂         | U+02702 | &#x2702; | &#9986;   |                     | \2702    |
@@ -1843,8 +1843,8 @@
 | Tape Drive                                         | ✇         | U+02707 | &#x2707; | &#9991;   |                     | \2707    |
 | Airplane                                           | ✈         | U+02708 | &#x2708; | &#9992;   |                     | \2708    |
 | Envelope                                           | ✉         | U+02709 | &#x2709; | &#9993;   |                     | \2709    |
-| Victory Hand                                       | ✌         | U+0270C | &#x270C; | &#9996;   |                     | \270C    |
-| Writing Hand                                       | ✍         | U+0270D | &#x270D; | &#9997;   |                     | \270D    |
+| Victory Hand                                       | ✌        | U+0270C | &#x270C; | &#9996;   |                     | \270C    |
+| Writing Hand                                       | ✍        | U+0270D | &#x270D; | &#9997;   |                     | \270D    |
 | Lower Right Pencil                                 | ✎         | U+0270E | &#x270E; | &#9998;   |                     | \270E    |
 | Pencil                                             | ✏         | U+0270F | &#x270F; | &#9999;   |                     | \270F    |
 | Upper Right Pencil                                 | ✐         | U+02710 | &#x2710; | &#10000;  |                     | \2710    |

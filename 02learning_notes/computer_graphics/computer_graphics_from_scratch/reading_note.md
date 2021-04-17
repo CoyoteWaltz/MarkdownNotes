@@ -12,32 +12,32 @@
 
 作者说本书会比较简单通俗易懂的讲述图形学，但是图形学涵盖的概念太多了，可以装下一个图书馆
 
-本书只包含两个内容：*Raytracing* and *Rasterization*，光线追踪和光栅化
+本书只包含两个内容：_Raytracing_ and _Rasterization_，光线追踪和光栅化
 
 ### 章节概览
 
-* Chapter 1: Introductory Concepts
+- Chapter 1: Introductory Concepts
 
-* *Part I: Raytracing*
+- _Part I: Raytracing_
 
-* Chapter 2: Basic Raytracing
-* Chapter 3: Light
-* Chapter 4: Shadows and Reflections
-* Chapter 5: Extending the Raytracer
+- Chapter 2: Basic Raytracing
+- Chapter 3: Light
+- Chapter 4: Shadows and Reflections
+- Chapter 5: Extending the Raytracer
 
-* *Part II: Rasterization*
+- _Part II: Rasterization_
 
-* Chapter 6: Lines
-* Chapter 7: Filled Triangles
-* Chapter 8: Shaded Triangles
-* Chapter 9: Perspective Projection
-* Chapter 10: Describing and Rendering a Scene
-* Chapter 11: Clipping
-* Chapter 12: Hidden Surface Removal
-* Chapter 13: Shading
-* Chapter 14: Textures
-* Chapter 15: Extending the Rasterizer
-* Appendix: Linear Algebra
+- Chapter 6: Lines
+- Chapter 7: Filled Triangles
+- Chapter 8: Shaded Triangles
+- Chapter 9: Perspective Projection
+- Chapter 10: Describing and Rendering a Scene
+- Chapter 11: Clipping
+- Chapter 12: Hidden Surface Removal
+- Chapter 13: Shading
+- Chapter 14: Textures
+- Chapter 15: Extending the Rasterizer
+- Appendix: Linear Algebra
 
 那就开始吧
 
@@ -54,11 +54,11 @@
 
 ### 颜色模型
 
-*光 -> 眼 -> 感光细胞感受波长 -> 视神经信号 -> color*
+_光 -> 眼 -> 感光细胞感受波长 -> 视神经信号 -> color_
 
-*infrared 红外线*
+_infrared 红外线_
 
-*ultraviolet 紫外线*
+_ultraviolet 紫外线_
 
 #### Subtractive Color Model
 
@@ -84,7 +84,7 @@ additive and subtractive systems of color reproduction.
 
 书中提到的减色模型，主色居然是红黄蓝（其实不用太在意，书中也说明了应该是 CMY）
 
-拿粉笔/蜡笔来举例，白色的纸上涂上“黄色” -> 光线 -> 白纸 -> 白光 -> yellow 吸收掉一部分颜色 -> 呈现黄色（*subtract* a bunch of wavelengths from the original white light.）
+拿粉笔/蜡笔来举例，白色的纸上涂上“黄色” -> 光线 -> 白纸 -> 白光 -> yellow 吸收掉一部分颜色 -> 呈现黄色（_subtract_ a bunch of wavelengths from the original white light.）
 
 **三个 subtractive 混合得到 black，减去了所有的颜色**
 
@@ -95,9 +95,9 @@ paper 和 screen 的区别：
 - paper 不 emit 光线，而反射光
 - screen emit 光线
 
-With paper, we start with white light and *subtract* the wavelengths we don’t want; with a screen, we start with no light and *add* the wavelengths we want.
+With paper, we start with white light and _subtract_ the wavelengths we don’t want; with a screen, we start with no light and _add_ the wavelengths we want.
 
-那就是我们熟悉的 *RGB color model*
+那就是我们熟悉的 _RGB color model_
 
 **三个 additive 主色混合得到 white 所有颜色的加和**
 
@@ -107,7 +107,7 @@ With paper, we start with white light and *subtract* the wavelengths we don’t 
 
 自然界颜色是连续的，设备上我们只能离散的去控制色彩，8 bit 每个主色，3 通道，共 2^24 个颜色
 
-也有 *R5G6B5* 的格式，green 多 1 bit 是因为人眼对绿光更敏感
+也有 _R5G6B5_ 的格式，green 多 1 bit 是因为人眼对绿光更敏感
 
 ### The scene
 
@@ -129,7 +129,7 @@ With paper, we start with white light and *subtract* the wavelengths we don’t 
 
 当我们真实写程序的时候，用的都是 canvas 上的坐标，需要转换到真实的 viewport 上才能于物体计算
 
-V~x~ = C~x~ * (V~w~ / C~w~), V~y~ = C~y~ * (V~h~ / C~h~)
+V~x~ = C~x~ _ (V~w~ / C~w~), V~y~ = C~y~ _ (V~h~ / C~h~)
 
 当然 viewport 也是在 scene 中的，需要加上 V~z~ = d
 
@@ -154,12 +154,12 @@ V~x~ = C~x~ * (V~w~ / C~w~), V~y~ = C~y~ * (V~h~ / C~h~)
 
 关于 t 的情况
 
-| *t* < 0     | Behind the camera                                    |      |
-| ----------- | ---------------------------------------------------- | ---- |
-| 0 ≤ *t* ≤ 1 | Between the camera and the projection plane/viewport |      |
-| *t* > 1     | In front of the projection plane/viewport            |      |
+| _t_ < 0     | Behind the camera                                    |     |
+| ----------- | ---------------------------------------------------- | --- |
+| 0 ≤ _t_ ≤ 1 | Between the camera and the projection plane/viewport |     |
+| _t_ > 1     | In front of the projection plane/viewport            |     |
 
-*games101 有详细的过程 这里不赘述了*
+_games101 有详细的过程 这里不赘述了_
 
 **书中写的伪代码非常值得一读，很有启发性**
 
@@ -186,7 +186,7 @@ ok，这一章其实也就简单的用**球体物体**作为光追的基本算�
 
 #### 点光源
 
-从一个 point 发出的光，这个点就是他的 *position*，每个方向上的光强一样，所以又叫 *omnidirectional lights*，所以定义一个点光源就可以：
+从一个 point 发出的光，这个点就是他的 _position_，每个方向上的光强一样，所以又叫 _omnidirectional lights_，所以定义一个点光源就可以：
 
 - position（a vector）
 - intensity（a vector also）
@@ -201,12 +201,12 @@ ok，这一章其实也就简单的用**球体物体**作为光追的基本算�
 
 定义：
 
-- a fixed *direction*
+- a fixed _direction_
 - intensity
 
 #### 环境光
 
-上面两种光当然不能满足我们模拟现实的需求。根据 CP1 的光模型我们知道，表面材质会吸收光，并且反射出一部分光，同样会 hit 到其他物体，所以，需要把每个物体都对待成 light source。*全局光照 global illumination 就是这个玩意*
+上面两种光当然不能满足我们模拟现实的需求。根据 CP1 的光模型我们知道，表面材质会吸收光，并且反射出一部分光，同样会 hit 到其他物体，所以，需要把每个物体都对待成 light source。_全局光照 global illumination 就是这个玩意_
 
 当然本文不会做的那么复杂，而是引入 ambient light，会在任何地方产生光
 
@@ -242,7 +242,7 @@ ok，这一章其实也就简单的用**球体物体**作为光追的基本算�
 
 #### 最终的漫反射方程
 
-- I~p~ = I~A(ambient)~ + sum(I~i~ * (N * L~i~) / |N||L~i~|)（L~i~ 每一束光的方向向量）（注意 cos < 0 的不被 sum）
+- I~p~ = I~A(ambient)~ + sum(I~i~ _ (N _ L~i~) / |N||L~i~|)（L~i~ 每一束光的方向向量）（注意 cos < 0 的不被 sum）
 
 #### 球面的法向量
 
@@ -251,8 +251,6 @@ ok，这一章其实也就简单的用**球体物体**作为光追的基本算�
 #### 渲染漫反射
 
 看书上这段伪代码，便于理解非常好
-
-
 
 ```json
 light {
@@ -295,7 +293,7 @@ ComputeLighting(P, N) {
 
 ### 镜面反射
 
-*specular* 一词源于拉丁文 *speculum* mirror 的意思
+_specular_ 一词源于拉丁文 _speculum_ mirror 的意思
 
 The “shininess” of the object is what determines how rapidly the reflected light decreases as you move away from R⃗. 解释一下这句话：入射角 = 出射角，越是 shiny 的物体表面，出射角的偏差就越小，所以一旦 move away 一点点，就没有反射光了。
 
@@ -372,8 +370,6 @@ TraceRay(O, D, t_min, t_max) {
  ❶ return closest_sphere.color * ComputeLighting(P, N, -D, closest_sphere.specular)
 }
 ```
-
-
 
 ### 本章小结
 
@@ -526,8 +522,6 @@ TraceRay(O, D, t_min, t_max, recursion_depth) {
 - 阴影 shadow：光线被遮挡，就没有强度了
 - 反射 reflection：物体之间的反射光，递归光追
 
-
-
 ## CP5 Extending the Raytracer
 
 > 这一章做一个总结，包含之前没有谈到的话题：placing the camera anywhere in the scene, performance optimizations, primitives other than spheres, modeling objects using constructive solid geometry, supporting transparent surfaces, and supersampling.
@@ -544,15 +538,11 @@ TraceRay(O, D, t_min, t_max, recursion_depth) {
 
 #### Parallelization
 
-
-
 #### Caching immutable variables
-
-
 
 #### Shadow optimizations
 
-当一个点的光线被物体遮挡而产生阴影的时候，可能附近的点也会是阴影 => *shadow coherence*
+当一个点的光线被物体遮挡而产生阴影的时候，可能附近的点也会是阴影 => _shadow coherence_
 
 - 可以检查这个点最近的点是否在阴影中（被物体 a 遮挡），如果是，直接计算这个点与 a 是否有交集
 - 如果有，就是阴影
@@ -564,7 +554,7 @@ TraceRay(O, D, t_min, t_max, recursion_depth) {
 
 分割空间结构，找 bounding volume/sphere
 
-- *bounding volume hierarchy*（书里只是提了一嘴，详细看 games101）
+- _bounding volume hierarchy_（书里只是提了一嘴，详细看 games101）
 
 #### subsampling
 
@@ -591,7 +581,7 @@ TraceRay(O, D, t_min, t_max, recursion_depth) {
 
 折射问题，比如当光从空气进入水中（密度不同）
 
-物体表面材质的折射率？*refraction index*
+物体表面材质的折射率？_refraction index_
 
 Snell’s Law：
 
@@ -615,27 +605,6 @@ Snell’s Law：
 >
 > part1 部分讲了光追，书上的算法都是比较简单易懂的，问题就来了：计算代价太大，做不到实时光追的效果
 >
-> 光追的思想：从相机出发看 canvas，解决每个像素上“*Which object of the scene is visible here?*”
+> 光追的思想：从相机出发看 canvas，解决每个像素上“_Which object of the scene is visible here?_”
 >
-> 光栅化的思想：“*In which parts of the canvas will this object be visible?*” 翻译成人话，要解决每一个物体在画布上的哪些地方可见（从物体的角度出发
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+> 光栅化的思想：“_In which parts of the canvas will this object be visible?_” 翻译成人话，要解决每一个物体在画布上的哪些地方可见（从物体的角度出发

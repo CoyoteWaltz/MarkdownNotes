@@ -45,8 +45,6 @@ a[href]:empty::before {
 
 用伪元素处理添加挂掉的提示。。。
 
-
-
 ## `::selection`伪元素
 
 选中文字后的[伪元素](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)，定义他的样式，让文字选中变得更加美丽。
@@ -465,8 +463,6 @@ count: "我的掘金头像：" url("xxxxx");
 content: "计数器的值为：" counter(xx);
 ```
 
-
-
 ### 重点关注下 `counter` 函数
 
 `counter-reset` & `counter-increment`：
@@ -493,7 +489,7 @@ TODO 还没实践，挺妙的！
   h1 {
     &::before {
       counter-increment: section 1; // 自增1
-      content: "Section"counter(section) ". ";
+      content: "Section" counter(section) ". ";
     }
   }
 
@@ -504,14 +500,12 @@ TODO 还没实践，挺妙的！
     h2 {
       &::before {
         counter-increment: subsection 1; // 自增1
-        content: counter(section) "."counter(subsection); // 计数器是有作用域的，这里可以访问外层计数器
+        content: counter(section) "." counter(subsection); // 计数器是有作用域的，这里可以访问外层计数器
       }
     }
   }
 }
 ```
-
-
 
 ### 面包屑 & 分隔符
 
@@ -525,7 +519,6 @@ TODO 还没实践，挺妙的！
 </ul>
 ```
 
-
 ```css
 ul {
   display: flex;
@@ -534,7 +527,7 @@ ul {
   li {
     &:not(:last-child) {
       margin-right: 5px;
-        
+
       &::after {
         content: "\276D";
         margin-left: 5px;

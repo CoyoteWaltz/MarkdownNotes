@@ -8,17 +8,9 @@
 
 可以参考：https://methi1999.github.io/2020/08/19/opengl.html
 
-
-
 #### GLFW
 
-
-
 #### GLEW
-
-
-
-
 
 ### opengl 到底是什么
 
@@ -26,7 +18,7 @@ OpenGL is mainly considered an API (an Application Programming Interface) that p
 
 所以，treat OpenGL as a set of specification really，每个硬件/OS 厂商会依照声明去实现对应的方法，我们在使用 OpenGL 开发的时候不用关心具体实现，treat as an API。
 
-*specification 有点像 js，es 规范其实也只是个 specification，每个浏览器去实现了*
+_specification 有点像 js，es 规范其实也只是个 specification，每个浏览器去实现了_
 
 NOT OPEN SOURCE! BUT CROSS-PLATFORM? NO, many other graphics [APIs](https://en.wikipedia.org/wiki/List_of_3D_graphics_libraries)(Matal DirectX).
 
@@ -38,8 +30,6 @@ Shader program runs on GPU as well as C++, java etc. run on CPU
 
 所以 OpenGL 这个 specification 对外暴露到 headers，具体的 cpp 实现也只不过是 link 了显卡提供的 lib（pull out all the functions we need function point）
 
-
-
 #### Context
 
 庞大的状态机，各种状态，指令（面向过程）
@@ -49,8 +39,6 @@ Shader program runs on GPU as well as C++, java etc. run on CPU
 OpenGL 上下文是一个巨大的状态机，切换上下文往往会产生较大的开销，但是不同的绘制模块，可能需要使用完全独立的状态管理。因此，可以在应用程序中分别创建多个不同的上下文，在不同线程中使用不同的上下文，上下文之间共享纹理、缓冲区等资源。这样的方案，会比反复切换上下文，或者大量修改渲染状态，更加合理高效的。
 
 提前告诉 OpenGL 一堆 context/state，然后告诉他 draw call，OpenGL 就知道如何画图了
-
-
 
 #### Frame buffer
 
@@ -138,21 +126,15 @@ shader 输入的数据：
 - 顶点数据（vertex shader 来的）称为可变变量 varying
 - 采样器（Sampler）
 
-
-
 #### Per-Fragment Operation
 
 ![img](imgs/learnopengl.assets/v2-9c632bf829727003f0b8e2cb478b68ac_1440w.jpg)
-
-
 
 #### 测试（Test）
 
 模版测试在 depth test 之前，剔除不必要的像素
 
 #### Blending
-
-
 
 #### 抖动 Dithering
 
@@ -163,12 +145,6 @@ shader 输入的数据：
 有些 OpenGL 程序并不希望渲染出来的图像立即显示在屏幕上，而是需要多次渲染。可能其中一次渲染的结果是下次渲染的输入。因此，如果帧缓冲区的颜色附着设置为一张纹理，那么渲染完成之后，可以重新构造新的帧缓冲区，并将上次渲染出来的纹理作为输入，重新进行前面所述的流程。
 
 #### 渲染上屏/交换缓冲区(SwapBuffer)
-
-
-
-
-
-
 
 ### Core-profile vs Immediate mode
 
@@ -196,14 +172,12 @@ a collection of variables that define how OpenGL should currently operate.
 
 openGL 的库基本都是用 C 写的（也有其他变种语言）所以对象都是 struct
 
-
-
 ### Create a window
 
 - GLFW
 - GLEW（The OpenGL Extension Wrangler Library）
 - CMake
-  * [ ] 搞定 link
+  - [ ] 搞定 link
 
 有了这三个东西，就可以愉快的写代码了
 
@@ -232,8 +206,6 @@ add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} ${LIBS})
 # g++ main.cpp -o test.o -lglfw -lGLEW -framework OpenGL
 ```
-
-
 
 #### 初始化
 
@@ -278,7 +250,7 @@ glfwMakeContextCurrent(window);
 
 `glViewport(0, 0, 640, 480);` 或者更小：`glViewport(40, 40, 600, 400);`
 
-*behind scene：opengl 会对每个处理之后的点（归一化坐标范围在[-1, 1]）做 viewport 的变换，就是 glViewport 设置的这个数据*
+_behind scene：opengl 会对每个处理之后的点（归一化坐标范围在[-1, 1]）做 viewport 的变换，就是 glViewport 设置的这个数据_
 
 #### resize callback
 
@@ -292,7 +264,7 @@ glfwMakeContextCurrent(window);
 while(!glfwWindowShouldClose(window))
 {
     glfwSwapBuffers(window);
-    glfwPollEvents();    
+    glfwPollEvents();
 }
 ```
 
@@ -302,7 +274,7 @@ while(!glfwWindowShouldClose(window))
 
 `glfwPollEvents`：检查是否有交互事件发生，改变 window 的 state，调用对应事件的 callback
 
-*Double buffer：单 buffer 的时候会出现 flickering 问题，闪屏。两个 buffer 一个 front 传输给 screen 一个做逾渲染*
+_Double buffer：单 buffer 的时候会出现 flickering 问题，闪屏。两个 buffer 一个 front 传输给 screen 一个做逾渲染_
 
 #### Input
 
@@ -330,7 +302,7 @@ void processInput(GLFWwindow *window)
 
 write our own shaders to replace the existing default shaders -> fine-grained control
 
-*OpenGL Shading Language (GLSL)* 
+_OpenGL Shading Language (GLSL)_
 
 pipeline：（可配置
 
@@ -374,9 +346,9 @@ glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 第四个参数表示图形卡如何处理这些数据：
 
-* `GL_STREAM_DRAW`: the data is set only once and used by the GPU at most a few times. 流的感觉
-* `GL_STATIC_DRAW`: the data is set only once and used many times.
-* `GL_DYNAMIC_DRAW`: the data is changed a lot and used many times.
+- `GL_STREAM_DRAW`: the data is set only once and used by the GPU at most a few times. 流的感觉
+- `GL_STATIC_DRAW`: the data is set only once and used many times.
+- `GL_DYNAMIC_DRAW`: the data is changed a lot and used many times.
 
 #### vertex shader
 
@@ -397,8 +369,6 @@ void main()
   - OpenGL 的向量最多是 4 维的：x, y, z, w（还是 3D，会用作为 perspective division
 - shader 的输出是通过对 `gl_Position` 这个变量赋值
 
-
-
 #### Fragment shader
 
 计算输出像素颜色，rgba，在 OpenGL 中的颜色强度都是 [0, 1] 范围，这里简单的输出统一的颜色
@@ -410,7 +380,7 @@ out vec4 FragColor;
 void main()
 {
     FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
-} 
+}
 ```
 
 - 一个输出值 FragColor 四维 vec
@@ -430,17 +400,13 @@ vertex **is not a position**:
 - texture coords
 - norms
 
-
-
-
-
 #### Vertex Array Object
 
 vertex array object (also known as VAO)
 
 好处是 draw 时设置 vertex attribute 的时候只需要调用一次即可
 
-**Core OpenGL requires that we use a VAO so it knows what to do with our vertex inputs. If we fail to bind a VAO, OpenGL will most likely refuse to draw anything.** 
+**Core OpenGL requires that we use a VAO so it knows what to do with our vertex inputs. If we fail to bind a VAO, OpenGL will most likely refuse to draw anything.**
 
 core 强制的，我们有这行：`glfwWindowHint(GLFW_OPENGL_PROFILE*,* GLFW_OPENGL_CORE_PROFILE);`
 
@@ -450,21 +416,13 @@ core 强制的，我们有这行：`glfwWindowHint(GLFW_OPENGL_PROFILE*,* GLFW_O
 
 `glDrawArrays`
 
-
-
 一个全局的 VAO 每次 bind 不同 data v.s. 多个 VAO 对应不同的 obj？
 
 - it dependents
 
-
-
-
-
 #### index buffer
 
 如果要画一个长方形，两个三角形组成，会有顶点的重复（大量的重复顶点数据，一个顶点的数据可能就很大：position、texture coords...）
-
-
 
 #### Wireframe mode
 
@@ -473,10 +431,6 @@ core 强制的，我们有这行：`glfwWindowHint(GLFW_OPENGL_PROFILE*,* GLFW_O
 第一个参数告诉 opengl 三角形的前后 face 都要画，画 line（第二个参数）
 
 默认是 `GL_FILL`
-
-
-
-
 
 ### errors
 
@@ -510,39 +464,16 @@ core 强制的，我们有这行：`glfwWindowHint(GLFW_OPENGL_PROFILE*,* GLFW_O
 
 ```
 
-
-
 ### uniforms
 
 在 shader 中从 cpu 获取一些常量数据
 
-
-
 ### shaders
-
-
 
 ### Texture
 
 image file: a pointer to a buffer of
 
-
-
-
-
 ### Blending
 
 如何做 透明度的 混合
-
-
-
-
-
-
-
-
-
-
-
-
-

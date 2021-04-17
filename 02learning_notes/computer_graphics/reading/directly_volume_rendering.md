@@ -12,23 +12,12 @@
    2. classfication：transfer function
    3. blending
 3. GPU 渲染管线
-   1. 
+   1.
 
 ![image-20210415220637917](imgs/directly_volume_rendering.assets/image-20210415220637917.png)
-
-
 
 ![image-20210415220649125](imgs/directly_volume_rendering.assets/image-20210415220649125.png)
 
 ![image-20210415220655424](imgs/directly_volume_rendering.assets/image-20210415220655424.png)
 
-
-
-
-
 ![image-20210415220700520](imgs/directly_volume_rendering.assets/image-20210415220700520.png)
-
-
-
-
-

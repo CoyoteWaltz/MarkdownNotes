@@ -6,13 +6,11 @@
 >
 > [Key map](https://vim.rtorr.com/)
 
-
-
 ## 环境配置
 
 > 来自 ben 的 [how to config your vim like vscode](https://www.youtube.com/watch?v=gnupOrSEikQ)
 >
-> *ben 大佬主要是写前端比较多吧（ts，js） some vscode features in vim*
+> _ben 大佬主要是写前端比较多吧（ts，js） some vscode features in vim_
 >
 > 环境：macOS 11+
 >
@@ -29,8 +27,6 @@
 设置为英文，默认是跟着 local 系统的。。
 
 `language en_US`
-
-
 
 ### 插件管理 Vim Plug
 
@@ -89,15 +85,15 @@ call plug#end()
 
 #### 指令
 
-| Command                             | Description                                                  |
-| ----------------------------------- | ------------------------------------------------------------ |
-| `PlugInstall [name ...] [#threads]` | **Install plugins**                                          |
-| `PlugUpdate [name ...] [#threads]`  | **Install or update plugins**                                |
+| Command                             | Description                                                          |
+| ----------------------------------- | -------------------------------------------------------------------- |
+| `PlugInstall [name ...] [#threads]` | **Install plugins**                                                  |
+| `PlugUpdate [name ...] [#threads]`  | **Install or update plugins**                                        |
 | `PlugClean[!]`                      | **Remove unlisted plugins (bang version will clean without prompt)** |
-| `PlugUpgrade`                       | **Upgrade vim-plug itself**                                  |
-| `PlugStatus`                        | **Check the status of plugins**                              |
-| `PlugDiff`                          | Examine changes from the previous update and the pending changes |
-| `PlugSnapshot[!] [output path]`     | Generate script for restoring the current snapshot of the plugins |
+| `PlugUpgrade`                       | **Upgrade vim-plug itself**                                          |
+| `PlugStatus`                        | **Check the status of plugins**                                      |
+| `PlugDiff`                          | Examine changes from the previous update and the pending changes     |
+| `PlugSnapshot[!] [output path]`     | Generate script for restoring the current snapshot of the plugins    |
 
 ### 插件管理 Vundle.vim
 
@@ -161,10 +157,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 ```
 
-
-
-
-
 ### [coc.nvim](https://github.com/neoclide/coc.nvim)
 
 > Make your Vim/Neovim as smart as VSCode. github
@@ -185,9 +177,9 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
   \ ]
 ```
 
@@ -252,16 +244,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 ```
 
-
-
-
-
-
-
-
-
-
-
 ben 在配置文件中重新 map 了一些指令 -> 插件
 
 ```bash
@@ -272,10 +254,6 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 ```
 
-
-
-
-
 ### 文件 explore
 
 #### [preservim/nerdtree](preservim/nerdtree)
@@ -285,9 +263,7 @@ nmap <silent> gr <Plug>(coc-references)
 屏蔽了
 
 - `node_modules`：`let g:NERDTreeIgnore = ['^node_modules$']`
-- 
-
-
+-
 
 #### [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
 
@@ -314,30 +290,22 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 
 icon 插件，[vim-devicons](https://github.com/ryanoasis/vim-devicons) 这个也是，记得需要装一个字体（readme 里面有写 brew 装就行了），然后在 iterm2 里也设置一下
 
-
-
-
-
 #### [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
 
 > 模糊查找文件 这个名字也就是他的用法 `⌃ + p`
 
 屏蔽所有的 gitignore 文件：`let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']`
 
-在 iterm2 中改写 hotkey map `⌘ + p` => `⌃ + p` 保持和 vscode 一样hh
+在 iterm2 中改写 hotkey map `⌘ + p` => `⌃ + p` 保持和 vscode 一样 hh
 
 - Key bindings 中 send text `:CtrlP\n`
-
-
-
-
 
 ben 写了两个函数用来同步打开 fuzz 搜索的文件，并且在目录上 highlight，太强了
 
 ```bash
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
+function! IsNERDTreeOpen()
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
@@ -354,12 +322,6 @@ endfunction
 autocmd BufEnter * call SyncTree()
 ```
 
-
-
-
-
-
-
 #### [nerdcommenter](https://github.com/preservim/nerdcommenter)
 
 Ben 用几乎不会使用的指令来开启注释
@@ -372,8 +334,6 @@ nmap ++ <plug>NERDCommenterToggle
 然后在 iterm2 里重新绑定成 vscode 的 hotkey 哈哈哈
 
 - `⌘ + \` => `++`
-
-
 
 #### [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 
@@ -389,8 +349,6 @@ nmap ++ <plug>NERDCommenterToggle
 
 > ts syntax 插件 配合使用
 
-
-
 ### git
 
 > git 这块功能还是蛮重要的
@@ -404,17 +362,11 @@ nmap ++ <plug>NERDCommenterToggle
 - `\hu` hunk undo
 - `\hs` hunk staged
 
-
-
 ### 其他设置
 
 #### 显示时间和行数 statusline
 
 `set statusline=\PATH:\ %r%F\ \ \ \ \LINE:\ %l/%L/%P\ TIME:\ %{strftime('%c')}`
-
-
-
-
 
 ## 操作
 
@@ -424,15 +376,11 @@ nmap ++ <plug>NERDCommenterToggle
 
 #### vmap
 
-
-
 #### inoremap
 
 insert mode 下替换
 
 `:inoremap a b` map a to b
-
-
 
 ### Global command
 
@@ -444,16 +392,12 @@ insert mode 下替换
 
 ```json
 h       左
-j       下 
-k       上 
+j       下
+k       上
 l       右
 space   右
 
 ```
-
-
-
-
 
 ### visual 模式
 
@@ -498,8 +442,6 @@ Ctrl+v 选择块
 上下左右 : k j h l
 
 - 文末 G
-
-
 
 ### 编辑
 
@@ -612,25 +554,6 @@ VIM 插件直接安装
 - `C-c`
 - `C-[`
 
-
-
-
-
 #### Insert
 
-
-
 #### Visual
-
-
-
-
-
-
-
-
-
-
-
-
-

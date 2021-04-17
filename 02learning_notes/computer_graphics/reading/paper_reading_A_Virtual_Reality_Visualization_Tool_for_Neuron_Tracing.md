@@ -2,9 +2,7 @@
 
 > 神经追溯？neuron tracing 在 VR 场景的这么一个方案
 
-*搞清楚在计算机渲染的过程，CPU 和 GPU 分别干了什么事情？*
-
-
+_搞清楚在计算机渲染的过程，CPU 和 GPU 分别干了什么事情？_
 
 一个连接组学的神经（元）跟踪任务
 
@@ -14,8 +12,6 @@
 - 神经元重建，人工 & 半自动
 
 ![image-20210305112550661](imgs/paper_reading_A_Virtual_Reality_Visualization_Tool_for_Neuron_Tracing.assets/image-20210305112550661.png)
-
-
 
 ## 背景
 
@@ -42,11 +38,11 @@ VR 的问题：设备和系统太昂贵了，购买和维护成本很高
 >
 > the goal of investigating consumer-grade VR tech- nology for scientific visualization
 >
->  VR 系统：
+> VR 系统：
 >
 > - 硬件设备，交互方式
 > - 软件算法：visualization，volume rendering...
-> - 
+> -
 
 ### 技术调研
 
@@ -67,15 +63,11 @@ GPU 是 pipeline 的工作机制，所以一次 command 的提交并不会立即
 
 Vlachos 的论文建议说在 **VSync** 之前的 2ms 去提交 draw 操作
 
-*什么是 [VSync](https://www.digitaltrends.com/computing/what-is-vsync/)？*
+_什么是 [VSync](https://www.digitaltrends.com/computing/what-is-vsync/)？_
 
 Vertical-sync: GPU 同步数据的技术，同步什么？当显示器（monitor）的刷新率跟不上真实的 fps，会出现撕裂没对齐的效果，叫做 [tearing](https://en.wikipedia.org/wiki/Screen_tearing)
 
 [double buffering and page flipping](https://en.wikipedia.org/wiki/Multiple_buffering#Double_buffering_in_computer_graphics)
-
-
-
-
 
 Streamlining rendering performance requires **pushing all non- rendering or non-critical work onto background threads** and strictly budgeting work on the render thread.
 
@@ -83,15 +75,15 @@ Streamlining rendering performance requires **pushing all non- rendering or non-
 
 ![image-20210305104112853](imgs/paper_reading.assets/image-20210305104112853.png)
 
-*下摘自论文*
+_下摘自论文_
 
-1. First, wait until ≈ 2ms before VSync by calling WaitGetPoses from the OpenVR SDK (left side of CPU in picture above :arrow_up: ), which obtains the most recent head position. 
-2. After returning from this function, we submit all rendering work to the GPU. Opaque geometry, e.g., the wands and tracings, is rendered first (1ms). 
-3. Next, the volume is rendered with ray-marching to display a volumetric or implicit **isosurface** representation (4ms). 
-4. After submitting the rendering work, *we start the asynchronous volume data upload based upon the user’s focus region*, and once the rendering finishes, we copy it into the sparse texture (2ms). 异步的 upload 到哪里去呢？
+1. First, wait until ≈ 2ms before VSync by calling WaitGetPoses from the OpenVR SDK (left side of CPU in picture above :arrow_up: ), which obtains the most recent head position.
+2. After returning from this function, we submit all rendering work to the GPU. Opaque geometry, e.g., the wands and tracings, is rendered first (1ms).
+3. Next, the volume is rendered with ray-marching to display a volumetric or implicit **isosurface** representation (4ms).
+4. After submitting the rendering work, _we start the asynchronous volume data upload based upon the user’s focus region_, and once the rendering finishes, we copy it into the sparse texture (2ms). 异步的 upload 到哪里去呢？
 5. This time budget leaves a buffer of 3ms to prevent unpredictable interferences that could cause dropped frames.
 
-*isosurface？*
+_isosurface？_
 
 ### 数据流/格式
 
@@ -100,25 +92,15 @@ Streamlining rendering performance requires **pushing all non- rendering or non-
 1. 加载和缓存硬盘的数据到 RAM
 2. The caching system lets the tool keep **the current focus region and a small neighborhood resident on the GPU**, while **a substantial history is cached in RAM**
 
-
-
 The first-level cache takes page requests and immediately returns a future [6], which can be used to retrieve the page data. In case the page is not available in the cache, a worker thread will be responsible for loading the data from disk while the requester can asynchronously check for completion and retrieve the page.
-
-
 
 The second-level cache pushes **page queries** to a set of worker threads, which request the page from the first-level cache and copy the data into persistently mapped **pixel buffer objects (PBOs)**. By uploading via persistently mapped PBOs, we take advantage of asynchronous data transfers via the GPU’s copy engines, thereby **overlapping rendering work with data transfers**. 在从内存上传到 opengl 内存的过程，是异步的，能够并行（交错）做其他数据转移的操作
 
+_pixel buffer object_: a buffer object is used for asynchronous _pixel transfer_ operations（来自 [opengl 解释](https://www.khronos.org/opengl/wiki/Pixel_Buffer_Object)）
 
-
-*pixel buffer object*: a buffer object is used for asynchronous *pixel transfer* operations（来自 [opengl 解释](https://www.khronos.org/opengl/wiki/Pixel_Buffer_Object)）
-
-*pixel transfer*: 将内存中的 pixel（unformatted，pack 数据）转移（uploading）到 opengl 内存（unpack 过程 uploading），或者反之 downloading（来自 [opengl](https://www.khronos.org/opengl/wiki/Pixel_Transfer)）
+_pixel transfer_: 将内存中的 pixel（unformatted，pack 数据）转移（uploading）到 opengl 内存（unpack 过程 uploading），或者反之 downloading（来自 [opengl](https://www.khronos.org/opengl/wiki/Pixel_Transfer)）
 
 所用的技术也是 VSync 和上面提到的 double buffering 和 page flipping 吧？（存疑）
-
-
-
-
 
 ### Volume rendering
 
@@ -145,7 +127,7 @@ To ensure **consistent sampling** of the data when inside the volume, we begin s
 
 #### gradient shading
 
-*眼压和图像展示的 depth cues 还有关？*
+_眼压和图像展示的 depth cues 还有关？_
 
 深度信息不容易获取，弱光线和使用透明转换函数（transparent transfer function）的时候
 
@@ -173,8 +155,6 @@ In the periphery, due to lens distortion and the properties of the human vision 
 
 在外围的图像可以不那么高分辨率
 
-
-
 ## 后文
 
 后面就是讲产品如何记录和评估可靠性的实验
@@ -188,12 +168,3 @@ In the periphery, due to lens distortion and the properties of the human vision 
 - 软件开源了？
 
 全文的结论
-
-
-
-
-
-
-
-
-

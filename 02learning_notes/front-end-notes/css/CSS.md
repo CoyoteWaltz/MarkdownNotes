@@ -886,9 +886,9 @@ ensures that the entire image is always visible, and so the opposite of `cover`
 
 re-adjust the image to fill the space. This causes the image to be squished and blurry, as it re-adjusts pixels.
 
-*有点像 background ?*
+_有点像 background ?_
 
-*IE 不支持*
+_IE 不支持_
 
 ### aspect-ratio
 
@@ -897,13 +897,19 @@ re-adjust the image to fill the space. This causes the image to be squished and 
 **Using padding-top**
 
 ```css
-.container {  width: 100%;  padding-top: 56.25%;}
+.container {
+  width: 100%;
+  padding-top: 56.25%;
+}
 ```
 
 **Using aspect-ratio**
 
 ```css
-.container {  width: 100%;  aspect-ratio: 16 / 9;}
+.container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
 ```
 
 #### 适用场景
@@ -919,12 +925,3 @@ re-adjust the image to fill the space. This causes the image to be squished and 
 **设置 width 和 height 属性**
 
 如果提前知道图片的大小，同样能达到 aspect-ratio 的效果！
-
-
-
-
-
-
-
-
-

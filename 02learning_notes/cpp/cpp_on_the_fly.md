@@ -32,17 +32,9 @@ VSCode 也可以用 clangd 来替代原来的 ms c++ 插件，不过还是之 ms
 
 ### cmake
 
-
-
-
-
-
-
-
-
 ## CP 01: Towards Modern C++
 
-- Compiler: clange++ -v 10.0.1（我本机已经是 11.0.3 了） 
+- Compiler: clange++ -v 10.0.1（我本机已经是 11.0.3 了）
 - Standard: `-std=c++2a`
 - x86_64 架构
 
@@ -52,7 +44,7 @@ VSCode 也可以用 clangd 来替代原来的 ms c++ 插件，不过还是之 ms
 
 [LLVM](https://en.wikipedia.org/wiki/LLVM):
 
-- *Low Level Virtual Machine*，最早是这个缩写，现在这个含义已经被废弃了。变成了 umbrella project（有很多子项目）
+- _Low Level Virtual Machine_，最早是这个缩写，现在这个含义已经被废弃了。变成了 umbrella project（有很多子项目）
 - 一套基础纯设施工具链：LLVM can provide the middle layers of a complete compiler system, taking [intermediate representation](https://en.wikipedia.org/wiki/Intermediate_representation) (IR) code from a compiler and emitting an optimized IR
 - 支持语言无关的指令集和 type system
 
@@ -61,10 +53,6 @@ VSCode 也可以用 clangd 来替代原来的 ms c++ 插件，不过还是之 ms
 - LLDB is a next generation, high-performance debugger.
 - It is built as a set of reusable components which highly leverage existing libraries in the larger LLVM Project, such as the Clang expression parser and LLVM disassembler.
 - Xcode 的默认调试工具，对比 win 和 linux 上的 gdb
-
-
-
-
 
 ### 1.1 Deprecated features
 
@@ -113,8 +101,6 @@ return 0; }
 ```
 
 现在还有这种语法了？惊了，之后学到。
-
-
 
 ## CP 02: Language Usability Enhancements
 
@@ -186,8 +172,6 @@ void foo(int num)
 
 - decltype: is used for type derivation，后文继续会谈到
 - std::is_same: 这里居然用的是泛型。。
-
-
 
 #### constexpr 类型修饰符吧？(c++11)
 
@@ -302,7 +286,7 @@ int main()
 
 #### Type inference
 
->  auto? any?
+> auto? any?
 
 c++11 提供了两个 `auto` 和 `decltype` 来让编译器去判断类型
 
@@ -401,40 +385,3 @@ auto print_type(const T &a)
 `for (auto el : vec)` 不可改，el 是个 copy
 
 `for (auto& el : vec)` 可修改，是个引用
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
