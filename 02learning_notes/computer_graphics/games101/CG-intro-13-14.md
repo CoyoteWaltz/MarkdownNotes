@@ -176,8 +176,7 @@ OK 基本上就是这么个回事了
   - AABB to accelerate ray tracing
     - uniform grid
     - spatial partition
-- radiometry 辐射度量学
-  -
+- ## radiometry 辐射度量学
 
 GTC news:
 

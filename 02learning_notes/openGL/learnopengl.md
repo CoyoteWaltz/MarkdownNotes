@@ -4,6 +4,18 @@
 >
 > doc 网站推荐：http://docs.gl/
 
+### 百问百答
+
+#### `gl_FragCoord` 到底是啥
+
+[知乎回答](https://zhuanlan.zhihu.com/p/102068376)
+
+#### `gl_FragCoord.st` st 是啥玩意
+
+https://computergraphics.stackexchange.com/questions/4537/what-does-st-mean-in-the-context-of-opengl/4539
+
+**_In GLSL, you can swizzle with XYZW, STPQ, or RGBA._**
+
 ### 安装
 
 可以参考：https://methi1999.github.io/2020/08/19/opengl.html
@@ -16,7 +28,7 @@
 
 OpenGL is mainly considered an API (an Application Programming Interface) that provides us with a large set of functions that we can use to manipulate graphics and images. **However**, OpenGL by itself is not an API, **but merely a specification**, developed and maintained by the [Khronos Group](http://www.khronos.org/).
 
-所以，treat OpenGL as a set of specification really，每个硬件/OS 厂商会依照声明去实现对应的方法，我们在使用 OpenGL 开发的时候不用关心具体实现，treat as an API。
+所以，treat OpenGL as a set of specification really，每个硬件/OS 厂商会依照声明去实现对应的方法 core profile，我们在使用 OpenGL 开发的时候不用关心具体实现，treat as an API。
 
 _specification 有点像 js，es 规范其实也只是个 specification，每个浏览器去实现了_
 
@@ -473,6 +485,27 @@ core 强制的，我们有这行：`glfwWindowHint(GLFW_OPENGL_PROFILE*,* GLFW_O
 ### Texture
 
 image file: a pointer to a buffer of
+
+#### 2D 纹理的处理
+
+这些参数啥意思呢（注意 s t 就是 u v 坐标）
+
+```c++
+GLCALL(glTexParameteri(type, GL_TEXTURE_WRAP_S, GL_REPEAT));
+GLCALL(glTexParameteri(type, GL_TEXTURE_MIN_FILTER, GL_NEAREST));
+
+```
+
+WRAP 参数
+上面提到纹理坐标(0.5, 1.0)到纹素的映射，恰好为(128,256)。如果纹理坐标超出[0,0]到[1,1]的范围该怎么处理呢？ 这个就是 wrap 参数由来，它使用以下方式来处理：
+
+GL_REPEAT: 坐标的整数部分被忽略，重复纹理，这是 OpenGL 纹理默认的处理方式.
+GL_MIRRORED_REPEAT: 纹理也会被重复，但是当纹理坐标的整数部分是奇数时会使用镜像重复。
+GL_CLAMP_TO_EDGE: 坐标会被截断到[0,1]之间。结果是坐标值大的被截断到纹理的边缘部分，形成了一个拉伸的边缘(stretched edge pattern)。
+GL_CLAMP_TO_BORDER: 不在[0,1]范围内的纹理坐标会使用用户指定的边缘颜色。
+————————————————
+版权声明：本文为 CSDN 博主「The fool」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/wangdingqiaoit/article/details/51457675（这篇博文介绍的很清楚了）
 
 ### Blending
 

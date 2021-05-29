@@ -1,7 +1,7 @@
-- CG-intro-1-4: Intro, Linear algebra, MVP
-- CG-intro-5-6: Rasterization
-- CG-intro-7-9: Shading
-- CG-intro-10-12: Geometry
-- CG-intro-13-14: Raytracing Part-1
-- CG-intro-15-16: Raytracing Part-2
+- [CG-intro-1-4.md](CG-intro-1-4.md) : Intro, Linear algebra, MVP
+- [CG-intro-5-6.md](CG-intro-5-6.md) : Rasterization, antialias, z-buffer(depth)
+- [CG-intro-7-9.md](CG-intro-7-9.md) : Shading, mipmap,
+- [CG-intro-10-12.md](CG-intro-10-12.md) : Geometry
+- [CG-intro-13-14.md](CG-intro-13-14.md) : Raytracing Part-1
+- [CG-intro-15-16.md](CG-intro-15-16.md) : Raytracing Part-2, BRDF, Path tracing
 - CG-intro-

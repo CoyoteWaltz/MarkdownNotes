@@ -142,8 +142,8 @@ model 和 image
 
 变换学习能做什么
 
-- Modeling，模型变换：rotate、translation、scaling
-- Viewing，视角变换：project
+- **Modeling**，模型变换：rotate、translation、scaling
+- **Viewing**，视角变换：project
 
 2D 变换
 
@@ -502,3 +502,11 @@ frustum: 截头锥体
 z 方向的映射关系图：
 
 ![image-20201023130209835](./CG-intro.assets/image-20201023130209835.png)
+
+最后说一下对 MVP 的理解
+
+- M：描述物体是如何出现在世界中的，translate、rotate、scale
+- V：描述 camera 的位置，好比人走到了和物体的一个相对的位置上
+- P：将 camera 看到的物体投射在视平面上（2 D），好比人去看这个物体
+
+都是对 point 坐标进行的线性变换，注意要按照这个顺序自然的对 point 作用，P _ V _ M \* point
