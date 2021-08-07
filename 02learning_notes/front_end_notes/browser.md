@@ -1,5 +1,65 @@
 [toc]
 
+### 安全上下文环境
+
+> 一些浏览器 API 只有在“安全”的环境才能使用
+>
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts)
+>
+> 当浏览器 `Window` 或者 `Worker` 满足一些最小标准的时候才能达到 **secure context**，才能使用一些特定的 Web APIs
+>
+> 主要是为了防范 [MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) 攻击（中间人）
+
+详见 MDN 文档，这里做一些摘要
+
+- 本地传输的资源可以被认为是安全上下文，比如 `http://*.localhost` 或者 `file://` 的 URL
+- **Note:** Firefox 84 and later support *http://localhost* and *http://\*.localhost* URLs as trustworthy origins (earlier versions did not, because `localhost` was not guaranteed to map to a local/loopback address).
+- 检测是否是 secrue context 的 API：[window.isSecureContext](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/isSecureContext)
+  - 目前还是个试验性 feature
+
+
+
+### 地理位置信息 Geolocation.getCurrentPosition()
+
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition)
+>
+> **安全上下文中可以使用**
+
+#### 用法
+
+`navigator.geolocation.getCurrentPosition(success, error, [options])`
+
+- 前两个是 callback，success 会接收位置信息对象
+- options 可以配置 maximumAge（最大缓存时间）timeout（超时的 error cb 执行时间） enableHighAccuracy
+
+```js
+// 来自 MDN
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+function success(pos) {
+  var crd = pos.coords;
+
+  console.log('Your current position is:');
+  console.log(`Latitude : ${crd.latitude}`);
+  console.log(`Longitude: ${crd.longitude}`);
+  console.log(`More or less ${crd.accuracy} meters.`);
+}
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+```
+
+
+
+
+
 ### 浏览器 cookie async api
 
 > 活久见系列，不过我还没用过上古世纪就有的 `document.cookie`。。。

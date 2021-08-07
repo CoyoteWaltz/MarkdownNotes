@@ -21,3 +21,10 @@ Pinned
 [打字练习](https://typing.io/lessons)
 
 [眼花缭乱的视觉效果](http://www.ritsumei.ac.jp/~akitaoka/index-e.html)
+
+### github
+
+[readme badges](https://www.makeuseof.com/badges-that-will-supercharge-your-github-repository/)
+
+- [stars stat](https://github.com/anuraghazra/github-readme-stats)
+

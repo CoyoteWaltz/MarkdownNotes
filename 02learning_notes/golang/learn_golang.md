@@ -16,6 +16,8 @@ github 有一个教程叫[go101](https://github.com/go101/go101)于是 clone 下
 
 阅读开始https://github.com/go101/go101
 
+update on 2021.06.05 10:25:51 从这个 [website](https://go101.org/article/101.html) 阅读，界面改版成深色主题了？
+
 ## Chapter 1 About GO 101 这本书写来干嘛的
 
 开篇作者以为自己掌握了 Go，想要写一本教程书，然后发现自己一无所知哈哈哈，然后积累了几年，终于牛逼了。提醒学者不能轻敌，要有对的 attitude。
@@ -230,13 +232,13 @@ continue  for          import  return     var
 - `defer` `go`也是控制流里面的关键字，特殊方法，之后说
 - 所有的之后都会详细说明
 
-#### <span id="identifiers">Identifiers</span>
+#### Identifiers
 
 用来 identify 变量、package、函数、等等 code element 的
 
 单下划线`_`是特殊的 identifier，叫**blank identifier**
 
-注意点:
+**注意点:**
 
 - **大写字符开头的是可以被 Import**，可以看成是这个 package 可以给别的包 public 的
 - 其他的都是 non-exported 的，private
@@ -253,7 +255,7 @@ Types can be viewed as value templates, and values can be viewed as type instanc
 内置变量:
 
 - bool
-- 11 种 int: int8, uint8, int16, uint16, int32, uint32, int64, uint64, int, uint, uintptr。疯了
+- 11 种 int: int8, uint8, int16, uint16, int32, uint32, int64, uint64, int, uint, uintptr。~~疯了~~还好吧，挺好的类型都标注出来了
 - 2 种 float: float32, float64
 - 2 种复数: complex64, complex128 还不太了解
 - string
@@ -359,7 +361,7 @@ Generally, we can view a code point as a Unicode character, but we should know t
   ahah "heihei"`
   ```
 
-转义字符用的是 escape 这个单词
+*转义字符用的是 escape 这个单词*
 
 ---
 
@@ -422,7 +424,7 @@ const (
 	// In the above line, the blank identifier
 	// is required to be present.
 )
-// <====>
+// <==等价于==>
 const (
 	X float32 = 3.14
 	Y float32 = 3.14
@@ -469,7 +471,7 @@ func main() {
 
 有 iota 之后可以很巧妙便捷的声明，So `iota` is only useful in group-style constant declarations.
 
-实战中我们可以这样巧用 iota: 牛逼嗷
+实战中我们可以这样巧用 iota 牛逼嗷
 
 ```go
 const (
@@ -529,7 +531,7 @@ package-level variables V.S. local variables
 
 等号在改变变量的时候赋值叫做纯值赋值......
 
-一个下划线\_`叫做 blank identifier，可以用作被赋值的对象，也就是忽略输出，但不能放在等号右边
+一个下划线`_`叫做 blank identifier，可以用作被赋值的对象，也就是忽略输出，但不能放在等号右边
 
 强类型语言，注意类型 match
 
@@ -718,7 +720,7 @@ func SquaresOfSumAndDiff(a int64, b int64) (s int64, d int64) {
   }
   ```
 
-- 函数声明必须在 package level 中，在函数体内的只可以是匿名函数，但这不叫函数声明
+- 函数声明必须在 package level 中，在函数体内的只可以是匿名函数，但这不叫函数声明（？？？）
 
 #### Function calls
 
@@ -944,7 +946,7 @@ So please try to make the two names identical for each library package.
 
 首先，在运行的时候，一个 package 会在 import 他所有的 dependency package 之后加载。
 
-所有的`init`方法都会被按顺序调用，全部的`init`会在`main`之前调用，并且会在所有被 import 的包的`init`调用之后调用。
+**所有的`init`方法都会被按顺序调用，全部的`init`会在`main`之前调用，并且会在所有被 import 的包的`init`调用之后调用。**
 
 So it is not a good idea to have dependency relations between two `init` functions in two different source files.
 
@@ -1085,7 +1087,7 @@ default:
 
 Note, if any two case expressions in a `switch-case` control flow can be detected to be equal at compile time, then a compiler may reject the latter one.所谓 reject 就是直接报错，也就是两个 case 中不能出现相同的东西，不然就匹配到两个结果了，事实上目前 go1.13 编译器允许这样。。
 
-注意，和 c++不同，go 的 switch-case 会自动在 case 后面 break 掉，如果还想继续往下溜，那么就要用到`fallthrough`这个关键字了！
+**注意，和 c++不同，go 的 switch-case 会自动在 case 后面 break 掉，如果还想继续往下溜，那么就要用到`fallthrough`这个关键字了！**
 
 ```go
 rand.Seed(time.Now().UnixNano())
@@ -1172,7 +1174,7 @@ func main() {
 
 这，来要来点硬核的东西了！开始吧。
 
-这篇长文将介绍 goroutine**协程**，deferred function 调用。是 go 的两个很 unique 的特性。
+这篇长文将介绍 goroutine **协程**，deferred function 调用。是 go 的两个很 unique 的特性。
 
 同时也会解释 panic 和 recover 机制？
 
@@ -1184,9 +1186,9 @@ Goroutines 就是 go 语言实现 concurrent(并发)计算的东西。也成为 
 
 如果每个线程都是 os 拉起来的，每个线程的大小都要 2mb 还是 4mb 来着？特别吃内存，还有 nodejs 的 epoll 方法，event stack，这里先不多说了，总之 node 是很牛逼的单线程，非阻塞 IO 和事件驱动的调度能手。
 
-go 不支持用户用代码新建系统的线程。所以只有用 goroutines 才能在 go 里面并发编程。
+**go 不支持用户用代码新建系统的线程**。所以只有用 goroutines 才能在 go 里面并发编程。
 
-`go`关键字后跟一个 function call 就是新建一个新线程的操作了。新的 goroutine 会在函数调用之后退出。
+`go` 关键字后跟一个 function call 就是新建一个新线程的操作了。新的 goroutine 会在函数调用之后退出。
 
 go 程序的开始就是一个 goroutine，在程序里面用`go`创建的都算是他的 sub-goroutine，看代码熟悉一下
 
@@ -1372,12 +1374,12 @@ func main() {
 } // 3 2 1
 ```
 
-实际上每个 goroutine 都维护两个 stack，一个是 normal-call stack 一个就是 defer-call stack
+**实际上每个 goroutine 都维护两个 stack，一个是 normal-call stack 一个就是 defer-call stack**
 
 - For two adjacent function calls **in the normal-call stack** of a goroutine, the later pushed one is called by the earlier pushed one. The earliest function call in the normal-call stack is the entry call of the goroutine.
 - The function calls in the defer-call stack have no calling relations.
 
-解释一下第一条这个 normal-call 栈是啥，就是在 goroutine 执行时候顺序扫描代码，一个 func 被扫描，就压入 nromal-call 栈，然后进入 func 继续扫描到一个其他的函数调用就再压入栈，那么前一个就是后一个的 caller，然后递归进入函数扫描，不断入栈，就形成了在 stack 中相邻的两个函数有这样被调用的关系，那么栈底的那个函数就是 entry call 了。
+解释一下第一条这个 normal-call 栈是啥，就是在 goroutine 执行时候顺序扫描代码，一个 func 被扫描，就压入 nromal-call 栈，然后进入 func 继续扫描到一个其他的函数调用就再压入栈，那么前一个就是后一个的 caller，然后递归进入函数扫描，不断入栈，就形成了在 stack 中相邻的两个函数有这样被调用的关系，那么栈底的那个函数就是 entry call 了。*就是函数调用栈啦*
 
 而 defer-call stack 的所有函数的 caller 都是这个 goroutine。
 
@@ -1522,7 +1524,7 @@ func main() {
 - invocation moment 调用时间??是被压入 defer-call stack 的时候，就是压入栈的时候就算是调用这个动作了？
 - For a goroutine function call, the invocation moment is the moment when the corresponding goroutine is created.
 
-The expressions enclosed within the body of an anonymous function call, whether the call is a general call or a deferred/goroutine call, will not be evaluated at the moment _when_ the anonymous function call is invoked.就是匿名函数的参数评估(我觉得这里应该)是 until 函数被调用。
+The expressions **enclosed** within the body of an anonymous function call, whether the call is a general call or a deferred/goroutine call, will not be evaluated at the moment _when_ the anonymous function call is invoked.就是匿名函数的参数评估(我觉得这里应该)是 until 函数被调用。
 
 ```go
 package main
@@ -1596,7 +1598,7 @@ func main() {
 
 go 没有异常抛出和捕获！error handling 是 go 里面用的。和 throw/catch 机制很像的就是这个 panic/recover
 
-调用`panic`函数创建一个慌张。。。。可以让当前的 goroutine 进入 panicking status，当然这个 panic 只能在当前协程中存在。
+调用 `panic` 函数创建一个慌张。。。。可以让当前的 goroutine 进入 panicking status，当然这个 panic 只能在当前协程中存在。
 
 panicking 是另一种让函数 return 的方法。在一个函数调用中产生了一个 panic 会让函数立刻返回并进入 exiting phase，然后 defer-call stack 就会执行咯。
 
@@ -1757,7 +1759,7 @@ type table = map[string]int
 type Table = map[Name]Age  // 注意哦这个alias是可以被exported的因为identifier是大写
 ```
 
-怎么想到了 cpp 里面也是两种，一种 c 的 typedef，一种 cpp 的 using xxx = int;
+怎么想到了 cpp 里面也是两种，一种 c 的 `typedef`，一种 cpp 的 `using xxx = int;` 区别还是有的（忘了）
 
 这种 alias 的区别，就是它是 alias 了一个新名字，而不是建立了一个新类型。记住了哦！
 
@@ -1799,7 +1801,7 @@ In Go,
 
 #### Concept: Values
 
-value 的概念是一个 type 的 instance，每个类型都有一个零值，可以看成是一个类型的默认值。之前声明的`nil`identifier 可以用来表示 slice，map，function，channel，pointer(含 unsafe)，interface。nil 之后还要看看。
+value 的概念是一个 type 的 instance，每个类型都有一个零值，可以看成是一个类型的默认值。之前声明的`nil` identifier 可以用来表示 slice，map，function，channel，pointer(含 unsafe)，interface。nil 之后还要看看。
 
 讲一讲剩下的两个 literals，literal 就是表示值的一个方法
 
@@ -1817,7 +1819,7 @@ pointer，channel，interface 是没有 literals 的。
 
 #### Concept: Value Sizes
 
-值存在内存中的字节数。可以用`Sizeof`函数来查看
+值存在内存中的字节数。可以用 `Sizeof` 函数来查看
 
 Go 官方也并没有说**非数值**类型的大小
 
@@ -1847,7 +1849,7 @@ An interface value boxing nothing is a zero interface value.
 
 A zero interface value has neither a dynamic value nor a dynamic type.
 
-晕了，后面详细学一下
+晕了，后面详细学一下，就是鸭式辩型吧
 
 An interface type can specify zero or several methods, which form the method set of the interface type.
 
@@ -1942,7 +1944,7 @@ type Ptr *int   // 出现了! defined ptr
 type PP *Ptr
 ```
 
-指针类型的 0 值是 predeclared`nil`，也就是没有存地址的指针，cpp11 的`nullptr`
+指针类型的 0 值是 predeclared `nil`，也就是没有存地址的指针，cpp11 的`nullptr`
 
 base type 是 T，则只能存 T 类型的值的地址
 
@@ -1962,13 +1964,13 @@ In Go 101, the word "reference" indicates a relation.一个指针存了另一个
 
 2. 同样也可以用取地址符号`&`
 
-所谓的 addressable 就是在内存中有房间的值，变量。constant，function calls 和**explicit conversion result**都是 unaddressable 的
+所谓的 addressable 就是在内存中有房间的值，变量。constant，function calls 和 **explicit conversion result** 都是 unaddressable 的
 
 When a variable is declared, Go runtime will allocate a piece of memory for the variable. The starting address of that piece of memory is the address of the variable. 这句话好好品一品，变量所需要的地址是一片 memory，这一片的起始地址才是他的地址。
 
 #### Pointer dereference
 
-和 C 用法一样。`*p`dereference，是取地址的反操作。
+和 C 用法一样。`*p` dereference，是取地址的反操作。
 
 Dereferencing a nil pointer 会造成程序的慌乱哦
 
@@ -2020,7 +2022,7 @@ As the start of this article has mentioned, the mechanisms (specifically, the `u
 
 #### Struct Types and Struct Type Literals
 
-首先要直到怎么声明
+首先要知道怎么声明
 
 non-defined struct 如下
 
@@ -2043,7 +2045,7 @@ struct 类型的 size 就是所有的 field 类型的 size 之和加上一些 pa
 struct {
 	Title  string `json:"title"`
 	Author string `json:"author,omitempty" myfmt:"Author"`
-	Pages  int    `json:"pages,omitempty"`
+	Pages  int    `json:"pages,omitempty"`  // omit empty ?
 }
 ```
 
@@ -2078,7 +2080,7 @@ field 写的顺序是要紧的，两个 non-defined 结构体他们的 field 声
 
 #### Struct Value Literals and Struct Value Manipulations
 
-结构体变量用`T{...}`去初始化，T 必须是一个结构体，叫做 composite literal(说中文就是这个 T 是一个合成的表示形式)
+结构体变量用 `T{...}` 去初始化，T 必须是一个结构体，叫做 composite literal(说中文就是这个 T 是一个合成的表示形式)
 
 ```go
 st := struct {
@@ -2127,7 +2129,7 @@ var _ = Book{author: "Tapir", pages: 256, title: "Go 101",}
 
 结构体的 field 的 addressability 和 struct 保持一致。
 
-unaddressable 的结构体她的 field 不能被改变
+unaddressable 的结构体 field 不能被改变
 
 All composite literals, including struct composite literals are unaddressable.看个例子吧。组合的名字就没地址了
 
@@ -2174,7 +2176,7 @@ fmt.Println(*p)
 
 #### About Struct Value Comparisons
 
-Most struct types are comparable types, except the ones who have fields of incomparable types.这句话看似真是废话。。。
+Most struct types are comparable types, except the ones who have fields of incomparable types. 这句话看似真是废话。。。
 
 比较相同的时候是每个 field 都相同才相同
 
@@ -2268,3 +2270,218 @@ In fact, the above descriptions are not 100% correct in theory, for strings and 
 由于躺在下面的 part 不能成为值的专属，那么`unsafe.Sizeof`这个函数其实是不能记录的。一个 string 的 size 一直都是 16
 
 ---
+
+### Arrays, Slices and Maps
+
+> first-class citizen containers
+>
+> 概览讲了啥？都是 key & value 形式存储和访问
+>
+> array 和 slice 有啥区别
+>
+> - memory layout?
+> - array: only direct part
+> - slice & map: underlying part
+>
+> 容器元素的访问速度，map 与其他两种容器的优势
+>
+> - key 和 value 都可以是任意的 comparable type
+> - 稀疏空间，map 占用的内存肯定更少
+>
+> underlying part 浅拷贝
+
+#### 字面表示
+
+```go
+// array types: [N]T
+// slice types: []T
+// map types: map[K]T
+```
+
+- N 必须是非负数的 constant int
+
+用 `T{...}` 去初始化
+
+#### 嵌套组合表达
+
+```go
+// A slice value of a type whose element type is
+// *[4]byte. The element type is a pointer type
+// whose base type is [4]byte. The base type is
+// an array type whose element type is "byte".
+var heads = []*[4]byte{
+	&[4]byte{'P', 'N', 'G', ' '},
+	&[4]byte{'G', 'I', 'F', ' '},
+	&[4]byte{'J', 'P', 'E', 'G'},
+}
+// 化简
+var heads = []*[4]byte{
+	{'P', 'N', 'G', ' '},
+	{'G', 'I', 'F', ' '},
+	{'J', 'P', 'E', 'G'},
+}
+type LangCategory struct {
+	dynamic bool
+	strong  bool
+}
+
+// A value of map type whose key type is
+// a struct type and whose element type
+// is another map type "map[string]int".
+var _ = map[LangCategory]map[string]int{
+	LangCategory{true, true}: map[string]int{
+		"Python": 1991,
+		"Erlang": 1986,
+	},
+	LangCategory{true, false}: map[string]int{
+		"JavaScript": 1995,
+	},
+	LangCategory{false, true}: map[string]int{
+		"Go":   2009,
+		"Rust": 2010,
+	},
+	LangCategory{false, false}: map[string]int{
+		"C": 1972,
+	},
+}
+// 化简
+var _ = map[LangCategory]map[string]int{
+	{true, true}: {
+		"Python": 1991,
+		"Erlang": 1986,
+	},
+	{true, false}: {
+		"JavaScript": 1995,
+	},
+	{false, true}: {
+		"Go":   2009,
+		"Rust": 2010,
+	},
+	{false, false}: {
+		"C": 1972,
+	},
+}
+```
+
+#### 可比较的容器（`==`）
+
+array 居然是可以 compare 的，map 和 slice 只能和 `nil` 比较是否是**空或者零值**的容器
+
+数组的比较是逐元素，只能比较是否相等
+
+```go
+ee := [2]byte{12, 33} // byte alias uint8
+ff := [2]byte{12, 33}
+println(ee == ff) // true
+```
+
+#### 容器 length & capacity
+
+使用内置的函数 `len` 和 `cap` 来获取，对于 array 来说两个值是一样的，但是 slice 有的时候不一样，后续会讲。对于 map 来说 cap 是无限的（因为非连续）
+
+#### 访问 & 修改容器元素
+
+既然容器都是 key value 组合，所以都可以通过 `v = c[k]` 来获取
+
+[书上](https://go101.org/article/container.html)列举了 slice/arary 和 map 取值的 panic 情况
+
+- 不能是负数 int 的 key
+- out of boundary 会编译时报错，如果是 variable 会在 runtime panic
+- 给一个 `nil` 的 map 赋值会 runtime panic
+- ...
+
+#### slice
+
+说实话 slice 有点像 c++ 的 vector，可以用内置函数 `append` 给 slice 增加元素
+
+```go
+	ss := []int{}
+	ss = append(ss, 1223, 12333, 33321)
+```
+
+slice 的 len 到 cap 之间的剩余空间并不属于 slice 的元素，而是一些冗余的 slot
+
+The result slice of an `append` function call may share starting elements with the base slice or not, depending on the capacity (and length) of the base slice and how many elements are appended. `append` 函数会返回一个新的 slice，可能会共享原来 slice 的原始元素，取决于 slice 的 cap 和 length
+
+- 当 append 的元素个数大于剩余 slot 的数量，会给新 slice 分配新的内存空间，故不共享
+- 否则，就会共享内存分片，不会开辟新的空间
+
+通常我们不能改变 slice 的三个 field 如下，除了 reflect 和 unsafe 的方法（后续会提到），当然我们能直接通过赋值去改变一个 slice 变量（重新绑定）
+
+```go
+type _slice struct {
+	// direct part
+	elements unsafe.Pointer
+	len      int
+	cap      int
+}
+```
+
+append 是一个 Variadic functions，可变参数的函数可以用，`...` 来解构（放在变量后面）
+
+#### 容器的赋值
+
+map：如果是 map 变量赋值，会共享元素，改变一个容器元素会影响（反射 reflect）另一个变量
+
+```go
+	mm1 := map[int]bool{1: true}
+	mm2 := mm1
+	mm2[2] = false
+	delete(mm1, 1) // 删除 map 的某一个 key
+	fmt.Println(mm1, mm2)
+```
+
+slice：会共享所有内置元素，但不会发生 reflect（是因为重新赋值了？）
+
+```go
+	ss1 := []int{1, 2, 3, 4}
+	ss2 := ss1
+	ss2 = append(ss2, 5)
+	fmt.Println(ss1, ss2) // [1, 2, 3, 4] [1, 2, 3, 4, 5]
+```
+
+但是如果只是用下标修改，还是会互相影响的。
+
+array：copy 整个元素，互不影响
+
+```go
+	ar1 := [4]int{1, 2, 3}
+	ar2 := ar1
+	ar2[3] = 123
+	fmt.Println(ar1, ar2) // [1 2 3 0] [1 2 3 123]
+```
+
+#### make 函数构造 map 和 slice
+
+> `make` 不能构造数组，还可以构造 channel
+
+直接看代码吧
+
+```go
+	// map
+	m := make(map[string]int, 10) // 至少 10 entry 已分配
+	m["s"] = 33
+	fmt.Println(m)
+
+	// slice
+	s := make([]int, 1, 2) // len cap
+	ss := make([]int, 2)   // len == cap
+	fmt.Println(len(s), cap(s), ss)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

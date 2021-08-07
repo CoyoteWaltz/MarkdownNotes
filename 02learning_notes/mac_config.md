@@ -514,6 +514,16 @@ git 符号的含义：https://github.com/romkatv/powerlevel10k#what-do-different
 >
 > 指令 see [linux_cmd_ubuntu_notes_archived.md](linux/linux_cmd_ubuntu_notes_archived.md)
 
+#### .DS_Store 文件是啥
+
+经常能在文件夹中看到这个文件，好奇知乎了一下：保存文件夹的自定义属性的隐藏文件，如文件的图标位置或背景色
+
+删除的副作用不大，损失信息罢了，**可删**
+
+关闭它的生成：`defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE`
+
+恢复：`defaults delete com.apple.desktopservices DSDontWriteNetworkStores`
+
 ### exa for `ls`
 
 Rust 写的，ls 的现代替换方案。[github](https://github.com/ogham/exa)

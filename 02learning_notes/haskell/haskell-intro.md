@@ -70,7 +70,7 @@ haskell 名字的由来：Haskell Curry (1900-1982)
 
 a rearch language
 
-![image-20201029161952336](/Users/koyote/Documents/Markdown/learning_notes/haskell/haskell-intro.assets/image-20201029161952336.png)
+![image-20201029161952336](imgs/haskell-intro.assets/image-20201029161952336.png)
 
 真的牛逼，list 是 Eq 的重载`==`递归
 

@@ -205,6 +205,26 @@ test			# add tag时候让写的备注吧
 
 ### commit
 
+> [how to write a good commit message](https://csaju.com/blog/how-to-write-a-good-commit-message/)
+>
+> * feat: A new feature
+> * fix: A bug fix
+> * style: Additions or modifications related to styling only
+> * refactor: Code refactoring
+> * test: Additions or modification to test cases
+> * docs: README, Architectural, or anything related to documentation
+> * chore: Regular code maintenance
+
+`git commit -m "title" -m "description"`
+
+原来可以两个 `-m` 分别表示 title 和 description
+
+#### --amend
+
+
+
+
+
 ### fetch
 
 `git fetch origin master`
@@ -499,6 +519,23 @@ git stash branch <name> stash@{1}
 可以检查自己的内容有没有什么敏感信息
 
 btw 速度很快
+
+### log
+
+[漂亮的 git log](https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs)
+
+可以在 `.gitconfig` 文件中对指令做 alias
+
+```bash
+[alias]
+  lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  lg = !"git lg2"
+```
+
+
+
+
 
 ## .gitignore
 
