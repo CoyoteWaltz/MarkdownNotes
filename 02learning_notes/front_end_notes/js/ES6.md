@@ -159,7 +159,7 @@ const differenceAB = new Set([...setA].filter((v) => !setB.has(v)));
 
 ## Promise.allSettled
 
-和`Promise.all`用法一样，都是接受一组 promise，最大的区别是 all 只有全部的 promise 都是 resolved 了才会返回，allSettled 会等待所有 promise 的状态**都**从 pending 变化了才会返回，**能获得所有的结果**
+和`Promise.all`用法一样，都是接受一组 promise，最大的区别是 all 只有全部的 promise 都是 resolved 了才会返回，allSettled 会等待所有 promise 的状态**都**从 pending 变化了才会返回，**能获得所有的结果**（相当于是 all 做了一个 `.catch` 的处理）
 
 返回的结果会有`status`和`value`来表示，rejected 情况下会是`reason`
 

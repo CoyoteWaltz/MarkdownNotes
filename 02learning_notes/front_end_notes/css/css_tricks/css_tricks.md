@@ -33,7 +33,7 @@ isSupportFontFamily(fontFamily);
 上面的回答挺好的
 
 - first 和 last child 都用 `flex: 1` 即 grow，shrink 的比例都是 1，basis 为 0，撑满两边
-- 在右边的 box 用 flex-end 让元素 float 到右边即可
+- 在右边的 box 继续是个 flex box 用 flex-end 让元素 float 到右边即可
 
 
 

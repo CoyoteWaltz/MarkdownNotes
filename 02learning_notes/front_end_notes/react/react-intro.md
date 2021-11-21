@@ -281,6 +281,18 @@ class Table extends Component {
 
 一下生命周期函数都是在 Class 组件，作为类的实例方法
 
+### `static getDerivedStateFromProps()`
+
+> https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops
+
+会在每次 render **之前**调用这个生命周期 hook，在第一次 mount 和后续更新都会触发，需要返回一个 object 或者 null 来更新 state
+
+注意是 render 之前调用，所以会在 componentDidMount 之前就触发
+
+用起来有点束手束脚，因为是 static 方法。。。还是用 componentDidUpdate 吧
+
+
+
 ### componentDidMount
 
 和 Vue 的`mounted`接近，比如我们可以设置定时器，让类的私有成员记录这个 timer

@@ -84,7 +84,7 @@ flex 布局是**一维布局**模型，一次只能处理一个维度
   - 比例值作为份数，将剩余宽度按照份数分给子元素，子元素生长，会撑满容器
   - 无剩余宽度的时候 flex-grow 无效
 
-### 弹性处理和刚性尺寸
+### 弹性处理和刚性尺寸 [flex-basis](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)
 
 有些场景需要元素的尺寸固定，不需要弹性调整，元素尺寸除了 height 和 width 外，flex 布局还有`flex-basis`，基础？
 
@@ -92,9 +92,9 @@ flex 布局是**一维布局**模型，一次只能处理一个维度
 
 #### 和 width/height 有区别！
 
-设置的是在主轴上的初始尺寸，在有 width 的情况下，`flex-basis`优先级更高！也可以是 auto，由 width 决定，没有 width 则由内容决定
+设置的是在主轴上的初始尺寸，在有 width 的情况下，`flex-basis `优先级更高！也可以是 auto，由 width 决定，没有 width 则由内容决定，可以实现不让这个元素被其他 flex 元素压缩。
 
-注意：`flex-basis`仅仅是**主轴上的尺寸**哦！和 width 其实没关系，改变主轴方向就变成了 height 了
+注意：`flex-basis` 仅仅是**主轴上的尺寸**！和 width 其实没关系，改变主轴方向就变成了 height 了
 
 #### 常用的复合属性 flex
 
