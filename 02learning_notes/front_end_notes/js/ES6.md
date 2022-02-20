@@ -7,16 +7,12 @@
 > 还挺好，用起来吧
 
 ```js
-let fee = 123_00;       // $123 (12300 cents, apparently)
-let fee = 12_300;       // $12,300 (woah, that fee!)
-let amount = 12345_00;  // 12,345 (1234500 cents, apparently)
-let amount = 123_4500;  // 123.45 (4-fixed financial)
+let fee = 123_00; // $123 (12300 cents, apparently)
+let fee = 12_300; // $12,300 (woah, that fee!)
+let amount = 12345_00; // 12,345 (1234500 cents, apparently)
+let amount = 123_4500; // 123.45 (4-fixed financial)
 let amount = 1_234_500; // 1,234,500
 ```
-
-
-
-
 
 ## logical assignment operators(ES 2021)
 
@@ -43,7 +39,7 @@ a ?? (a = b);
 ```js
 function foo(a) {
   if (!a) {
-    a = "foo"
+    a = "foo";
   }
   // or 利用 || 的断路机制
   // a || (a = "foo")
@@ -63,18 +59,16 @@ function foo(a) {
 
 所以要注意不一定每次都会调用 setter
 
-*最后注意的是，这个短语法还是有别于算术操作符（比如 `+=`）的，有 [issue](https://github.com/tc39/proposal-logical-assignment/issues/3) 讨论（懒得细看了）*
-
-
+_最后注意的是，这个短语法还是有别于算术操作符（比如 `+=`）的，有 [issue](https://github.com/tc39/proposal-logical-assignment/issues/3) 讨论（懒得细看了）_
 
 ## String 标签模版
 
 在函数名后紧跟着模版字符串（标签其实就是函数）
 
 ```js
-alert`yes ok`
+alert`yes ok`;
 // 等价于
-alert(['yes ok'])
+alert(["yes ok"]);
 ```
 
 当模版字符串中有变量 `${}` 的时候，处理起来就不一样了，会将变量所在的占位符作为 split 的位置将字符串分隔成数组作为函数的第一个参数，变量依次取值作为剩余参数传入，形如
@@ -82,9 +76,9 @@ alert(['yes ok'])
 ```js
 // const tag = (stringVals, ...args) => {}
 tag = (stringVals, ...args) => {
-    console.log(stringVals);
-    console.log(args)
-}
+  console.log(stringVals);
+  console.log(args);
+};
 // let a = 123;
 // tag`yes ok${a}`
 // ["yes ok", ""]
@@ -102,24 +96,16 @@ const pass2 = (stringArr, ...args) => {
     res.push(`${stringArr[i]}${args[i]}`);
   }
   res.push(stringArr[stringArr.length - 1]);
-  return res.join('');
+  return res.join("");
 };
 
 // .... 一行超人 没必要
 const pass = (stringArr, ...args) =>
   [
-    ...args.map((v, i) => `${stringArr[i]}${v}`),  // 可以对 v 做一些操作 比如 safe parse
+    ...args.map((v, i) => `${stringArr[i]}${v}`), // 可以对 v 做一些操作 比如 safe parse
     stringArr[stringArr.length - 1],
-  ].join('');
+  ].join("");
 ```
-
-
-
-
-
-
-
-
 
 ## Set 集合
 
@@ -1596,17 +1582,15 @@ const arr = [...mp2]; // -> [ [ 123, 'rrrr' ], [ 223, 'erw' ], [ '22222', '5555'
 
 更多优势可以看 [Stop Using Objects as Hash Maps in JavaScript](https://medium.com/better-programming/stop-using-objects-as-hash-maps-in-javascript-9a272e85f6a8)（墙外）
 
-
-
 ## WeakRef(ES 2021)
 
->  弱引用 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)
+> 弱引用 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)
 >
 > 强引用：变量对一个对象的指向，没有强引用之后，对象会被 GC 释放内存（reclaim the memory）
 >
-> ***Correct use of `WeakRef` takes careful thought, and it's best avoided if possible***
+> **_Correct use of `WeakRef` takes careful thought, and it's best avoided if possible_**
 >
-> ***能够避免对象被 GC，但是用之前，请三思，最好别用***
+> **_能够避免对象被 GC，但是用之前，请三思，最好别用_**
 
 ### 用法
 
@@ -1616,35 +1600,25 @@ const arr = [...mp2]; // -> [ [ 123, 'rrrr' ], [ 223, 'erw' ], [ '22222', '5555'
 
 具体代码看 MDN 的例子或者 [tc39](https://github.com/tc39/proposal-weakrefs)，感觉实战中不会用到
 
-
-
 ### 注意点
 
 - 对于同一个 target 生成多个 `WeakRef` 之间是相互关联的，其中一个 `deref` 了 target 之后，其他的 `deref` 只会拿到 `undefined`
 - You cannot change the target of a `WeakRef`, it will always only ever be the original target object or `undefined` when that target has been reclaimed. 不能改变 target
 
-
-
 ## FinalizationRegistry
 
-> *[Finalizater](https://github.com/tc39/proposal-weakrefs)* 又是一个不被推荐使用的，配合 WeakRef 可以一起用
+> _[Finalizater](https://github.com/tc39/proposal-weakrefs)_ 又是一个不被推荐使用的，配合 WeakRef 可以一起用
 
 `FinalizationRegistry` 对象可以在一个对象被垃圾回收的时候调用一个 callback
 
 ```js
 // 定义 callback
-const registry = new FinalizationRegistry(heldValue => {
+const registry = new FinalizationRegistry((heldValue) => {
   // ....
 });
 // 注册一个对象
 registry.register(theObject, "some value");
 ```
-
-
-
-
-
-
 
 ## WeakMap
 

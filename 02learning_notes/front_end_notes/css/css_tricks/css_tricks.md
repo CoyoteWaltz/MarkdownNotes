@@ -4,16 +4,45 @@
 
 [toc]
 
-## 一行CSS实现全站中文简繁转换
+## 一行 CSS 实现全站中文简繁转换
 
 > from [张鑫旭](https://www.zhangxinxu.com/wordpress/2021/01/css-simplified-traditional-chinese/)
 
 `font-variant-east-asian: traditional;`
 
-当然有些网站的字体是没有繁体的，可以查看[小tips: 使用JS检测用户是否安装某font-family字体](https://www.zhangxinxu.com/wordpress/2018/02/js-detect-suppot-font-family/)
+当然有些网站的字体是没有繁体的，可以查看[小 tips: 使用 JS 检测用户是否安装某 font-family 字体](https://www.zhangxinxu.com/wordpress/2018/02/js-detect-suppot-font-family/)
 
 ```js
-var isSupportFontFamily=function(f){if(typeof f!="string"){return false}var h="Arial";if(f.toLowerCase()==h.toLowerCase()){return true}var e="a";var d=100;var a=100,i=100;var c=document.createElement("canvas");var b=c.getContext("2d");c.width=a;c.height=i;b.textAlign="center";b.fillStyle="black";b.textBaseline="middle";var g=function(j){b.clearRect(0,0,a,i);b.font=d+"px "+j+", "+h;b.fillText(e,a/2,i/2);var k=b.getImageData(0,0,a,i).data;return[].slice.call(k).filter(function(l){return l!=0})};return g(h).join("")!==g(f).join("")};
+var isSupportFontFamily = function (f) {
+  if (typeof f != "string") {
+    return false;
+  }
+  var h = "Arial";
+  if (f.toLowerCase() == h.toLowerCase()) {
+    return true;
+  }
+  var e = "a";
+  var d = 100;
+  var a = 100,
+    i = 100;
+  var c = document.createElement("canvas");
+  var b = c.getContext("2d");
+  c.width = a;
+  c.height = i;
+  b.textAlign = "center";
+  b.fillStyle = "black";
+  b.textBaseline = "middle";
+  var g = function (j) {
+    b.clearRect(0, 0, a, i);
+    b.font = d + "px " + j + ", " + h;
+    b.fillText(e, a / 2, i / 2);
+    var k = b.getImageData(0, 0, a, i).data;
+    return [].slice.call(k).filter(function (l) {
+      return l != 0;
+    });
+  };
+  return g(h).join("") !== g(f).join("");
+};
 ```
 
 使用
@@ -24,8 +53,6 @@ isSupportFontFamily(fontFamily);
 
 本质：传统的简体变繁体是通过改变文字本身字符内容实现的，例如起点中文网这里的繁体，`font-variant-east-asian` 属性实现的繁体效果则原始的字符还是简体中文，只是视觉呈现的是繁体而已
 
-
-
 ## 【Flex 布局】titlebar 两侧元素动态宽度 中间元素居中
 
 搜了一下 [stackoverflow](https://stackoverflow.com/questions/32378953/keep-the-middle-item-centered-when-side-items-have-different-widths)
@@ -34,8 +61,6 @@ isSupportFontFamily(fontFamily);
 
 - first 和 last child 都用 `flex: 1` 即 grow，shrink 的比例都是 1，basis 为 0，撑满两边
 - 在右边的 box 继续是个 flex box 用 flex-end 让元素 float 到右边即可
-
-
 
 ## Intrinsic Ratio Boxes
 

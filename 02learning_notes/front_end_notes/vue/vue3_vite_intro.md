@@ -7,6 +7,3 @@
 > 起因是看了[这篇](https://hswolff.com/blog/what-vuejs-does-better-than-react/)讲 vue 比 react 好的文章，评论也很棒，反面的观点
 
 首先是 [style guide](https://v3.vuejs.org/style-guide/#rule-categories)，vue 编码推荐风格**必看**
-
-
-

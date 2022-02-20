@@ -291,8 +291,6 @@ class Table extends Component {
 
 用起来有点束手束脚，因为是 static 方法。。。还是用 componentDidUpdate 吧
 
-
-
 ### componentDidMount
 
 和 Vue 的`mounted`接近，比如我们可以设置定时器，让类的私有成员记录这个 timer

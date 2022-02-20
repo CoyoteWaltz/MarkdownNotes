@@ -361,7 +361,7 @@ Generally, we can view a code point as a Unicode character, but we should know t
   ahah "heihei"`
   ```
 
-*转义字符用的是 escape 这个单词*
+_转义字符用的是 escape 这个单词_
 
 ---
 
@@ -1379,7 +1379,7 @@ func main() {
 - For two adjacent function calls **in the normal-call stack** of a goroutine, the later pushed one is called by the earlier pushed one. The earliest function call in the normal-call stack is the entry call of the goroutine.
 - The function calls in the defer-call stack have no calling relations.
 
-解释一下第一条这个 normal-call 栈是啥，就是在 goroutine 执行时候顺序扫描代码，一个 func 被扫描，就压入 nromal-call 栈，然后进入 func 继续扫描到一个其他的函数调用就再压入栈，那么前一个就是后一个的 caller，然后递归进入函数扫描，不断入栈，就形成了在 stack 中相邻的两个函数有这样被调用的关系，那么栈底的那个函数就是 entry call 了。*就是函数调用栈啦*
+解释一下第一条这个 normal-call 栈是啥，就是在 goroutine 执行时候顺序扫描代码，一个 func 被扫描，就压入 nromal-call 栈，然后进入 func 继续扫描到一个其他的函数调用就再压入栈，那么前一个就是后一个的 caller，然后递归进入函数扫描，不断入栈，就形成了在 stack 中相邻的两个函数有这样被调用的关系，那么栈底的那个函数就是 entry call 了。_就是函数调用栈啦_
 
 而 defer-call stack 的所有函数的 caller 都是这个 goroutine。
 
@@ -2468,20 +2468,3 @@ array：copy 整个元素，互不影响
 	ss := make([]int, 2)   // len == cap
 	fmt.Println(len(s), cap(s), ss)
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

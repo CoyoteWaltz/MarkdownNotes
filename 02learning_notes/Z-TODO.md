@@ -7,6 +7,17 @@
 
 last updated：2021.01.02 19:46:35
 
+## 2022 learning plan
+
+> 说实话，2021 的基本没完成
+
+### Front End
+
+#### Svelte
+
+- [ ] 看源码
+- [ ] svelte kit
+
 ## 2021 learning plan
 
 > - 深入前端
@@ -71,7 +82,4 @@ openGL & GLSL
 
 [现代 c++](cpp/cpp_on_the_fly.md)
 
-
-
 [protobuf 深入了解编码](https://www.jianshu.com/p/73c9ed3a4877)
-

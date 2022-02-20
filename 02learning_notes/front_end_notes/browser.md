@@ -13,11 +13,9 @@
 详见 MDN 文档，这里做一些摘要
 
 - 本地传输的资源可以被认为是安全上下文，比如 `http://*.localhost` 或者 `file://` 的 URL
-- **Note:** Firefox 84 and later support *http://localhost* and *http://\*.localhost* URLs as trustworthy origins (earlier versions did not, because `localhost` was not guaranteed to map to a local/loopback address).
+- **Note:** Firefox 84 and later support _http://localhost_ and _http://\*.localhost_ URLs as trustworthy origins (earlier versions did not, because `localhost` was not guaranteed to map to a local/loopback address).
 - 检测是否是 secrue context 的 API：[window.isSecureContext](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/isSecureContext)
   - 目前还是个试验性 feature
-
-
 
 ### 地理位置信息 Geolocation.getCurrentPosition()
 
@@ -37,13 +35,13 @@
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
-  maximumAge: 0
+  maximumAge: 0,
 };
 
 function success(pos) {
   var crd = pos.coords;
 
-  console.log('Your current position is:');
+  console.log("Your current position is:");
   console.log(`Latitude : ${crd.latitude}`);
   console.log(`Longitude: ${crd.longitude}`);
   console.log(`More or less ${crd.accuracy} meters.`);
@@ -55,10 +53,6 @@ function error(err) {
 
 navigator.geolocation.getCurrentPosition(success, error, options);
 ```
-
-
-
-
 
 ### 浏览器 cookie async api
 

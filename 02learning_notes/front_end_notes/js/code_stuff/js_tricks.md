@@ -24,14 +24,14 @@
 - 未定义的变量/形参
 
   ```js
-  const getUndefined = (u) => u
+  const getUndefined = (u) => u;
   ```
 
 - 没有返回值的函数
 
 - 未定义的属性
 
-*说实话不去谷歌一下，真看不懂 `void 0`。。*
+_说实话不去谷歌一下，真看不懂 `void 0`。。_
 
 ### 对象属性的懒加载计算
 
@@ -43,9 +43,9 @@
 
 ```js
 class MyClass {
-    constructor() {
-        this.data = someExpensiveComputation();
-    }
+  constructor() {
+    this.data = someExpensiveComputation();
+  }
 }
 ```
 
@@ -59,24 +59,23 @@ class MyClass {
 
 ```js
 class MyClass {
-    constructor() {
+  constructor() {
+    Object.defineProperty(this, "data", {
+      get() {
+        const actualData = someExpensiveComputation();
+
         Object.defineProperty(this, "data", {
-            get() {
-                const actualData = someExpensiveComputation();
-
-                Object.defineProperty(this, "data", {
-                    value: actualData,
-                    writable: false,
-                    configurable: false
-                });
-
-                return actualData;
-            },
-            configurable: true,
-            enumerable: true
+          value: actualData,
+          writable: false,
+          configurable: false,
         });
 
-    }
+        return actualData;
+      },
+      configurable: true,
+      enumerable: true,
+    });
+  }
 }
 ```
 
@@ -84,27 +83,24 @@ class MyClass {
 
 ```js
 const object = {
-    get data() {
-        const actualData = someExpensiveComputation();
+  get data() {
+    const actualData = someExpensiveComputation();
 
-        Object.defineProperty(this, "data", {
-            value: actualData,
-            writable: false,
-            configurable: false,
-            enumerable: false
-        });
+    Object.defineProperty(this, "data", {
+      value: actualData,
+      writable: false,
+      configurable: false,
+      enumerable: false,
+    });
 
-        return actualData;
-    }
+    return actualData;
+  },
 };
-
 ```
 
-*复习一下，属性的 configurable：不可被删除*
+_复习一下，属性的 configurable：不可被删除_
 
 P.S. 到这里其实感觉有个 bug，如果这个复杂计算的函数是个动态的类方法，懒加载和缓存应该就没那么简单了，还需要对依赖进行收集和监听，好吧，那就是 vue 干的事情了。。只要给对应的 setter 函数中加上对需要计算的属性的 `defineProperty` 操作就行了！
-
-
 
 ### 取整
 

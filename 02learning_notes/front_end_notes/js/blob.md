@@ -30,7 +30,7 @@ let blob = new Blob(array, options);
 
 - size：大小（字节）
 
-- type：类型
+- type：MIME 类型
 
 - slice()：`slice(start[, length])`
 
@@ -44,6 +44,32 @@ let blob = new Blob(array, options);
 let blob = new Blob(["hello world"], { type: "text/plain" });
 ```
 
+### 提取一个 Blob
+
+上面提到了，Blob 其实是基于 File 的，所以通过 [`FileReader`](https://developer.mozilla.org/en-US/docs/Web/API/FileReader) 来读取
+
+```js
+const reader = new FileReader();
+reader.addEventListener("loadend", (res) => {
+  // reader.result contains the contents of blob as a typed array\
+  // 这个 res 是 ProgressEvent
+  // 里面的 currentTarget 或者 target 的 result
+});
+reader.readAsArrayBuffer(blob);
+```
+
+还可以用 Response 来获取
+
+```js
+const text = await new Response(blob).text(); // 得到 string
+```
+
+或者直接调用 Blob 的 text 方法
+
+```js
+bb.text().then((r) => console.log(r));
+```
+
 ## URL.createObjectURL(object)
 
 object: 用于创建 URL 的 [`File`](https://developer.mozilla.org/zh-CN/docs/Web/API/File) 对象、[`Blob`](https://developer.mozilla.org/zh-CN/docs/Web/API/Blob) 对象或者 [`MediaSource`](https://developer.mozilla.org/zh-CN/docs/Web/API/MediaSource) 对象。
@@ -55,3 +81,24 @@ object: 用于创建 URL 的 [`File`](https://developer.mozilla.org/zh-CN/docs/W
 ```js
 revokeObjectURL(objectURL);
 ```
+
+这个 URL 的生命周期和创建它的 document 绑定，也就是说当前 document 被销毁了（关闭、reload、跳转了...），这个 URL 也就失效了。
+
+举个例子
+
+```js
+const bb = new Blob(["(() => {return 123;})()"]);
+
+const url = URL.createObjectURL(bb);
+// url
+// 'blob:https://developer.mozilla.org/51414a57-9fe8-40a4-8f6d-c996944069f9'
+```
+
+在浏览器中打开就可以看到代码了 `(() => {return 123;})()`
+
+可以作为 worker 的脚本来执行！（他是同源的）
+
+注意：
+
+- Web worker 可以用
+- Service worker 不可以用

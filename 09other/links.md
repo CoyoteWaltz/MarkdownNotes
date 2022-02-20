@@ -22,9 +22,12 @@ Pinned
 
 [眼花缭乱的视觉效果](http://www.ritsumei.ac.jp/~akitaoka/index-e.html)
 
+[找正则万能的网站](https://ihateregex.io/)（比如能学到 emoji 是由固定 unicode 组合规则构造的）
+
+[免费创建在线的时间线](https://time.graphics/)
+
 ### github
 
 [readme badges](https://www.makeuseof.com/badges-that-will-supercharge-your-github-repository/)
 
 - [stars stat](https://github.com/anuraghazra/github-readme-stats)
-

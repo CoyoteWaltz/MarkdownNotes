@@ -15,4 +15,3 @@ go env -w GOPROXY=https://goproxy.cn,direct
 ### VScode 中 `import "fmt"` 居然报错
 
 怀疑是 go path 的问题，在 VScode 设置中添加即可 `"go.gopath"*:* "~/go"` 我的。
-

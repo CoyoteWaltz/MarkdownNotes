@@ -24,11 +24,11 @@ total 32
 -rw-r--r--   1 coyote  staff    23B May 14 18:56 HEAD
 -rw-r--r--   1 coyote  staff   137B May 14 18:56 config
 -rw-r--r--   1 coyote  staff    73B May 14 18:56 description
-drwxr-xr-x  14 coyote  staff   448B May 14 18:56 hooks		# directory
--rw-r--r--   1 coyote  staff   176B May 14 19:01 index
+drwxr-xr-x  14 coyote  staff   448B May 14 18:56 hooks		# directory 一些钩子脚本
+-rw-r--r--   1 coyote  staff   176B May 14 19:01 index    # 暂存区当前的信息
 drwxr-xr-x   3 coyote  staff    96B May 14 18:56 info			# directory
-drwxr-xr-x   6 coyote  staff   192B May 14 19:01 objects	# directory
-drwxr-xr-x   4 coyote  staff   128B May 14 18:56 refs			# directory
+drwxr-xr-x   6 coyote  staff   192B May 14 19:01 objects	# directory 所有数据内容
+drwxr-xr-x   4 coyote  staff   128B May 14 18:56 refs			# directory 存储数据 commit 对象的指针（收藏夹）heads, tags
 ```
 
 看看 object 里面有什么，git add 了两个文件 a.txt（123123），b.txt（321321）
@@ -58,7 +58,7 @@ blob
 
 blob 是啥？英语单词的翻译：a small drop or lump of something viscid or thick; someting shapeless
 
-哈，其实不是，BLOB：Binary Large Object，呵呵。详见另一篇笔记
+哈，其实不是，BLOB: Binary Large Object，呵呵。详见另一篇笔记
 
 所以每一个被 add 的文件都成为了一个 blob 节点，用被 hash 的方法存着文件的内容
 
@@ -141,7 +141,7 @@ committer lijingwei07 <lijingwei07@meituan.com> 1589865678 +0800
 
 注意多了一个父节点 commit 的哈希。
 
-所以一次提交，commit 对象通过保存 tree 的 hash 指向文件路径快照，tree 又保存了文件 blob 对象的 hash，这样就明白文件结构和内容了。多次提交就像树的结构一样串起来。有点区块链的感觉 Merkle Tree，还真是。。。。
+所以一次提交，commit 对象通过保存 tree 的 hash 指向文件路径快照，tree 又保存了文件 blob 对象的 hash，这样就明白文件结构和内容了。多次提交就像树的结构一样串起来。有点区块链的感觉 **Merkle Tree**，还真是。。。。
 
 那么，分支的信息如何保存的呢？
 
@@ -207,23 +207,33 @@ test			# add tag时候让写的备注吧
 
 > [how to write a good commit message](https://csaju.com/blog/how-to-write-a-good-commit-message/)
 >
-> * feat: A new feature
-> * fix: A bug fix
-> * style: Additions or modifications related to styling only
-> * refactor: Code refactoring
-> * test: Additions or modification to test cases
-> * docs: README, Architectural, or anything related to documentation
-> * chore: Regular code maintenance
+> - feat: A new feature
+> - fix: A bug fix
+> - style: Additions or modifications related to styling only
+> - refactor: Code refactoring
+> - test: Additions or modification to test cases
+> - docs: README, Architectural, or anything related to documentation
+> - chore: Regular code maintenance
 
 `git commit -m "title" -m "description"`
 
 原来可以两个 `-m` 分别表示 title 和 description
 
+HEAD 会重新指向新的 commit obj 的 hash
+
 #### --amend
 
+通过 `git commit --amend` 进行提交可以修改上一次提交的 commit，用最新的 commit 来替换上一次
 
+```bash
+git commit --amend -m 'add b'
+```
 
+- 只能修改最近一次的 commit，rebase 和 reset 可以让你修改更前面的 commit
 
+- 也可以单独修改 commit msg：直接 `git commit --amend -m 'change msg'`，替换上一次的 msg
+
+- 注意不要修改之前 public 的 commit 哦
 
 ### fetch
 
@@ -532,10 +542,6 @@ btw 速度很快
   lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
   lg = !"git lg2"
 ```
-
-
-
-
 
 ## .gitignore
 
