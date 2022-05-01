@@ -11,6 +11,7 @@ node_modules/
 08reading/*
 # except reading_list
 !08reading/reading_list.md
+!08reading/imgs/
 
 # 09other/
 # 09other/
