@@ -1,6 +1,8 @@
-# Typescript Advance 4.1+
+# Typescript Advance
 
 [toc]
+
+## TS 4.1 的一些新东西
 
 > Ts 4.1 RC 了，抓紧来看看有什么新的内容吧
 >
@@ -194,3 +196,134 @@ type AnonymousCat = RemoveNameField<Cat>;
 ```typescript
 let a: Capitalize<"xxxx"> = "Xxxx";
 ```
+
+## Type language programming
+
+> 参考文章：https://www.zhenghao.io/posts/type-programming
+>
+> 文中以 TS 作为一门类型语言来看（图灵完备），也具编程语言的有很多特性，可以利用这些来更好的在日常开发中写类型，让 web app 变得更加 type safe and dependable
+
+### 变量定义
+
+`type` 或者 `interface` 声明的字面量其实是 type synonym or type alias（个人感觉是因为 duck inference 的原因）
+
+local 变量可以通过 `infer` 来声明
+
+```typescript
+type ConvertFooToBar<G> = G extends "foo" ? "bar" : never;
+type ConvertBarToBaz<G> = G extends "bar" ? "baz" : never;
+
+// infer defines the local variable Bar := ConvertFooToBar<T>
+type ConvertFooToBaz<T> = ConvertFooToBar<T> extends infer Bar
+  ? Bar extends "bar"
+    ? ConvertBarToBaz<Bar>
+    : never
+  : never;
+```
+
+### 等价判断
+
+`extends`
+
+### 获取类型的 props 的类型
+
+```typescript
+type Names = string[];
+type Name = Names[number];
+
+type Tuple = [string, number];
+type Age = Tuple[1];
+
+type User = { name: string; age: number };
+type Name = User["name"];
+```
+
+### 函数
+
+解释下不是函数类型，而是把一个 type 映射成另一个 type 的 type（map）
+
+那就是用泛型了
+
+#### Map 和 filter
+
+文中举的例子很不错，JS 中将一个对象的所有 key 都转成 string（用到了 `Object.fromEntries`）
+
+```typescript
+const user = {
+  name: "foo",
+  age: 28,
+};
+
+function stringifyProp(object) {
+  return Object.fromEntries(
+    Object.entries(object).map(([key, value]) => [key, String(value)])
+  );
+}
+
+const userWithStringProps = stringifyProp(user); // {name:'foo', age: '28'}
+```
+
+TS 中就是用 `[K in keyof T]` 来进行遍历
+
+```typescript
+type User = {
+  name: string;
+  age: number;
+};
+
+type StringifyProp<T> = {
+  [K in keyof T]: string;
+};
+
+type UserWithStringProps = StringifyProp<User>; // { name: string; age: string; }
+```
+
+同样也能进行判断，用 `as` 作为断言，个人理解这里相当于是 python 中 `x if x == y else z`
+
+```typescript
+type FilterStringProp<T> = {
+    [K in keyof T as T[K] extends string ? K : never]: string
+}
+```
+
+### Pattern matching
+
+用 `infer` 作为模式匹配，很高级
+
+```typescript
+type Str = 'foo-bar';
+// infer use as the pattern matcher
+type Bar = Str extends `foo-${infer rest}` ? `${rest}--Bar` : never; // 'bar--Bar'
+
+```
+
+### 递归代替循环
+
+举个例子，填充数组的方法，可以通过递归来实现数组扩充，递归结束条件就是数量达到长度
+
+```typescript
+// recursive function in JS
+const fillArray = <T>(item: T, num: number, arr: T[] = []) => {
+  return arr.length === num ? arr : fillArray(item, num, [...arr, item]);
+};
+
+type FillArray<
+  Item,
+  N extends number,
+  Array extends Item[] = []
+> = Array["length"] extends N ? Array : FillArray<Item, N, [...Array, Item]>;
+
+type Foos = FillArray<"foo", 3>; // ["foo", "foo", "foo"]
+```
+
+#### Limits for recursion depth
+
+Before TypeScript 4.5, the max recursion depth is [45](https://www.typescriptlang.org/play?ts=4.4.4&ssl=3&ssc=10&pln=3&pc=17#code/C4TwDgpgBAShkENgDkA8BJYEC2AaKyUEAHlgHYAmAzlGQK7YBGEATvgCp1gA20J51KAjIgA2gF0oAXigSAfNKiceEUQHJeZAObAAFmsn8IlGoQD8SrrygAuWPAhI0mHPmT5RAOm-Le+F9jicgDcAFCgkFAAQopwiCioagCMavgALACsCuHg0ACCsQ5OiSnpAGwKAPSVUFTACADGANZQAPYAbqwAZtytAO5AA). In TypeScript 4.5, we have tail call optimization, and the limit increased to [999](https://www.typescriptlang.org/play?ts=4.5.4#code/C4TwDgpgBAShkENgDkA8BJYEC2AaKyUEAHlgHYAmAzlGQK7YBGEATvgCp1gA20J51KAjIgA2gF0oAXigSAfNKiceEUQHJeZAObAAFmsn8IlGoQD8SrrygAuWPAhI0mHPmT5RAOm-Le+F9jicgDcAFChoJBQAIKKcIgoqGoAjGr4AJyZchHg0ABCcQ5OSan4yQAMlQoA9NVQVMAIAMYA1lAA9gBurABm3O0A7qFAA).
+
+### Avoid type gymnastics in production code
+
+不要在生产环境中玩 ts 体操，看了一些体操，真的挺有意思
+
+1. [simulating a Chinese chess (象棋)](https://github.com/chinese-chess-everywhere/type-chess)
+2. [simulating a Tic Tac Toe game](https://blog.joshuakgoldberg.com/type-system-game-engines/)
+3. [implementing arithmetic](https://itnext.io/implementing-arithmetic-within-typescripts-type-system-a1ef140a6f6f)

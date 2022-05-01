@@ -4,6 +4,18 @@
 
 [toc]
 
+## 干掉点击 div 的效果（H5）
+
+```css
+div,
+a,
+img {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+```
+
 ## 一行 CSS 实现全站中文简繁转换
 
 > from [张鑫旭](https://www.zhangxinxu.com/wordpress/2021/01/css-simplified-traditional-chinese/)
@@ -596,3 +608,7 @@ ul {
 ```
 
 摘抄最后一句话：`content`始终都需要配合`before`跟`after`伪元素使用，主要是显示一些`额外`的信息，更多案例需要大家去挖掘，只要脑洞大
+
+## 最后一个元素自动去尾部
+
+容器宽/高足够的情况下，巧用 `margin-xxx: auto`

@@ -21,6 +21,9 @@
 - 有些东西人脑记不住，用介质去存储；
 - 同时发现自己对于知识的保留也需要通过这样的记录/出教程的方式来维持更持久；
   - 潜意识 -> 意识 -> 表达
+- 一种情感倾诉、发泄的好方法；
+
+_2022.04.17 补充：当意识到自己的生活节奏散乱的时候（熵过大了），其实是某个系统出现了混乱，需要重新整理和复盘，也许可以尝试其他的办法，让事物回到原来的轨道上。同样，「记录」这件事情也是如此。_
 
 ### 如何记录
 
@@ -37,7 +40,7 @@
 
 #### 何处
 
-目前只有：PC Mobile（iPhone XR）
+目前只有：PC Mobile（iPhone）
 
 PC：
 
@@ -55,18 +58,20 @@ PC：
 
 #### 软件
 
+> 软件的选择很重要，工具得用的顺手，才能事倍功半
+
 之前统计过自己使用的记录软件（Cool，Notion 导出的 CSV -> WPS -> 复制粘贴过来居然就是表格了 hh）
 
-| Service        | For                                   | On              | Cloud | CloudBy              | 继续使用             |
-| -------------- | ------------------------------------- | --------------- | ----- | -------------------- | -------------------- |
-| Apple 备忘录   | 随时记、想到的一些想法、summary、书单 | Mobile, PC      | Yes   | Company-self         | :white_check_mark:   |
-| Notion         | 日记                                  | Mobile, PC, Web | Yes   | Company-self         | :new_moon_with_face: |
-| 滴答清单       | TODO（daily）                         | Mobile, PC      | Yes   | Company-self, iCloud | :white_check_mark:   |
-| 飞书云文档     | 日常工作 + 学习相关（compulsory）     | Web             | Yes   | Company-self         | :white_check_mark:   |
-| Typora         | 学习笔记                              | PC              | Yes   | iCloud               | :white_check_mark:   |
-| Xmind          | 思维导图（rarely）                    | Mobile, PC      | Yes   | iCloud               | :new_moon_with_face: |
-| 网易有道词典   | 单词本（sometimes）                   | Mobile, PC, Web | Yes   | Company-self         | :new_moon_with_face: |
-| beancount fava | 记账（daily）                         | PC              | No    | Local                | :white_check_mark:   |
+| Service        | For                                   | On              | Cloud | CloudBy              | 继续使用                               |
+| -------------- | ------------------------------------- | --------------- | ----- | -------------------- | -------------------------------------- |
+| Apple 备忘录   | 随时记、想到的一些想法、summary、书单 | Mobile, PC      | Yes   | Company-self         | :white_check_mark:                     |
+| Notion         | 日记                                  | Mobile, PC, Web | Yes   | Company-self         | :new_moon_with_face::white_check_mark: |
+| 滴答清单       | TODO（daily）                         | Mobile, PC      | Yes   | Company-self, iCloud | :white_check_mark:                     |
+| 飞书云文档     | 日常工作 + 学习相关（compulsory）     | Web             | Yes   | Company-self         | :white_check_mark:                     |
+| Typora         | 学习笔记                              | PC              | Yes   | iCloud               | :white_check_mark:                     |
+| Xmind          | 思维导图（rarely）                    | Mobile, PC      | Yes   | iCloud               | :new_moon_with_face:                   |
+| 网易有道词典   | 单词本（sometimes）                   | Mobile, PC, Web | Yes   | Company-self         | :new_moon_with_face:                   |
+| beancount fava | 记账（daily）                         | PC              | No    | Local                | :white_check_mark:                     |
 
 变更：
 
@@ -77,17 +82,42 @@ PC：
 
 新增：
 
-- ios MWeb：阅读/编辑 iCloud 同步的 markdown 文件
+- ios ~~MWeb~~ Taio：阅读/编辑 iCloud 同步的 markdown 文件
 
 ### 记什么
 
-首先记的内容真的是个很重要的考虑
+首先记的内容真的是个很重要的考虑，我想要记录些什么有意义的东西，能够实现上面的“为什么”
 
-- 学习笔记
-- 阅读记录
-- 日常记录
-- 想法 or 思考
+- 学习笔记 -> _markdown_
+
+  - wiki
+
+- 日常 or 总结记录 -> _备忘录_
+
+  - 日记
+  - 总结（年、月、周）
+
+- 想法 or 思考 -> _备忘录_
+- 项目管理（不限于工程，包含进度相关的都可以）-> _Notion_
+- 日程管理-> _Notion_
+
+  - 日程安排
+
+    - daily task(db)：日常、生活相关的事物
+    - learning task(db)：学习相关
+    - event(db)：大事件，如旅游相关安排
+
+  - 提醒事项
+    - Calendar：关联 task
+
+- 阅读记录 -> _Notion_
+  - book list(db)
+  - link list(db)
+- 账目管理 -> _Beancount_
+  - 每一笔消费明细
 
 ### 如何沉淀
 
 > 归档和分类，也是抑制熵增的一种手段吧
+
+- 定期的回顾和归档

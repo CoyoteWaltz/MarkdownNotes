@@ -209,6 +209,12 @@ http://xnipapp.com/
 
 命令行`code`指令直接[官方的操作](https://code.visualstudio.com/docs/editor/command-line#_common-questions)，`⇧ + ⌘ + p`然后输入类似`shell command install 'code'`的语句就让 vscode 自己帮我们在环境变量中加 code 指令
 
+#### 开启 TS 的引用计数
+
+在 settings 中搜索 `codelens`，在 extensions 中找到 TypeScript，开启 `References Code Lens`
+
+开启之后就能看到每个变量/属性被引用的次数啦，很方便。
+
 #### 开启长按键盘
 
 ```bash
@@ -318,6 +324,22 @@ sudo chown -R $USER $(brew --prefix)
 ### docker
 
 [官网](https://www.docker.com/get-started)下载 dmg 安装 or [阿里云 Docker dmg 镜像](http://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/stable/)
+
+### Warp
+
+[官网](https://www.warp.dev/)
+
+同事推荐的另一款很好用的 terminal（rust 写的），官网下载即可
+
+集成了很多功能，下面 Iterm2 提到的所有功能基本都集成了，ohmyzsh 的插件也基本上都集成了，界面也很酷
+
+- hot key window（可自定义快捷键）：在设置里就有
+- AI commend search：非常好用的功能，能通过大白话搜索出 shell 指令，很棒
+- Block：每次指令 + result 都是一个 block，可以移动选中复制，很方便
+  - 甚至可以分享 block 成网页链接给别人看！
+- Text-editor：可以更爽的编辑文本，很棒
+  - 选中单词 `⌃ + G`，这里和平时的 `⌘ + D` 不一样
+- History：可视化的搜索 history，比 history 指令配合 ! 来用方便多了
 
 ### Iterm2
 

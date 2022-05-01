@@ -102,3 +102,16 @@ const url = URL.createObjectURL(bb);
 
 - Web worker 可以用
 - Service worker 不可以用
+
+## 日常应用
+
+> 参考 https://www.jianshu.com/p/33564726aed8
+
+1、可用于隐藏视频播放器的真实地址
+由于需要后台支撑，故可参考[https://blog.csdn.net/qincidong/article/details/82781699](https://links.jianshu.com/go?to=https%3A%2F%2Fblog.csdn.net%2Fqincidong%2Farticle%2Fdetails%2F82781699)
+
+- 需要 server 把数据直接返回到前端，而不是一个 url 或者其他格式？前端来处理成 BlobURL
+
+2、使用 createObjectURL(blob) 输出页面，移动端长按保存，转发。
+
+3、开源代码库可以在线自定义配置文件并下载 JSON，也可以通过 blob 的方式生成。

@@ -1,5 +1,140 @@
 # html 各种标签
 
+[toc]
+
+### Twitter 的前十行 html
+
+> 读文：https://css-tricks.com/explain-the-first-10-lines-of-twitter-source-code/
+>
+> 读者作为一个前端面试官（SWE），在考察候选者的时候会问的一个小问题（10/60 的时间），很有意思。综合了 web 的核心（web vitals），无障碍（accessibility），浏览器历史（browser wars）和一些其他的 web 知识。
+>
+> 这些知识点结合我当下的工作内容（跨端/跨平台/混合开发），感觉对于 web 的理解又更加牢固和深刻了。对于 web 理解的文章后续单独写。这里对于这些 web vitals 做一些记录和学习/温习。
+>
+> 这篇文章下面的评论也非常有意思，值得一看。前几个 topic 也让我对工作，招聘水平，和现代 web 框架有了一定的思考。
+
+#### 第一行：`<!DOCTYPE html>`
+
+Html 5 规范的声明，用来告诉浏览器，下面的 Document 用 H5 规范来运行和解析（比如 CSS 的 `box-sizing` 都是 `content-box`）
+
+但其实浏览器已经知道接收到文件的 MIME 类型是 text/html 了，为啥还多此一举呢？是因为 browser wars，一些老的浏览器并不只识别标准的 html 规范，所以需要 W3C 统一的标识符。
+
+> **Perfect answer:** This is the document type (doc-type) declaration that we always put as the first line in HTML files. You might think that this information is redundant because the browser already knows that the MIME type of the response is `text/html`; but [in the Netscape/Internet Explorer days](https://css-tricks.com/chapter-8-css/), browsers had the difficult task of figuring out which HTML standard to use to render the page from multiple competing versions.
+
+#### 第二行：`<html dir="ltr" lang="en">`
+
+首先 `<html>` 标签是整个 html 文件的 root element。这里两个属性包含了无障碍和本地化（accessibility and localization）。从这里也可以切入聊一下 screen reader。
+
+`dir` 是 direction，也就是布局的文字阅读顺序，`ltr` = left to right，当然也有 `rtl`，这个其实我本身也就知道，有国外业务会考虑不同的阅读顺序来布局，做到本地化。如果值是 `auto` 就让浏览器自己来决定。
+
+`lang` 肯定不用多说了。
+
+> **Perfect answer:** This is the root element of an HTML document and all other elements are inside this one. Here, it has two attributes, direction and language. The direction attribute has the value left-to-right to tell user agents which direction the content is in; other values are right-to-left for languages like Arabic, or just `auto` which leaves it to the browser to figure out.
+
+#### 第三行：`<meta charset="utf-8">`
+
+这个 meta tag 告诉浏览器下面的所有源码的编码格式（character set），这行放的越早越好（浏览器应该最先解析到这行信息），否则影响性能（以及解析了一部分内容，还需要重新再根据编码解析一遍）
+
+> **Perfect answer:** The meta tag in the source code is for supplying metadata about this document. The character set (char-set) attribute tells the browser which character encoding to use, and Twitter uses the standard UTF-8 encoding. UTF-8 is great because it has many character points so you can use all sorts of symbols and emoji in your source code. It’s important to put this tag near the beginning of your code so the browser hasn’t already started parsing too much text when it comes across this line; I think the rule is to put it in the first kilobyte of the document, but I’d say the best practice is to put it right at the top of `<head>`.
+
+#### 第四行：`<meta name="viewport" content="width=device-...`
+
+让浏览器更好的在小屏幕上缩放，viewport 就是指浏览器展示内容的部分，content 是告诉要以以下特定方式来缩放：
+
+- width=device-width：告诉浏览器用设备的 100% 宽度作为视窗的宽度，这样就不会有水平方向的滚动
+- initial-scale=1.0：用户正常看到的尺寸，以及可以缩放的最佳实践
+- user-scalable=0：用户不可以缩放
+
+#### 第五行：`<meta property="og:site_name" content="Twitt...`
+
+这个就很有意思了，是我不知道的东西 Open Graph tags。Facebook 发明的一种 protocol，能够更简单的打开链接并在分享的时候能展示出一些缩略的内容。
+
+这个标签不是标准的属性，用 `og:xxx` 来声明一些内容比如 title，site_name，description，url，image 等等
+
+> **Perfect answer:** This tag is an Open Graph (OG) meta tag for the site name, Twitter. [The Open Graph protocol](https://ogp.me/) was made by Facebook to make it easier to unfurl links and [show their previews in a nice card layout](https://css-tricks.com/microbrowsers-are-everywhere/); developers can add all sorts of authorship details and cover images for fancy sharing. In fact, these days it’s even common to auto-generate the open graph image using something like Puppeteer. ([CSS-Tricks uses a WordPress plugin](https://css-tricks.com/automatic-social-share-images/) that does it.)
+
+#### 第六行：`<meta name="apple-mobile-web-app-title" cont...`
+
+这一个标签的 name 其实在 typlog 上也看到过，其实就是在 IOS 上可以直接将网页作为桌面 app，这里的内容就是这个桌面 app 的 icon。
+
+> **Perfect answer:** You can pin a website on an iPhone’s homescreen to make it feel like a native app. Safari doesn’t support progressive web apps and you can’t really use other browser engines on iOS, so you don’t really have other options if you want that native-like experience, which Twitter, of course, likes. So they add this to tell Safari that the title of this app is Twitter. The next line is similar and controls how the status bar should look like when the app has launched.
+
+#### 第七行：`<meta name="theme-color" content="#ffffff"...`
+
+其实就是容器的 UI 样式了，很好理解。
+
+> **Perfect answer:** This is the proper web standards-esque equivalent of the Apple status bar color meta tag. [It tells the browser to theme the surrounding UI](https://css-tricks.com/meta-theme-color-and-trickery/)[.](https://css-tricks.com/meta-theme-color-and-trickery/) Chrome on Android and Brave on desktop both do a pretty good job with that. You can put any CSS color in the content, and can even use the `media` attribute to only show this color for a specific media query like, for example, to support a dark theme. You can also define this and additional properties in the web app manifest.
+
+#### 第八行：`<meta http-equiv="origin-trial" content="...`
+
+这个 meta 标签就比较晦涩，其实搜了下笔记，还是有提到这个 http-equiv 是用来告诉浏览器一些指令。
+
+这里的 `origin-trial` 其实是让浏览器使用一些他自带的原生新特性，比如 Edge 的分屏？（没用过）
+
+> **Perfect answer:** Origin trials let us use new and experimental features on our site and the feedback is tracked by the user agent and reported to the web standards community without users having to opt-in to a feature flag. For example, Edge has an origin trial for dual-screen and foldable device primitives, which is pretty cool as you can make interesting layouts based on whether a foldable phone is opened or closed.
+
+#### 第九行：`html{-ms-text-size-adjust:100%;-webkit-text-size-adjust`
+
+只要给这个属性赋值了，就能阻止浏览器在小屏幕上放大文字，影响自适应性。
+
+> **Perfect answer:** Imagine that you don’t have a mobile responsive site and you open it on a small screen, so the browser might resize the text to make it bigger so it’s easier to read. The CSS [`text-size-adjust`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust) property can either disable this feature with the value none or specify a percentage up to which the browser is allowed to make the text bigger.
+>
+> In this case, Twitter says the maximum is `100%`, so the text should be no bigger than the actual size; they just do that because their site is already responsive and they don’t want to risk a browser breaking the layout with a larger font size. This is applied to the root HTML tag so it applies to everything inside it. Since this is an experimental CSS property, vendor prefixes are required. Also, there’s a missing `<style>` before this CSS, but I’m guessing that’s minified in the previous line and we don’t see it.
+
+P.S. 这应该也不是一个标准 CSS3 的属性，有 -ms 和 -webkit。
+
+#### 最后：`body{margin:0;}`
+
+其实就是对于 css 样式的 reset，解决一些浏览器（可泛指 webview）对内容有一些特殊的样式（加边框啊啥的），解决不同浏览器间的差异（inconsistencies）。也是很常见的。
+
+> **Perfect answer:** Because different browsers have different default styles (user agent stylesheet), you want to overwrite them by resetting properties so your site looks the same across devices. In this case, Twitter is telling the browser to remove the body tag’s default margin. This is just to reduce browser inconsistencies, but I prefer normalizing the styles instead of resetting them, i.e., applying the same defaults across browsers rather than removing them altogether. People even used to use `* { margin: 0 }` which is totally overkill and not great for performance, but now it’s common to import something like `normalize.css` or `reset.css` (or even [something newer](https://css-tricks.com/an-interview-with-elad-shechter-on-the-new-css-reset/)) and start from there.
+
+这里提到一点，对性能不好，浏览器会解析多次 css 进行 reprint。
+
+#### 还有更多
+
+```html
+<link
+  rel="search"
+  type="application/opensearchdescription+xml"
+  href="/opensearch.xml"
+  title="Twitter"
+/>
+```
+
+（很有意思）…tells browsers that users can add Twitter as a search engine.
+
+```html
+<link
+  rel="preload"
+  as="script"
+  crossorigin="anonymous"
+  href="https://abs.twimg.com/responsive-web/client-web/polyfills.cad508b5.js"
+  nonce="MGUyZTIyN2ItMDM1ZC00MzE5LWE2YmMtYTU5NTg2MDU0OTM1"
+/>
+```
+
+…has many interesting attributes that can be discussed, especially `nonce`.
+
+```html
+<link rel="alternate" hreflang="x-default" href="https://twitter.com/" />
+```
+
+…for international landing pages.
+
+```css
+:focus:not([data-focusvisible-polyfill]) {
+  outline: none;
+}
+```
+
+…for removing the focus outline when not using keyboard navigation (the CSS `:focus-visible` selector is polyfilled here).
+
+#### 总结
+
+其实个人觉得浏览器也好，webview 也好，开发者最终的目标（动态化）就是在各平台、各终端（浏览器、移动端、嵌入式设备、等）上用户的体验能达成一致，不免的要去抹平这层差异，核心思路是要对这些差异有足够的意识和认知，在遇到问题的时候也知道如何去 google（寻求解决方案）。于此同时要了解我们所写的 DSL 是在哪一层做了这些事，比如框架，他们为什么要去做（一开始说的），以及怎么做的，遇到新的差异要怎么去做才能更好的不让上层用户感知（更多存在于移动端定制化的混合开发中，对就是我现在干的这破事）。
+
+BTW，这个文章的评论区聊的也很有深度，可以看看。
+
 ### 替换元素和非替换元素
 
 #### 替换元素
@@ -690,3 +825,150 @@ function NavigatorExample() {
 #### `figcaption`
 
 caption 元素，会根据不同的 figure 去到不同的位置（浏览器决定）
+
+### 全局属性 `data-*`
+
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*)
+>
+> 标签上的自定义属性，可以通过脚本在 HTML 和 DOM 之间设置/获取信息
+
+#### html 属性
+
+```html
+<ul>
+  <li data-id="10784">Jason Walters, 003: Found dead in "A View to a Kill".</li>
+  <li data-id="97865">
+    Alex Trevelyan, 006: Agent turned terrorist leader; James' nemesis in
+    "Goldeneye".
+  </li>
+  <li data-id="45732">
+    James Bond, 007: The main man; shaken but not stirred.
+  </li>
+</ul>
+```
+
+一些规则：
+
+- 属性名以 `data-` 开头，只能包含字母、数字、dashes(`-`)、periods(`.`)、colons(`:`) and underscores(`_`)
+- 大写字母都会被转成小写
+
+#### css 获取 attr
+
+可以通过 `attr(data-*) ` 得到对应的字符串的值
+
+#### JS DOM 获取
+
+API：通过 `HTMLElement.dataset.keyName` 来获取
+
+这的 `dataName` 就是 html 里面 dash 连接的名字 `data-key-name`，都会被转成 camelCased `keyName`。
+
+#### 应用场景
+
+类似自定义属性，能给不同的 html 标签给上统一的属性（比如 vue 的自定义属性），来干点什么事情。
+
+实际例子：
+
+H5 开发的时候，点击后不失去焦点、同时触发点击
+
+```ts
+export default function hideKeyboardOnTouch() {
+  // 滚动或点击时收起软键盘
+  let shouldInterceptClick = false;
+  let shouldInterceptScroll = false;
+  const initialHeight = window.innerHeight;
+  let currentHeight = window.innerHeight;
+  window.addEventListener("resize", () => {
+    if (
+      window.innerHeight === initialHeight &&
+      window.innerHeight > currentHeight
+    ) {
+      if (
+        document.activeElement &&
+        document.activeElement.tagName &&
+        (document.activeElement.tagName.toLowerCase() === "input" ||
+          document.activeElement.tagName.toLowerCase() === "textarea")
+      ) {
+        (document.activeElement as HTMLElement).blur();
+      }
+    }
+    currentHeight = window.innerHeight;
+  });
+  document.addEventListener(
+    "touchstart",
+    (e) => {
+      if (
+        document.activeElement &&
+        document.activeElement.tagName &&
+        (document.activeElement.tagName.toLowerCase() === "input" ||
+          document.activeElement.tagName.toLowerCase() === "textarea")
+      ) {
+        if (e.target) {
+          const target = e.target as HTMLElement;
+          const tagName = target.tagName.toLowerCase();
+          if (
+            tagName === "input" ||
+            tagName === "textarea" ||
+            (target.dataset && target.dataset.keepKeyboard)
+          ) {
+            shouldInterceptScroll = isIOS;
+            shouldInterceptClick = false;
+          } else {
+            if (isIOS) {
+              (document.activeElement as HTMLElement).blur();
+            }
+            shouldInterceptClick = true;
+          }
+        } else {
+          shouldInterceptClick = false;
+          shouldInterceptScroll = false;
+        }
+      } else {
+        shouldInterceptClick = false;
+        shouldInterceptScroll = false;
+      }
+    },
+    true
+  );
+
+  if (isIOS) {
+    document.addEventListener(
+      "touchend",
+      () => {
+        shouldInterceptScroll = false;
+      },
+      true
+    );
+    document.addEventListener(
+      "scroll",
+      () => {
+        if (shouldInterceptScroll) {
+          // iOS上滑动时收起软键盘
+          (document.activeElement as HTMLElement).blur();
+        }
+      },
+      true
+    );
+  }
+  document.addEventListener(
+    "click",
+    (e) => {
+      if (e.target) {
+        const target = e.target as HTMLElement;
+        const tagName = target.tagName.toLowerCase();
+        if (tagName === "input" || tagName === "textarea") {
+          return;
+        }
+      }
+      if (shouldInterceptClick) {
+        e.stopPropagation();
+        e.preventDefault();
+        // Android上因为键盘会resize页面，滑动时收起会卡顿，所以只在点击时收起
+        if (!isIOS) {
+          (document.activeElement as HTMLElement).blur();
+        }
+      }
+    },
+    true
+  );
+}
+```

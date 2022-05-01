@@ -26,6 +26,14 @@ Pinned
 
 [免费创建在线的时间线](https://time.graphics/)
 
+[手绘风流程图在线绘制](https://excalidraw.com/)
+
+[名字随机生成器](https://uniq.site/zh)
+
+[开发者武器库](https://devtool.tech/)
+
+[Mac 浏览器花屏解决](https://juejin.cn/post/6911572445774233607)
+
 ### github
 
 [readme badges](https://www.makeuseof.com/badges-that-will-supercharge-your-github-repository/)

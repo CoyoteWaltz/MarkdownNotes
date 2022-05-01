@@ -2,6 +2,31 @@
 
 [toc]
 
+## Object.fromEntries(ES 2019)
+
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries)
+>
+> Object.entries 的逆操作
+>
+> 有的时候通过 entries/values 重组的对象可以直接通过这个方法再组装回去
+
+```js
+Object.fromEntries([["eee", "ee"]]);
+// { eee: 'ee' }
+```
+
+From Map
+
+```js
+const m = new Map([
+  ["23", 123],
+  ["eew", 333],
+]);
+
+Object.fromEntries(m);
+// { '23': 123, eew: 333 }
+```
+
 ## 数值分隔符 Numeric Separators(ES 2021)
 
 > 还挺好，用起来吧

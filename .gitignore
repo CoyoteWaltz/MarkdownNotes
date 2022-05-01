@@ -8,6 +8,10 @@ node_modules/
 01journal/
 # 02learning_notes/
 07work/
-08reading/
+08reading/*
+# except reading_list
+!08reading/reading_list.md
+
+# 09other/
 # 09other/
 10personal/
