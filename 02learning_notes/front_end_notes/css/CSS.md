@@ -67,6 +67,12 @@ html、CSS 组成了页面的布局和样式，给我的感觉就是他们的技
 - 脱离常规流布局
 - 见 position！
 
+### viewport 在移动端存在的问题
+
+> [100 vh 的高度并不好](http://caibaojian.com/avoid-100vh-on-mobile-web.html)
+
+100 vh 在移动端的浏览器中的体验可能会有点不好，因为浏览器有些时候会自动隐藏顶部的地址栏，用 JS 去设置高度为 innerHeight 会更好，这个是浏览器窗口内部的可见高度。
+
 ### 盒子模型
 
 盒子通常由：content，margin，padding，border 组成

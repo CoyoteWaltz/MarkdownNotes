@@ -38,6 +38,20 @@
 >
 > 以及给出了一些建议，说实话感觉对我现在没啥用，先不记了
 
+[银行转账发生了什么](https://gendal.me/2013/11/24/a-simple-explanation-of-how-money-moves-around-the-banking-system/)
+
+> 13 年的文章了，由浅入深的介绍了一次转账/付款在银行内部/之间发生了怎么样的过程。
+>
+> 转账的本质：钱从某一账户流入另一个账户。
+>
+> 从同一个银行的两个账户，到不同银行之间，复杂度提升，存在的问题（counterparty risk, liquidity, cost），引入 **correspondent banking**，SWIFT，到最后的 central bank（**Real-Time Gross Settlement**）来解决上面这些流动性等问题。
+>
+> - **correspondent banking**：两个银行之间互相拥有对方的账户
+> - [SWIFT](https://en.wikipedia.org/wiki/SWIFT)：银行金融通信。（安全）用 message 通知另一个银行操作，好比发消息。
+> - RTGS：central bank 管理所有的账户，其中的 Gross 表示直接账户操作，没有网络关系，有好的实时性，Settlement
+>
+> 其实最后自己有个问题：所以在商业银行开的账户，其实也是在央行开的账户，在商业银行绑定了一子账户 or 继承？
+
 ---
 
 ### 【职业】
@@ -227,6 +241,18 @@
 > **3）形成合力**
 >
 > 评估项目价值的方法：T-shirt size estimation（项目价值 - 耗费人力）
+
+[Uncomfortable](https://alexanderell.is/posts/uncomfortable/)
+
+> 非常美的文字去形容作为一个程序员去解决自己的 uncomforable time.
+>
+> Slowly, over time, the mist starts to clear up. Suddenly you can see how things are connected. After a chat with a coworker, a deep-dive into the code, or a [walk around the block](https://alexanderell.is/posts/trust-in-your-unconscious/), something clicks, and some of the pieces start falling into place. The mist transforms into an outline, the outline into a conversation, the conversation into a diagram, the diagram into a few pull requests, the pull requests into follow up pull requests, and finally this vague problem has been translated from that amorphous blob into concrete lines of code.
+
+[关于副业](https://catcoding.me/p/side-hustle-for-programmer/)
+
+> 依旧是 catcoding 的博文。自己对副业的思考也是不急着做，在职场先好好摸爬滚打，看看机会，多思考、沉淀和收集信息吧，寻找机会，等过几年工作遇到瓶颈了，可以搞搞。
+> 摘录下总结：
+> _技术通常不是最重要的，重要是有效地解决问题和满足真实世界的需求。_ > _如果还不清楚自己想做什么，可以先从建立个人品牌着手，或者其他任何有复利效应、能复用自己的优势和资源、或者能提高自己的事情，很多事做起来了才能有些新想法。_ > _副业可能是为了挣钱，自由，探路，兴趣等等。做得不好也不必焦虑，上班低头做事，副业抬头看路，带着一种探索的心态来做副业就很好。_
 
 ---
 
@@ -844,6 +870,146 @@ TODO [js 中真正的 sleep](https://jasonformat.com/javascript-sleep/)
 > now: 2022.04.05 20:28:28
 >
 > 前不久俄罗斯向乌克兰发起了战争，在开源社区也有一些行为在做抵制俄罗斯的行为，但他们的影响面导致了一些公司依赖的软件遭到连带（collateral damage）
+
+[utopia](https://utopia.app/)
+
+> 非常牛的一个产品，react code with design，代码开发 + 设计软件双向同步，代码编辑器采用 vscode，设计的编辑器也非常牛啊。
+
+2022.05.03 11:17:28
+
+[RPC from scratch](https://alexanderell.is/posts/rpc-from-scratch/)
+
+> 文章介绍了 RPC 的概念，并用一个 toy example 解释
+>
+> 烟蒂 _stub_ 模型，RPC 是一个比较抽象的设计模式（？）封装了 client 和 server 之间的通信方式（协议、接受参数、打包/解包数据、返回）
+>
+> 最后介绍一个正真的 RPC 框架需要满足的能力：
+>
+> - **Discoverability**：在网络中可被发现性，服务是否在线等
+> - **RPC type**：辨别不同类型的 RPC 服务
+> - **Packing**：打包/解包不同数据结构的数据，传输协议、压缩、节省带宽
+> - **Generating code automatically**：只需要定义 interface，不用每次写很多重复代码
+> - **Multiple languages**：cross-service and cross-language communication
+> - **Error & timeout handling**：失败和超时的处理、通信
+> - **Versioning**：版本控制
+> - **All of the other caveats that go along with running servers**: threading, blocking, multiplexing, security, encryption, authorization… 以及其他一些运行时服务一样会遇到的问题，都需要得到很好的解决
+
+[Thunk 是什么](https://daveceddia.com/what-is-a-thunk/)
+
+> 这篇文章真正解答了我用 redux 以来这么久对于 thunk 的疑惑
+>
+> _thunk_ 这个单词本身含义就是一个能返回函数的函数（常用的 wrapper 方法）
+>
+> **redux-thunk** 的作用和意义就是在于能在一个 redux action 中去执行其他的 action，增加 action 的灵活性，把 action 的形态拓展成函数。
+>
+> _P.S. 对于 redux action 来说就是一个 pure object 包含了 type_
+>
+> redux-thunk 的实现其实也是运用了 redux 的 middleware，判断一个 action 是否是 function，如果是就执行他，如果不是就正常的走 `next` 方法
+>
+> 补充：来自 redux-thunk 源码
+>
+> _A [thunk](https://en.wikipedia.org/wiki/Thunk) is a function that wraps an expression to delay its evaluation._
+>
+> 维基百科：_Thunks are primarily used to **delay a calculation until its result is needed**, or to insert operations at the beginning or end of the other subroutine._
+>
+> 所以 thunk action 他一定是一个函数（区别于 pure object 的 action）
+>
+> And 看了源码，短短 50 行，很厉害，单测也很完备！不愧是 Dan。
+
+[Youtube State of CSS](https://www.youtube.com/watch?v=Xy9ZXRRgpLk)
+
+> 介绍了 2022 年的一些新 css 特性，很强大。
+
+[浅浅了解一下 Web3 开发](https://guoyu.mirror.xyz/RD-xkpoxasAU7x5MIJmiCX4gll3Cs0pAd5iM258S1Ek)
+
+> Web3 创业的大佬（郭宇，貌似就是之前在字节自由的人），介绍了 Web3 开发的基本全部的部分吧。
+
+[macos 系统界面里的 webview](https://blog.jim-nielsen.com/2022/inspecting-web-views-in-macos/)
+
+> 命令行中输入
+> defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+> defaults write -g WebKitDeveloperExtras -bool YES
+> 可以在一些界面通过右键审查元素，但是目前只发现在设置中**家人共享**可以，还挺有意思的，能看到很多源码，比如 html 就是用 react 写的，有一个自定义 hook，
+
+```typescript
+import { useState, useEffect } from "react";
+
+// This hook will set a flag once the requested image is loaded. This should help with large images not being downloaded fast enough.
+const usePreloadedImage = (imageUrl: string): boolean => {
+  const [isImagePreloaded, setIsImagePreloaded] = useState(false);
+
+  useEffect(() => {
+    const preload = new Image();
+    preload.src = imageUrl;
+    preload.onload = () => {
+      setIsImagePreloaded(true);
+    };
+  }, []);
+
+  return isImagePreloaded;
+};
+
+export default usePreloadedImage;
+```
+
+[可以检查素数的正则](https://www.noulakaz.net/2007/03/18/a-regular-expression-to-check-for-prime-numbers/)
+
+> 这篇文章挺久远的，07 年的
+> 先看下最终的这个正则：`/^1?$|^(11+?)\1+$/`
+> 这个正则有两个部分
+>
+> 1. 检查是否是 0 or 1
+> 2. 用 11 开始匹配，`\1` 是指前一个部分匹配到的变量，先用 `11+` 匹配有多少个，然后在看是不是以这个的倍数结尾的
+>
+> 挺有意思的，但是呢，需要将数字 n 转换成 `'1'.repeat(n)`，然后在进行 test
+>
+> 这个步骤的分析其实文章里也写的很清楚，其实主要是转换成了 n 个 1 的字符串，在第二部分的正则中会去开始从最小的素数 2（两个 1 `11`）来猜这个数是否是它的倍数（`\1+$` 倍数结尾），如果不满足，正则引擎会继续走 `11+`，用 3 开始猜，以此类推。
+>
+> 不得不说用正则来做这个计算还是很骚的，但是问题就在于对于大数的匹配有性能和内存的问题。。
+
+[favicon 的分析](https://iconmap.io/blog)
+
+> 爬取了 100k 个网站，下载了 425,909 个 favcion(favorites icon)
+>
+> 如何获取 favicon 的：link（icon、apple-touch-icon），/favicon.ico，/apple-touch-icon.png，icons from link rel=“manifest” JSON
+>
+> 逐步分析了 icon 的大小/下载速度、文件类型、主导色（紫色、白色、橙色、蓝色、黑色、...）
+>
+> 爬虫方法、分析方法
+
+[mac 个性化菜单栏](https://felixkratz.github.io/SketchyBar/setup)
+
+> [Github](https://github.com/FelixKratz/SketchyBar)
+> 挺不错的，但是有点难搞，装了好久，原生的菜单栏突然去掉还挺尴尬的。
+
+[VSCode CodeTour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour)
+
+> 还不错的一个插件！可以 tell the story of the code，适合给别人介绍如何阅读代码，要是每个开源仓库都能配这个就好了哈哈
+
+[VSCode dev](https://code.visualstudio.com/blogs/2021/10/20/vscode-dev)
+
+> 支持 web 版的编辑器了！
+>
+> - 浏览器可以访问/修改本地文件，chrome 支持的 api！
+>
+> - 当然对于一些场景的体验会差一些
+>   - 插件
+>   - 语言的 language server
+
+[Product-first or Code-first](https://thezbook.com/code-first-vs-product-first?x-host=thezbook.com)
+
+> 两类程序员：1）code-first 专注代码写的是否优雅、是否用了最新的技术、架构设计、...2）product-first 聚焦的目标是最终产品是不是 work well。
+>
+> 这里的 product 泛指一切代码的产出，api、sdk、页面、产品、...
+>
+> 一个好的产品意味着好的代码，不好的产品意味着不好的代码，可以去问这么两个问题：
+>
+> 1. 产品是否 work well
+> 2. 产品是否能 produce quickly
+>
+> _Programming is about building products that solve problems for users not about writing beautiful code for its own sake._
+>
+> 还是挺有收获的，也能在生边看到这两类程序员，自我评估是两者兼备吧，一切都是 tradeoff，需要不断的做好这两者的平衡。
 
 ### 【Art & Design】
 

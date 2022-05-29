@@ -54,7 +54,7 @@ padding：如果 input 的二进制个数不能被 6 整除，补零之后，再
 
 ### 代码
 
-```cpp
+```c++
 #include <iostream>
 #include <string>
 

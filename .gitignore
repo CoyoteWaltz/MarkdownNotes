@@ -5,6 +5,10 @@
 
 node_modules/
 
+# obsidian
+obsidian/
+.obsidian/
+
 01journal/
 # 02learning_notes/
 07work/

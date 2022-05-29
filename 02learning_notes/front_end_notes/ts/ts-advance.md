@@ -2,6 +2,60 @@
 
 [toc]
 
+## Utility Types
+
+#### NonNullable 过滤空类型
+
+将一些包含 `null` `undefined` 的 union type 转化成不含这两个的 union。
+
+```typescript
+type ss = "egg" | "flat" | "internet" | undefined | null;
+type n = NonNullable<ss>; // 'egg' | 'flat' | 'internet'
+```
+
+#### Parameters 取函数的参数类型
+
+```typescript
+declare function f1(arg: { a: number; b: string }): void;
+
+type T0 = Parameters<() => string>;
+
+type T0 = [];
+type T1 = Parameters<(s: string) => void>;
+
+type T1 = [s: string];
+type T2 = Parameters<<T>(arg: T) => T>;
+
+type T2 = [arg: unknown];
+type T3 = Parameters<typeof f1>;
+
+type T3 = [
+  arg: {
+    a: number;
+    b: string;
+  }
+];
+```
+
+#### Capitalize
+
+`Capitalize<S extends string>`
+
+限制 S type 的首字母大写
+
+```typescript
+let a: Capitalize<"xxxx"> = "Xxxx";
+```
+
+同样还有将 string type 进行大小写转换等
+
+```typescript
+Uppercase<StringType>
+Lowercase<StringType>
+Capitalize<StringType>
+Uncapitalize<StringType>
+```
+
 ## TS 4.1 的一些新东西
 
 > Ts 4.1 RC 了，抓紧来看看有什么新的内容吧
@@ -184,18 +238,6 @@ type AnonymousCat = RemoveNameField<Cat>;
 其实这个特性就是将 keyof 遍历出的类型映射到新的（自定义）类型
 
 更多详见：[PR](https://github.com/microsoft/TypeScript/pull/40336)
-
-### Utility Types
-
-#### Capitalize
-
-`Capitalize<S extends string>`
-
-限制 S type 的首字母大写
-
-```typescript
-let a: Capitalize<"xxxx"> = "Xxxx";
-```
 
 ## Type language programming
 

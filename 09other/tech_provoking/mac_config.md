@@ -6,6 +6,8 @@
 
 终于投入 mac 的怀抱了，搞！
 
+安利一个老外的[博客](https://www.robinwieruch.de/mac-setup-web-development/)，里面是他配置 mac 的记录，可以
+
 ## Programming Env
 
 ### Haskell
