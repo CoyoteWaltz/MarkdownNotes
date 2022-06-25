@@ -8,6 +8,26 @@ Ubuntu 18.04(自己的电脑)/16.04(腾讯云服务器)
 
 ## 指令回顾 linux & macOS
 
+### pbcopy & pbpaste
+
+在 mac 上的 termial 复制粘贴指令，非常方便
+
+比如
+
+`cat file.txt | pbcopy`
+
+`tree | pbcopy`
+
+能够减少一次用鼠标选中复制的操作！
+
+在 linux 上可以使用 **xsel** 来替代，可以在 `.zshrc` 里面加上 alias
+
+```bash
+# Linux version of OSX pbcopy and pbpaste.
+alias pbcopy='xsel — clipboard — input'
+alias pbpaste='xsel — clipboard — output'
+```
+
 ### xargs
 
 eXtended ARGuments
@@ -50,6 +70,8 @@ domain information groper，`*niux`系统用来查询 DNS 的指令
 _为啥用 groper 这个单词呢哈哈哈_
 
 #### 如何使用
+
+> [推荐文章](https://jvns.ca/blog/2021/12/04/how-to-use-dig/)
 
 basic：`dig domain`，会得到一堆输出
 

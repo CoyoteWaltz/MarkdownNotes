@@ -82,11 +82,11 @@
 
 > SMART 法则：
 >
-> - **具体的（Specific）**即我们要有一个**明确的**目标，如在一周内用 Django 写一个博客系统，而不是用 Django 写个东西。
-> - **可度量的（Measurable）**即衡量是否达成目标，我们只需要能创建、查看、删除博客，那么我们就算完成了这样的任务。它可以用来不断地突破自己。
-> - **可实现性（Attainable）**即这个目标一定是可以实现的，不能实现的目标没有啥意义。与些同时，练习初期定下的目标不能困难。
-> - **相关性（Relevant）**即目标与其他目标的关联情况，如我们练习 Django 是为了提高 Django 或者后台的技能。如果我们的大目标是提高前端技能，那么这个目标对于当前的意义并不是太大。
-> - **时限（Time-based）**即时间限制，如上面提到的**一周内**用 Django 写一个博客系统的期限。
+> - **具体的（Specific）即我们要有一个明确的**目标，如在一周内用 Django 写一个博客系统，而不是用 Django 写个东西。
+> - \*\*可度量的（Measurable）即衡量是否达成目标，我们只需要能创建、查看、删除博客，那么我们就算完成了这样的任务。它可以用来不断地突破自己。
+> - 可实现性（Attainable）即这个目标一定是可以实现的，不能实现的目标没有啥意义。与些同时，练习初期定下的目标不能困难。
+> - 相关性（Relevant）即目标与其他目标的关联情况，如我们练习 Django 是为了提高 Django 或者后台的技能。如果我们的大目标是提高前端技能，那么这个目标对于当前的意义并不是太大。
+> - 时限（Time-based）即时间限制，如上面提到的一周内用 Django 写一个博客系统的期限。
 
 【好文】[时代](https://mp.weixin.qq.com/s/NdNv3LiO_3IxrgyeG5Xubw)
 
@@ -123,6 +123,18 @@
 > - 找新工作的时候，需要准备的东西（国外很注重刷题和技术）
 > - 新工作决定了很多，需要权衡更多（地区、收入、环境、氛围、甚至是税收）
 > - 以及发现了一个网站：https://www.levels.fyi/，海外公司的薪资介绍
+
+[Basecamp 的经验](https://catcoding.me/p/weekly-3/), [youtube](https://www.youtube.com/watch?v=wC14JM94BIs)
+
+> Basecamp 是一直马了但还没读的《Rework》的作者的公司，youtube 的演讲分享了几个点，对于做一家公司/产品的一些建议，很不错。具体内容文章也有概述，视频值得反复观看
+>
+> 一些有共鸣的点：
+>
+> - 方言（dialect）：产品和用户之间，产品和平台之间，各个角色之间是存在方言（信息差）的，如何去理解、尝试用不同的方言去和各方沟通？
+
+[做 tech leader 的 42 条经验](https://maheshba.bitbucket.io/blog/2021/10/19/42Things.html)
+
+> 一些团队管理、设计、code review 的经验，马了以后再读！
 
 ---
 
@@ -253,6 +265,27 @@
 > 依旧是 catcoding 的博文。自己对副业的思考也是不急着做，在职场先好好摸爬滚打，看看机会，多思考、沉淀和收集信息吧，寻找机会，等过几年工作遇到瓶颈了，可以搞搞。
 > 摘录下总结：
 > _技术通常不是最重要的，重要是有效地解决问题和满足真实世界的需求。_ > _如果还不清楚自己想做什么，可以先从建立个人品牌着手，或者其他任何有复利效应、能复用自己的优势和资源、或者能提高自己的事情，很多事做起来了才能有些新想法。_ > _副业可能是为了挣钱，自由，探路，兴趣等等。做得不好也不必焦虑，上班低头做事，副业抬头看路，带着一种探索的心态来做副业就很好。_
+
+[20 年编程经验](https://alexewerlof.medium.com/my-guiding-principles-after-20-years-of-programming-a087dc55596c)
+
+> 做一些摘录
+>
+> Deprecate yourself. Don’t be the go-to person for the code. Optimize it for people to find their way fixing bugs and adding features to the code. Free yourself to move on to the next project/company. Don’t own the code or you’ll never grow beyond that.
+>
+> Realize that every code has a life cycle and will die. Sometimes it dies in its infancy before seeing the light of production. Be OK with letting go. Know the difference between 4 categories of features and where to put your time and energy:
+>
+> - **Core:** like an engine in a car. The product is meaningless without it.
+> - **Necessary:** like a car’s spare wheel. It’s rarely used but when needed, its function decides the success of the system.
+> - **Added value:** like a car’s cup-holder. It’s nice to have but the product is perfectly usable without it.
+> - **Unique Selling Point:** the main reason people should buy your product instead of your rivals. For example, your car is the best off-road vehicle.
+>
+> When making decisions about the solution all things equal, go for this priority: **Security** > **Reliability** > **Usability (Accessibility & UX)** > **Maintainability** > **Simplicity (Developer experience/DX)** > **Brevity (code length)** > **Finance** > **Performance**，But don’t follow that blindly because it is dependent on the nature of the product. Like any career, the more experience you earn, the more you can find the right balance for each given situation.
+>
+> Get out of your comfort zone. Learn every day. **Teach** what you learn. If you’re the master, you’re not learning. Expose yourself to other languages, technologies, culture and stay curious.
+>
+> Don’t do **speculative programming**.
+>
+> Software is more fun when it’s made together. Build a sustainable **community**. Listen. Inspire. Learn. Share.
 
 ---
 
@@ -1010,6 +1043,47 @@ export default usePreloadedImage;
 > _Programming is about building products that solve problems for users not about writing beautiful code for its own sake._
 >
 > 还是挺有收获的，也能在生边看到这两类程序员，自我评估是两者兼备吧，一切都是 tradeoff，需要不断的做好这两者的平衡。
+
+[protocols not platforms](https://knightcolumbia.org/content/protocols-not-platforms-a-technological-approach-to-free-speech)
+
+> twitter 的 CEO 都收到鼓舞的文章，很长，论述了当前社交网络从大平台掌控到基于协议的系统/服务，的一些好处：free speech and innovation
+>
+> 大致内容：protocol 和 platform 能做的，现在大的 platform 存在的问题，protocol 的优势/劣势，怎么做，结论
+
+[http 连接池](https://www.cnblogs.com/xrq730/p/10963689.html)
+
+> 浅了解一下，顺便复习一下网络知识
+>
+> 解决的目标：
+>
+> - QPS 暴增的时候，解决每次 http 建立连接的开销，降低并发请求的总耗时
+>
+> 长/短链接：
+>
+> - http1.1 开始默认长连接，能在一个 TCP 连接上传递多个 HTTP 请求
+>
+> 长连接
+>
+> - 客户端发送一个 Connection: keep-alive 的 header，表示需要保持连接
+> - 客户端可以顺带 Keep-Alive: timeout=5,max=100 这个 header 给服务端，表示 tcp 连接最多保持 5 秒，长连接接受 100 次请求就断开，不过浏览器看了一些请求貌似没看到带这个参数的
+> - 服务端必须能识别 Connection: keep-alive 这个 header，并且通过 Response Header 带同样的 Connection: keep-alive，告诉客户端我可以保持连接
+> - 客户端和服务端之间通过保持的通道收发数据
+> - 最后一次请求数据，客户端带 Connection：close 这个 header，表示连接关闭
+>
+> 记录：
+>
+> - http 的 keep-alive 是为了**复用已有连接**
+> - tcp 的 keep-alive 是为了**保活**，即保证对端还存活，不然对端已经不在了我这边还占着和对端的这个连接，浪费服务器资源，做法是隔一段时间发送一个心跳包到对端服务器，一旦长时间没有接收到应答，就主动关闭连接
+>
+> TSL 层的优化：每次 HTTPs 的连接都会进行 tsl 的握手，文中提到两种优化思路（都是缓存/解析）
+>
+> 连接池个数的设置，不太好控，有没有什么自适应的方法呢？
+
+[reduce 来按序 resolve promise](https://css-tricks.com/why-using-reduce-to-sequentially-resolve-promises-works/)
+
+> reduce => Take a collection of things, and reduce them to a single value
+>
+> 其思路就是将多个 promise 按顺序挂到一个 promise 的 then 上
 
 ### 【Art & Design】
 

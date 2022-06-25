@@ -1,6 +1,8 @@
 # Web Component
 
 > 参考[阮一峰](https://www.ruanyifeng.com/blog/2019/08/web_components.html)，[MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+>
+> TODO：需要实践
 
 ## Why
 
@@ -19,3 +21,27 @@
 ### 主要的几个 API
 
 #### Custom elements
+
+用来向浏览器注册自定义的标签（组件）
+
+`customElements.define('custom-tag-name', ComponentClass)`
+
+```javascript
+class UserCard extends HTMLElement {
+  constructor() {
+    super();
+  }
+}
+```
+
+在 constructor 中就可以用 pure js 来操作 dom，其中的 this 指向的就是
+
+#### shadow DOM
+
+在 dom 树下挂载一个“影子” dom，和主文件流隔离渲染，可以将这个 dom 私有化，不会受到 js/css 的冲突/覆盖的困扰。
+
+#### HTML templates
+
+用 [`<template>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) or [`<slot>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) 来写一些不会被渲染出来的 dom 元素（仅作为模版）
+
+是不是和 vue 很像，可以将三部分写在一个 SFC 里面。
