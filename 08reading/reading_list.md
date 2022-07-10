@@ -287,6 +287,18 @@
 >
 > Software is more fun when it’s made together. Build a sustainable **community**. Listen. Inspire. Learn. Share.
 
+[Life is not short](https://dkb.show/post/life-is-not-short)
+
+> 生命并不短暂，只是我们浪费的太多了时间。
+>
+> 做一些摘录
+>
+> Putting things off for the future is the biggest waste of a life. **You deny yourself the present by promising the future.** You’re relying on the future, which is outside of your control, and abandoning the present, which is the only thing you can control.
+>
+> The whole future lies in uncertainty – live immediately.
+>
+> The part of life we really live is small. All the rest is not life, but merely time.
+
 ---
 
 ### 【技术】
@@ -1084,6 +1096,20 @@ export default usePreloadedImage;
 > reduce => Take a collection of things, and reduce them to a single value
 >
 > 其思路就是将多个 promise 按顺序挂到一个 promise 的 then 上
+
+[js framework 的时代](https://www.pzuraq.com/blog/four-eras-of-javascript-frameworks)
+
+> 粗读了一下，有空再看一遍。
+>
+> 前端框架的演进，未来又会是怎么样的呢。
+
+【好文】[程序员的喵 weekly18](https://catcoding.me/p/weekly-18/)
+
+> 这期的周刊不错，收藏下（2022/7/2）
+>
+> 1. 程序员的软技能：mark，是个需要不断学习的东西。“写代码只是个门槛，本质上来说在公司工作，是和同事一起帮公司解决问题，所以沟通和协作特别重要。特别是要从广度上增加自己的影响力，沟通力起决定性作用。”
+>    1. [软技能演讲 ppt（slidev）](https://github.com/forrestchang/programmer-soft-skills)
+> 2. “人一生的三次死亡”。程序员写的代码可能还在世界上的某处运行着，这样也许就不会被世界遗忘吧。
 
 ### 【Art & Design】
 

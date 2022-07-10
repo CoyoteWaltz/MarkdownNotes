@@ -2,6 +2,54 @@
 
 [toc]
 
+## Top-Level await(ES2022)
+
+> [tc39](https://github.com/tc39/proposal-top-level-await)
+
+可以在一个 module 的顶层就使用 `await` 了，解决什么问题可以详细看 issue
+
+## hasOwn(ES2022)
+
+> [tc39 proposal](https://github.com/tc39/proposal-accessible-object-hasownproperty)
+>
+> 比 `Object.prototype.hasOwnProperty` 更好用的检查对象是否有某个属性的方法。
+>
+> [polyfill 代码](https://github.com/tc39/proposal-accessible-object-hasownproperty/blob/main/polyfill.js)
+
+```js
+let object = { foo: false };
+Object.hasOwn(object, "foo"); // true
+
+let object2 = Object.create({ foo: true });
+Object.hasOwn(object2, "foo"); // false
+
+let object3 = Object.create(null);
+Object.hasOwn(object3, "foo"); // false
+```
+
+通常我们会用到 `obj.hasOwnProperty`，但是有些时候，这个方法甚至都没法用，因为这个方法是在 Object 的原型上的，比如：
+
+1. 对象根本就没有原型：`__proto__` （被赋值）是 `null`，或者 `Object.create(null)`
+2. hasOwnProperty 已经被注册了
+
+## .at()([ES2022](https://h3manth.com/ES2022/))
+
+> built-in indexables，数组、字符串
+
+```js
+const cart = ["🍎", "🍌", "🍍"];
+
+// first element
+cart.at(0); // '🍎'
+
+// last element
+cart.at(-1); // '🍍'
+
+// out of bounds
+cart.at(-100); // undefined
+cart.at(100); // undefined
+```
+
 ## Object.fromEntries(ES 2019)
 
 > [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries)

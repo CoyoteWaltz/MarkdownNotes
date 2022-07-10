@@ -10,6 +10,8 @@
 
 [浏览器窗口同步测试工具](https://github.com/Browsersync/browser-sync)
 
+[代码行数 counter](https://github.com/AlDanial/cloc)
+
 ## 收藏有趣的 links
 
 [思考的价值](https://thinking.tomotoes.com/)
@@ -45,6 +47,8 @@
 [寻找钢琴](https://pianos.pub/)
 
 [消失的音乐](http://savethesounds.info/)
+
+[缓动效果](https://easings.net/cn)
 
 ## github
 
