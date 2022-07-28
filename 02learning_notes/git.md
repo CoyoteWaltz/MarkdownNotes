@@ -518,6 +518,8 @@ git stash branch <name> stash@{1}
 
 删除暂存区文件，但**保留工作区**的文件，并且将这次删除放入暂存区。——也就是文件都是`untracked`状态了
 
+具体使用 case 见下方(.gitignore 不生效
+
 ### status
 
 查看当前仓库文件状态
@@ -580,6 +582,18 @@ git rm -r --cached .
 git add .
 git commit -m 'msg'
 ```
+
+## git log 自己变更的代码行数
+
+```bash
+git log --author="your name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }'
+```
+
+
+
+
+
+
 
 ## 推荐阅读
 

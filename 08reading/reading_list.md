@@ -136,6 +136,29 @@
 
 > 一些团队管理、设计、code review 的经验，马了以后再读！
 
+[the fg command](https://lambdaisland.com/blog/2022-02-17-the-fg-command)
+
+> `fg` 是 linux 的一个指令（foreground），将一个后台进程移动到你的前台 shell 中，作者用这个指令来比喻潜意识 -> 意识层面的过程，得以快速醒悟一些不好的潜意识习惯。
+> 
+> 作者编程十年逐渐发现自己更多的是 typing 而缺少了 thinking，typing 更多的会形成一种肌肉记忆，而导致缺少 analytic thinking。一些方法：
+> - 将自己的代码逻辑解释给他人
+> - 问自己一些已有的问题
+> 	- 遇到 bug
+> 	- 写函数
+> 		- **contingent designs** for errors like `try/catch` and logs?
+> 		- **preventive designs** for errors like `pre` condition or `assert`?
+> 		- Should the function name describe **the purpose**?
+> 		- Do I add some suitable doc strings on functions?
+> 	- 写模块
+> 		- api 声明
+> 		- 删除无用代码
+> 		- ...
+> 	- 集成/开发
+> 		- 有没有写单测
+> 		- 自动化脚本
+> 		- feedback messages？
+
+
 ---
 
 ### 【个人】
@@ -299,6 +322,10 @@
 >
 > The part of life we really live is small. All the rest is not life, but merely time.
 
+[2050 年的我们应该知道什么](https://www.wired.co.uk/article/yuval-noah-harari-extract-21-lessons-for-the-21st-century)
+
+> 
+
 ---
 
 ### 【技术】
@@ -428,10 +455,10 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 >     - ```objective-c
 >       // 另一种初始化方式，即先发 alloc 消息，再发 init 消息
 >       NSDate* now = [[NSDate alloc] init];
->
+>                  
 >       // 初始化一个 NSCalendar 日期实例
 >       NSCalendar* obj = [NSCalendar currentCalendar];
->
+>                  
 >       // 给实例发多个参数的消息
 >       // 消息名为 ordinalityOfUnit:inUnit:forDate:
 >       NSUInteger day = [obj ordinalityOfUnit:NSDayCalendarUnit
@@ -1111,6 +1138,56 @@ export default usePreloadedImage;
 >    1. [软技能演讲 ppt（slidev）](https://github.com/forrestchang/programmer-soft-skills)
 > 2. “人一生的三次死亡”。程序员写的代码可能还在世界上的某处运行着，这样也许就不会被世界遗忘吧。
 
+2022.07.14 12:46:47
+
+[重新构想 atomic css](https://zhuanlan.zhihu.com/p/425814828)
+
+> 依旧是 antfu 大佬的文章（[原文](https://antfu.me/posts/reimagine-atomic-css)） 以及他的作品 [unocss](https://github.com/unocss/unocss)
+>
+> 文章也是剖析了当下（写于21年10月）atomic css 方案的一些问题：（tailwind 为主）
+>
+> - 无用的 css 过多，生成器的流程需要变革
+> - 不够定制化，维护成本
+> - ...
+>
+> 介绍了 windicss，先扫描再生成
+>
+> 最后介绍他自己的 unocss，完全可以自定义的、高灵活度的 css 生成引擎
+>
+> 很是牛逼。
+
+[Pure CSS Icon](https://antfu.me/posts/icons-in-pure-css)
+
+> 依旧是 antfu 的
+>
+> 纯 CSS 图标
+>
+> - 使用 DataURI
+> - 可缩放（scalable），用了 `em` 单位
+> - Colorable，纯色图标用 mask 和 `background-color: currentColor`
+>
+> 使用：unocss 的 preset
+
+[hide a photo inside another](https://avestura.dev/blog/hide-a-photo-inside-another-photo)
+
+> 文章介绍了一种在一张图片中藏另一张图片的 trick，能做水印、存储、....
+> 
+> 一种密码学（steganography）
+> 
+> 利用 LSB(Least significant bit)，将图片以二维矩阵的结构（考虑单个 channel），每个元素用二进制表达，当我们修改最右的一位之后，新的图片和原图其实看不出什么差异
+> 
+> 于是就能用每一个像素点的最后一个 bit 来存储需要 hide 的图片。所以 hidden photo 是有大小限制的：还得是个正方形，边长 = `sqr(ori_H * ori_W / 8)`
+> 
+> 限制：对于有损压缩的图片格式（如 jpeg），在取图的时候可能就会损失惨重，噪音也会很大。
+> 
+> 扩展：
+> - 想象一下如果用两位最低 bit 取存，是不是能存更大的图片
+> - 如果再加入一些 header 信息，比如 size 之类的 hidden photo 会更加丰富
+
+
+
+
+
 ### 【Art & Design】
 
 [7 photography trends in 2021](https://blog.adobe.com/en/publish/2021/01/04/7-photography-trends-to-watch-in-2021.html#gs.0ij8bg)
@@ -1129,8 +1206,6 @@ export default usePreloadedImage;
 ## Next
 
 [Performance · microsoft/TypeScript Wiki](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/Performance%20%C2%B7%20microsoft%20TypeScript%20Wiki%208f194d0890d84c6dad4ba6627a3c4cc1.md)
-
-- [ ] [TypeScript: Documentation - Utility Types](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/TypeScript%20Documentation%20-%20Utility%20Types%20cdf5c4410dd54ef190566106918945b9.md)
 
 [TypeScript: Documentation - JSX](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/TypeScript%20Documentation%20-%20JSX%20a8ba238ad40c449694cb6a2380bffdbd.md)
 

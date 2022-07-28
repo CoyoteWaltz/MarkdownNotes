@@ -2,9 +2,55 @@
 
 [toc]
 
+## Some tricks
+
+### 指定 this 的类型
+
+在 call/apply 一个 class function 的时候，this 变了，但却没有被检查出来 this 指向的错误。可以在方法的 this 隐式形参加上类型限制。
+
+```ts
+class Dong {
+    name: string;
+
+    constructor() {
+        this.name = "dong";
+    }
+
+    hello(this: Dong) {
+        return 'hello, I\'m ' + this.name;
+    }
+}
+```
+
+并且也有一个 utility type [`ThisParameterType`](https://www.typescriptlang.org/docs/handbook/utility-types.html#thisparametertypetype) 来提取一个函数所接受的 this 的类型
+
+实现也非常简单：尝试匹配函数的类型中有没有显示定义 this 的类型，匹配出来就是 U，否则为 `unknown`
+
+```ts
+type ThisParameterType<T> = T extends (this: infer U, ...args: any[]) => any ? U : unknown;
+```
+
+
+
+
+
+### `-` 去掉已有的修饰
+
+比如
+
+```ts
+type ToMutable<T> = { -readonly [Key in keyof T]: T[Key] }
+```
+
+
+
 ## Utility Types
 
-#### NonNullable 过滤空类型
+
+
+
+
+### NonNullable 过滤空类型
 
 将一些包含 `null` `undefined` 的 union type 转化成不含这两个的 union。
 
@@ -13,7 +59,7 @@ type ss = "egg" | "flat" | "internet" | undefined | null;
 type n = NonNullable<ss>; // 'egg' | 'flat' | 'internet'
 ```
 
-#### Parameters 取函数的参数类型
+### Parameters 取函数的参数类型
 
 ```typescript
 declare function f1(arg: { a: number; b: string }): void;
@@ -37,7 +83,7 @@ type T3 = [
 ];
 ```
 
-#### Capitalize
+### Capitalize
 
 `Capitalize<S extends string>`
 
