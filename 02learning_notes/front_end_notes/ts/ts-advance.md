@@ -10,15 +10,15 @@
 
 ```ts
 class Dong {
-    name: string;
+  name: string;
 
-    constructor() {
-        this.name = "dong";
-    }
+  constructor() {
+    this.name = "dong";
+  }
 
-    hello(this: Dong) {
-        return 'hello, I\'m ' + this.name;
-    }
+  hello(this: Dong) {
+    return "hello, I'm " + this.name;
+  }
 }
 ```
 
@@ -27,28 +27,20 @@ class Dong {
 实现也非常简单：尝试匹配函数的类型中有没有显示定义 this 的类型，匹配出来就是 U，否则为 `unknown`
 
 ```ts
-type ThisParameterType<T> = T extends (this: infer U, ...args: any[]) => any ? U : unknown;
+type ThisParameterType<T> = T extends (this: infer U, ...args: any[]) => any
+  ? U
+  : unknown;
 ```
-
-
-
-
 
 ### `-` 去掉已有的修饰
 
 比如
 
 ```ts
-type ToMutable<T> = { -readonly [Key in keyof T]: T[Key] }
+type ToMutable<T> = { -readonly [Key in keyof T]: T[Key] };
 ```
 
-
-
 ## Utility Types
-
-
-
-
 
 ### NonNullable 过滤空类型
 

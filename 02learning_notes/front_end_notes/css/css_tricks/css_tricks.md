@@ -16,15 +16,11 @@
 
 顾名思意就是“当前颜色”，准确讲应该是“当前的文字颜色”
 
-凡事需要使用颜色值的地方，都可以使用`currentColor`替换，比方说背景色 – `background-color`, 渐变色 – `gradient`, 盒阴影 – `box-shadow`, SVG的填充色 – `fill`等等。很灵活，很好用！
+凡事需要使用颜色值的地方，都可以使用`currentColor`替换，比方说背景色 – `background-color`, 渐变色 – `gradient`, 盒阴影 – `box-shadow`, SVG 的填充色 – `fill`等等。很灵活，很好用！
 
 `::hover` 状态同时改变 icon 的背景色（随着 hover 状态下的文字颜色变化）
 
 图文合一
-
-
-
-
 
 ## 干掉点击 div 的效果（H5）
 
