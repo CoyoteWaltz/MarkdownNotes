@@ -243,6 +243,10 @@ defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global defaul
 - Prettier: 可以用`.prettierrc.js`文件自定义格式要求，是一个 module，也可以在设置里面配置
 - code runner：跑代码的，推荐
 - javascript console utils：写 JS 的时候让`console.log`更加方便，`⌘ + ⇧ + L`生成`console.log`行（选中变量会自动填充），`⌘ + ⇧ + D`删除文档内所有的`console.log`行（但那一行不会被删。。），PS：由于删除的快捷键被 Dato 占用了，就改成了`⌘ + ⌥ + D`
+- code tour：在 vscode 中的代码指引
+- outline map：同事推荐的，好评！能够把代码结构作为目录在侧边展示，很棒！
+
+推荐一手托尼的 [vscode settings](https://github.com/antfu/vscode-settings)
 
 #### 如何干光 vscode
 

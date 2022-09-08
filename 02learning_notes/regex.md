@@ -46,11 +46,11 @@ const exg = /(?<=\d)(\d{3}[^\d])/g;
 
 - 保留替换匹配项 `$1` `$2`... 仿佛变量
 
-- ```js
-  var str = "abc abc 123";
-  str.replace(/(ab)c/g, "$1g");
-  // 得到结果 'abg abg 123'
-  ```
+```js
+var str = "abc abc 123";
+str.replace(/(ab)c/g, "$1g");
+// 得到结果 'abg abg 123'
+```
 
 前向查找（前：阅读顺序）：正查找 `(?=)`，负查找 ` (?!)`
 

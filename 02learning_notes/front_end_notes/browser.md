@@ -1,5 +1,13 @@
 [toc]
 
+### queryObjects
+
+正巧刷到[这篇](https://www.zhihu.com/question/386595851/answer/1153444476)
+
+发现 devtools 里面有 `queryObjects` 这个东西，可以遍历出 V8 堆上以某对象为原型的对象们，而且执行前会先做一次垃圾回收。
+
+webkit safari 有 `queryHolders(target)` 的函数，它可以找到某个对象被哪些对象所引用了
+
 ### 安全上下文环境
 
 > 一些浏览器 API 只有在“安全”的环境才能使用

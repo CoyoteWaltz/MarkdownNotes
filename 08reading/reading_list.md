@@ -83,7 +83,7 @@
 > SMART 法则：
 >
 > - **具体的（Specific）即我们要有一个明确的**目标，如在一周内用 Django 写一个博客系统，而不是用 Django 写个东西。
-> - \*\*可度量的（Measurable）即衡量是否达成目标，我们只需要能创建、查看、删除博客，那么我们就算完成了这样的任务。它可以用来不断地突破自己。
+> - 可度量的（Measurable）即衡量是否达成目标，我们只需要能创建、查看、删除博客，那么我们就算完成了这样的任务。它可以用来不断地突破自己。
 > - 可实现性（Attainable）即这个目标一定是可以实现的，不能实现的目标没有啥意义。与些同时，练习初期定下的目标不能困难。
 > - 相关性（Relevant）即目标与其他目标的关联情况，如我们练习 Django 是为了提高 Django 或者后台的技能。如果我们的大目标是提高前端技能，那么这个目标对于当前的意义并不是太大。
 > - 时限（Time-based）即时间限制，如上面提到的一周内用 Django 写一个博客系统的期限。
@@ -158,6 +158,26 @@
 >     - 有没有写单测
 >     - 自动化脚本
 >     - feedback messages？
+
+[规划三阶段](https://zhuanlan.zhihu.com/p/554292991)
+
+> 一技之长
+>
+> - 深入栈内技术
+> - 学习栈外技术（T 字型人才）
+> - 工程能力
+> - 带人做事（管人和带人的区别：管人是知道我不懂的领域他会，安排他做；带人是我懂这个领域，他不懂，我教他做的更好。学会提问，才能让人成长）
+> - 业内影响力
+>
+> 独立做事
+>
+> - 独立交付
+> - 独立带人
+> - 独立做任务/生存
+>
+> 寻找使命
+>
+> - 实现自我价值～诗和远方
 
 ---
 
@@ -325,6 +345,40 @@
 [2050 年的我们应该知道什么](https://www.wired.co.uk/article/yuval-noah-harari-extract-21-lessons-for-the-21st-century)
 
 >
+
+[哪些书应该读？在哪里应该划线？](https://sspai.com/post/44427)
+
+> 读书，如果是以学习为目的，如果不能过目不忘，就需要划线。
+>
+> 文章基于《一流的人讀書，都在哪裡畫線？》一书，讲了读书改怎么选书、如何划线（关注什么）、怎么读。。。
+
+[十年编程经验](https://thorstenball.com/blog/2022/05/17/professional-programming-the-first-10-years/)
+
+> 做点摘录：
+>
+> Nothing really matters, except bringing value to the customer
+>
+> Perfection is unachievable
+>
+> Perfectionism is a trap
+>
+> Knowing the full stack
+>
+> Negativity begets negativity
+>
+> Code has mass
+>
+> Programming as a part of my life
+
+[软技能](https://sspai.com/post/44653)
+
+> 书目推荐（已经下单了，早日读完！）
+>
+> 我们的有效产出取决于我们**专注**的时间；
+>
+> 有效的事前计划和事后回顾是提高生产力的重要方法。
+>
+> 专注的动量效应——如果由于惰性不愿意开始工作，可以先试着硬着头皮开始工作 15 分钟。
 
 ---
 
@@ -1184,6 +1238,99 @@ export default usePreloadedImage;
 >
 > - 想象一下如果用两位最低 bit 取存，是不是能存更大的图片
 > - 如果再加入一些 header 信息，比如 size 之类的 hidden photo 会更加丰富
+
+[Tilg](https://github.com/shuding/tilg)
+
+> 源码阅读 **`useTilg`**
+>
+> 这是一个 react hooks，tiny logger to help you debug your components. 详细功能可以去 [github](https://github.com/shuding/tilg) 看
+>
+> 主要提炼核心的几个点：
+>
+> 1. 整体结构是在每次 render 中输出 log：
+>    1. 组件名，props，变更属性，自定义的 log 信息
+> 2. 在 React 环境如何获取到当前渲染组件的信息：
+>    1. 首先是组建名，非常骚，用了 `React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED`，但这么写在生产环境大概率是会报错的（uglify js），当然它 README 的[最后](https://github.com/shuding/tilg#faq--caveats)也写了不要自己再用这种东西实现 hh
+>    2. 如何统计同一个组件多次 render，用了 WeakMap（见[[../02learning_notes/front_end_notes/js/ES6]]）存了一个数组 `WeakMap<ComponentId, HookPath[]>`，这里的 `HookPath` 就是每次调用 `useTilg` 的时候都会去看看是在哪里调用的，如果是不同的调用路径，就认为是同一个组件的另一个实例。BTW 为什么用 WeakMap，如果一个组件直接从 React 上下文去除掉了，也没必要继续存了（我猜的）
+>    3. 怎么获取调用 path？给我惊到了，通过对 `new Error().stack` 的处理，能拿到当前 call 的调用栈，里面包含了 caller 和代码 path，做了正则匹配提取。
+>    4. 在组建中多次 hook 调用只会执行第一次，用了一个闭包的 id 做的。
+> 3. MarkDown 的实现
+>    1. 不得不说为了支持 md，足足得多 200+行代码，真是煞费苦心。
+>    2. 支持了 node 和 webview 环境，详细的可以看代码。。
+>
+> 整个代码还是比较精炼好懂的（除了 markdown 的部分。。），确实如同作者说的非常 hacky。哈哈。
+
+[【open source】CONTRIBUTING.md 是什么](https://mozillascience.github.io/working-open-workshop/contributing)
+
+> 介绍了 CONTRIBUTING.md 存在的意义，以及如何写 CONTRIBUTING.md
+>
+> [atom 项目的例子](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)
+
+[别在用 TODO 啦](https://goldin.io/blog/stop-using-todo)
+
+> 用以下这些更有实际意义的词来替换 comment 中的 `TODO`
+>
+> - FIXME
+> - HACK/OPTIMIZE
+> - BUG
+> - CHECKME/REVIEW
+> - DOCME
+> - TESTME
+>
+> vscode 插件 TODO tree、TODO highlight
+
+[terser](https://github.com/terser/terser)
+
+> 偶然打开这个库的 GitHub 看了下，才发现 `uglify-es` 已经[不维护了](https://github.com/mishoo/UglifyJS2/issues/3156#issuecomment-392943058)
+>
+> terser 也是现在主流使用的 js 压缩工具（es6+）
+
+[将 base64 字符串文件转成 js 文件对象可以作为 form 的 input](https://stackoverflow.com/questions/35940290/how-to-convert-base64-string-to-javascript-file-object-like-as-from-file-input-f)
+
+> 来自 stackoverflow，直接贴牛逼的代码吧 hh
+>
+> ```js
+> function dataURLtoFile(dataurl, filename) {
+>   var arr = dataurl.split(","),
+>     mime = arr[0].match(/:(.*?);/)[1],
+>     bstr = atob(arr[1]),
+>     n = bstr.length,
+>     u8arr = new Uint8Array(n);
+>
+>   while (n--) {
+>     u8arr[n] = bstr.charCodeAt(n);
+>   }
+>
+>   return new File([u8arr], filename, { type: mime });
+> }
+>
+> //Usage example:
+> var file = dataURLtoFile(
+>   "data:text/plain;base64,aGVsbG8gd29ybGQ=",
+>   "hello.txt"
+> );
+> console.log(file);
+> ```
+
+[Math and Front End](https://chenhuijing.com/blog/math-and-front-end/)
+
+> 数学在前端的作用～在 web 开发过程中不会注意到的数学知识
+>
+> 数值：
+>
+> - `calc()`：自适应布局，[准确的字体大小自适应](https://www.madebymike.com.au/writing/precise-control-responsive-typography/)
+>
+>   ```css
+>   // max:24 min: 12 maxVW:800 minVW:400
+>   font-size: calc(12px + (24 - 12) * ((100vw - 400px) / (800 - 400)));
+>   ```
+>
+> 几何：
+>
+> - `border-radius`：
+>   - 可以是 `60px/30px` 其实可以接受两个参数，第一个是 horizontal 的值，第二个是 vertical 的值，以这两个值画的椭圆，就是这个 radius 了，原来可以这样！
+>   - 同样，如果是给百分比数值，那他就分别是 width 和 height 的宽度，所以如果给 50%，就是完美的过渡圆角
+> - 三角形：通常我们会用 border + transparent 去 hack [三角形](../02learning_notes/front_end_notes/css/CSS.md)，会需要计算高度
 
 ### 【Art & Design】
 

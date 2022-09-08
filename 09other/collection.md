@@ -1,6 +1,8 @@
-## 图标
+## 图标 & 图片
 
 [搜索所有可用 icon](https://icones.js.org/)
+
+[pixa 免费图片 可商用](https://pixabay.com/)
 
 ## 好看的字体
 

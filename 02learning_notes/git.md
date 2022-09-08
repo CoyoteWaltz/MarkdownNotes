@@ -203,6 +203,21 @@ test			# add tag时候让写的备注吧
 
 一句话：多用就顺手了！
 
+### branch
+
+#### rename
+
+```bash
+git branch -m <oldname> <newname>
+# -m == --move
+```
+
+#### 查看分支对应的 remote
+
+```bash
+git branch -vv
+```
+
 ### commit
 
 > [how to write a good commit message](https://csaju.com/blog/how-to-write-a-good-commit-message/)
@@ -386,7 +401,9 @@ A `git reset` **gets rid of all the current staged files** and gives us control 
 
 to show a log of all the actions that have been taken
 
-查看所有的操作日志，可以用它来精确定位到需要撤销的 commit
+查看所有的操作日志（有时间顺序的），可以用它来精确定位到需要撤销的 commit
+
+如果不小心 reset 了，想要复原，可以通过 reflog 找到历史的操作记录，reset 回去。再次 reset 相当于是把改动给撤销，作为新的 unstaged 文件。
 
 ### clone
 
