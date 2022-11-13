@@ -179,6 +179,21 @@
 >
 > - 实现自我价值～诗和远方
 
+[Engineer/Manager pendulum](https://charity.wtf/2022/03/24/twin-anxieties-of-the-engineer-manager-pendulum/)
+
+> 文章讲了当一个 manager 回到 engineer 身份可能会存在的一些焦虑：
+>
+> - 是否会失去之后当 manager 的资格？
+> - 作为一线开发者会变得 rusty
+>
+> 以及对于这些焦虑的一些对策（鸡汤）：
+>
+> - manager 能力（软技能）能在各个工作环节起到帮助作用，知道排序优先级、如何推进、如何沟通、提出建议...并且这些能力不会过期（对比技术来说）
+> - 技术需要不断翻新，keeping your hands-on skills sharp，做 manager 也起码是  senior 开发者。
+> - 爬得越高（职位）机会越少
+>
+> 摘录最后一句话，保持时刻学习和回顾！Maintaining your technical chops is a stellar way to hedge against uncertainties and maintain your optionality.
+
 ---
 
 ### 【个人】
@@ -380,6 +395,14 @@
 >
 > 专注的动量效应——如果由于惰性不愿意开始工作，可以先试着硬着头皮开始工作 15 分钟。
 
+[提问的智慧](https://mp.weixin.qq.com/s/q461so9lWk4FKJGZ-p7Vcg)
+
+> 
+
+[高维思考](https://fs.blog/second-order-thinking/)
+
+> 尝试高维度的思考吧，结合系统性、交互、时间，这三个要素。
+
 ---
 
 ### 【技术】
@@ -509,10 +532,10 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 >     - ```objective-c
 >       // 另一种初始化方式，即先发 alloc 消息，再发 init 消息
 >       NSDate* now = [[NSDate alloc] init];
->
+>                                    
 >       // 初始化一个 NSCalendar 日期实例
 >       NSCalendar* obj = [NSCalendar currentCalendar];
->
+>                                    
 >       // 给实例发多个参数的消息
 >       // 消息名为 ordinalityOfUnit:inUnit:forDate:
 >       NSUInteger day = [obj ordinalityOfUnit:NSDayCalendarUnit
@@ -1331,6 +1354,72 @@ export default usePreloadedImage;
 >   - 可以是 `60px/30px` 其实可以接受两个参数，第一个是 horizontal 的值，第二个是 vertical 的值，以这两个值画的椭圆，就是这个 radius 了，原来可以这样！
 >   - 同样，如果是给百分比数值，那他就分别是 width 和 height 的宽度，所以如果给 50%，就是完美的过渡圆角
 > - 三角形：通常我们会用 border + transparent 去 hack [三角形](../02learning_notes/front_end_notes/css/CSS.md)，会需要计算高度
+
+[why not use prettier](https://antfu.me/posts/why-not-prettier)
+
+> 来自 antifu
+> 自己的项目代码更会去选择 eslint 作为质量保证和 formatter 其他场景可以选择 prettier
+> 安利了他自己的 eslint config
+> 工具没有好坏之分，只是根据适用场景
+
+[10 years of TS](https://devblogs.microsoft.com/typescript/ten-years-of-typescript/)
+
+> typescript 的十年回顾
+> 回顾加感谢的文章，读完能更加了解 ts 真正之于 js 的定位，很不错
+
+[16 进制颜色的透明度数值](https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4)
+
+> 很早就学到的东西，但一直没有记录，就顺便归档下
+>
+> 能够解决有透明度色彩的 hex 表达值，其实就是在 A 通道用 16 进制表达透明度百分比即可
+>
+> 直接看标准答案吧（转换百分比 -> 16进制），然后 append 到字符串后面，记得补齐 2 位
+>
+> ```js
+> const percentToHex = (p) => {
+>     const percent = Math.max(0, Math.min(100, p)); // bound percent from 0 to 100
+>     const intValue = Math.round(p / 100 * 255); // map percent to nearest integer (0 - 255)
+>     const hexValue = intValue.toString(16); // get hexadecimal representation
+>     return hexValue.padStart(2, '0').toUpperCase(); // format with leading 0 and upper case characters
+> }
+> 
+> console.log(percentToHex(0)); // 00
+> console.log(percentToHex(50)); // 80
+> console.log(percentToHex(80)); // CC
+> console.log(percentToHex(100)); // FF
+> ```
+> 
+> 当然，很多地方（ide）都支持各种方式的转换，比较方便
+
+[js container](https://tinyclouds.org/javascript_containers)
+
+> 来自 deno 的文章，首先讲了大多数 server 的容器都是 Linux container 比如 docker，配置比较复杂，不高效，js 会将成为 universal scripting language 但这里指的是 browser 里的（node 设计的败笔就是加了很多非标准化的 api）
+> deno deploy 已经在将 js 容器落地了，能够高效的提升业务逻辑效率
+> 一些复杂的实现也可以用 wasm 来代替 js
+
+[flexible.js?](https://juejin.cn/post/6844904029898670088)
+
+> Recap:
+>
+> - rem: font size of the root element，相对于根元素（即 html 元素）font-size 计算值的倍数。
+> - 移动端屏幕尺寸适配：1）替换 px 单位为 rem，2）根据屏幕尺寸动态调整 html 元素的 font-size 属性
+>
+> 目前业界已经有很多种方案（flexible.js，scss 结合 media-query，...）
+>
+> 这篇文章提出用 vw 直接做动态调整
+>
+> 1. 根据视觉稿宽度，750px == 100vw -> 1px = 0.133333vw -> 100px = 13.333333vw，所以设置 html 的 font-size 为 13.3333vw
+> 2. 1rem == 1 unit('font-size') == 100px，所以视觉稿的 n 需要转换成 n/100 rem
+> 3. 后者的单位转换可以用 postcss & pxToRem 来做
+> 4. html 的 font-size 可以通过配置 + 构建脚本来做
+
+[pdd两年记](https://wingjay.bearblog.dev/review-in-pdd/)
+
+> 同事之前推的文章。又完整的读了之后，感慨很多，pdd 的公司文化还是很不错的，也学到了很多技术方案的思路，也感叹移动端的这些事情还是做 native 比较有意思呀哈哈哈XD。
+> 
+> 长期价值 & 平常心。
+
+
 
 ### 【Art & Design】
 

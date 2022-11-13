@@ -58,6 +58,8 @@ PT Sans
 
 [缓动效果](https://easings.net/cn)
 
+[小红书的设计思维](https://rpdc.xiaohongshu.com/52-design-principles)
+
 ## github
 
 [readme badges](https://www.makeuseof.com/badges-that-will-supercharge-your-github-repository/)
@@ -67,3 +69,11 @@ PT Sans
 [富文本编辑器组件](https://github.com/facebook/lexical)
 
 [超级好看的白板作图](https://github.com/excalidraw/excalidraw)
+
+[100 个 golang 的常见错误](https://github.com/teivah/100-go-mistakes)（好评如潮）
+
+
+
+## 待体验
+
+https://nx.dev/（monorepo 方案）

@@ -218,6 +218,14 @@ git branch -m <oldname> <newname>
 git branch -vv
 ```
 
+#### 删除分支
+
+```bash
+git branch --delete <branchname>
+```
+
+
+
 ### commit
 
 > [how to write a good commit message](https://csaju.com/blog/how-to-write-a-good-commit-message/)

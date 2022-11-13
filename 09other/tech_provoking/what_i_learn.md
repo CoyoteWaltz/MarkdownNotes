@@ -21,4 +21,19 @@ checklist for all
 
 公司
 
-## 2021-2022
+## 2021-2023(2 years)
+
+- Advanced Typescript
+  - 写了不少 TS，体操
+
+- YAML
+  - 使用语法
+
+- PNPM
+  - 
+
+
+
+
+
+

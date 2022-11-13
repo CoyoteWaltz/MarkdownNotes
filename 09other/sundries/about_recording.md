@@ -62,16 +62,16 @@ PC：
 
 之前统计过自己使用的记录软件（Cool，Notion 导出的 CSV -> WPS -> 复制粘贴过来居然就是表格了 hh）
 
-| Service        | For                                   | On              | Cloud | CloudBy              | 继续使用                               |
-| -------------- | ------------------------------------- | --------------- | ----- | -------------------- | -------------------------------------- |
-| Apple 备忘录   | 随时记、想到的一些想法、summary、书单 | Mobile, PC      | Yes   | Company-self         | :white_check_mark:                     |
-| Notion         | 日记                                  | Mobile, PC, Web | Yes   | Company-self         | :new_moon_with_face::white_check_mark: |
-| 滴答清单       | TODO（daily）                         | Mobile, PC      | Yes   | Company-self, iCloud | :white_check_mark:                     |
-| 飞书云文档     | 日常工作 + 学习相关（compulsory）     | Web             | Yes   | Company-self         | :white_check_mark:                     |
-| Typora         | 学习笔记                              | PC              | Yes   | iCloud               | :white_check_mark:                     |
-| Xmind          | 思维导图（rarely）                    | Mobile, PC      | Yes   | iCloud               | :new_moon_with_face:                   |
-| 网易有道词典   | 单词本（sometimes）                   | Mobile, PC, Web | Yes   | Company-self         | :new_moon_with_face:                   |
-| beancount fava | 记账（daily）                         | PC              | No    | Local                | :white_check_mark:                     |
+| Service        | For                                   | On              | Cloud | CloudBy              | 继续使用             |
+| -------------- | ------------------------------------- | --------------- | ----- | -------------------- | -------------------- |
+| Apple 备忘录   | 随时记、想到的一些想法、summary、书单 | Mobile, PC      | Yes   | Company-self         | :white_check_mark:   |
+| Notion         | 日记                                  | Mobile, PC, Web | Yes   | Company-self         | :new_moon_with_face: |
+| 滴答清单       | TODO（daily）                         | Mobile, PC      | Yes   | Company-self, iCloud | :white_check_mark:   |
+| 飞书云文档     | 日常工作 + 学习相关（compulsory）     | Web             | Yes   | Company-self         | :white_check_mark:   |
+| Typora         | 学习笔记                              | PC              | Yes   | iCloud               | :white_check_mark:   |
+| Xmind          | 思维导图（rarely）                    | Mobile, PC      | Yes   | iCloud               | :new_moon_with_face: |
+| 网易有道词典   | 单词本（sometimes）                   | Mobile, PC, Web | Yes   | Company-self         | :new_moon_with_face: |
+| beancount fava | 记账（daily）                         | PC              | No    | Local                | :white_check_mark:   |
 
 变更：
 
@@ -99,6 +99,7 @@ PC：
 
 - 想法 or 思考 -> _备忘录_
 - 项目管理（不限于工程，包含进度相关的都可以）-> _Notion_
+- 日常 TODO -> *滴答清单*
 - 日程管理-> _Notion_
 
   - 日程安排

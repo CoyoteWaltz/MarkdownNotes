@@ -275,6 +275,16 @@ type AnonymousCat = RemoveNameField<Cat>;
 
 其实这个特性就是将 keyof 遍历出的类型映射到新的（自定义）类型
 
+也可以 as 到一个常量上，可以做到将多个字段的 value 类型 union 到一个 key 上
+
+```typescript
+type All<T> = {
+  [k in keyof T as 'prop']: T[k];
+}['prop'];
+```
+
+
+
 更多详见：[PR](https://github.com/microsoft/TypeScript/pull/40336)
 
 ## Type language programming
