@@ -347,6 +347,10 @@ sudo chown -R $USER $(brew --prefix)
   - 选中单词 `⌃ + G`，这里和平时的 `⌘ + D` 不一样
 - History：可视化的搜索 history，比 history 指令配合 ! 来用方便多了
 
+[gci](https://www.npmjs.com/package/git-checkout-interactive) 可交互式切分支
+
+
+
 ### Iterm2
 
 #### 安装
@@ -507,7 +511,7 @@ zsh-syntax-highlighting
 
 - 参考色彩配置：https://coderwall.com/p/qmvfya/syntax-highlighting-for-zsh
 
-TODO 还有好用的插件
+还有好用的插件
 
 #### 主题
 
@@ -560,7 +564,25 @@ git 符号的含义：https://github.com/romkatv/powerlevel10k#what-do-different
 >
 > 指令 see [linux_cmd_ubuntu_notes_archived.md](linux/linux_cmd_ubuntu_notes_archived.md)
 
-#### .DS_Store 文件是啥
+### macOS 查看端口占用情况
+
+1. 网络实用工具
+
+点击左上角的苹果标 -> 点击关于本机 -> 点击系统报告 -> 点击菜单栏上的窗口 找到「网络实用工具」
+
+在扫描端口这里，输入域名即可开始扫描，略慢
+
+2. 命令行检查
+
+```bash
+lsof -i :<port>
+```
+
+
+
+
+
+### .DS_Store 文件是啥
 
 经常能在文件夹中看到这个文件，好奇知乎了一下：保存文件夹的自定义属性的隐藏文件，如文件的图标位置或背景色
 

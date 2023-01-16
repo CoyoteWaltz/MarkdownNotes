@@ -1,5 +1,70 @@
 [toc]
 
+### 兼容性
+
+#### [ponyfill](https://github.com/sindresorhus/ponyfill)
+
+> polyfill 会修改全局的代码，ponyfill 的目标是不污染代码，想用就用，需要指定 api 使用
+
+### scroll
+
+#### scroll() scrollTo()
+
+> 这俩没啥区别，都是滚动到页面的某个位置
+
+```js
+window.scroll(x, y)
+window.scroll({
+	top: 100,
+  left: 100,
+  behavior: 'smooth'
+})
+```
+
+如果需要平滑滚动，需要用 polyfill（太多了），比如 [smoothscroll](https://github.com/iamdustan/smoothscroll)
+
+
+
+
+
+#### 判断页面滚动到底部
+
+来自 [stackoverflow](https://stackoverflow.com/questions/9439725/how-to-detect-if-browser-window-is-scrolled-to-bottom)
+
+首先解决 scrollY 的兼容
+
+```js
+export function getScrollY() {
+    return window.scrollY || window.pageYOffset;
+}
+```
+
+```js
+export function isScrollToEnd() {
+    return window.innerHeight + getScrollY() >= document.body.offsetHeight - (isiOS() ? 2 : 0);
+}
+```
+
+
+
+### 控制台 tricks
+
+- copy()：可以将接受的所有对象都粘贴到剪切板，**比如组合使用：`copy($_)`**
+- 对输入的变量右键“store as global”可以让对象作为变量暂存在控制台中 temp1(2, 3, ...)
+- 截图：⌘ + ⇧ + p 呼出面板，输入“screen”就能看到截图选项，可以对 dom 节点、全屏、选取区域进行截图，很不错
+- snippets：代码块，在 Sources 里的导航栏选 Snippets 可以新建代码块并且运行，在 ⌘ + p 呼出的输入框中输入`!`也能快速运行
+- 一些快捷 alias
+  - `$`: document.querySelector
+  - `$$`: document.querySelectorAll（返回的是数组不是 nodeList）
+  - `$0`: 在 Chrome 的 Elements 面板中， 0是对我们当前选中的*html*节点的引用。1 是对上一次我们选择的节点的引用，2是对在那之前选择的节点的引用，等等。一直到4。
+  - `**$_**`**: 对上次执行的结果的引用**
+  - `$i`: 在 Dev Tools 里面来使用 npm 插件(e.g.运行`$i('lodash')`你就可以获取到 lodash 了)
+- `console.assert()`：第一个参数为 falsy 的时候，会用 error 的方式将第二个参数展示出来
+- `console.time`、`console.timeEnd`：一组计时器开关
+- `console.log` with CSS：字符串用占位符 %c，后续参数依次就是 CSS 规则
+
+
+
 ### queryObjects
 
 正巧刷到[这篇](https://www.zhihu.com/question/386595851/answer/1153444476)

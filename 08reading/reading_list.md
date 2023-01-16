@@ -194,6 +194,14 @@
 >
 > 摘录最后一句话，保持时刻学习和回顾！Maintaining your technical chops is a stellar way to hedge against uncertainties and maintain your optionality.
 
+[在工作中学习](https://plantegg.github.io/2018/05/23/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%AD%A6%E4%B9%A0/)
+
+> 工作效率
+> 
+> 知识效率
+> 
+> 好好学习底层的知识！
+
 ---
 
 ### 【个人】
@@ -403,11 +411,15 @@
 
 > 尝试高维度的思考吧，结合系统性、交互、时间，这三个要素。
 
+[antfu move to paris](https://antfu.me/posts/bonjour-paris)
+
+> 推特刷到这条，就是说很羡慕和向往了，自己也要努力
+
+
+
 ---
 
 ### 【技术】
-
-#### former
 
 [(80 封私信 / 81 条消息) 2020 国内公司前端团队都在搞些什么? - 知乎](<Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/(80%20%E5%B0%81%E7%A7%81%E4%BF%A1%2081%20%E6%9D%A1%E6%B6%88%E6%81%AF)%202020%20%E5%9B%BD%E5%86%85%E5%85%AC%E5%8F%B8%E5%89%8D%E7%AB%AF%E5%9B%A2%E9%98%9F%E9%83%BD%E5%9C%A8%E6%90%9E%E4%BA%9B%E4%BB%80%E4%B9%88%20-%20%E7%9F%A5%E4%B9%8E%20e86ca9b16d4047499354a9195bcd6371.md>)
 
@@ -532,10 +544,10 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 >     - ```objective-c
 >       // 另一种初始化方式，即先发 alloc 消息，再发 init 消息
 >       NSDate* now = [[NSDate alloc] init];
->                                    
+>                                                                                                            
 >       // 初始化一个 NSCalendar 日期实例
 >       NSCalendar* obj = [NSCalendar currentCalendar];
->                                    
+>                                                                                                            
 >       // 给实例发多个参数的消息
 >       // 消息名为 ordinalityOfUnit:inUnit:forDate:
 >       NSUInteger day = [obj ordinalityOfUnit:NSDayCalendarUnit
@@ -1419,6 +1431,213 @@ export default usePreloadedImage;
 > 
 > 长期价值 & 平常心。
 
+[谷歌软件工程文化](https://www.bmpi.dev/dev/software-engineering-at-google/culture/)
+
+> 也是正巧翻到自己 mac 的 books 里面有这本 'software engineering at Google'（全英版）最近好像很火的一本书，google 搜了一下发现 @madawei 也写过文章（SEO 做的真好）
+>
+> 也趁此机会准备开始抽空看一下这本。
+
+[figma 构建 web 上的专业设计软件](https://www.figma.com/blog/building-a-professional-design-tool-on-the-web/)
+
+> 文章是 figma 的创始人写的，讲述了想把专业设计软件做在 web 上的这个过程中遇到的种种困难（emscripten（WebAssembly）、渲染（webGL）、浏览器所提供的功能不足），同时强调了 figma 最重视的两个要素：Performance and quality
+
+2022-12
+
+[petite-vue](https://github.com/vuejs/petite-vue)
+
+> 在 vue conf 2022 上听到尤大说把 vue1 的设计重新实现了一份 petite-vue，发现 demo 上一段 script：
+>
+> ```html
+> <script src="https://unpkg.com/petite-vue" defer init></script>
+> 
+> <!-- anywhere on the page -->
+> <div v-scope="{ count: 0 }">
+>   {{ count }}
+>   <button @click="count++">inc</button>
+> </div>
+> ```
+>
+> 就是说 script 标签的 init 很不是理解，然后搜了一下在这个[回答](https://stackoverflow.com/questions/68238484/petite-vue-init-attribute-in-html-script-tag)里才知道，原来是 petite-vue 自己识别了这个 attr，很骚。
+
+[lodash.get 类型推导](https://github.com/DefinitelyTyped/DefinitelyTyped/pull/62968/files)
+
+> 来自公司里的一位大神，帮 lodash 的 get 新增了类型，太厉害了！可以详细看下这个 PR
+
+[不用括号来调用函数](https://portswigger.net/research/the-seventh-way-to-call-a-javascript-function-without-parentheses)
+
+> 脑洞还是很大的，主要原理还是基于模版字符串的标签模版
+>
+> ```ts
+> function x() {
+> 	console.log(arguments)
+> }
+> 
+> x`a${123}`;
+> // { '0': [ 'a', '' ], '1': 123 }
+> ```
+>
+> 当一个函数被用作标签模版来调用之后，arguments（形参）是有一个规则的：
+>
+> 1. 第一个参数是根据模版字符串生成的一个数组，规则是分割占位符`${}`的字符串组合，包括最后一个空字符串
+> 2. 后面的参数就是每个占位符了，可以无限放，他的值就是变量本身（注意了，什么都能放）
+>
+> 所以作者首先利用模版字符串可以喊（call）函数，干掉了括号 `()`，接着利用标签模版的调用规则，可以通过占位符放入各种想要的参数，但问题是第一个参数（分割字符串）通常是很多内置函数不需要的，所以得想办法 hack 跳过他。
+>
+> 于是用 `call`，因为第一个参数会绑定给 `this`，但是说不在 `window` 上？浏览器直接报错（Uncaught TypeError: Illegal invocation），但是 node 环境可以。
+>
+> ```js
+> setTimeout.call`${console.log}${1000}${123}`
+> ```
+>
+> 所以再次 hack
+>
+> ```js
+> [].sort.call`${alert}1337`
+> ```
+>
+> 文中还用到了 `Reflect.apply`
+
+[小程序的同层渲染](https://developers.weixin.qq.com/community/develop/article/doc/000c4e433707c072c1793e56f5c813)
+
+> “解决了原生组件的层级问题，同时也让原生组件有了更丰富的展示和交互的能力”
+>
+> 小程序是基于 webview 定制的渲染方案，如果要在 webview 之上扩展一些定制能力，比如说 video、map 组件，客户端渲染的层级是在 webview 之上的，所以要解决这个问题，让 webview 能扩展丰富的组件
+>
+> 文章讲到了两个端分别实现“同层渲染”的方案，核心思路就是通过 webview 内核的一些机制，让自定义组件渲染在 webview 的同一层（详细看文章就好了）
+
+[2020 js13k 游戏 top10](https://github.blog/2020-10-11-top-ten-games-from-the-js13k-2020-competition/)
+
+> [JS13K 竞赛](https://js13kgames.com/)：每年举办的，h5 游戏开发比赛，限制就是代码大小在 13kb 之内。
+>
+> 2020 年的主题是 *404*，其中我觉得最有意思的是 [track not found](https://github.blog/2020-10-11-top-ten-games-from-the-js13k-2020-competition/#track-not-found)，通过转变相机视角和 2D/3D，让火车轨道能够通行，很有意思。
+
+[husky](https://typicode.github.io/husky/#/)
+
+> 用了很久的 husky，来看看他的文档吧
+>
+> *You can use it to **lint your commit messages**, **run tests**, **lint code**, etc... when you commit or push. Husky supports [all Git hooks](https://git-scm.com/docs/githooks).*
+>
+> 可以在各个 git 环节（hook）增加指令
+
+[数据大屏自适应方案](https://mp.weixin.qq.com/s/huzCTjMv8VcsTQ8_UjCv1g)
+
+> 先上代码：
+>
+> ```jsx
+> 
+> /*
+> 	JS部分
+>   */
+> //数据大屏自适应函数
+> const handleScreenAuto = () => {
+>   const designDraftWidth = 1920;//设计稿的宽度
+>   const designDraftHeight = 960;//设计稿的高度
+>   //根据屏幕的变化适配的比例
+>   const scale = document.documentElement.clientWidth / document.documentElement.clientHeight < designDraftWidth / designDraftHeight ?
+>         (document.documentElement.clientWidth / designDraftWidth) :
+>   (document.documentElement.clientHeight / designDraftHeight);
+>   //缩放比例
+>   (document.querySelector('#screen') as any).style.transform = `scale(${scale}) translate(-50%)`;
+> }
+> 
+> //React的生命周期 如果你是vue可以放到mountd或created中
+> useEffect(() => {
+>   //初始化自适应  ----在刚显示的时候就开始适配一次
+>   handleScreenAuto();
+>   //绑定自适应函数   ---防止浏览器栏变化后不再适配
+>   window.onresize = () => handleScreenAuto();
+>   //退出大屏后自适应消失   ---这是react的组件销毁生命周期，如果你是vue则写在deleted中。最好在退出大屏的时候接触自适应
+>   return () => window.onresize = null;
+> }, [])
+> 
+> ```
+>
+> 不用 rem 的方案，纯靠 scale 来进行自适应，思路也比较简单：onresize 的时候通过计算宽高比和预设的设计稿宽高比进行比较，如果小于就选择宽作为缩放比例，大于就用高做缩放比，最后让容器 div `#screen` 进行 transform，这里为啥还要 `translate(-50%)` 呢，移动到中间？
+>
+> % 和 px 随便用，好评，不用担心单位计算
+>
+> 主要存在两个问题
+>
+> 1. **当缩放比例过大时候，字体会有一点点模糊，就一点点。**
+> 2. **当缩放比例过大时候，事件热区会偏移。**
+
+2023-1
+
+[rimraf（node 的 rm 指令）](https://github.com/isaacs/rimraf)
+
+> node 版的 `rm -rf`，只是内部仓库用到了，找来看看，用 node 应该就是要解决跨平台兼容性的问题（unix、linux、macos、windows）
+>
+> 看了下代码，其实就是用 node 的 fs 来操作，不走 shell 指令
+
+[神人 Fabrice Ballard](https://zhuanlan.zhihu.com/p/386115058)
+
+> 他的官网：https://bellard.org/
+>
+> QuickJS、FFmpeg 等一些非常牛逼有名的库的作者
+
+[isInputPending](https://developer.chrome.com/articles/isinputpending/)
+
+> Facebook(React) 为 chromium 提出的一个标准 API（文章是写在 2020，**chrome 87** 版本）
+>
+> 背景是解决 load fast or response fast 的问题：由于浏览器是单线程运作，加载页面（exec js 脚本）和响应事件（fire input 的一些回调），必然是阻塞的，需要将执行权交回给浏览器（常见的做法就是将任务分割，一个个 js block，执行完通过一次 settimeout 等宏/微任务，将线程执行权交还给浏览器），也就是 React 中的 schedular
+>
+> 有了 isInputPending 之后，可以如下代码更加优雅，也更加合理（相比手写时间片）
+>
+> ```js
+> const DEADLINE = performance.now() + QUANTUM;
+> const options = { includeContinuous: true };  // continuous events 比如 mousemove pointermove
+> while (workQueue.length > 0) {
+>   if (navigator.scheduling.isInputPending(options) || performance.now() >= DEADLINE) {
+>     // Yield if we have to handle an input event (any of them!), or we're out of time.
+>     setTimeout(processWorkQueue);
+>     return;
+>   }
+>   let job = workQueue.shift();
+>   job.execute();
+> }
+> ```
+>
+> 一些 caution：
+>
+> - 小心使用（自己大概率也是用不到的）
+> - 如果是在 iframe 中的交互 target 可能一直返回的是 false
+> - 移动端比如安卓的 Chrome 不同的 page 会复用 event loop，所以 isInputPending 会不准确，需要结合 page visibility
+
+[字体 otf 和 ttf](https://www.makeuseof.com/tag/otf-vs-ttf-fonts-one-better/)
+
+> **True Type Font(.ttf)**
+>
+> - Apple 和微软一起创建的
+> - 目标是为了在原生系统、打印机上渲染字体
+> - 早期的跨平台字体文件格式
+>
+> **Open Type Font(.otf)**
+>
+> - Adobe 和微软
+> - 包含 ttf 的特点
+> - 文件存储可到达 65000 个字符（可以设计更多的字体）
+> - 一些额外字体（Ligatures、Glyphs、small caps、alternate characters、old-style figures）可以直接在 otf 文件中共存（如果是 ttf 需要新增额外的字体文件）
+>
+> 哪个好？必然是 otf，优先考虑
+>
+> ***Web Open Font Format(WOFF)***
+>
+> The Web Open Font Format is a little different in that it is a container for OTF and TTF, compressed and packaged with other information for use on the web.
+>
+> WOFF files are useful when a website wants to use a custom font that the user is unlikely to have stored on their machine.
+>
+> 可以通过 WOFF 文件来存放**压缩之后**的 ttf or otf、协议信息等
+>
+> Mozilla, Opera, and Microsoft 开发（2018），WOFF2 比 WOFF 压缩更好，大多数主流浏览器已经支持（**字体文件大小优化手段之一**）
+>
+> **关于 CSS 的 @font-face**
+>
+> 可以通过 src 属性的可选项 `format()` 告诉浏览器字体的格式，如果不支持 or 不合法，浏览器就不会下载这个资源
+>
+> 支持的类型[有这些](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src#font_formats)
+
+
+
 
 
 ### 【Art & Design】
@@ -1435,6 +1654,10 @@ export default usePreloadedImage;
 > 6. Creative drone photography drone 无人机摄影
 > 7. Authenticity _While the fantasies of digital art can give us the escape we crave from pandemic life, it is realism we crave when it comes to imagery of people and our everyday world._
 > 8.
+
+[Fractal Garden](https://www.fractal.garden/)
+
+> 递归的美、数学的美，也有 github 指路，挺有意思
 
 ## Next
 

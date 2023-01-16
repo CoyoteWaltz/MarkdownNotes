@@ -17,7 +17,7 @@
 
 - vue3
 - svelte
-- tailwindcss
+- tailwindcss(done, further to unocss, ...)
 - ...
 
 #### Svelte

@@ -30,8 +30,13 @@ checklist for all
   - 使用语法
 
 - PNPM
+- React
+  - 了解了 fiber 架构
+
+- 跨端（前端视角）
   - 
 
+- 性能优化（跨端）
 
 
 

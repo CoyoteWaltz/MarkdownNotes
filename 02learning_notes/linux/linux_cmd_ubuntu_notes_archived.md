@@ -8,6 +8,49 @@ Ubuntu 18.04(自己的电脑)/16.04(腾讯云服务器)
 
 ## 指令回顾 linux & macOS
 
+### tree
+
+> 注意，macOS 需要用 brew 来安装 `brew install tree`
+
+常用的指令，用来打印目录树（`man tree` 查看使用说明）
+
+```bash
+tree <directory>
+```
+
+常用的选项：
+
+- `-L`：递归的最大深度，`-L 3` 3 层
+- `-I`：需要 ignore 的目录 pattern，可以是 glob，多个用 `|` 分割，比如 `-I node_modules|dist|test_*`
+- `-d`：仅 directory
+- `-a`：所有（all）文件，默认是不会展示隐藏文件的
+- `-f`：展示文件的完整（full）目录
+- `--prune`：过滤掉空目录
+- `-s`：文件/目录大小，配合 `-h` 展示 humam-readable 大小（默认没有单位就是字节）
+- `--du`：For each directory report its size as the accumulation of sizes of all its files and  sub-directories  (and their files, and so on). 给每个目录展示其整个所占磁盘空间大小
+
+文件选项：
+
+- `-p`：文件 type 和 permission
+- `-u`：username
+- `-g`：groupname
+- `-D`：Print  the  date of the last modification time
+
+排序选项：
+
+- `-t`：Sort the output by last modification time instead of alphabetically.
+- `-c`：Sort the output by last status change instead of alphabetically. 如果 `-D` 配合使用，则会用最近一次修改的时间排序
+- `-U`：Do not sort. Lists files in directory order. Disables --dirsfirst.
+- `-r`：Sort the output in reverse order.
+
+选项通常可以整合起来一起输入
+
+```bash
+tree -L 3 -I node_modules -sdhpugD --du .
+```
+
+
+
 ### pbcopy & pbpaste
 
 在 mac 上的 termial 复制粘贴指令，非常方便

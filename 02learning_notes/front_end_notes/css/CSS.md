@@ -4,6 +4,18 @@
 
 html、CSS 组成了页面的布局和样式，给我的感觉就是他们的技术呈现和实现真的是又很浓厚的排版大家的味道，比如说常见的 margin 塌陷、伪元素`::first-letter`...，这些小特性给人一种很直觉的看报纸、杂志的感觉，不禁让我想到一开始的设计者是不是就想让我们在浏览器上也能得到阅读报纸、杂志的体验呢？但反观当今人们的视觉体验，更多是倾向另一种风格（至少不会那么复古吧），所以年代赋予的设计思路而且 CSS 是一种
 
+### 【DOM】setProperty
+
+[MDN](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/setProperty)
+
+通过 DOM 对象来优雅的修改样式
+
+```js
+dom.style.setProperty('height', '10px', 'important')
+```
+
+
+
 ### 反人类
 
 #### margin/padding 的值如果是百分比，是相对于父元素的宽度来的
@@ -506,6 +518,14 @@ BFC 内部有浮动的时候，BFC 为了隔离自己，会将内部的浮动算
 
 margin 也算在 BFC 自己的高宽，所以可以避免边距塌陷。
 
+### FFC(Flex Formatting Context)
+
+居然还有 FFC，一个关于边距塌陷的[问题](https://stackoverflow.com/questions/43882869/margin-collapsing-in-flexbox)
+
+**FFC 中不会出现 margin collapsing**
+
+
+
 ### 关于动画、过渡效果
 
 #### transition
@@ -931,3 +951,61 @@ _IE 不支持_
 **设置 width 和 height 属性**
 
 如果提前知道图片的大小，同样能达到 aspect-ratio 的效果！
+
+
+
+### backdrop-filter
+
+[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
+
+```css
+backdrop-filter: blur(10px);
+```
+
+这个 CSS 属性能够在元素后面增加图形特效，比如 blur 或者 color shifting，因为是在元素的后方，所以需要元素的背景**至少是部分透明的**
+
+#### 效果
+
+语法
+
+```css
+/* Keyword value */
+backdrop-filter: none;
+
+/* URL to SVG filter */
+backdrop-filter: url(commonfilters.svg#filter);
+
+/* <filter-function> values */
+backdrop-filter: blur(2px);
+backdrop-filter: brightness(60%);
+backdrop-filter: contrast(40%);
+backdrop-filter: drop-shadow(4px 4px 10px blue);
+backdrop-filter: grayscale(30%);
+backdrop-filter: hue-rotate(120deg);
+backdrop-filter: invert(70%);
+backdrop-filter: opacity(20%);
+backdrop-filter: sepia(90%);
+backdrop-filter: saturate(80%);
+
+/* Multiple filters */
+backdrop-filter: url(filters.svg#filter) blur(4px) saturate(150%);
+
+/* Global values */
+backdrop-filter: inherit;
+backdrop-filter: initial;
+backdrop-filter: revert;
+backdrop-filter: revert-layer;
+backdrop-filter: unset;
+
+```
+
+常用的感觉就是 blur 制作毛玻璃效果了
+
+#### 兼容性
+
+https://caniuse.com/?search=backdrop-filter *global 达到 94.12%*
+
+
+
+
+

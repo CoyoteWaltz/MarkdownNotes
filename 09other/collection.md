@@ -72,7 +72,7 @@ PT Sans
 
 [100 个 golang 的常见错误](https://github.com/teivah/100-go-mistakes)（好评如潮）
 
-
+[cheat.sh](https://github.com/chubin/cheat.sh)（有意思，通过 curl cheat.sh 来获得信息）
 
 ## 待体验
 
