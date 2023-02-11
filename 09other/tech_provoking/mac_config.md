@@ -211,6 +211,12 @@ http://xnipapp.com/
 
 命令行`code`指令直接[官方的操作](https://code.visualstudio.com/docs/editor/command-line#_common-questions)，`⇧ + ⌘ + p`然后输入类似`shell command install 'code'`的语句就让 vscode 自己帮我们在环境变量中加 code 指令
 
+#### 代码 snippet 后依旧可以联想
+
+目的是用一些代码片段之后，能够立即输入联想的变量（or 其他），比如：输入 `log` 的代码片段是 `console.log()`
+
+操作：**settings -> Snippets Prevent Quick Suggestions 关闭这个选项即可**
+
 #### 开启 TS 的引用计数
 
 在 settings 中搜索 `codelens`，在 extensions 中找到 TypeScript，开启 `References Code Lens`
@@ -248,7 +254,7 @@ defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global defaul
 
 推荐一手托尼的 [vscode settings](https://github.com/antfu/vscode-settings)
 
-#### 如何干光 vscode
+#### 如何干光 vscode（macos）
 
 统统删光
 
@@ -269,6 +275,22 @@ rm -rfv "$HOME/Library/Application Support/Code - Insiders"
 rm -rfv "$HOME/Library/Caches/com.microsoft.VSCodeInsiders"
 rm -rfv "$HOME/Library/Saved Application State/com.microsoft.VSCodeInsiders.savedState"
 ```
+
+#### 去掉窗口的下波浪线
+
+在 `.vscode/settings.json` 中加入以下这些修改下划波浪线的颜色，不然太难看了
+
+```json
+{
+    "workbench.colorCustomizations": {
+        "editorError.foreground": "#00000000",
+        "editorWarning.foreground": "#00000000",
+        "editorInfo.foreground":    "#00000000"
+    }
+}
+```
+
+
 
 ### homebrew
 

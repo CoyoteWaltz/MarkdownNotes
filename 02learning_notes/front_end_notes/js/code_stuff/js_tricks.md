@@ -198,49 +198,21 @@ JSON.stringify(a) === JSON.stringify(b);
 
 都 stringify 成字符串之后用 indexOf 看下标即可
 
-#### webStroag 存储对象
+#### webStorage 存储对象
 
 stringify 之后存在 localStorage/sessionStorage
 
-### 深拷贝
+#### 按照指定 key 的顺序
 
-一个比较完整的深拷贝函数，需要同时考虑对象和数组，考虑循环引用：
-
-```js
-function deepCopy(obj, map = new WeakMap()) {
-  if (typeof obj === "object") {
-    const newObj = Array.isArray(obj) ? [] : {};
-    if (map.has(obj)) {
-      // 如果这个对象已经被引用了 有循环引用 直接返回
-      return map.get(obj);
-    }
-    map.set(obj, newObj);
-    for (let key in obj) {
-      newObj[key] = deepCopy(obj[key], map);
-    }
-    return newObj;
-  } else {
-    return obj; // 不是引用类型的直接返回一份 因为形参已经是 copy 了
-  }
-}
-// 测试一下
-let aa = {
-  abc: 123,
-  bbc: { ddd: 433 },
-};
-aa.eee = aa;
-let bb = deepCopy(aa);
-aa.eee = 444444;
-bb.bbc.ddd = 4444;
-console.log(bb.eee);
-console.log(aa.eee);
-```
-
-### 浅拷贝
+> [参考](https://stackoverflow.com/questions/16167581/sort-object-properties-and-json-stringify)
+>
+> 默认的顺序就是对象定义的时候的顺序？
 
 ```js
-let copy = Object.assign({}, obj);
+JSON.stringify(sortMyObj, Object.keys(sortMyObj).sort());
 ```
+
+在第二个参数指定 key 的数组就行
 
 ### 类型判断
 

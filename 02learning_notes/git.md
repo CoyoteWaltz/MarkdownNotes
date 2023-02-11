@@ -570,6 +570,62 @@ btw 速度很快
   lg = !"git lg2"
 ```
 
+## Submodule
+
+> 当在一个仓库开发时需要用到另一个仓库的项目，复杂度过大，保持项目之间的隔离
+
+### 新增 submodule
+
+```bash
+git submodule add <url/of/project> [file/path]
+```
+
+会发现仓库目录下多了一个 `.gitmodules` 的文件
+
+```bash
+[submodule "DbConnector"]
+	path = DbConnector
+	url = https://github.com/chaconinc/DbConnector
+```
+
+新增的 submodule 其实是保存了仓库的索引（commit hash）
+
+### clone with submodules
+
+如果我们知道这个仓库有 submodule，可以在 clone 的时候同时下载 submodules，使用 `--recurse-submodules`
+
+```bash
+git clone --recurse-submodules <xxx.git>
+```
+
+或者在仓库 clone 完之后
+
+```bash
+git submodule init
+git submodule update
+```
+
+这两步也可以合并成：`git submodule update --init`
+
+### vs Monorepo?
+
+> 想到就去 google 了，https://dev.to/davidarmendariz/git-submodules-vs-monorepos-14h8
+>
+> Monorepo 是存在一些缺点：
+>
+> - how do you maintain a clean git history，每次的 git pr 记录可能都会很多
+> - Security，也许需要严格的包权限管理
+> - 不同语言的 package
+> - How do you run tests for only certain packages
+>
+> What's the benefit of a mono-rope? Well, if you don't have to clean boundaries in your software components, a mono-repo is the way to go for your spaghetti.
+>
+> 所以还是回到了“如何评估选择使用 monorepo”的问题
+
+
+
+
+
 ## .gitignore
 
 ### 基本配置

@@ -7,7 +7,7 @@
 
 ## Why Narrow Types
 
-When encounter some *union types* `'a' | 'b' | { c: '3'}`, we need to do sth with one specific type.
+When encountering some *union types* `'a' | 'b' | { c: '3'}`, we need to do sth with one specific type.
 
 
 

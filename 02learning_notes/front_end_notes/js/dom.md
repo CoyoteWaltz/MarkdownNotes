@@ -1,5 +1,81 @@
 [toc]
 
+### Input.valueAsNumber & valueAsDate
+
+> [参考](https://www.builder.io/blog/numbers-and-dates)
+>
+> 浏览器支持度很高，全支持了
+
+通常我们处理 input 输入的数字都是通过 string 转成 number
+
+```jsx
+export function NumberInput() {
+  const [number, setNumber] = useState(0)
+
+  return (
+    <input
+      type="number"
+      value={number}
+      onChange={(e) => {
+        const num = parseFloat(e.target.value)
+        setNumber(num)
+      }}
+    />
+  )
+}
+```
+
+但其实浏览器提供了一个自动转换的属性 `valuesAsNumber` 能够省去我们转换 number 的这一步
+
+```jsx
+      onChange={(e) => {
+        // ✅
+        const num = e.target.valueAsNumber
+        setNumber(num)
+      }}
+```
+
+注意：这个属性的类型永远都是 number，但可能会是 `NaN`
+
+```jsx
+typeof NaN // 'number'
+```
+
+所以需要多判断一步 `!isNaN(xx)`
+
+同样有 `valueAsDate` 是浏览器自动转换好的 `Date` 对象
+
+```jsx
+export function DateInput() {
+  const [date, setDate] = useState(null)
+
+  return (
+    <input
+      type="date"
+      value={date}
+      onChange={(e) => {
+        // ✅
+        const date = e.target.valueAsDate
+        setDate(date)
+      }}
+    />
+  )
+}
+```
+
+如果 input 是空，则会拿到 `null`
+
+```jsx
+const date = myDateInput.valueAsDate
+if (date) {
+  // We've got a date!
+}
+```
+
+
+
+
+
 ### Node.appendChild & ParentNode.append
 
 两者都是在元素节点后 append 新的节点

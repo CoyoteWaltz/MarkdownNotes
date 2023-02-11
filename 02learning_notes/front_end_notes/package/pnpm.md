@@ -17,7 +17,7 @@
 
 ### `node_modules` 的结构
 
-官方的这篇 [blog](https://pnpm.io/blog/2020/05/27/flat-node-modules-is-not-the-only-way)，说的很明白，也很清晰
+> 官方的这篇 [blog](https://pnpm.io/blog/2020/05/27/flat-node-modules-is-not-the-only-way)，说的很明白，也很清晰
 
 一句话解释就是：
 
@@ -33,6 +33,23 @@
 - 还原最语义化的 `package.json` 定义（只能依赖定义了的包）
 - 包复用（依赖间、跨项目）
 - ...可以看[这篇](https://github.com/ascoders/weekly/issues/435)
+
+*隔了一段时间*，看了第二篇文章
+
+再看一看 pnpm 的三层寻址
+
+- `node_modules/package-a` > 软链接 `node_modules/.pnpm/package-a@1.0.0/node_modules/package-a` > 硬链接 `~/.pnpm-store/v3/files/00/xxxxxx`
+
+- 第一层：解决幻影依赖，用最合理的树型 node_modules 结构
+- 第二层：提升包复用性
+- 第三层：指向全局包空间，跨项目复用
+  - `pnpm` 在第三层寻址时采用了硬链接方式，但同时还留下了一个问题没有讲，即这个硬链接目标文件并不是普通的 NPM 包源码，而是一个哈希文件，这种文件组织方式叫做 content-addressable（基于内容的寻址）。
+  - 即便包版本升级了，也仅需存储改动 Diff
+  - 并且新包下载下来之后，发现 hash 相同就可以直接丢弃，节省时间
+
+
+
+
 
 ### 软/硬链接复习
 

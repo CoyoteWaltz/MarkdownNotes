@@ -1,3 +1,17 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [复式记账](#%E5%A4%8D%E5%BC%8F%E8%AE%B0%E8%B4%A6)
+  - [资产 & 净资产](#%E8%B5%84%E4%BA%A7--%E5%87%80%E8%B5%84%E4%BA%A7)
+    - [财富自由](#%E8%B4%A2%E5%AF%8C%E8%87%AA%E7%94%B1)
+  - [为什么复式记账](#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%A4%8D%E5%BC%8F%E8%AE%B0%E8%B4%A6)
+  - [如何复式记账](#%E5%A6%82%E4%BD%95%E5%A4%8D%E5%BC%8F%E8%AE%B0%E8%B4%A6)
+  - [Beancount](#beancount)
+  - [后续](#%E5%90%8E%E7%BB%AD)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # 复式记账
 
 参考：https://byvoid.com/zhs/blog/beancount-bookkeeping-1/?amp=1

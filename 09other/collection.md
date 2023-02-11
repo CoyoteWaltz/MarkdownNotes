@@ -20,7 +20,21 @@ PT Sans
 
 [代码行数 counter](https://github.com/AlDanial/cloc)
 
+[免费开源的在线简历制作](https://rxresu.me/)
+
+[doctoc 为 markdown 文件添加通用的 toc（好用可以加在工作流）](https://github.com/thlorenz/doctoc)
+
+[gsap 动画库](https://greensock.com/gsap/)
+
+## 资源
+
+[程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
+
 ## 收藏有趣的 links
+
+https://esm.sh/（esm import npm packages from url）
+
+[github 绿墙](https://green-wall.vercel.app/)（vercel 部署的）
 
 [思考的价值](https://thinking.tomotoes.com/)
 
@@ -60,7 +74,13 @@ PT Sans
 
 [小红书的设计思维](https://rpdc.xiaohongshu.com/52-design-principles)
 
+[gradient-generator 渐变色 CSS 生成器](https://www.joshwcomeau.com/gradient-generator/)
+
 ## github
+
+[chroma.js 颜色处理库](https://github.com/gka/chroma.js)
+
+[海外求职](https://github.com/eliaszon/Programmers-Overseas-Job-Interview-Handbook)
 
 [readme badges](https://www.makeuseof.com/badges-that-will-supercharge-your-github-repository/)
 

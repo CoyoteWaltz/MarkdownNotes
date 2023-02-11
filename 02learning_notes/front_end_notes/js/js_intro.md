@@ -131,6 +131,22 @@ console.log(c < d); // true
 
 **strict mode 下不允许使用 with 语句**
 
+
+
+### 最大整型
+
+场景重现：后端传的 room_id 是 number 类型，但是太大了。。有多大呢？比 `Number.MAX_SAFE_INTEGER`（9007199254740991）都大。。。（2 的 53 次方 - 1），其他语言都默认是 64 位嘛
+
+所以让 sever 传 string 类型了。以后记得要避免坑！
+
+```JavaScript
+> JSON.parse(6887505956205890304)
+
+6887505956205891000  // 吞了后三位。。
+```
+
+可以看这篇：https://stackoverflow.com/questions/307179/what-is-javascripts-highest-integer-value-that-a-number-can-go-to-without-losin 和 https://www.zhihu.com/question/29010688
+
 ## 内存
 
 ### 堆栈
@@ -525,6 +541,18 @@ valueOf()
 regular expression
 
 啊哈正则，python 里面记录过，这里先不学了，用到再说
+
+非纯中文 or 英文 or 数字组合：
+
+```TypeScript
+const checkNameRe = /[^\a-zA-Z0-9\u4E00-\u9FA5]/g; // 非 中文 / 英文 / 数字
+```
+
+Emoji 检查
+
+```typescript
+const checkEmojiRe = /\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/; // emoji 检查
+```
 
 ## Function
 

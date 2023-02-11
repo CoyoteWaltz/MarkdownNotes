@@ -415,6 +415,47 @@
 
 > 推特刷到这条，就是说很羡慕和向往了，自己也要努力
 
+2023
+
+[ADEPT method](https://betterexplained.com/articles/adept-method/)
+
+> ADEPT 学习方法（to internalize a new concept）
+>
+> ***Use an Analogy, Diagram, Example, Plain-English description, and then a Technical description.***
+>
+> 从类比 -> 画图形/图表（可视化）-> 尝试（实践）-> 简单语句的描述 -> 技术性表达（系统化），这几个步骤来学习一个新知识
+>
+> **是一个需要自我 check 的 mental checklist，改进自己的学习顺序（从模糊 -> 具体）**
+>
+> 最后：BE ADEPT
+>
+> - Brevity [is beautiful](https://betterexplained.com/articles/brevity-is-beautiful/).
+> - Empathy makes us human.
+
+[tiny projects](https://tinyprojects.dev/posts/i_spent_two_years_launching_tiny_projects)
+
+> 作者花了两年时间发布了不少的小项目，还能赚到钱，很不错！
+>
+> *Each morning I sit down with a coffee and bash out some project code. It's a hobby I love, and one that's starting to generate some decent passive income now.* 很喜欢这种感觉
+>
+> 我也有一个 projects list，那就干起来吧！
+>
+> *to start trying one idea each week in its tiniest form.*
+>
+> 最后还是挺佩服作者能将这么多小想法落地，并且还能赚钱，商业模式也搞起来了。
+
+[用 github 仓库记录](https://github.com/yihong0618/gitblog/issues/209)
+
+> Mark，实践一下自己的记录工作流！
+
+[People Die, but Long Live GitHub](https://laike9m.com/blog/people-die-but-long-live-github,122/)
+
+> 挺有启发的一篇文章，百年之后我们的信息还会在吗。
+>
+> *几十几百年后，GitHub 将成为世界上最大的数字公墓，注册用户大部分都已去世，然而个人主页，项目，commit 历史 还述说着他们生前做过的事——就比如 Joe 的[博客](https://joearms.github.io/)。*
+>
+> *人有两次死亡，第一次是肉体，第二次是被人忘记*
+
 
 
 ---
@@ -544,10 +585,10 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 >     - ```objective-c
 >       // 另一种初始化方式，即先发 alloc 消息，再发 init 消息
 >       NSDate* now = [[NSDate alloc] init];
->                                                                                                            
+>                                                                                                                                                                                                            
 >       // 初始化一个 NSCalendar 日期实例
 >       NSCalendar* obj = [NSCalendar currentCalendar];
->                                                                                                            
+>                                                                                                                                                                                                            
 >       // 给实例发多个参数的消息
 >       // 消息名为 ordinalityOfUnit:inUnit:forDate:
 >       NSUInteger day = [obj ordinalityOfUnit:NSDayCalendarUnit
@@ -1636,9 +1677,415 @@ export default usePreloadedImage;
 >
 > 支持的类型[有这些](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src#font_formats)
 
+[rollup dynamic import 插件 原理](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars)
 
+> 原文是一篇公司内部的文章，在迁移到 vite 的时候发现历史遗留的动态引入问题，于是调研了 rollup 的动态导入。主要内容其实就是对 github readme 的翻译，和源码分析
+>
+> - Rollup 插件构建时，动态引入（path 是动态的）是如何实现的，构建时不知道运行时的变量，通过一些特殊的手段。（[github](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars)）
+> - import( '../path/${xx}.js' ) -> 会构造 glob path，然后编译所有的文件，再将代码转换成 switch/case 匹配
+> - [源码](https://github.com/rollup/plugins/blob/master/packages/dynamic-import-vars/src/index.js)
+> - 这个业务团队也用 [unplugin](https://github.com/unjs/unplugin) 开发了一个 vite 支持的插件
 
+[babel 插件 按需引入](https://juejin.cn/post/7078527789388791821)
 
+> [babel-plugin-import](https://github.com/umijs/babel-plugin-import)
+>
+> 一种按需引入的方法，核心就是通过 babel 改写 import 的路径：原本的路径改写成更加细粒度的组件文件路径
+>
+> 使用方法：
+>
+> - 直接在 `babelrc` 配置
+>
+>   ```json
+>   {
+>     "plugins": [["import", options]]
+>   }
+>   // options
+>   {
+>     "libraryName": "@material-ui/core",
+>     "libraryDirectory": "components",  // default: lib
+>     "camel2DashComponentName": false,  // default: true
+>   }
+>                                 
+>   // 例子
+>   [
+>     "import",
+>     {
+>       "libraryName": "@arco-design/web-react",
+>       "libraryDirectory": "lib",
+>       "camel2DashComponentName": false,
+>       "style": true
+>     },
+>     "@arco-design/web-react"
+>   ],
+>   ```
+>
+> 最终编译结果（例子）
+>
+> ```js
+> import { TimePicker } from "antd"
+> ↓ ↓ ↓ ↓ ↓ ↓
+> var _button = require('antd/lib/custom-time-picker');
+> ```
+>
+> 扩展阅读：https://juejin.cn/post/7058964067100131365
+
+[浅谈移动端开发技术](https://mp.weixin.qq.com/s?__biz=Mzg4MTYwMzY1Mw==&mid=2247496579&idx=1&sn=34dc5cc35bd62d20f6d6cf992928f579&source=41#wechat_redirect)
+
+> 虽然是 21 年的文章，但是对于移动端开发的大概技术介绍都很全面，比较详细（在浏览器待了很久的 tab...）
+>
+> 主要是 Hybrid App
+>
+> - webkit
+>   - 解析 HTML 和运行 JS 的核心
+>   - 诞生于 safari，chromium 基于此，Chrome 浏览器
+>   - IOS 中 JSCore
+>     - JSVM
+>     - JSContext
+>     - JSValue 转换 JS 类型 -> OC 类型
+> - RN
+>   - JSI（JS 和 Native 通信）
+>   - 新架构，解决了 JSB 通信消耗
+> - Flutter
+>   - Skia 自渲染
+>   - Dart，放弃 Web 生态
+>   - 类似浏览器渲染
+
+[clay css](https://github.com/codeAdrian/clay.css)
+
+> claymorphism styles 的 CSS 样式库，[demo site](https://codeadrian.github.io/clay.css/)
+>
+> claymorphism 中文翻译过来是粘土风格？inflated fluffy 3D elements
+>
+> 用法比较简单，安装好之后提供了预设的 class
+>
+> - class="clay"
+>
+> 为什么没有再做一个 UI Frame：（节选）相对来说比较新的设计理念，自由简单，不想维护 XD
+
+[js is wierd](https://jsisweird.com/)
+
+> JS is wierd!
+>
+> 这是一个做题网站，测试一下对 js 各种稀奇古怪的坑是否了解
+>
+> 做完题还会有讲解
+
+[what makes GIT hard to use](https://www.highflux.io/blog/what-makes-git-hard-to-use)
+
+> 使用 git 的体验和作者文中所说的一样感同身受，“常常感觉自己还是一个 git 新手”，git 对于大家日常使用的一些命令之外，还是比较难用的，主要原因：
+>
+> 1. 命令太多、太底层了，一些直觉上的操作，需要结合多个指令一起完成
+> 2. 文件存在的版本太多了，作者觉得有 4 个，实际上只关心：当前自己编辑器中的，和远程仓库团队的版本
+> 3. git 不太方便做实验，也就是缺少了很多 undo 的功能，以至于我们也不太敢尝试一些指令（也许代码就丢了）
+>    1. 最好有撤销（undo）的能力
+>    2. dry run 的选项，只输出执行结果，而非真正执行
+>
+> 最后作者推荐了一些工具，在 git 之上，让 git 的使用体验更佳
+
+[codeball](https://codeball.ai/)
+
+> 好家伙，AI based Code Review
+>
+> *我看 tt 有在使用？*
+>
+> 基于 github actions 触发 CR
+>
+> 支持的语言很多
+
+[react 和 imgui 的区别](https://www.zhihu.com/question/39093254/answer/1351958747?utm_id=0)
+
+> 渲染，立即模式，保留模式，的一些科普。
+> 
+> react 这种 web 框架还是离渲染太远啦，dom 这层基本就封装掉底层渲染的东西了。
+
+[设计模式为什么会流行](https://yinwang1.substack.com/p/846?continueFlag=da0095b31d2a28cf55236ccb31b4ab9f)
+
+> 也没学过设计模式，还好没浪费这个时间哈哈。以及 yinwang 十年前的[吐槽](http://www.yinwang.org/blog-cn/2013/03/07/design-patterns)
+
+[如何评价 qwik 框架](https://www.zhihu.com/question/467071621/answer/2835310168)
+
+> 一个 22 年？出的新 SSR 框架，[官网](https://qwik.builder.io/)，应该也是 builder.io 主要的框架语言之一（好吧，qwik 的作者就是 builder.io 的 CTO...）
+>
+> 这篇文章讲的挺好，比较全面的说明了 CSR & SSR 目前的问题，以及 qwik 的 Resumability 思想
+>
+> 简单概述下现在传统 SSR 的性能问题
+>
+> - SSR 流程：服务端渲染好 HTML（reactDom.renderToString），发送到客户端，客户端需要再次 hydrate，执行一遍对应的 js 脚本，为的是给 html 元素绑定上交互需要的事件监听
+> - 存在的问题（流程图来自文章）
+>   - 在服务端下发 HTML 回到 CSR 之后，会进行 hydrate 的过程，需要下载解析全部的页面 JS，去恢复应用应有的状态（Recover 过程），所以消耗会非常大，真正等待交互的事件会延后（**TTI**，和 **FCP**）
+>   - 当应用变得复杂，hydrate 过程会变得更长！
+>
+>
+> **Resumability: 更加优雅的 hydartion 替代方案**
+>
+> - qwik 的作者认为 hydration 其实是多余的
+> - 将必要的信息序列成 html 的一部分（减少 js 的解析）
+> - 依赖于事件冒泡来拦截所有事件的全局事件处理程序
+>
+> ![img](imgs/reading_list.assets/v2-bf7e87470c1035bbf73fcbd733aae5ae_1440w.webp)
+>
+> 具体细节可以看文章，讲的还是比较容易懂的
+
+[SSR Islands 架构](https://juejin.cn/post/7155300194773860382)
+
+> 依旧是前端 SSR 框架，作者也是字节员工
+>
+> - MPA 和 SPA 的取舍
+> - Islands 架构：
+>   - 也是解决 SSR 方案在全量 hydration 的过程导致页面 TTI 的折损
+>   - 核心思路就是区分静态组件（无需任何交互的组件）将静态组件直接渲染成 HTML，用少量代码去做其他组件的 hydration（这些非静态组件就像是“岛屿”一样）
+> - [Astro 框架](https://astro.build/)
+> - 作者自己实现的 https://github.com/sanyuan0704/island.js
+>   - 文章有整体流程，很不错
+>   - 可以整体看一下源码
+> - 这个架构框架无关（astro）
+
+[solidjs 是 react 应该变成的样子](https://typeofnan.dev/solid-js-feels-like-what-i-always-wanted-react-to-be/)
+
+> 一篇对 solidjs 的感受
+>
+> *If a linter knows when an effect (or callback, or memo) hook is missing a dependency, then why can’t the framework automatically detect dependencies and react to those changes?* react 并不是真正 reactive
+>
+> BTW，solidjs [文档](https://docs.solidjs.com/)好全啊，unocss、部署到 vercel 都介绍了
+
+[重新理解 web](https://zhuanlan.zhihu.com/p/581977751?utm_id=0)
+
+> 又是一篇在字节的同学的文章，大佬真多啊。内部的飞书文档不能公开，全集是从 Web 切入到 Web XR。知乎是第一章「重新理解 Web」的摘录
+>
+> - Web Runtime（Web 三要素）：
+>   - 传统浏览器/PWA/WebView/跨端容器
+>   - 浏览器 -> 画框 -> 地址栏/收藏夹/...；内容/界面 -> 画布
+>   - 标准化 Web 软件：分发、实现、运行三个维度的标准化
+> - 前端技术（Web 三要素）
+>   - 设计驱动开发/功能驱动开发
+> - URL & Web 独特能力（Web 三要素）
+>   - URL：资源的标识符「真名」
+>   - 能力：分发、解绑、混搭、即用、动态、共创、跨平台、协作
+>     - 安装 App 的心智 v.s. 随用随弃
+> - 平台现状（新能力、to Dev、UI 框架、引擎、小程序/容器）
+> - 总结
+>   - 具备八大 web 独特能力的就是 Web
+>
+> 
+
+[husky 原理](https://juejin.cn/post/6879955438482227207)
+
+> husky 是 lint 代码比较常用的工具，配合 `lint-staged` 在 git commit 之前进行 lint
+>
+> git hooks：
+>
+> - 在 git 操作前触发的自定义脚本（在 `.git/hooks` 目录）
+>
+> Husky 的作用：
+>
+> - 官方描述：Modern native Git hooks made easy
+> - 通过配置共享 git hooks（团队协作）
+>
+> 原理：
+>
+> - 在 npm scripts 的 install 指令，执行 husky install（目前会需要指明：`        "prepare"*:* "husky install"`）
+> - 直接在 `.git/hooks` 下创建所有支持的 hooks
+> - 内容都是执行 `husky.sh`，交给 husky 来执行 hook
+> - 步骤：
+>   - husky.sh 脚本获取 hook 名称
+>   - 找到配置的 hook 对应的脚本
+>   - 执行指令（node）
+>
+> 新版的 husky [不太一样](https://stackoverflow.com/questions/57297444/how-husky-works)，可以直接从 husky 源码入手：
+>
+> - husky install 会执行 `index.js`：
+>   - 一系列判断（有没有 `.git`、git 状态...）
+>   - 创建文件，包括 `husky.sh` 和 `hooks`
+>   - **将 git hooksPath 指向 `.huksy` 路径，该目录下直接是各个 hooks**
+>   - 每个 hooks 的开头会将 hook 交给 `husky.sh` 来执行
+>     - 核心 `  sh -e "$0" "$@"` 是通过 `$0` 取到调用的脚本（hook）执行参数
+>     - 下面就是需要执行的脚本，方便自己定义
+>   - 无需再配置 package.json 等配置
+>
+> *`$0` 是 call 脚本的路径 or 指令，`$@` 是所有参数的特殊变量*
+
+Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe）
+
+> - Tree shaking 是在什么环节：LTO（Link Time Optimization）的时候，检查各个模块之间的引用依赖
+> - 是什么：分析出模块中导出的被引用代码之外的代码是否有用，是否有副作用，删除这些代码
+>   - *Tree shaking* is a term commonly used in the JavaScript context for dead-code elimination. It relies on the [static structure](http://exploringjs.com/es6/ch_modules.html#static-module-structure) of ES2015 module syntax, i.e. `import` and `export`. The name and concept have been popularized by the ES2015 module bundler [rollup](https://github.com/rollup/rollup).
+> - 每个打包工具之间的 tree shaking 算法比较固定
+> - sideEffects：具体教程可以看 webpack 的 [doc](https://webpack.js.org/guides/tree-shaking/)，
+>   - 值可以是 boolean，告诉打包工具模块里面所有的代码都是没有副作用的
+>   - 也可以是 string[]，指定有副作用的代码
+> - 误区：
+>   - 包含副作用的代码，都不能配置 sideEffects false：就是要看这个副作用设计是给模块内部还是外部的，如 vue，虽然是有副作用，但是是给内部用的，所以可以配置为 true(see [side effects in vue](https://github.com/vuejs/vue/pull/8099))。
+>   - Css 配置 sideEffects 为 false 来实现 tree shaking：直接 import 进来的 css 如果被认为是没有副作用就会被误 tree shaking 掉，导致直接引入的 css 不生效，跟着组件相关一起 shaking
+
+[Webpack 设计理念](https://juejin.cn/post/7170852747749621791)
+
+> 爽文，文章从核心思路到架构到 MVP 版代码实现，一气呵成
+
+[Webpack HRM 解析](https://juejin.cn/post/7176963906844246074)
+
+> 热更新是提升开发效率的强力工具之一
+>
+> 核心原理：
+>
+> - 「客户端」和「服务端」（webpack-dev-server）之间通过 ws 通信
+> - 服务端 watch 代码变更（webpack compile 之后会有一个模块文件列表），推送更新消息给客户端，通知客户端去获取**最新的**模块变更
+> - 服务端：每次编译都会生成一个 hash，通过 ws 发送给客户端
+> - 客户端：
+>   - 存 hash，比较上次 hash
+>   - 如果不同，将自己的 hash 回传服务端（请求 hash.json 信息），让服务端比较出和最新代码之间的 diff
+> - 服务端：
+>   - 对比找出变更的模块 chunk 信息返回给客户端
+> - 客户端：请求新的模块 js 文件，合并到自己的 modules，并且重新执行依赖这个模块的模块
+>
+> 这个图还挺不错的，摘录下
+>
+> ![image.png](imgs/reading_list.assets/74519d751863471bb877a68bd3a4644d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+
+[前端的 Race Condition](https://juejin.cn/post/6938286092693176334)
+
+> 常见的场景：登录/切换账户、切换 tab、搜索，请求返回时序不一致的问题（异步方法）
+>
+> 大部分语言是有资源锁/同步锁这种东西，然而 JS 是单线程的，异步渲染场景还是会有这个问题
+>
+> 解决方案：
+>
+> - 取消请求：比如 axios，基于 XMLHttpRequest 是可以取消的，详见 axios 的文档
+> - 匹配请求：根据每次请求唯一 id 来匹配和执行，或者是匹配最后的请求
+> - 取消 Promise：提前 reject，但实际的网络请求还是会发送出去，而不处理 response 了而已
+> - rx.js
+
+[beautiful gradients](https://www.joshwcomeau.com/css/make-beautiful-gradients/)
+
+> 色彩是有趣的，更加好看的渐变色生成方式
+>
+> 传统的 CSS `line-gradient` 生成出来的渐变色中间那段会出现灰色区域，原因就是渐变插值方式用线性函数的时候，RGB 模型的色彩会趋于三通道接近的颜色（灰色）
+>
+> *`(128, 128, 128)` 灰度图！*
+>
+> 于是，考虑用其他的色彩模型就能得到更加好看的渐变，比如 HSI（色彩、颜色饱和度、亮度）。
+>
+> *HSL isn't concerned with how humans perceive colors, though; it's modeled after the raw physics, energy and wavelengths and such.*
+>
+> 在 CSS 中目前还不能替换渐变的颜色模型，但是可以通过多个色彩去离散的逼近！思路有了
+>
+> 当然也有[工具](https://www.joshwcomeau.com/gradient-generator)能够 tweak 出自己喜欢的渐变效果，得到 CSS 代码，很棒！
+
+[精度 react hooks](https://github.com/ascoders/weekly/blob/v2/079.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%E3%80%8B.md)
+
+> react hooks 是什么？
+>
+> **要解决的问题是状态共享**
+>
+> 状态共享可能描述的不恰当，称为**状态逻辑复用**会更恰当，因为只共享数据处理逻辑，不会共享数据本身。
+>
+> **“有状态的组件没有渲染，有渲染的组件没有状态”**：hooks 中应该只有逻辑，没有 UI
+>
+> 带有 hooks 的组件可以看作是纯组件，只不过 `state, setState` 是被当作 props 传给了 render，而触发 render 是其他的 effect
+>
+> P.S. redux 的 hooks 实现完全可以基于 `useContext` 和 `useReducer`（[源码](https://github.com/facebookarchive/redux-react-hook/blob/main/src/create.ts)）
+
+[前端中的 Functional Reactive Programming](https://zhuanlan.zhihu.com/p/77687564)
+
+> FRP: Functional Reactive Programming，其代表 RXJS 的函数式响应式编程
+>
+> 异步数据流
+>
+> 文章介绍了 RxJS 的核心概念：
+>
+> - Observable：异步数据流的抽象
+> - Subscription：数据的消费方
+> - Operators
+> - Subject：multi-cast，（默认 unicast 的 Observable）共享数据源
+>
+> *但一旦领会其万物皆流、Observable => Pipeline => Subscription 的要义，随着异步逻辑复杂度的提升，例如表单交互、视频播放器、大型应用等等复杂场景，这种编程范式将会给你带来越来越高的性价比。*
+>
+> 至于是否选用 RxJS，结合自己的项目对于异步数据/操作的复杂度来判断吧！
+
+[前端 2022 一览](https://vived.io/javascript-wrapped-2022-frontend-weekly-vol-119/)
+
+> [中文翻译版](https://mp.weixin.qq.com/s/wC9Wq7FJ_sKg1I-z8AozCQ)
+>
+> 大多数都了解到了，摘录一些没了解到的/重要的
+>
+> - are types coming to JavaScript?：js 中引入类型说明的提案
+>   - 卡在 stage 1，23 年可能会继续
+>   - 能超过 ts 吗？感觉还很遥远
+> - TS
+>   - satisfies 关键字
+>   - TS 的版本不是基于 Semantic Versioning
+> - React 18
+>   - concurrent mode：并发是关于对渲染进行排队、排定优先级以及添加中止正在进行的渲染的能力的。
+>   - 新的 hook api：useTransition、useDeferredValue
+> - SSR：
+>   - Qwik、Astro island arch
+> - Bun：
+>   - Node 和 deno 的替代品，重在性能
+> - Nodejs：
+>   - 内置了 test 能力，无需引入 jest 之类的
+
+[high performance ts backend framework](https://github.com/deepkit/deepkit-framework)
+
+> Mark 一下
+
+[Minimize state](https://www.worldofbs.com/minimize-state/)
+
+> *All Programming Philosophies Are About State*
+>
+> *What this means is that there is no "one true way" to deal with state, and that each programming philosophy is useful and important in the correct domain. It also shows how important *minimizing* state is.*
+
+[SQLite 文艺复兴](https://www.bmpi.dev/dev/renaissance-sqlite/)
+
+> SQLite 的故事、架构
+>
+> 各个领域基于 SQLite 的创新
+>
+> *SQLite为什么能在如此多领域有创新的项目出现？一方面得益于SQLite高质量的代码，近亿行的测试代码保证了其坚若磐石的可靠性，另一方面又得益其简单的架构，总共的实现源码也才15万行。*
+>
+> *随着Serverless及运行在CDN上的Edge Computing的流行，SQLite这种轻量级的关系型数据库将会有更多的应用场景，也会有更多的创新出现。SQLite也是一个非常适合学习的数据库，它的源码非常简单，可以很好的帮助你理解数据库的原理。*
+
+[RESTful API 一把梭 post？](https://coolshell.cn/articles/22173.html)
+
+> 挺有意思的背景：有人认为 api 全都用 post 一把梭，方便。
+>
+> 为什么要用不同的HTTP动词
+>
+> - **业务逻辑**。业务功能实现的代码，比如完成一个订单
+> - **控制逻辑**。非功能性代码，用于程序/系统控制，比如多线程、分布式、协议、中间件等与用户需求无关
+>
+> 幂等
+>
+> - **缓存**。通过CDN或是网关对API进行缓存，很显然，我们要在查询`GET` 操作上建议缓存。
+> - **流控**。你可以通过HTTP的动词进行更粒度的流控，比如：限制API的请用频率，在读操作上和写操作上应该是不一样的。
+> - **路由**。比如：写请求路由到写服务上，读请求路由到读服务上。
+> - **权限**。可以获得更细粒度的权限控制和审计。
+> - **监控**。因为不同的方法的API的性能都不一样，所以，可以区分做性能分析。
+> - **压测**。当你需要压力测试API时，如果没有动词的区分的话，我相信你的压力测试很难搞吧。
+> - ...
+>
+> POST 更安全吗？
+>
+> - 不会，https 才会安全。`GET` 和 `POST` 的安全问题都一样的
+>
+> **你应该做的是为了“长期的早回家”，而不是“短期的早回家”**
+
+2023.02.10 11:48:32
+
+[wasm interface types](https://hacks.mozilla.org/2019/08/webassembly-interface-types/)
+
+> 长文，讲述了 wasm 和 js 之间如何交换数据（wasm <-> js, js_1 -> wasm -> js_2）
+
+[zx 更方便的写脚本](https://github.com/google/zx)
+
+> Bash is great, but when it comes to writing more complex scripts, many people prefer a more convenient programming language.
+>
+> 这个包是用来写更加复杂逻辑的 bash 脚本，用 node js！
+>
+> 官方代码示例用到了 top-level await，试了下 node16 已经支持了（虽然也搜到 v14.8 已经可以，但是试了下 v14.19 还是不行）
+>
+> 写完的 js 脚本需要用 `mjs` 后缀（node 用，如果是 `js` 后缀就不能用 top-level await 了）
+>
+> 开头需要 `#!/usr/bin/env zx` 让全局安装的 `zx` 来执行
 
 ### 【Art & Design】
 
@@ -1658,6 +2105,10 @@ export default usePreloadedImage;
 [Fractal Garden](https://www.fractal.garden/)
 
 > 递归的美、数学的美，也有 github 指路，挺有意思
+
+https://garryui.cn/
+
+> 一个很炫酷的网站，PC 支持，卡通风，动效很强
 
 ## Next
 
@@ -1686,3 +2137,6 @@ export default usePreloadedImage;
 [关于 monorepo 的一些尝试 - 知乎](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E5%85%B3%E4%BA%8E%20monorepo%20%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%9D%E8%AF%95%20-%20%E7%9F%A5%E4%B9%8E%20c3307682d9644cb280c8e36dea1cb988.md)
 
 https://medium.com/free-code-camp/typescript-curry-ramda-types-f747e99744ab
+
+[nginx 入门](https://juejin.cn/post/6844904144235413512)
+

@@ -1299,8 +1299,6 @@ viewport height/width
 
 屏幕高 1000px，但是内容可能 4000px 高
 
-![image-20200207165301507](C:\Users\LokiJW\AppData\Roaming\Typora\typora-user-images\image-20200207165301507.png)
-
 确定中间的高度，用视口高度 vh100%-顶部和底部的两个高度即可
 
 ## 关于 JS 中的引用
