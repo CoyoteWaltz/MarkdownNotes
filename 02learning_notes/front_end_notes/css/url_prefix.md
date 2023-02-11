@@ -1,6 +1,6 @@
 ## @-moz-document url-prefix 做了什么
 
->  [stackoverflow](https://stackoverflow.com/questions/3123063/what-does-moz-document-url-prefix-do)
+> [stackoverflow](https://stackoverflow.com/questions/3123063/what-does-moz-document-url-prefix-do)
 
 `@-moz-` 是针对 Gecko-engine-specific 的 CSS at rule，Mozilla 定制的插件
 

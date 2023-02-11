@@ -131,8 +131,6 @@ console.log(c < d); // true
 
 **strict mode 下不允许使用 with 语句**
 
-
-
 ### 最大整型
 
 场景重现：后端传的 room_id 是 number 类型，但是太大了。。有多大呢？比 `Number.MAX_SAFE_INTEGER`（9007199254740991）都大。。。（2 的 53 次方 - 1），其他语言都默认是 64 位嘛

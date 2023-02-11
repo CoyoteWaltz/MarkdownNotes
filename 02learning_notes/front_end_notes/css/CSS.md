@@ -11,10 +11,8 @@ html、CSS 组成了页面的布局和样式，给我的感觉就是他们的技
 通过 DOM 对象来优雅的修改样式
 
 ```js
-dom.style.setProperty('height', '10px', 'important')
+dom.style.setProperty("height", "10px", "important");
 ```
-
-
 
 ### 反人类
 
@@ -524,8 +522,6 @@ margin 也算在 BFC 自己的高宽，所以可以避免边距塌陷。
 
 **FFC 中不会出现 margin collapsing**
 
-
-
 ### 关于动画、过渡效果
 
 #### transition
@@ -952,8 +948,6 @@ _IE 不支持_
 
 如果提前知道图片的大小，同样能达到 aspect-ratio 的效果！
 
-
-
 ### backdrop-filter
 
 [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
@@ -996,16 +990,10 @@ backdrop-filter: initial;
 backdrop-filter: revert;
 backdrop-filter: revert-layer;
 backdrop-filter: unset;
-
 ```
 
 常用的感觉就是 blur 制作毛玻璃效果了
 
 #### 兼容性
 
-https://caniuse.com/?search=backdrop-filter *global 达到 94.12%*
-
-
-
-
-
+https://caniuse.com/?search=backdrop-filter _global 达到 94.12%_

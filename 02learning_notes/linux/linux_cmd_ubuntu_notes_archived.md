@@ -27,14 +27,14 @@ tree <directory>
 - `-f`：展示文件的完整（full）目录
 - `--prune`：过滤掉空目录
 - `-s`：文件/目录大小，配合 `-h` 展示 humam-readable 大小（默认没有单位就是字节）
-- `--du`：For each directory report its size as the accumulation of sizes of all its files and  sub-directories  (and their files, and so on). 给每个目录展示其整个所占磁盘空间大小
+- `--du`：For each directory report its size as the accumulation of sizes of all its files and sub-directories (and their files, and so on). 给每个目录展示其整个所占磁盘空间大小
 
 文件选项：
 
 - `-p`：文件 type 和 permission
 - `-u`：username
 - `-g`：groupname
-- `-D`：Print  the  date of the last modification time
+- `-D`：Print the date of the last modification time
 
 排序选项：
 
@@ -48,8 +48,6 @@ tree <directory>
 ```bash
 tree -L 3 -I node_modules -sdhpugD --du .
 ```
-
-
 
 ### pbcopy & pbpaste
 

@@ -282,15 +282,13 @@ rm -rfv "$HOME/Library/Saved Application State/com.microsoft.VSCodeInsiders.save
 
 ```json
 {
-    "workbench.colorCustomizations": {
-        "editorError.foreground": "#00000000",
-        "editorWarning.foreground": "#00000000",
-        "editorInfo.foreground":    "#00000000"
-    }
+  "workbench.colorCustomizations": {
+    "editorError.foreground": "#00000000",
+    "editorWarning.foreground": "#00000000",
+    "editorInfo.foreground": "#00000000"
+  }
 }
 ```
-
-
 
 ### homebrew
 
@@ -370,8 +368,6 @@ sudo chown -R $USER $(brew --prefix)
 - History：可视化的搜索 history，比 history 指令配合 ! 来用方便多了
 
 [gci](https://www.npmjs.com/package/git-checkout-interactive) 可交互式切分支
-
-
 
 ### Iterm2
 
@@ -568,17 +564,15 @@ git 符号的含义：https://github.com/romkatv/powerlevel10k#what-do-different
 
 提效工具，很好用！配合插件市场，能满足很多快捷功能。不好说和 alfred 的比较，因为没用过（收费）
 
-
 - 插入 snippet（比如：插入时间戳[[../sundries/macos_insert_date_shortcut]]）
-	- btw 这个 snippet 他更推荐的是在 raycast 内部用，可以用 keywords 直接原地替换内容
-	- 在 font-most 的 app 中插入 snippet 是需要用 search snippet
+  - btw 这个 snippet 他更推荐的是在 raycast 内部用，可以用 keywords 直接原地替换内容
+  - 在 font-most 的 app 中插入 snippet 是需要用 search snippet
 - 找 npm 包
 - 查单词
 - 计算器
 - floating note
 - clipboard history
 - ...
-
 
 ## OS stuff
 
@@ -599,10 +593,6 @@ git 符号的含义：https://github.com/romkatv/powerlevel10k#what-do-different
 ```bash
 lsof -i :<port>
 ```
-
-
-
-
 
 ### .DS_Store 文件是啥
 

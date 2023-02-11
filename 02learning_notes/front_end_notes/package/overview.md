@@ -60,8 +60,6 @@ TODO 问题：这些 lock 文件，设计上有没有什么问题？
 npm config set registry https://registry.npm.yourcompany.com
 ```
 
-
-
 ## lerna
 
 ### foreword

@@ -11,20 +11,20 @@
 举例子：
 
 ```typescript
-type Route = { path: string; children?: Routes }
-type Routes = Record<string, Route>
+type Route = { path: string; children?: Routes };
+type Routes = Record<string, Route>;
 
 const routes: Routes = {
   AUTH: {
     path: "/auth",
   },
-}
+};
 ```
 
 这种情况，`Routes` 的 key 只要是 string 都可以，所以会出现：
 
 ```typescript
-routes.UNKNOW.path // UNKNOW 这个 key 不在 routes 上，但不会被 ts 检查出来
+routes.UNKNOW.path; // UNKNOW 这个 key 不在 routes 上，但不会被 ts 检查出来
 ```
 
 所以 `satisfies` 就是用来解决精准推断的，同时也可以检查出一些 typo 问题
@@ -49,7 +49,7 @@ const routes = {
 ```typescript
 const routes = {
   HOME: { path: '/' }
-} as const satisfies Routes 
+} as const satisfies Routes
 ```
 
 此时 `routes.HOME.path` 的类型是 `/` 而不是 `string` 了，能够更好的满足类型准确性

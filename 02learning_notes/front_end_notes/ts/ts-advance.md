@@ -283,8 +283,6 @@ type All<T> = {
 }['prop'];
 ```
 
-
-
 更多详见：[PR](https://github.com/microsoft/TypeScript/pull/40336)
 
 ## Type language programming

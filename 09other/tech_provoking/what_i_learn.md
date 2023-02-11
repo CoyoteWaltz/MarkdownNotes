@@ -24,21 +24,20 @@ checklist for all
 ## 2021-2023(2 years)
 
 - Advanced Typescript
+
   - 写了不少 TS，体操
 
 - YAML
+
   - 使用语法
 
 - PNPM
 - React
+
   - 了解了 fiber 架构
 
 - 跨端（前端视角）
-  - 
+
+  -
 
 - 性能优化（跨端）
-
-
-
-
-

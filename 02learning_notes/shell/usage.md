@@ -1,7 +1,5 @@
 ## 实用小技巧
 
-
-
 管道符 `|`
 
 ### copy current git branch

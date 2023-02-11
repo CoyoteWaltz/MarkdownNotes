@@ -6,8 +6,6 @@
 
 查看[官网](https://docs.npmjs.com/files/package.json)发现具体字段的含义/作用：
 
-
-
 ### exports
 
 [官方文档说明](https://nodejs.org/api/packages.html#packages_exports)（node 12+）
@@ -49,8 +47,6 @@
     },
   },
 ```
-
-
 
 ### name
 

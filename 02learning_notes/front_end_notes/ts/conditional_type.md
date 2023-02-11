@@ -27,4 +27,3 @@ type ToArrayNonDist<Type> = [Type] extends [any] ? Type[] : never;
 
 type NumOrStrArr = ToArrayNonDist<number | string>; // (number | string)[]
 ```
-

@@ -14,10 +14,6 @@ type PickRequired<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>> &
   Required<Pick<T, K>>;
 ```
 
-
-
-
-
 ### setTimeout 的返回值类型？
 
 我遇到了在这篇 [stackoverflow](https://stackoverflow.com/questions/51040703/what-return-type-should-be-used-for-settimeout-in-typescript) 上同样的问题
@@ -85,13 +81,13 @@ interface IPerson{
 
 let bob:IPerson = {name:"bob",gender:'male'}
 
-<span>{Gender[bob.gender]}</span>  
+<span>{Gender[bob.gender]}</span>
 ```
 
 ### 封装条件守卫，便于后续不必要的断言
 
 ```TypeScript
-function IsString (input: any): input is string { 
+function IsString (input: any): input is string {
     return typeof input === 'string';
 }
 
@@ -105,7 +101,7 @@ function foo (input: string | number) {
 
 ### 数组长度生成 union type
 
-*想用数组的 length 生成一个 union type，比如 length = 4 -> type N = 0 | 1 | 2 | 3，这样有可能吗？*
+_想用数组的 length 生成一个 union type，比如 length = 4 -> type N = 0 | 1 | 2 | 3，这样有可能吗？_
 
 来自 nihouze 大佬的第一版
 

@@ -28,8 +28,6 @@
 - node 要 17 才支持
 - polyfill 的话，core-js 支持
 
-
-
 #### 手写代码（weakmap）
 
 一个比较完整的深拷贝函数，需要同时考虑对象和数组，考虑循环引用：
@@ -71,5 +69,5 @@ console.log(aa.eee);
 ```js
 const shallowCopy = { ...simpleEvent };
 const shallowCopy = Object.assign({}, obj);
-const shallowCopy = Object.create(simpleEvent)
+const shallowCopy = Object.create(simpleEvent);
 ```

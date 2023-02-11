@@ -189,7 +189,7 @@
 > 以及对于这些焦虑的一些对策（鸡汤）：
 >
 > - manager 能力（软技能）能在各个工作环节起到帮助作用，知道排序优先级、如何推进、如何沟通、提出建议...并且这些能力不会过期（对比技术来说）
-> - 技术需要不断翻新，keeping your hands-on skills sharp，做 manager 也起码是  senior 开发者。
+> - 技术需要不断翻新，keeping your hands-on skills sharp，做 manager 也起码是 senior 开发者。
 > - 爬得越高（职位）机会越少
 >
 > 摘录最后一句话，保持时刻学习和回顾！Maintaining your technical chops is a stellar way to hedge against uncertainties and maintain your optionality.
@@ -197,9 +197,9 @@
 [在工作中学习](https://plantegg.github.io/2018/05/23/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%B7%A5%E4%BD%9C%E4%B8%AD%E5%AD%A6%E4%B9%A0/)
 
 > 工作效率
-> 
+>
 > 知识效率
-> 
+>
 > 好好学习底层的知识！
 
 ---
@@ -405,7 +405,7 @@
 
 [提问的智慧](https://mp.weixin.qq.com/s/q461so9lWk4FKJGZ-p7Vcg)
 
-> 
+>
 
 [高维思考](https://fs.blog/second-order-thinking/)
 
@@ -421,7 +421,7 @@
 
 > ADEPT 学习方法（to internalize a new concept）
 >
-> ***Use an Analogy, Diagram, Example, Plain-English description, and then a Technical description.***
+> **_Use an Analogy, Diagram, Example, Plain-English description, and then a Technical description._**
 >
 > 从类比 -> 画图形/图表（可视化）-> 尝试（实践）-> 简单语句的描述 -> 技术性表达（系统化），这几个步骤来学习一个新知识
 >
@@ -436,11 +436,11 @@
 
 > 作者花了两年时间发布了不少的小项目，还能赚到钱，很不错！
 >
-> *Each morning I sit down with a coffee and bash out some project code. It's a hobby I love, and one that's starting to generate some decent passive income now.* 很喜欢这种感觉
+> _Each morning I sit down with a coffee and bash out some project code. It's a hobby I love, and one that's starting to generate some decent passive income now._ 很喜欢这种感觉
 >
 > 我也有一个 projects list，那就干起来吧！
 >
-> *to start trying one idea each week in its tiniest form.*
+> _to start trying one idea each week in its tiniest form._
 >
 > 最后还是挺佩服作者能将这么多小想法落地，并且还能赚钱，商业模式也搞起来了。
 
@@ -452,11 +452,9 @@
 
 > 挺有启发的一篇文章，百年之后我们的信息还会在吗。
 >
-> *几十几百年后，GitHub 将成为世界上最大的数字公墓，注册用户大部分都已去世，然而个人主页，项目，commit 历史 还述说着他们生前做过的事——就比如 Joe 的[博客](https://joearms.github.io/)。*
+> _几十几百年后，GitHub 将成为世界上最大的数字公墓，注册用户大部分都已去世，然而个人主页，项目，commit 历史 还述说着他们生前做过的事——就比如 Joe 的[博客](https://joearms.github.io/)。_
 >
-> *人有两次死亡，第一次是肉体，第二次是被人忘记*
-
-
+> _人有两次死亡，第一次是肉体，第二次是被人忘记_
 
 ---
 
@@ -585,10 +583,10 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 >     - ```objective-c
 >       // 另一种初始化方式，即先发 alloc 消息，再发 init 消息
 >       NSDate* now = [[NSDate alloc] init];
->                                                                                                                                                                                                            
+>
 >       // 初始化一个 NSCalendar 日期实例
 >       NSCalendar* obj = [NSCalendar currentCalendar];
->                                                                                                                                                                                                            
+>
 >       // 给实例发多个参数的消息
 >       // 消息名为 ordinalityOfUnit:inUnit:forDate:
 >       NSUInteger day = [obj ordinalityOfUnit:NSDayCalendarUnit
@@ -1426,22 +1424,22 @@ export default usePreloadedImage;
 >
 > 能够解决有透明度色彩的 hex 表达值，其实就是在 A 通道用 16 进制表达透明度百分比即可
 >
-> 直接看标准答案吧（转换百分比 -> 16进制），然后 append 到字符串后面，记得补齐 2 位
+> 直接看标准答案吧（转换百分比 -> 16 进制），然后 append 到字符串后面，记得补齐 2 位
 >
 > ```js
 > const percentToHex = (p) => {
->     const percent = Math.max(0, Math.min(100, p)); // bound percent from 0 to 100
->     const intValue = Math.round(p / 100 * 255); // map percent to nearest integer (0 - 255)
->     const hexValue = intValue.toString(16); // get hexadecimal representation
->     return hexValue.padStart(2, '0').toUpperCase(); // format with leading 0 and upper case characters
-> }
-> 
+>   const percent = Math.max(0, Math.min(100, p)); // bound percent from 0 to 100
+>   const intValue = Math.round((p / 100) * 255); // map percent to nearest integer (0 - 255)
+>   const hexValue = intValue.toString(16); // get hexadecimal representation
+>   return hexValue.padStart(2, "0").toUpperCase(); // format with leading 0 and upper case characters
+> };
+>
 > console.log(percentToHex(0)); // 00
 > console.log(percentToHex(50)); // 80
 > console.log(percentToHex(80)); // CC
 > console.log(percentToHex(100)); // FF
 > ```
-> 
+>
 > 当然，很多地方（ide）都支持各种方式的转换，比较方便
 
 [js container](https://tinyclouds.org/javascript_containers)
@@ -1466,10 +1464,10 @@ export default usePreloadedImage;
 > 3. 后者的单位转换可以用 postcss & pxToRem 来做
 > 4. html 的 font-size 可以通过配置 + 构建脚本来做
 
-[pdd两年记](https://wingjay.bearblog.dev/review-in-pdd/)
+[pdd 两年记](https://wingjay.bearblog.dev/review-in-pdd/)
 
-> 同事之前推的文章。又完整的读了之后，感慨很多，pdd 的公司文化还是很不错的，也学到了很多技术方案的思路，也感叹移动端的这些事情还是做 native 比较有意思呀哈哈哈XD。
-> 
+> 同事之前推的文章。又完整的读了之后，感慨很多，pdd 的公司文化还是很不错的，也学到了很多技术方案的思路，也感叹移动端的这些事情还是做 native 比较有意思呀哈哈哈 XD。
+>
 > 长期价值 & 平常心。
 
 [谷歌软件工程文化](https://www.bmpi.dev/dev/software-engineering-at-google/culture/)
@@ -1490,7 +1488,7 @@ export default usePreloadedImage;
 >
 > ```html
 > <script src="https://unpkg.com/petite-vue" defer init></script>
-> 
+>
 > <!-- anywhere on the page -->
 > <div v-scope="{ count: 0 }">
 >   {{ count }}
@@ -1510,9 +1508,9 @@ export default usePreloadedImage;
 >
 > ```ts
 > function x() {
-> 	console.log(arguments)
+>   console.log(arguments);
 > }
-> 
+>
 > x`a${123}`;
 > // { '0': [ 'a', '' ], '1': 123 }
 > ```
@@ -1527,13 +1525,13 @@ export default usePreloadedImage;
 > 于是用 `call`，因为第一个参数会绑定给 `this`，但是说不在 `window` 上？浏览器直接报错（Uncaught TypeError: Illegal invocation），但是 node 环境可以。
 >
 > ```js
-> setTimeout.call`${console.log}${1000}${123}`
+> setTimeout.call`${console.log}${1000}${123}`;
 > ```
 >
 > 所以再次 hack
 >
 > ```js
-> [].sort.call`${alert}1337`
+> [].sort.call`${alert}1337`;
 > ```
 >
 > 文中还用到了 `Reflect.apply`
@@ -1550,13 +1548,13 @@ export default usePreloadedImage;
 
 > [JS13K 竞赛](https://js13kgames.com/)：每年举办的，h5 游戏开发比赛，限制就是代码大小在 13kb 之内。
 >
-> 2020 年的主题是 *404*，其中我觉得最有意思的是 [track not found](https://github.blog/2020-10-11-top-ten-games-from-the-js13k-2020-competition/#track-not-found)，通过转变相机视角和 2D/3D，让火车轨道能够通行，很有意思。
+> 2020 年的主题是 _404_，其中我觉得最有意思的是 [track not found](https://github.blog/2020-10-11-top-ten-games-from-the-js13k-2020-competition/#track-not-found)，通过转变相机视角和 2D/3D，让火车轨道能够通行，很有意思。
 
 [husky](https://typicode.github.io/husky/#/)
 
 > 用了很久的 husky，来看看他的文档吧
 >
-> *You can use it to **lint your commit messages**, **run tests**, **lint code**, etc... when you commit or push. Husky supports [all Git hooks](https://git-scm.com/docs/githooks).*
+> _You can use it to **lint your commit messages**, **run tests**, **lint code**, etc... when you commit or push. Husky supports [all Git hooks](https://git-scm.com/docs/githooks)._
 >
 > 可以在各个 git 环节（hook）增加指令
 
@@ -1565,7 +1563,7 @@ export default usePreloadedImage;
 > 先上代码：
 >
 > ```jsx
-> 
+>
 > /*
 > 	JS部分
 >   */
@@ -1580,7 +1578,7 @@ export default usePreloadedImage;
 >   //缩放比例
 >   (document.querySelector('#screen') as any).style.transform = `scale(${scale}) translate(-50%)`;
 > }
-> 
+>
 > //React的生命周期 如果你是vue可以放到mountd或created中
 > useEffect(() => {
 >   //初始化自适应  ----在刚显示的时候就开始适配一次
@@ -1590,7 +1588,7 @@ export default usePreloadedImage;
 >   //退出大屏后自适应消失   ---这是react的组件销毁生命周期，如果你是vue则写在deleted中。最好在退出大屏的时候接触自适应
 >   return () => window.onresize = null;
 > }, [])
-> 
+>
 > ```
 >
 > 不用 rem 的方案，纯靠 scale 来进行自适应，思路也比较简单：onresize 的时候通过计算宽高比和预设的设计稿宽高比进行比较，如果小于就选择宽作为缩放比例，大于就用高做缩放比，最后让容器 div `#screen` 进行 transform，这里为啥还要 `translate(-50%)` 呢，移动到中间？
@@ -1626,9 +1624,12 @@ export default usePreloadedImage;
 >
 > ```js
 > const DEADLINE = performance.now() + QUANTUM;
-> const options = { includeContinuous: true };  // continuous events 比如 mousemove pointermove
+> const options = { includeContinuous: true }; // continuous events 比如 mousemove pointermove
 > while (workQueue.length > 0) {
->   if (navigator.scheduling.isInputPending(options) || performance.now() >= DEADLINE) {
+>   if (
+>     navigator.scheduling.isInputPending(options) ||
+>     performance.now() >= DEADLINE
+>   ) {
 >     // Yield if we have to handle an input event (any of them!), or we're out of time.
 >     setTimeout(processWorkQueue);
 >     return;
@@ -1661,7 +1662,7 @@ export default usePreloadedImage;
 >
 > 哪个好？必然是 otf，优先考虑
 >
-> ***Web Open Font Format(WOFF)***
+> **_Web Open Font Format(WOFF)_**
 >
 > The Web Open Font Format is a little different in that it is a container for OTF and TTF, compressed and packaged with other information for use on the web.
 >
@@ -1682,7 +1683,7 @@ export default usePreloadedImage;
 > 原文是一篇公司内部的文章，在迁移到 vite 的时候发现历史遗留的动态引入问题，于是调研了 rollup 的动态导入。主要内容其实就是对 github readme 的翻译，和源码分析
 >
 > - Rollup 插件构建时，动态引入（path 是动态的）是如何实现的，构建时不知道运行时的变量，通过一些特殊的手段。（[github](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars)）
-> - import( '../path/${xx}.js' ) -> 会构造 glob path，然后编译所有的文件，再将代码转换成 switch/case 匹配
+> - import( '../path/\${xx}.js' ) -> 会构造 glob path，然后编译所有的文件，再将代码转换成 switch/case 匹配
 > - [源码](https://github.com/rollup/plugins/blob/master/packages/dynamic-import-vars/src/index.js)
 > - 这个业务团队也用 [unplugin](https://github.com/unjs/unplugin) 开发了一个 vite 支持的插件
 
@@ -1706,7 +1707,7 @@ export default usePreloadedImage;
 >     "libraryDirectory": "components",  // default: lib
 >     "camel2DashComponentName": false,  // default: true
 >   }
->                                 
+>
 >   // 例子
 >   [
 >     "import",
@@ -1787,7 +1788,7 @@ export default usePreloadedImage;
 
 > 好家伙，AI based Code Review
 >
-> *我看 tt 有在使用？*
+> _我看 tt 有在使用？_
 >
 > 基于 github actions 触发 CR
 >
@@ -1796,7 +1797,7 @@ export default usePreloadedImage;
 [react 和 imgui 的区别](https://www.zhihu.com/question/39093254/answer/1351958747?utm_id=0)
 
 > 渲染，立即模式，保留模式，的一些科普。
-> 
+>
 > react 这种 web 框架还是离渲染太远啦，dom 这层基本就封装掉底层渲染的东西了。
 
 [设计模式为什么会流行](https://yinwang1.substack.com/p/846?continueFlag=da0095b31d2a28cf55236ccb31b4ab9f)
@@ -1815,7 +1816,6 @@ export default usePreloadedImage;
 > - 存在的问题（流程图来自文章）
 >   - 在服务端下发 HTML 回到 CSR 之后，会进行 hydrate 的过程，需要下载解析全部的页面 JS，去恢复应用应有的状态（Recover 过程），所以消耗会非常大，真正等待交互的事件会延后（**TTI**，和 **FCP**）
 >   - 当应用变得复杂，hydrate 过程会变得更长！
->
 >
 > **Resumability: 更加优雅的 hydartion 替代方案**
 >
@@ -1845,7 +1845,7 @@ export default usePreloadedImage;
 
 > 一篇对 solidjs 的感受
 >
-> *If a linter knows when an effect (or callback, or memo) hook is missing a dependency, then why can’t the framework automatically detect dependencies and react to those changes?* react 并不是真正 reactive
+> _If a linter knows when an effect (or callback, or memo) hook is missing a dependency, then why can’t the framework automatically detect dependencies and react to those changes?_ react 并不是真正 reactive
 >
 > BTW，solidjs [文档](https://docs.solidjs.com/)好全啊，unocss、部署到 vercel 都介绍了
 
@@ -1866,8 +1866,6 @@ export default usePreloadedImage;
 > - 平台现状（新能力、to Dev、UI 框架、引擎、小程序/容器）
 > - 总结
 >   - 具备八大 web 独特能力的就是 Web
->
-> 
 
 [husky 原理](https://juejin.cn/post/6879955438482227207)
 
@@ -1884,7 +1882,7 @@ export default usePreloadedImage;
 >
 > 原理：
 >
-> - 在 npm scripts 的 install 指令，执行 husky install（目前会需要指明：`        "prepare"*:* "husky install"`）
+> - 在 npm scripts 的 install 指令，执行 husky install（目前会需要指明：` "prepare"*:* "husky install"`）
 > - 直接在 `.git/hooks` 下创建所有支持的 hooks
 > - 内容都是执行 `husky.sh`，交给 husky 来执行 hook
 > - 步骤：
@@ -1899,17 +1897,17 @@ export default usePreloadedImage;
 >   - 创建文件，包括 `husky.sh` 和 `hooks`
 >   - **将 git hooksPath 指向 `.huksy` 路径，该目录下直接是各个 hooks**
 >   - 每个 hooks 的开头会将 hook 交给 `husky.sh` 来执行
->     - 核心 `  sh -e "$0" "$@"` 是通过 `$0` 取到调用的脚本（hook）执行参数
+>     - 核心 ` sh -e "$0" "$@"` 是通过 `$0` 取到调用的脚本（hook）执行参数
 >     - 下面就是需要执行的脚本，方便自己定义
 >   - 无需再配置 package.json 等配置
 >
-> *`$0` 是 call 脚本的路径 or 指令，`$@` 是所有参数的特殊变量*
+> _`$0` 是 call 脚本的路径 or 指令，`$@` 是所有参数的特殊变量_
 
 Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe）
 
 > - Tree shaking 是在什么环节：LTO（Link Time Optimization）的时候，检查各个模块之间的引用依赖
 > - 是什么：分析出模块中导出的被引用代码之外的代码是否有用，是否有副作用，删除这些代码
->   - *Tree shaking* is a term commonly used in the JavaScript context for dead-code elimination. It relies on the [static structure](http://exploringjs.com/es6/ch_modules.html#static-module-structure) of ES2015 module syntax, i.e. `import` and `export`. The name and concept have been popularized by the ES2015 module bundler [rollup](https://github.com/rollup/rollup).
+>   - _Tree shaking_ is a term commonly used in the JavaScript context for dead-code elimination. It relies on the [static structure](http://exploringjs.com/es6/ch_modules.html#static-module-structure) of ES2015 module syntax, i.e. `import` and `export`. The name and concept have been popularized by the ES2015 module bundler [rollup](https://github.com/rollup/rollup).
 > - 每个打包工具之间的 tree shaking 算法比较固定
 > - sideEffects：具体教程可以看 webpack 的 [doc](https://webpack.js.org/guides/tree-shaking/)，
 >   - 值可以是 boolean，告诉打包工具模块里面所有的代码都是没有副作用的
@@ -1961,11 +1959,11 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > 传统的 CSS `line-gradient` 生成出来的渐变色中间那段会出现灰色区域，原因就是渐变插值方式用线性函数的时候，RGB 模型的色彩会趋于三通道接近的颜色（灰色）
 >
-> *`(128, 128, 128)` 灰度图！*
+> _`(128, 128, 128)` 灰度图！_
 >
 > 于是，考虑用其他的色彩模型就能得到更加好看的渐变，比如 HSI（色彩、颜色饱和度、亮度）。
 >
-> *HSL isn't concerned with how humans perceive colors, though; it's modeled after the raw physics, energy and wavelengths and such.*
+> _HSL isn't concerned with how humans perceive colors, though; it's modeled after the raw physics, energy and wavelengths and such._
 >
 > 在 CSS 中目前还不能替换渐变的颜色模型，但是可以通过多个色彩去离散的逼近！思路有了
 >
@@ -1998,7 +1996,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 > - Operators
 > - Subject：multi-cast，（默认 unicast 的 Observable）共享数据源
 >
-> *但一旦领会其万物皆流、Observable => Pipeline => Subscription 的要义，随着异步逻辑复杂度的提升，例如表单交互、视频播放器、大型应用等等复杂场景，这种编程范式将会给你带来越来越高的性价比。*
+> _但一旦领会其万物皆流、Observable => Pipeline => Subscription 的要义，随着异步逻辑复杂度的提升，例如表单交互、视频播放器、大型应用等等复杂场景，这种编程范式将会给你带来越来越高的性价比。_
 >
 > 至于是否选用 RxJS，结合自己的项目对于异步数据/操作的复杂度来判断吧！
 
@@ -2030,7 +2028,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 
 [Minimize state](https://www.worldofbs.com/minimize-state/)
 
-> *All Programming Philosophies Are About State*
+> _All Programming Philosophies Are About State_
 >
 > *What this means is that there is no "one true way" to deal with state, and that each programming philosophy is useful and important in the correct domain. It also shows how important *minimizing* state is.*
 
@@ -2040,27 +2038,27 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > 各个领域基于 SQLite 的创新
 >
-> *SQLite为什么能在如此多领域有创新的项目出现？一方面得益于SQLite高质量的代码，近亿行的测试代码保证了其坚若磐石的可靠性，另一方面又得益其简单的架构，总共的实现源码也才15万行。*
+> _SQLite 为什么能在如此多领域有创新的项目出现？一方面得益于 SQLite 高质量的代码，近亿行的测试代码保证了其坚若磐石的可靠性，另一方面又得益其简单的架构，总共的实现源码也才 15 万行。_
 >
-> *随着Serverless及运行在CDN上的Edge Computing的流行，SQLite这种轻量级的关系型数据库将会有更多的应用场景，也会有更多的创新出现。SQLite也是一个非常适合学习的数据库，它的源码非常简单，可以很好的帮助你理解数据库的原理。*
+> _随着 Serverless 及运行在 CDN 上的 Edge Computing 的流行，SQLite 这种轻量级的关系型数据库将会有更多的应用场景，也会有更多的创新出现。SQLite 也是一个非常适合学习的数据库，它的源码非常简单，可以很好的帮助你理解数据库的原理。_
 
 [RESTful API 一把梭 post？](https://coolshell.cn/articles/22173.html)
 
 > 挺有意思的背景：有人认为 api 全都用 post 一把梭，方便。
 >
-> 为什么要用不同的HTTP动词
+> 为什么要用不同的 HTTP 动词
 >
 > - **业务逻辑**。业务功能实现的代码，比如完成一个订单
 > - **控制逻辑**。非功能性代码，用于程序/系统控制，比如多线程、分布式、协议、中间件等与用户需求无关
 >
 > 幂等
 >
-> - **缓存**。通过CDN或是网关对API进行缓存，很显然，我们要在查询`GET` 操作上建议缓存。
-> - **流控**。你可以通过HTTP的动词进行更粒度的流控，比如：限制API的请用频率，在读操作上和写操作上应该是不一样的。
+> - **缓存**。通过 CDN 或是网关对 API 进行缓存，很显然，我们要在查询`GET` 操作上建议缓存。
+> - **流控**。你可以通过 HTTP 的动词进行更粒度的流控，比如：限制 API 的请用频率，在读操作上和写操作上应该是不一样的。
 > - **路由**。比如：写请求路由到写服务上，读请求路由到读服务上。
 > - **权限**。可以获得更细粒度的权限控制和审计。
-> - **监控**。因为不同的方法的API的性能都不一样，所以，可以区分做性能分析。
-> - **压测**。当你需要压力测试API时，如果没有动词的区分的话，我相信你的压力测试很难搞吧。
+> - **监控**。因为不同的方法的 API 的性能都不一样，所以，可以区分做性能分析。
+> - **压测**。当你需要压力测试 API 时，如果没有动词的区分的话，我相信你的压力测试很难搞吧。
 > - ...
 >
 > POST 更安全吗？
@@ -2139,4 +2137,3 @@ https://garryui.cn/
 https://medium.com/free-code-camp/typescript-curry-ramda-types-f747e99744ab
 
 [nginx 入门](https://juejin.cn/post/6844904144235413512)
-

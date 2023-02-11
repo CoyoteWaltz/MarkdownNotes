@@ -45,7 +45,7 @@ import * as URL from "url";
 let myUrl = URL.parse("https://www.typescriptlang.org");
 ```
 
-*P.S. reference 那行是干嘛的？稍后再说*
+_P.S. reference 那行是干嘛的？稍后再说_
 
 ### Shorthand ambient modules
 
@@ -57,16 +57,16 @@ let myUrl = URL.parse("https://www.typescriptlang.org");
 
 ```typescript
 // assert.d.ts
-declare module '*.png';
-declare module '*.jpg';
-declare module '*.jpeg';
-declare module '*.gif';
-declare module '*.webp';
-declare module '*.ttf';
-declare module '*.woff';
-declare module '*.woff2';
-declare module '*.scss';
-declare module '*.svg';
+declare module "*.png";
+declare module "*.jpg";
+declare module "*.jpeg";
+declare module "*.gif";
+declare module "*.webp";
+declare module "*.ttf";
+declare module "*.woff";
+declare module "*.woff2";
+declare module "*.scss";
+declare module "*.svg";
 ```
 
 官方的例子
@@ -99,13 +99,13 @@ console.log(data, fileContent);
 
 ```typescript
 // a.ts
-declare module 'xx/index' {
+declare module "xx/index" {
   interface Boo {
     a: string;
   }
 }
 // b.ts
-declare module 'xx/index' {
+declare module "xx/index" {
   interface Boo {
     b: number;
   }
@@ -115,21 +115,6 @@ declare module 'xx/index' {
 最终 `Boo` 类型就被这样扩充了，很好玩
 
 ```typescript
-import { Boo } from 'xx/index';
+import { Boo } from "xx/index";
 // let b: Boo;
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

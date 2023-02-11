@@ -224,8 +224,6 @@ git branch -vv
 git branch --delete <branchname>
 ```
 
-
-
 ### commit
 
 > [how to write a good commit message](https://csaju.com/blog/how-to-write-a-good-commit-message/)
@@ -621,10 +619,6 @@ git submodule update
 > What's the benefit of a mono-rope? Well, if you don't have to clean boundaries in your software components, a mono-repo is the way to go for your spaghetti.
 >
 > 所以还是回到了“如何评估选择使用 monorepo”的问题
-
-
-
-
 
 ## .gitignore
 

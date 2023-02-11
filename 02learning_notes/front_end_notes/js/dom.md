@@ -10,18 +10,18 @@
 
 ```jsx
 export function NumberInput() {
-  const [number, setNumber] = useState(0)
+  const [number, setNumber] = useState(0);
 
   return (
     <input
       type="number"
       value={number}
       onChange={(e) => {
-        const num = parseFloat(e.target.value)
-        setNumber(num)
+        const num = parseFloat(e.target.value);
+        setNumber(num);
       }}
     />
-  )
+  );
 }
 ```
 
@@ -38,7 +38,7 @@ export function NumberInput() {
 注意：这个属性的类型永远都是 number，但可能会是 `NaN`
 
 ```jsx
-typeof NaN // 'number'
+typeof NaN; // 'number'
 ```
 
 所以需要多判断一步 `!isNaN(xx)`
@@ -47,7 +47,7 @@ typeof NaN // 'number'
 
 ```jsx
 export function DateInput() {
-  const [date, setDate] = useState(null)
+  const [date, setDate] = useState(null);
 
   return (
     <input
@@ -55,26 +55,22 @@ export function DateInput() {
       value={date}
       onChange={(e) => {
         // ✅
-        const date = e.target.valueAsDate
-        setDate(date)
+        const date = e.target.valueAsDate;
+        setDate(date);
       }}
     />
-  )
+  );
 }
 ```
 
 如果 input 是空，则会拿到 `null`
 
 ```jsx
-const date = myDateInput.valueAsDate
+const date = myDateInput.valueAsDate;
 if (date) {
   // We've got a date!
 }
 ```
-
-
-
-
 
 ### Node.appendChild & ParentNode.append
 

@@ -16,11 +16,11 @@ type IsEqual<T, Y> = T extends Y ? true : false;
 /**
  * Tests if two types are equal
  */
-export type Equals<T, S> =
-	[T] extends [S] ? (
-		[S] extends [T] ? true : false
-	) : false
-;
+export type Equals<T, S> = [T] extends [S]
+  ? [S] extends [T]
+    ? true
+    : false
+  : false;
 ```
 
 但也存在问题是，any 和任何类型互相 extends。
@@ -28,9 +28,11 @@ export type Equals<T, S> =
 直接看终极[方案](https://github.com/microsoft/TypeScript/issues/27024#issuecomment-421529650)
 
 ```typescript
-export type Equals<X, Y> =
-    (<T>() => T extends X ? 1 : 2) extends
-    (<T>() => T extends Y ? 1 : 2) ? true : false;
+export type Equals<X, Y> = (<T>() => T extends X ? 1 : 2) extends <
+  T
+>() => T extends Y ? 1 : 2
+  ? true
+  : false;
 ```
 
 具体是为什么可以实现呢？这个 issue 也非常多的人参与讨论
@@ -65,8 +67,8 @@ type UnRelated = Bar<number> extends Foo<number> ? true : false // false
 所以再看这两个
 
 ```typescript
-type left = (<T>() => T extends X ? 1 : 2)
-type right = (<T>() => T extends Y ? 1 : 2)
+type left = <T>() => T extends X ? 1 : 2;
+type right = <T>() => T extends Y ? 1 : 2;
 ```
 
 T 是泛型，没指明就是 `unknown`，1 2 都是字面量，互相 relate
@@ -74,6 +76,3 @@ T 是泛型，没指明就是 `unknown`，1 2 都是字面量，互相 relate
 所以只要 X 和 Y 是一样的类型就可以相等
 
 当然，笔者能力有限，至于再深入 TS 背后的原理，逆变/斜变，就自己去看吧
-
-
-

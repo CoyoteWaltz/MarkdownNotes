@@ -9,7 +9,7 @@
 > 但为了能够让非 ref 的 callback 依然能正常使用，就还是留了一手
 
 ```typescript
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from "react";
 
 export const useCallbackRef = <T = (args: any) => void>(callback: T) => {
   const callbackRef = useRef(callback);
@@ -20,16 +20,13 @@ export const useCallbackRef = <T = (args: any) => void>(callback: T) => {
 
   return callbackRef;
 };
-
 ```
 
 ### Usage
 
 ```typescript
 const foo = useCallback(() => {
-	// ...
+  // ...
 }, [a, b, c]);
 const fooRef = useCallbackRef(foo);
-
 ```
-

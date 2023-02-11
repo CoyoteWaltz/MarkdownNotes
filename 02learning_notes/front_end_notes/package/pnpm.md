@@ -13,8 +13,6 @@
 
 > https://pnpm.io/how-peers-are-resolved，一遍看不明白，就多看几遍，结合自己项目的 `pnpm.lock` 和 `node_modules`
 
-
-
 ### `node_modules` 的结构
 
 > 官方的这篇 [blog](https://pnpm.io/blog/2020/05/27/flat-node-modules-is-not-the-only-way)，说的很明白，也很清晰
@@ -34,7 +32,7 @@
 - 包复用（依赖间、跨项目）
 - ...可以看[这篇](https://github.com/ascoders/weekly/issues/435)
 
-*隔了一段时间*，看了第二篇文章
+_隔了一段时间_，看了第二篇文章
 
 再看一看 pnpm 的三层寻址
 
@@ -46,10 +44,6 @@
   - `pnpm` 在第三层寻址时采用了硬链接方式，但同时还留下了一个问题没有讲，即这个硬链接目标文件并不是普通的 NPM 包源码，而是一个哈希文件，这种文件组织方式叫做 content-addressable（基于内容的寻址）。
   - 即便包版本升级了，也仅需存储改动 Diff
   - 并且新包下载下来之后，发现 hash 相同就可以直接丢弃，节省时间
-
-
-
-
 
 ### 软/硬链接复习
 
@@ -66,8 +60,6 @@
 软连接不会占用多少额外存储，硬连接也更是零额外存储
 
 如果将源文件删除，会影响软链接（指向空路径），此时硬链接会感知到节点删除，创建一个副本重新指向，此时和源文件的联系就断开了（没关系了）
-
-
 
 ### `pnpm-store` 在哪里
 
@@ -86,11 +78,7 @@
 
 个人理解：也就是说 pnpm 把一个 npm 包的每个文件都以内容 hash 命名，每次包版本更新，实际上也只需要 diff 不用 hash 的文件，做到最小增量更新，相同的 hash 完全就可以抛弃
 
-
-
 ### pnpm 支持的四种 `node_modules` 拓扑结构
-
-
 
 ### 通过 env 配置全局的 node 版本
 
@@ -121,8 +109,3 @@ Visit https://pnpm.io/7.x/cli/env for documentation about this command.
 - 得 nvm 切到 12，全局安装 pnpm6，
 - 然后再通过指令配置 14
 - 再切回 pnpm7 的 node14 环境
-
-
-
-
-

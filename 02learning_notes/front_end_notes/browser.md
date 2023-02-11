@@ -13,19 +13,15 @@
 > 这俩没啥区别，都是滚动到页面的某个位置
 
 ```js
-window.scroll(x, y)
+window.scroll(x, y);
 window.scroll({
-	top: 100,
+  top: 100,
   left: 100,
-  behavior: 'smooth'
-})
+  behavior: "smooth",
+});
 ```
 
 如果需要平滑滚动，需要用 polyfill（太多了），比如 [smoothscroll](https://github.com/iamdustan/smoothscroll)
-
-
-
-
 
 #### 判断页面滚动到底部
 
@@ -35,17 +31,18 @@ window.scroll({
 
 ```js
 export function getScrollY() {
-    return window.scrollY || window.pageYOffset;
+  return window.scrollY || window.pageYOffset;
 }
 ```
 
 ```js
 export function isScrollToEnd() {
-    return window.innerHeight + getScrollY() >= document.body.offsetHeight - (isiOS() ? 2 : 0);
+  return (
+    window.innerHeight + getScrollY() >=
+    document.body.offsetHeight - (isiOS() ? 2 : 0)
+  );
 }
 ```
-
-
 
 ### 控制台 tricks
 
@@ -56,14 +53,12 @@ export function isScrollToEnd() {
 - 一些快捷 alias
   - `$`: document.querySelector
   - `$$`: document.querySelectorAll（返回的是数组不是 nodeList）
-  - `$0`: 在 Chrome 的 Elements 面板中， 0是对我们当前选中的*html*节点的引用。1 是对上一次我们选择的节点的引用，2是对在那之前选择的节点的引用，等等。一直到4。
+  - `$0`: 在 Chrome 的 Elements 面板中， 0 是对我们当前选中的*html*节点的引用。1 是对上一次我们选择的节点的引用，2 是对在那之前选择的节点的引用，等等。一直到 4。
   - `**$_**`**: 对上次执行的结果的引用**
   - `$i`: 在 Dev Tools 里面来使用 npm 插件(e.g.运行`$i('lodash')`你就可以获取到 lodash 了)
 - `console.assert()`：第一个参数为 falsy 的时候，会用 error 的方式将第二个参数展示出来
 - `console.time`、`console.timeEnd`：一组计时器开关
 - `console.log` with CSS：字符串用占位符 %c，后续参数依次就是 CSS 规则
-
-
 
 ### queryObjects
 

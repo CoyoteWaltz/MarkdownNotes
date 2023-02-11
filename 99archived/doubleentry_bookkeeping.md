@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [复式记账](#%E5%A4%8D%E5%BC%8F%E8%AE%B0%E8%B4%A6)
   - [资产 & 净资产](#%E8%B5%84%E4%BA%A7--%E5%87%80%E8%B5%84%E4%BA%A7)
