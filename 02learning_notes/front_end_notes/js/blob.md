@@ -103,6 +103,21 @@ const url = URL.createObjectURL(bb);
 - Web worker 可以用
 - Service worker 不可以用
 
+### 检查 image 的大小
+
+> [来自](https://stackoverflow.com/questions/8903854/check-image-width-and-height-before-upload-with-javascript)
+
+```js
+var _URL = window.URL || window.webkitURL;
+img = new Image();
+var objectUrl = _URL.createObjectURL(file);
+img.onload = function () {
+  alert(this.width + " " + this.height);
+  _URL.revokeObjectURL(objectUrl);
+};
+img.src = objectUrl;
+```
+
 ## 日常应用
 
 > 参考 https://www.jianshu.com/p/33564726aed8

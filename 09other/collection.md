@@ -26,6 +26,8 @@ PT Sans
 
 [gsap 动画库](https://greensock.com/gsap/)
 
+[learn laTex online](https://www.learnlatex.org/en/)
+
 ## 资源
 
 [程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
@@ -76,6 +78,8 @@ https://esm.sh/（esm import npm packages from url）
 
 [gradient-generator 渐变色 CSS 生成器](https://www.joshwcomeau.com/gradient-generator/)
 
+[css-doodle 很厉害的想法和设计](https://css-doodle.com/)
+
 ## github
 
 [chroma.js 颜色处理库](https://github.com/gka/chroma.js)
@@ -93,6 +97,8 @@ https://esm.sh/（esm import npm packages from url）
 [100 个 golang 的常见错误](https://github.com/teivah/100-go-mistakes)（好评如潮）
 
 [cheat.sh](https://github.com/chubin/cheat.sh)（有意思，通过 curl cheat.sh 来获得信息）
+
+[naive-ui vue3 组件库](https://github.com/tusen-ai/naive-ui)
 
 ## 待体验
 

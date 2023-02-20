@@ -456,6 +456,39 @@
 >
 > _人有两次死亡，第一次是肉体，第二次是被人忘记_
 
+[画图工具](https://www.bmpi.dev/self/my-drawing-toolbox/)
+
+> 画图工具汇总！
+>
+> highlight：
+>
+> - ASCII 风格：https://asciiflow.com/#/
+>
+> ```
+>                    xxxx
+>                   x    x
+>        xx         x    x
+>      xxx xxx      x    x
+>      x     xx     x    x
+>      x     xx     x    x
+>      x     x      x    x
+>       x   xx      x   x
+>       xxx x       xx xx
+>    xxxxxxx          xx
+>   xx xxxxxxxxxxxxxxxxxx
+>  x                     xxxx
+>  x    xxxx         xxx     xx
+> x    xx  xx        x  xxx   xx
+> x    xxxxxx        xxxxxx     x
+> x                             x
+>  xx        xxxx   xx          x
+>   xxx         xxxxx          xx
+>       x  x                 xx
+>            x  x x xxxxxxx x
+> ```
+>
+> 思考摘录：没有一种工具是万能的，万能如 Excalidraw 也无法替代 Lucidchart/Draw.io/Google Drawings/Visio 这些复杂的工具（他们更适合复杂的对精确性有高度要求的图）
+
 ---
 
 ### 【技术】
@@ -525,8 +558,7 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 > - faker.js：造假数据的库
 > - editor.js：编辑器
 > - popper.js：tips 库
-> - three.js：webgl
-> -
+> - ## three.js：webgl
 
 [Youtube design trending in 2021](https://www.youtube.com/watch?v=5RluSnRPRbI)
 
@@ -1563,30 +1595,29 @@ export default usePreloadedImage;
 > 先上代码：
 >
 > ```jsx
->
 > /*
 > 	JS部分
->   */
+> */
 > //数据大屏自适应函数
 > const handleScreenAuto = () => {
->   const designDraftWidth = 1920;//设计稿的宽度
->   const designDraftHeight = 960;//设计稿的高度
->   //根据屏幕的变化适配的比例
->   const scale = document.documentElement.clientWidth / document.documentElement.clientHeight < designDraftWidth / designDraftHeight ?
->         (document.documentElement.clientWidth / designDraftWidth) :
->   (document.documentElement.clientHeight / designDraftHeight);
->   //缩放比例
->   (document.querySelector('#screen') as any).style.transform = `scale(${scale}) translate(-50%)`;
+> const designDraftWidth = 1920;//设计稿的宽度
+> const designDraftHeight = 960;//设计稿的高度
+> //根据屏幕的变化适配的比例
+> const scale = document.documentElement.clientWidth / document.documentElement.clientHeight < designDraftWidth / designDraftHeight ?
+>      (document.documentElement.clientWidth / designDraftWidth) :
+> (document.documentElement.clientHeight / designDraftHeight);
+> //缩放比例
+> (document.querySelector('#screen') as any).style.transform = `scale(${scale}) translate(-50%)`;
 > }
 >
 > //React的生命周期 如果你是vue可以放到mountd或created中
 > useEffect(() => {
->   //初始化自适应  ----在刚显示的时候就开始适配一次
->   handleScreenAuto();
->   //绑定自适应函数   ---防止浏览器栏变化后不再适配
->   window.onresize = () => handleScreenAuto();
->   //退出大屏后自适应消失   ---这是react的组件销毁生命周期，如果你是vue则写在deleted中。最好在退出大屏的时候接触自适应
->   return () => window.onresize = null;
+> //初始化自适应  ----在刚显示的时候就开始适配一次
+> handleScreenAuto();
+> //绑定自适应函数   ---防止浏览器栏变化后不再适配
+> window.onresize = () => handleScreenAuto();
+> //退出大屏后自适应消失   ---这是react的组件销毁生命周期，如果你是vue则写在deleted中。最好在退出大屏的时候接触自适应
+> return () => window.onresize = null;
 > }, [])
 >
 > ```
@@ -2085,6 +2116,156 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > 开头需要 `#!/usr/bin/env zx` 让全局安装的 `zx` 来执行
 
+[chatGPT 让谷歌掉千亿美元](https://coolshell.cn/articles/22398.html)
+
+> chat GPT 现在很火（2023 年初），微软要基于此推出最新的搜索引擎并且结合进他们的全生态产品
+>
+> 1. **ChatGPT 不是基于事实，是基于语言模型的**，事实对他来说不重要，对他重要的是他能读懂你的问题，并按照一定的套路回答你的问题。
+> 2. **因为是基于套路的回答，所以，他并不能保证内容是对的，他的目标是找到漂亮的精彩的套路**，于是，你会发现，他的内容组织能力和表述还不错，但是只要你认真玩上一段时间，你会发现，ChatGPT 那些表述的套路其实也比较平常一般。
+>
+> 因此，微软的 Bing + ChatGPT，成为了 Google 有史以来最大的挑战者
+
+[泛型是如何实现的](https://www.bmpi.dev/dev/deep-in-program-language/how-to-implement-generics/)
+
+> 看完之后，没怎么看太懂，不太了解编程语言的编译环节，底层的名次也很多
+>
+> generic programming 是什么：
+>
+> - _Generic programming is a style of computer programming in which algorithms are written in terms of types to-be-specified-later that are then instantiated when needed for specific types provided as parameters. This approach permits writing common functions or types that differ only in the set of types on which they operate when used, thus reducing duplication._
+> - 上头这句话解释的很好，从编程的视角来抽象，将类型的确认后置，将类型作为参数，能够让我们写出更通用的方法/类型，减少代码重复度。
+>
+> 实现方式：
+>
+> - 类型擦除（Java）
+> - 字典（Go）
+>   - witness table（swift）
+> - 单态化 Monomorfization
+>   - 模版（C++）
+>   - 腊印 GC shape stenciling（Go）
+
+[个人技术栈](https://www.bmpi.dev/amp/dev/tech-stack-of-side-project/?__twitter_impression=true)
+
+> mark 一下大佬的技术选择，虽然是 21 年的，但也有很多是值得参考的
+
+[one year of excalidraw (2020)](https://blog.excalidraw.com/one-year-of-excalidraw/)
+
+> 很厉害的白板绘图工具，自己也在用，很感兴趣
+>
+> 技术栈
+>
+> - 基于 [Rough.js](https://github.com/rough-stuff/rough) 绘制手绘风的图形
+> - react
+> - vercel
+>
+> [素材库](https://libraries.excalidraw.com/?theme=light&sort=default)
+>
+> [npm package](https://www.npmjs.com/package/@excalidraw/excalidraw) 可以作为项目中的组件
+>
+> 以及用户很多精彩的设计！
+
+[2022 大前端总结](https://mp.weixin.qq.com/s/AU-d819I-Zo9sQOdbbU3Iw)
+
+> 文章快速的回顾了 21 世纪以来的前端技术发展，点出了 09 年 node 的出现引发了前端自我技术迭代，从而直接带来一波技术爆炸，13 年 angular 和 backbone 等插件对后来 mvvm 框架的启发，可以说 13-19 年的前端技术增长（以及薪资增长）是极为惊人的，这也是前端的“黄金时期”。此外，作者也分阶段解读了“全栈”的发展，从 ror 时代的“全干”，到仅兼顾 bff 等 API 胶水层开发，再到低码全栈，大家可以看下文章中提到的 retool 官网视频，就能明白目前低码发展到什么程度以及为何如此受资本追捧了：https://retool.com/（很震撼）
+>
+> [Pake](https://github.com/tw93/Pake) 原来是基于 tauri 封装的，用法简单，很厉害
+>
+> [Rust 是前端基建的未来](https://github.com/i5ting/learn-rust-for-fe)
+>
+> _1）拥抱变化，积极转型全栈。大部分的只能这样选择_
+>
+> _2）主动出击，做好 bff，去分一块服务端的业务。_
+>
+> 说实话看完这篇文章的第一感觉就是迷茫，个人认为这两年的前端关键字是“DX”，不管是框架、构建，都在往性能、体验上做文章
+
+[volar a new beginning](https://blog.vuejs.org/posts/volar-a-new-beginning.html)
+
+> Volar，Vue 的官方 VSCode 插件
+>
+> highlight：_As an example, ByteDance's Lynx team, an early adopter of Volar.js, shipped a whole set of language tools supporting their in-house framework with two weeks of work from a single developer. That would have taken months if it were built from scratch even with a team._
+>
+> Volar 整体架构的变化（拆分 volar.js）；目前的 Team；
+>
+> 后续的规划：
+>
+> - [Monaco's](https://github.com/microsoft/monaco-editor) support(The Monaco Editor is the code editor that powers [VS Code](https://github.com/microsoft/vscode).)
+> - 支持其他 ide
+> - 基于 bun 的 Language Server，目前 bun 没有完全兼容 Node Api 的 LSP servers
+> - Monoserver：看意思是说现在的 LS 是与 ts language server 分开的，但是大多数框架语言都支持 ts，合并之后能够减少大量的开销
+> - ...
+
+[CSS Custom Highlight API](https://juejin.cn/post/7199438741533376573)
+
+> _尚未实践，先 mark_
+>
+> Chrome 105 以上加入，能够通过不改变 dom 结构的情况下，为文本增加自定义高亮
+>
+> 使用场景：
+>
+> - 花里胡哨的文字颜色变换效果（🌈）
+> - 自定义的搜索文本高亮
+>
+> 具体步骤（js）：
+>
+> 1. 创建选区，`new Range`
+> 2. 创建高亮，`new Highlight`
+> 3. 注册高亮，`CSS.highlights.set`
+> 4. 自定义样式，`::highlight()`（CSS）
+>
+> 相比传统使用标签的方式而已，有很多优点
+>
+> 1. 使用场景更广泛，很多情况下不能修改`dom`或者成本极大
+> 2. **性能更好，避免了操作`dom`带来的额外开销，在`dom`较多情况下性能差异至少`100`倍**
+> 3. 几乎没有副作用，能有效减少`dom`变化引起的其他影响，比如光标选区的处理
+
+[让 history 更好用的 tips](https://cyb.org.uk/2021/05/03/bash-productivity.html)
+
+> 使用命令行的时候，经常会反复的敲出之前的命令，这篇文章讲了一些 tips，让我们更高效的使用 history
+>
+> 1. Use HISTIGNORE to remove pointless commands from history
+>    1. 目标：减少一些无用的指令出现在 history 中（无用：常用的，不需要在 history 里面找）
+>    2. 例子：`export HISTIGNORE='pwd:exit:fg:bg:top:clear:history:ls:uptime:df'`
+> 2. Recalling commands effectively
+>    1. `!!` recalls the previous line，加上 `:p` 可以仅展示而不立即执行（等同于按上箭头）
+>    2. `!ping` 可以展示上一条 `ping` 命令的历史
+> 3. Using parameters from the previous line with `!$` and `!*`
+>    1. 上一条指令参数的简写变量
+>    2. 例子：
+>
+> ```
+> $ rm /var/log/httpd/access.log /var/log/httpd/error.log
+> $ touch !*
+> touch /var/log/httpd/access.log /var/log/httpd/error.log
+> ```
+>
+> 4. Use readline for partial history search
+>    1. `ssh <up arrow>` 提示上一条执行 ssh 的命令参数（warp 支持）
+>
+> 总结下：很实用，现在用的 warp 也有很多好用的提效功能，包括智能命令搜索 `⌃ + ~`
+
+[发现大佬 postcss/browserlist/nanoid/size-limit 等的作者](https://github.com/ai)
+
+> https://github.com/ai/size-limit 这个感觉很有意思，测试你的 js 项目在各个环节的性能
+
+[experimenting-a-new-syntax-to-write-svg](https://yuanchuan.dev/experimenting-a-new-syntax-to-write-svg)
+
+> css-doodle 的作者的 blog，用 CSS 的写法来写 svg，原因是 svg 写起来真的很费劲（两个维度上的复杂性：tag 和 attr）
+>
+> 于是用 css 的写法来写 svg，最后再转码成 svg
+>
+> BTW：[css-doodle](https://css-doodle.com/) 是一个很有意思，很强的项目：web-component + CSS 自定义语法来绘制图案，太强了
+
+### 【资讯 & 潮流】
+
+[BitTorrent 20 年的故事](https://torrentfreak.com/bittorrent-turns-20-the-file-sharing-revolution-revisited-210702/)
+
+> 2023.02.18 12:14:30
+>
+> Bit torrent 相信大家都是常用了，诞生于 2001 年，发明者叫 Bram Cohen
+>
+> 用户帮助的分布式内容网络协议；结合 Web、搜索引擎；也遇到了流量问题，占据了 1/3 的网络流量。BitTorrent Inc. 公司成立...
+>
+> 随着流量费用的降低，BitTorrent 还是非常有技术优势并且仍是一个高级、新技术，始终能在互联网历史中站稳脚跟
+
 ### 【Art & Design】
 
 [7 photography trends in 2021](https://blog.adobe.com/en/publish/2021/01/04/7-photography-trends-to-watch-in-2021.html#gs.0ij8bg)
@@ -2097,8 +2278,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 > 4. Smarter edits using AI and machine learning
 > 5. Artistic photo-documentary 对于 event 的记录可以不是如此写实和原始的，而是可以加上艺术的元素或趋势（比如 nostalgia）
 > 6. Creative drone photography drone 无人机摄影
-> 7. Authenticity _While the fantasies of digital art can give us the escape we crave from pandemic life, it is realism we crave when it comes to imagery of people and our everyday world._
-> 8.
+> 7. Authenticity _While the fantasies of digital art can give us the escape we crave from pandemic life, it is realism we crave when it comes to imagery of people and our everyday world._ 8.
 
 [Fractal Garden](https://www.fractal.garden/)
 
