@@ -36,7 +36,7 @@ PT Sans
 
 https://esm.sh/（esm import npm packages from url）
 
-[github 绿墙](https://green-wall.vercel.app/)（vercel 部署的）
+[github 绿墙（vercel 部署的）](https://green-wall.vercel.app/)
 
 [思考的价值](https://thinking.tomotoes.com/)
 
