@@ -100,6 +100,10 @@ https://esm.sh/（esm import npm packages from url）
 
 [naive-ui vue3 组件库](https://github.com/tusen-ai/naive-ui)
 
+[np interactive/better npm publish](https://github.com/sindresorhus/np)
+
+[semantic-release](https://github.com/semantic-release/semantic-release)
+
 ## 待体验
 
 https://nx.dev/（monorepo 方案）

@@ -5,7 +5,8 @@
   "dependencies": {},
   "scripts": {
     "test": "git grep byted",
-    "prettier": "prettier --write '**/*.{md,json}'"
+    "prettier": "prettier --write '**/*.{md,json}'",
+    "prepare": "npx husky install"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,11 @@
   },
   "homepage": "https://github.com/CoyoteWaltz/MarkdownNotes#readme",
   "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
     "prettier": "^2.1.2"
+  },
+  "lint-staged": {
+    "*.md": "prettier --list-different"
   }
 }

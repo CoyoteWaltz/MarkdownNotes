@@ -2103,6 +2103,8 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 [wasm interface types](https://hacks.mozilla.org/2019/08/webassembly-interface-types/)
 
 > 长文，讲述了 wasm 和 js 之间如何交换数据（wasm <-> js, js_1 -> wasm -> js_2）
+>
+> 太长了。。看了一半看不下去了
 
 [zx 更方便的写脚本](https://github.com/google/zx)
 
@@ -2253,6 +2255,173 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 > 于是用 css 的写法来写 svg，最后再转码成 svg
 >
 > BTW：[css-doodle](https://css-doodle.com/) 是一个很有意思，很强的项目：web-component + CSS 自定义语法来绘制图案，太强了
+
+[从 JS VM 看 a=-x 的优化方式](https://twitter.com/mhevery/status/1626002464469323777)
+
+> 来自一条 twitter thread（builderio 的 CEO。。）
+>
+> `a = 0 - x` 比 `a = -x` 性能快 3-10x
+>
+> JS 有两种存 number 的方式
+>
+> - Integers：_Two's complement_ 翻译过来叫“二补”？**不能有 `-0`**，浮点数可以
+> - Floats(IEEE 754)
+> - number 数组存的时候如果有混合类型（int 和 float），访问效率会慢，如果只有 int 访问效率高（VM 会创建更快的纯整数数组）
+> - 访问数组必须是 integer，所以转换 float 到 int 也会有开销
+>
+> 可以看 [demo](https://perf.builder.io/?q=eyJpZCI6Inh0a3l0czhvbDY5IiwidGl0bGUiOiJGaW5kaW5nIG51bWJlcnMgaW4gYW4gYXJyYXkiLCJiZWZvcmUiOiJjb25zdCBkYXRhID0gWzAsIDFdO1xuY29uc3QgZGF0YUludCA9IGRhdGEubWFwKHY9PjAtdik7XG5jb25zdCBkYXRhTWl4ID0gZGF0YS5tYXAodj0%2BLXYpO1xuXG5jb25zdCBsZW5ndGggPSAxMDA7XG5jb25zdCBpZHhJbnQgPSBbXTtcbmNvbnN0IGlkeE1peCA9IFtdO1xuZm9yKGxldCBpPTA7IGk8bGVuZ3RoOyBpKyspIHtcbiAgaWR4SW50LnB1c2goaSUyKTtcbiAgaWR4TWl4LnB1c2goLShpJTIpKTtcbn1cbiIsInRlc3RzIjpbeyJuYW1lIjoiSW5kZXggYXJyYXkgd2l0aCBJbnQiLCJjb2RlIjoibGV0IHN1bSA9IDA7XG5mb3IobGV0IGk9MDsgaTxsZW5ndGg7IGkrKykge1xuICBzdW0gKz0gZGF0YUludFtpZHhJbnRbaV1dO1xufSIsInJ1bnMiOltdLCJvcHMiOjEyMDI3NH0seyJuYW1lIjoiSW5kZXggYXJyYXkgd2l0aCBGbG9hdCIsImNvZGUiOiJsZXQgc3VtID0gMDtcbmZvcihsZXQgaT0wOyBpPGxlbmd0aDsgaSsrKSB7XG4gIHN1bSArPSBkYXRhTWl4W2lkeE1peFtpXV07XG59IiwicnVucyI6W10sIm9wcyI6MzYxMDJ9XSwidXBkYXRlZCI6IjIwMjMtMDItMjFUMDU6MDU6NDYuMjg3WiJ9)，总结下，也算是比较 tricky 的手段了，个人感觉使用场景比较有限，大部分时候不太能明确区分一个 number 变量最后是 int 还是 float XD，知道 -0 是会转成 float 就行了，`0 - 0` 还是 int。
+
+[JS VM 看对象属性的访问以及如何优化的](https://twitter.com/mhevery/status/1622499293440663553)
+
+> 同上，依旧是 thread(Understanding monomorphism can improve your JavaScript performance 60x.)
+>
+> “单态性”提速，结论：这里是指保持对象的单态，不要随意让某个属性消失/出现（比如声明了 `o = {}` 然后给属性赋值，破坏了单态性）
+>
+> 原理：
+>
+> - CPU JSVM 不知道啥是对象，存储方式使用数组来存储的
+> - 第一位是 ClassShape（这个对象长啥样，有哪些属性）
+> - 后面 ...rest 就是属性对应的值
+> - JS 访问属性的时候，VM 实际上是访问那个对象数组，通过 ClassShape 来寻找属性所在的下标（寻址取值）
+> - 当然 VM 会对这个寻址过程做缓存来优化：如果对象的 ClassShape 之前已经访问过，就知道这个属性位置在哪，即可缓存。这里的缓存是 `inline-cache`
+>
+> ```js
+> // JS code
+> const u1 = builder.url;
+> // VM
+> const u1 = vmBuilder[vmBuilder[0].indexOf("name") + 1];
+> ```
+>
+> 还有值得注意的点是：inline cache 数量是 4，所以很快，之后的 indexOf（VM 实现会更加复杂），但是有 megamorphic-cache，chrome 是 1024 个 entry，所以也比较稳定。
+>
+> _`indexOf` implementation is a bit more complicated. The actual function has something called megamorphic cache which in chrome is 1024 entries._
+>
+> 最后就是优化手段：
+>
+> ```js
+> // slower
+> const obj = {};
+> obj.firstName = "123"; // 寻址过程中多次的 ClassShape 切换
+> obj.secondName = "1234";
+> // faster
+> const obj = {
+>   firstName: undefined,
+>   secondName: undefined,
+> };
+> obj.firstName = "123"; // ClassShape 能被一直缓存
+> obj.secondName = "1234";
+> ```
+
+[天猪的文章：主题色算法](https://xcoder.in/2014/09/17/theme-color-extract/)
+
+> 14 年的，算法是用八叉树、最小差值（先用八叉树过滤出颜色）
+>
+> 最后 nodejs 包，包含了 c++ 的部分（算法计算）
+>
+> 主题色提取的应用场景还挺多，基本都是自定义图片的背景/装饰之类的，为了和主题更加和谐（比如苹果现在 IOS16 桌面播放器的背景色也是主题色算的）
+
+[利用 JS Map 实现 O(1) 的 LRU Cache](https://gist.github.com/dherges/86012049be7b1263b2e594134ff5816a?permalink_comment_id=4238757)
+
+> 来自一条 tt，不过直接放 gist 代码吧。
+>
+> 代码比较简单清晰，主要是需要了解 JS Map 实际上是维护了两个数组，通过数组来寻找值的
+>
+> O(1) 的思路就是：如果是 recent，就是第一个，如果不是，就重新 set 到 Map 中
+>
+> 解析版：（代码里面还有 非 class 版和非继承版的，按需～）
+>
+> - 注意一个点是 map.keys() 返回的是一个迭代器（按照插入的 key 顺序），next() 获取的是下一个 key，这里为什么要删除第一个呢
+>
+> ```typescript
+> // simple O(1) LRU cache least recent used
+> class LruCache<T> extends Map<string, T> {
+>   constructor(private maxSize = 20, entries?: [[string, T]]) {
+>     super(entries);
+>   }
+>   get(key: string) {
+>     const hasKey = this.has(key);
+>     if (!hasKey) {
+>       return;
+>     }
+>     const value = super.get(key);
+>     // Reinsert to mark as most recently used??
+>     this.delete(key);
+>     super.set(key, value!);
+>     return value;
+>   }
+>
+>   set(key: string, value: T) {
+>     if (this.size >= this.maxSize) {
+>       // max size for LRU
+>       // Delete the least recently used key??
+>       this.delete(this.keys().next().value);
+>     }
+>
+>     return super.set(key, value);
+>   }
+> }
+> ```
+
+[JS Map 的魔力](https://www.builder.io/blog/maps)
+
+> 还是 builder.io 的 blog，收集了之前提到的一些 TT Thread
+>
+> 提到了 JS VM 如何优化 JS 对象 by assuming their [shape](https://mathiasbynens.be/notes/shapes-ics)（以后研究）
+>
+> Another great article is [What’s up with monomorphism](https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html)（解释了为什么 JS 对象不太适合像 hashmap 那样使用频繁的增删 keys）
+>
+> 还是在说 Map 比 Object 更好用的场景和优势：
+>
+> - 性能更好：属性（key/value）删除/增加操作性能大幅优于 object
+>
+> - object 的 Built-in keys 问题（会和内置 key 冲突，即使看起来是空对象）
+>
+> - 迭代对象的操作很糟糕，Map 更好，直接用 `values()` `keys()` 或者本身迭代即可
+>
+> - key 的顺序，Map 是有序记录加入的顺序的，Object 是乱序
+>
+> - 复制，可以直接 `new Map(map)` or 通过 entries 和 object 转化 or structuredClone
+>
+>   - ```typescript
+>     const makeMap = <V = unknown>(obj: Record<string, V>) =>
+>       new Map<string, V>(Object.entries(obj));
+>     ```
+>
+> - key 的类型，可以是所有类型，比如想记录对象的一些 meta 信息。当然还有 WeakMap（内存占用问题）
+>
+> 什么时候用 Map or Object
+>
+> - Object：有固定的结构，用对象能过更快的读写
+> - Map：频繁的 key 操作
+>
+> 这篇文章还提到了 JSON.stringify/parse...他们的第二个参数用来转化数据，可以将非对象的变量转成对象，为了 JSON，反之也是可以从 JSON 获取想要的类型
+>
+> ```js
+> function replacer(key, value) {
+>   if (value instanceof Map) {
+>     return { __type: "Map", value: Object.fromEntries(value) };
+>   }
+>   if (value instanceof Set) {
+>     return { __type: "Set", value: Array.from(value) };
+>   }
+>   return value;
+> }
+>
+> function reviver(key, value) {
+>   if (value?.__type === "Set") {
+>     return new Set(value.value);
+>   }
+>   if (value?.__type === "Map") {
+>     return new Map(Object.entries(value.value));
+>   }
+>   return value;
+> }
+>
+> const obj = { set: new Set([1, 2]), map: new Map([["key", "value"]]) };
+> const str = JSON.stringify(obj, replacer);
+> const newObj = JSON.parse(str, reviver);
+> // { set: new Set([1, 2]), map: new Map([['key', 'value']]) }
+> ```
 
 ### 【资讯 & 潮流】
 
