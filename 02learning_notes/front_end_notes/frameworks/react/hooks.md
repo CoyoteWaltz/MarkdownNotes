@@ -30,3 +30,82 @@ const foo = useCallback(() => {
 }, [a, b, c]);
 const fooRef = useCallbackRef(foo);
 ```
+
+## useAsyncState
+
+> 来自杨大师的题目
+>
+> `useAsyncState<T>(initState: T) => [T, (nextState: PromiseLike<T> | T) => void];`
+>
+> // 三个细节是：
+> // 1、传同步的时候不要额外等待（禁用掉 Promise.then()，你必须分类讨论）
+> // 2、数据同步必须安全，过时的异步任务不能更新状态
+> // 3、注意组件卸载后 setState 会报错
+>
+> // 还有加分项：
+> // 1、参数控制异常处理，产生异常后状态回退或重置或返回新的 state 标记是否有 error【并没有处理异常】
+> // 2、标记当前是否在 loading（参数控制时可能需要清除当前状态）
+> // 3、加上 useState 接收回调的机制，再考虑回调是否要等待未完成的 Promise（不难但是代码会很长很恶心）【不知道实现的对不对】
+
+```typescript
+import { useCallback, useEffect, useRef, useState } from "react";
+
+export const useAsyncState = <T>(
+  initState: T
+): [T, (nextState: PromiseLike<T> | T) => void, boolean] => {
+  const [{ state: inner, waiting }, setInner] = useState({
+    state: initState,
+    waiting: false,
+  });
+  const currentRenderId = useRef(0);
+  !waiting && (currentRenderId.current += 1);
+
+  const mounted = useRef(true);
+  useEffect(() => {
+    return () => {
+      mounted.current = false;
+    };
+  }, []);
+
+  const safeSet = useCallback((v: T, id?: number) => {
+    if (
+      mounted.current &&
+      (id === undefined || currentRenderId.current === id)
+    ) {
+      setInner({
+        state: v,
+        waiting: false,
+      });
+    }
+  }, []);
+
+  const set = useCallback(
+    (nextState: PromiseLike<T> | T | ((prev: T) => PromiseLike<T> | T)) => {
+      const renderId = currentRenderId.current;
+
+      const next =
+        typeof nextState === "function"
+          ? (nextState as (prev: T) => PromiseLike<T> | T)(inner)
+          : nextState;
+
+      if (typeof (next as Promise<T>).then === "function") {
+        setInner((v) => ({
+          ...v,
+          waiting: true,
+        }));
+
+        (next as Promise<T>)
+          .then((res) => {
+            safeSet(res, renderId);
+          })
+          .catch?.((err) => {});
+      } else {
+        safeSet(next as T);
+      }
+    },
+    []
+  );
+
+  return [inner, set, waiting];
+};
+```

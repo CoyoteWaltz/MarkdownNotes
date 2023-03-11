@@ -456,38 +456,11 @@
 >
 > _人有两次死亡，第一次是肉体，第二次是被人忘记_
 
-[画图工具](https://www.bmpi.dev/self/my-drawing-toolbox/)
+[Stay positive mode for creative work](https://www.psychologicalscience.org/news/releases/a-positive-mood-allows-your-brain-to-think-more-creatively.html)
 
-> 画图工具汇总！
+> Generally, positive mood has been found to enhance creative problem solving and flexible yet careful thinking
 >
-> highlight：
->
-> - ASCII 风格：https://asciiflow.com/#/
->
-> ```
->                    xxxx
->                   x    x
->        xx         x    x
->      xxx xxx      x    x
->      x     xx     x    x
->      x     xx     x    x
->      x     x      x    x
->       x   xx      x   x
->       xxx x       xx xx
->    xxxxxxx          xx
->   xx xxxxxxxxxxxxxxxxxx
->  x                     xxxx
->  x    xxxx         xxx     xx
-> x    xx  xx        x  xxx   xx
-> x    xxxxxx        xxxxxx     x
-> x                             x
->  xx        xxxx   xx          x
->   xxx         xxxxx          xx
->       x  x                 xx
->            x  x x xxxxxxx x
-> ```
->
-> 思考摘录：没有一种工具是万能的，万能如 Excalidraw 也无法替代 Lucidchart/Draw.io/Google Drawings/Visio 这些复杂的工具（他们更适合复杂的对精确性有高度要求的图）
+> And music is an easy way to get into a good mood.
 
 ---
 
@@ -2326,7 +2299,9 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > 代码比较简单清晰，主要是需要了解 JS Map 实际上是维护了两个数组，通过数组来寻找值的
 >
-> O(1) 的思路就是：如果是 recent，就是第一个，如果不是，就重新 set 到 Map 中
+> O(1) ：Map 取 key，至于为什么，后面讲到的 hash code
+>
+> LRU：如果是 recent，就是第一个，如果不是，就重新 set 到 Map 中
 >
 > 解析版：（代码里面还有 非 class 版和非继承版的，按需～）
 >
@@ -2334,7 +2309,8 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > ```typescript
 > // simple O(1) LRU cache least recent used
-> class LruCache<T> extends Map<string, T> {
+> // prettier-ignore
+> class LruCache< T > extends Map<string, T> {
 >   constructor(private maxSize = 20, entries?: [[string, T]]) {
 >     super(entries);
 >   }
@@ -2349,14 +2325,14 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >     super.set(key, value!);
 >     return value;
 >   }
->
+> 
 >   set(key: string, value: T) {
 >     if (this.size >= this.maxSize) {
 >       // max size for LRU
 >       // Delete the least recently used key??
 >       this.delete(this.keys().next().value);
 >     }
->
+> 
 >     return super.set(key, value);
 >   }
 > }
@@ -2423,6 +2399,219 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 > // { set: new Set([1, 2]), map: new Map([['key', 'value']]) }
 > ```
 
+[v8 hash code](https://v8.dev/blog/hash-code)
+
+> v8 官方 blog
+>
+> ES 2015 引入了一些新的数据结构比如 Map Set WeakSet WeakMap，这些底层其实都是用 hash table 实现的。这篇博文介绍了
+>
+> - Hash Code 是什么：
+>   - hash function 将一个 key 映射成 hash table 中的一个位置（下标、...）
+>   - hash code 就是 hash function 执行之后的结果
+>   - V8 中 hash code 就是一个随机的数字，独立于对象，必须存起来（每个对象可以有一个）
+>   - 是对象一个类似 `Symbol` 的 privite key，但是不会暴露给用户侧的 js
+>   - 并且这个 hash code 是当对象需要它时才会计算和存储，不用到的时候可以节省空间
+>   - V8 优化查找这个 hash code 的方式是一样的用 monomorphic IC lookups，inline-cache!（当对象有相同的 hidden class），但是大多数情况都不能满足，就会 megamorphic IC lookups（可以理解是全局的 cache？比较慢了）
+>   - 访问这个 prvite symbol 也会触发 hidden class transition
+> - JS Object 背后如何存数据的
+>   - one word for storing a pointer to the **elements backing store**, and another word for storing a pointer to the **properties backing store**.
+>     - elements：就是数组的元素，在内部也是类似数组的结构
+>     - properties：属性值，string or symbols
+> - 如何存(hide) hash code
+>   - 存在 elements，因为数组是不定长，总会浪费空间
+>   - 所以会存在 properties 的空间：数组 or 字典
+>     - 空。无 properties
+>     - array（最大限制 1022 个，超过后 V8 会转成 dictionary 存）
+>     - dictionary（会新开辟一个空间，但是问题不大）
+> - 三种方式存储之后，得到的结果是：hash code 的 lookup 不需要和 js 对象属性访问那么复杂了！
+>
+> 小结：
+>
+> - Map 为什么能比对象取 key 更快？就是因为读取的是元素的 hash code，hash code 又通过上述存储方式可以比常规属性访问快速很多！
+> - 个人假想：`Map.set(key, value)` 的时候，是先获取 key 的 hash code，将 value 存在 hash table，get 取的时候也直接取 key 的 hash code（很快），所以 Map 的存取操作非常快 O(1)。任何字面量/常量的 hash code 应该也是一样的？或者说存储的地方也是同一个，保证 `getHash(true) === 'xxxx'`
+> - 个人假想：Map 的 key 为啥是有序的，内部通过数组来存的 key 的引用？Remained Problem
+
+[rescript](https://rescript-lang.org/docs/manual/latest/introduction)
+
+> Rescript 另一种 JS 方言？知乎看到是国内大佬开始搞的，编译到 JS，更好的 type 系统
+>
+> 和 TS 的区别：
+>
+> - TS 目标在于 cover JS 的全部特性；**Rescript covers only a curated subset of JavaScript**.
+> - TS 的类型系统有很多陷阱，Res 没有；
+> - Res 的性能非常快
+> - **Migrating to TypeScript is done "breadth-first,"**，**migrating to ReScript is done "depth-first."**
+>   - 切换到 ts 其实只要改个文件后缀就行了，很轻易，但是会泄漏很多 js 无类型的很多漏洞。无法衡量安全性
+>   - Rescript 限制了只能写纯 res or 纯 js code
+>
+> 更多：
+>
+> - **比 JS 更快**
+>   - 编译器编译到的 JS 代码会做很多的优化，针对 VM 的，比如 Just-In-Time optimizations (hidden classes, inline caching, avoiding deopts, etc).
+>   - 也许通过这样能学会如何写更高效的 JS
+> - High Quality Dead Code Elimination
+> - Tiny JS Output
+> - Readable Output & Great Interop（互通性）
+> - Preservation of Code Structure
+>
+> [和 React 的关系，提供了非常好的 bindings](https://rescript-lang.org/docs/react/latest/introduction)
+>
+> [编译器](https://github.com/rescript-lang/rescript-compiler)是用 OCaml 写的。浅了解下。。
+
+[tnpm rapid 模式比 pnpm 快 10s](https://zhuanlan.zhihu.com/p/455809528)
+
+> 还是关于包管理器的
+>
+> [最终更快的 npminstall 已经开源了](https://github.com/cnpm/npminstall)
+>
+> 介绍了 npm 下载一个包经历的过程，为什么慢
+>
+> tnpm 和 cnpm 是什么？
+>
+> - tnpm 是 taobao npm 私有源
+> - cnpm 是中国 NPM 公共镜像站
+>
+> ![img](https://pic1.zhimg.com/80/v2-fffade5e024f3bd1e6095694ec78b0cc_1440w.png)
+>
+> 如何优化：比较深入了，浅浅了解
+>
+> - 网络 IO
+> - FUSE 文件系统
+> - 文件 IO
+> - ...
+>
+> 文章的最后，摘录下：
+>
+> **cnpm 和 tnpm 并不是另一个包管理器的竞品，我们一直专注的领域是企业的私有化 Registry 服务。而 npmfs 在设计之初就不希望绑定特定的包管理器，我们未来将开源出去，任何包管理器都可以尝试集成该能力。**
+>
+> 同时我们也呼吁：**前端的包管理的规范化**：
+>
+> - 有类似 ECMA 之类的标准，来规范各个包管理器的行为。
+> - 有类似 Test 262 的测试用例规范。
+> - 处于薛定谔阶段的 ESM 和 CommonJS 规范的加速演进。
+> - 前端 和 Node.js 不同场景依赖的差异性的混乱局面得到解决。
+>
+> 关于它的[讨论](https://www.zhihu.com/question/515760375)
+>
+> - pnpm、vercel 的大佬都评价了
+
+[ts-reset](https://github.com/total-typescript/ts-reset)
+
+> like css reset(reset.css)
+>
+> 这个 ts 库也为一些平时比较痛的 ts 问题增加了一些妙药
+>
+> 同时对于一些问题也没有加更好的类型：
+>
+> - Object.keys/entries：因为 ts 是 duck deducing，在 type 之外的属性其实也是合法的，不能仅返回 `keyof T`
+> - Generics for `JSON.parse`, `Response.json` etc
+
+[状态管理 nanostores](https://github.com/nanostores/nanostores)
+
+> 细看了源码，写的还是很有意思的，一个 atom store 完成了基础类型变量的状态系统，衍生出 map 处理对象类型，先写的 js 再加的 ts 类型，感觉写起来会方便很多（不用顾及写代码时候的类型了）
+>
+> 支持的场景也比较丰富，computed，action，mapTemplate（可以简化很多相同类型的状态所需的代码）
+>
+> 整体的生态还是比较完善的，支持很多现代框架，看了 [nanostores/react](https://github.com/nanostores/react) 的代码，简单的结合 [`useSyncExternalStore`](https://beta.reactjs.org/reference/react/useSyncExternalStore#usage) 完成的，很棒，又学了一个 hook。
+>
+> 代码还是比较简洁和易懂的，也不多，从 `atom` 开始 `map`，然后到 `task` `action` `lifecycle`...不是很费力
+>
+> BTW 这个[作者](https://github.com/ai)非常牛牛牛啊，The creator of Autoprefixer, [@postcss](https://github.com/postcss), [@browserslist](https://github.com/browserslist), and [@logux](https://github.com/logux)
+
+[Monorepo tools compare](https://byteofdev.com/posts/lerna-vs-turbopack-rush/)
+
+> 比较了 lerna turbopack rush 这三个 monorepo 工具的 setup performance 和 features。
+
+[runs user-provided code into a Web Worker](https://github.com/slashd-analytics/run)
+
+> 看了下源码，非常简洁，能够在 worker 中执行自定义代码（这个包的背景是为了他们的 low code 项目，执行不同作者的 code）
+>
+> 能够安全的执行一些非信任的代码（as string）（worker 有很多限制，不能读 dom 之类的）
+>
+> 思路：
+>
+> - 组合上下文信息，将代码片段塞入预先写好的 worker 线程运行的 js 代码中
+> - worker 执行的结果用 postMessage 抛出给主线程，处理 error（闭包了 promise 的 resolve 和 reject）
+> - 将 worker 代码构造成 Blob 并且 createObjectURL 实例化 Worker
+
+[前端中的 pipeline](https://zhuanlan.zhihu.com/p/28561932)
+
+> _计算机领域的 Pipeline 通常认为起源于 Unix。最初 Douglas Mcllroy 发现很多时候人们会将 shell 命令的输出传递给另外一个 shell 命令，因此就提出了 Pipeline 这一概念。后来同在贝尔实验室的大牛 Ken Thompson 在 1973 年将其实现，并使用 | 作为 pipe 的语法符号_
+>
+> 优雅的 pipeline，很常见，比如 express/koa 的中间件、Node 的 stream pipeline、gulp 采用流水线的配置形式、Browserify 用 pipeline 的形式来处理复杂的打包任务、promise pipeline、ramdajs、rxjs
+
+[Lerna 运行机制](https://mp.weixin.qq.com/s/cTHhYZK3UMKfWnHpSoWurg)
+
+> 首次读于：20220524
+>
+> 执行 command 的那块源码分析吧，挺深的，代码真骚，看懂一半吧，需要真的 clone 看下源码
+>
+> 2023.03.03 更新，完全忘了内容，有空再看看
+
+[HTTP 链接池](https://www.cnblogs.com/xrq730/p/10963689.html)
+
+>
+
+day.js
+
+> JS 时间库用 day.js
+
+[core-js 作者开源历程](https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md)
+
+> _It is not a framework or a library, whose usage requires the developer to know their API, periodically look at the documentation, or at least remember that he or she is using it._
+>
+> _...in November 2014, I published `core-js` as an open-source project. Maybe it was the biggest mistake in my life._
+>
+> *I didn't promote myself or the project. *This is the second mistake._ `core-js` didn't have a website or social media accounts, only GitHub. I did not show up at conferences to talk about it. I wrote almost no posts about it. I was just making a really useful and wanted part of the modern development stack, and I was happy about that. I gave developers a chance to use the most modern and really necessary JavaScript features without waiting for years until they are implemented in all required engines, without thinking about compatibility and bugs — and they started to use it. _
+
+[lerna to Nrwl](https://github.com/lerna/lerna/issues/3121)
+
+> lerna 的维护者退休了，交给 nx 的公司 nrwl 来维护
+
+[JS third age](https://www.swyx.io/js-third-age)
+
+> In summary: Third Age JS tools will be
+>
+> - Faster
+> - ESM first
+> - Collapsed Layers (One thing doing many things well instead of many things doing one thing well)
+> - Typesafe-er (built with a strongly typed language at core, and supporting TS in user code with zero config)
+> - Secure-er (from dependency attacks, or lax permissions)
+> - Polyglot
+> - Neo-Isomorphic (recognizing that much, if not most, JS should run first at buildtime or on server-side before ever reaching the client)
+>
+> JS 会死吗？“JS could be “the universal virtual machine”, but [told me once that](https://twitter.com/BrendanEich/status/1001307081725562882?s=20) WASM now is the ultimate fulfillment of that idea.”
+>
+> 未来会是 WASM 吗
+
+[移动端页面键盘无法自动拉起](https://juejin.cn/post/6844903504230744077)
+
+> 踩坑，发现无论在 IOS 还是 Android 的 webview 都无法主动通过 `input.focus()` 来拉起键盘，只能通过 native 配合实现了 XD
+>
+> and [这篇](https://www.zhihu.com/question/28905353)
+
+[pm2 nodejs process manager](https://github.com/Unitech/pm2)
+
+> node application 进程管理，功能很丰富，先马后用
+>
+> with a built-in load balancer. It allows you to keep applications alive forever, to reload them without downtime and to facilitate common system admin tasks.
+
+[Turbopack 从 go 迁移到 rust](https://vercel.com/blog/turborepo-migration-go-rust)
+
+> Vercel 将构建工具从 go 迁移到 rust 的一些背景和原因
+>
+> go 更适合处理复杂网络中心的事物
+>
+> Go favors simplicity over expressiveness，runtime-error 会很多，但是对于用户需要 install 的软件来说，错误会被放大
+>
+> 更加追求 up-front correctness 和 go 所专注的方向 mismatch 了
+>
+> Rust 的语言在复杂度和正确性之间做了 tradeoff（更加正确，但是更复杂）
+>
+> rust 的生态好，有很多库是底层用 C/C++，上层暴露 Rust API
+>
+> _Happier developers deliver better software. Your brain is [better at complex problem-solving](https://www.psychologicalscience.org/news/releases/a-positive-mood-allows-your-brain-to-think-more-creatively.html) when it's happy._ 哈哈
+
 ### 【资讯 & 潮流】
 
 [BitTorrent 20 年的故事](https://torrentfreak.com/bittorrent-turns-20-the-file-sharing-revolution-revisited-210702/)
@@ -2456,6 +2645,39 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 https://garryui.cn/
 
 > 一个很炫酷的网站，PC 支持，卡通风，动效很强
+
+[画图工具](https://www.bmpi.dev/self/my-drawing-toolbox/)
+
+> 画图工具汇总！
+>
+> highlight：
+>
+> - ASCII 风格：https://asciiflow.com/#/
+>
+> ```
+>                    xxxx
+>                   x    x
+>        xx         x    x
+>      xxx xxx      x    x
+>      x     xx     x    x
+>      x     xx     x    x
+>      x     x      x    x
+>       x   xx      x   x
+>       xxx x       xx xx
+>    xxxxxxx          xx
+>   xx xxxxxxxxxxxxxxxxxx
+>  x                     xxxx
+>  x    xxxx         xxx     xx
+> x    xx  xx        x  xxx   xx
+> x    xxxxxx        xxxxxx     x
+> x                             x
+>  xx        xxxx   xx          x
+>   xxx         xxxxx          xx
+>       x  x                 xx
+>            x  x x xxxxxxx x
+> ```
+>
+> 思考摘录：没有一种工具是万能的，万能如 Excalidraw 也无法替代 Lucidchart/Draw.io/Google Drawings/Visio 这些复杂的工具（他们更适合复杂的对精确性有高度要求的图）
 
 ## Next
 

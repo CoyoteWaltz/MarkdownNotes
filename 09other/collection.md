@@ -28,6 +28,8 @@ PT Sans
 
 [learn laTex online](https://www.learnlatex.org/en/)
 
+[nextra nextjs 的文档站](https://nextra.site/)
+
 ## 资源
 
 [程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
@@ -80,6 +82,10 @@ https://esm.sh/（esm import npm packages from url）
 
 [css-doodle 很厉害的想法和设计](https://css-doodle.com/)
 
+[charm 命令行工具玩出花](https://charm.sh/)
+
+[awesomelist](https://awesomelists.top/#/)
+
 ## github
 
 [chroma.js 颜色处理库](https://github.com/gka/chroma.js)
@@ -103,6 +109,8 @@ https://esm.sh/（esm import npm packages from url）
 [np interactive/better npm publish](https://github.com/sindresorhus/np)
 
 [semantic-release](https://github.com/semantic-release/semantic-release)
+
+[espanso rust 写的 snippet 工具](https://github.com/espanso/espanso)
 
 ## 待体验
 

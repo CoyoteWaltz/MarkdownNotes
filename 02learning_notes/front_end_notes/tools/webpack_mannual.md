@@ -4,6 +4,8 @@
 
 本篇不讨论原理、模块化之类的，只记录如何使用
 
+_时过境迁，公司的 [rspack](https://github.com/web-infra-dev/rspack) 也已经开源，rust 版的 webpack，鼓掌_
+
 [toc]
 
 ## 安装
@@ -437,6 +439,8 @@ new htmlWebpackPlugin({
 
 #### mini-css-extract-plugin
 
+_推荐使用 [github](https://github.com/webpack-contrib/mini-css-extract-plugin)_
+
 提取 js 中的 css 样式到文件，在 html 中用 link 引入
 
 ```bash
@@ -450,7 +454,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 {
   test: /\.css$/,
   use: [
-    // 'style-loader',  // 不需要创建标签了
+    // 'style-loader',  // 不需要创建标签了 不推荐一起用
     MiniCssExtractPlugin.loader,
     'css-loader'
   ],

@@ -5,6 +5,17 @@
 > - 希望“通古博今”
 > - T 字型人才～
 
+## 2023
+
+Marked：
+
+- OCaml
+  - https://cs3110.github.io/textbook/cover.html
+  - https://zhuanlan.zhihu.com/p/281438925
+  - https://www.hackerrank.com/domains/fp?filters%5Bsubdomains%5D%5B%5D=intro
+
+Rust？
+
 ## 2022 learning plan
 
 > 说实话，2021 的基本没完成。

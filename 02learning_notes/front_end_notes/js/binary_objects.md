@@ -1,3 +1,5 @@
+# 二进制对象们
+
 ## Blob（浏览器）
 
 ### Binary Large Oject
@@ -8,7 +10,7 @@
 
 _ps：在哪里遇到的 blob？git 文件夹中的对象类型_
 
-是不可变的，原始数据的类文件对象。[`File`](https://developer.mozilla.org/zh-CN/docs/Web/API/File) 接口基于`Blob`，继承了 blob 的功能并将其扩展使其支持用户系统上的文件。
+是不可变的，原始数据的类文件对象。[`File`](https://developer.mozilla.org/zh-CN/docs/Web/API/File) 接口基于 `Blob`，继承了 blob 的功能并将其扩展使其支持用户系统上的文件。
 
 可以用`slice(start[, length])`方法创建一个 blob 的子集，length 表示字节数
 
@@ -28,11 +30,15 @@ let blob = new Blob(array, options);
 
 ### 属性/方法
 
-- size：大小（字节）
+- size：大小（字节数）
 
 - type：MIME 类型
 
-- slice()：`slice(start[, length])`
+- slice()：`slice(start[, length[, contentType]])` 分片
+
+  - 从 start 到 length（默认时 size）切分字节
+
+  - 同时也可以重新设置新分片的 type，默认还是原来的 type
 
 - stream(): 返回能读取 blob 内容的[`ReadableStream`](https://developer.mozilla.org/zh-CN/docs/Web/API/ReadableStream)
 - text(): 返回一个 promise，包含 blob 的所有内容，用 then 获取
@@ -46,7 +52,7 @@ let blob = new Blob(["hello world"], { type: "text/plain" });
 
 ### 提取一个 Blob
 
-上面提到了，Blob 其实是基于 File 的，所以通过 [`FileReader`](https://developer.mozilla.org/en-US/docs/Web/API/FileReader) 来读取
+通过 [`FileReader`](https://developer.mozilla.org/en-US/docs/Web/API/FileReader) 来读取，将 Blob 读取成不同格式
 
 ```js
 const reader = new FileReader();
@@ -69,6 +75,78 @@ const text = await new Response(blob).text(); // 得到 string
 ```js
 bb.text().then((r) => console.log(r));
 ```
+
+## File（浏览器）
+
+这个接口提供文件相关信息，是特殊类型的 Blob
+
+JS 中两种获取 File 对象的方法：
+
+- 通过 `<input>` 元素选择文件后返回的 FileList 对象
+- 通过元素拖拽生成的 `DataTransfer` 对象
+
+每个 `File` 对象都包含文件的一些属性，这些属性都继承自 Blob 对象：
+
+- `lastModified`：引用文件最后修改日期，为自 1970 年 1 月 1 日 0:00 以来的毫秒数；
+- `lastModifiedDate`：引用文件的最后修改日期；
+- `name`：引用文件的文件名；
+- `size`：引用文件的文件大小；
+- `type`：文件的媒体类型（MIME）；
+- `webkitRelativePath`：文件的路径或 URL。
+
+### input
+
+```html
+<input type="file" id="fileInput" /> // onchange 拿到 e.target.files
+```
+
+### 文件拖拽
+
+MDN 有教程，`ondrop` 和 `ondragover` 这两个 API 实现的
+
+定义一个拖拽区
+
+```html
+<div id="drop-zone"></div>
+```
+
+然后给这个元素添加 `ondragover` 和 `ondrop` 事件处理程序：
+
+```javascript
+const dropZone = document.getElementById("drop-zone");
+
+dropZone.ondragover = (e) => {
+  e.preventDefault();
+};
+
+dropZone.ondrop = (e) => {
+  e.preventDefault();
+  const files = e.dataTransfer.files;
+  console.log(files);
+};
+```
+
+**注意**：这里给两个 API 都添加了 `e.preventDefault()`，用来阻止默认事件。它是非常重要的，可以用来阻止浏览器的一些默认行为，比如放置文件将显示在浏览器窗口中。
+
+## FileReader
+
+FileReader 是一个异步 API，用于读取文件并提取其内容以供进一步使用。FileReader 可以将 Blob 读取为不同的格式。（上面也记了）
+
+- `readAsArrayBuffer()`：读取指定 Blob 中的内容，完成之后，`result` 属性中保存的将是被读取文件的 `ArrayBuffer` 数据对象；
+- `FileReader.readAsBinaryString()`：读取指定 Blob 中的内容，完成之后，`result` 属性中将包含所读取文件的原始二进制数据；
+- `FileReader.readAsDataURL()`：读取指定 Blob 中的内容，完成之后，`result` 属性中将包含一个`data: URL` 格式的 Base64 字符串以表示所读取文件的内容。
+- `FileReader.readAsText()`：读取指定 Blob 中的内容，完成之后，`result` 属性中将包含一个字符串以表示所读取的文件内容。
+
+可以看到，上面这些方法都接受一个要读取的 blob 对象作为参数，读取完之后会将读取的结果放入对象的 `result` 属性中。
+
+## ArrayBuffer
+
+ArrayBuffer 对象用来表示通用的、固定长度的**原始二进制数据缓冲区**。ArrayBuffer 的内容不能直接操作，只能通过 DataView 对象或 TypedArrray 对象来访问。这些对象用于读取和写入缓冲区内容。
+
+ArrayBuffer 本身就是一个黑盒，不能直接读写所存储的数据，需要借助以下视图对象来读写：
+
+- **TypedArray**：用来生成内存的视图，通过 9 个构造函数，可以生成 9 种数据格式的视图。
+- **DataViews**：用来生成内存的视图，可以自定义格式和字节序。
 
 ## URL.createObjectURL(object)
 
@@ -130,3 +208,7 @@ img.src = objectUrl;
 2、使用 createObjectURL(blob) 输出页面，移动端长按保存，转发。
 
 3、开源代码库可以在线自定义配置文件并下载 JSON，也可以通过 blob 的方式生成。
+
+4、检查 image 的大小
+
+5、预览图片/...，Blob 转 URL

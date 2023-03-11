@@ -83,6 +83,55 @@ _纯 CSS 实现，能满足 99% 的场景_
 8. 判断两行：计算 text 内容的高度，和单行文字的高度，如果前者大，就认为是展示多行了
    1. 单行文字高度：用零宽字符来做计算～
 
+## 兼容性
+
+以上方案其实是存在兼容性的，比如在安卓/IOS 的 webview 中，`display: -webkit-box` 其实会影响伪元素的高度，导致没办法通过伪元素来控制尾部元素的位置，所以需要手动的控制 overflow
+
+```less
+// 设置 line height 和 max-height
+line-height: @titleLineHeight;
+max-height: @line * @titleLineHeight;
+overflow: hidden;
+```
+
+截断的 `...` 只能通过尾部元素的伪元素来实现了
+
+```less
+&::before {
+  content: "...";
+  position: absolute;
+  font-size: 15px;
+  left: 3px;
+  color: @titleColor;
+}
+```
+
+但是这样就会导致 `...` 有的时候会和文字分的很开
+
+所以又再次使用 js 来做溢出的判断：
+
+- 文案内容 + 尾部文案长度 整体判断是否溢出：
+  - 元素的 scrollHeight > clientHeight 即溢出
+- 溢出了，则用 float 的元素
+- 无溢出，则直接跟随文案展示即可
+
+最后 dom 结构长这样（react）
+
+```tsx
+<div
+  ref={textContainerRef}
+  className={`content__main__title ${
+    !label_list?.length && tagShowMode ? "content__main__title--no-tags" : ""
+  }`}
+>
+  {tagShowMode === "float" ? renderTagGroup(true) : null}
+  {title}
+  {/* 需要整体长度来判断是否行溢出了 */}
+  {!tagShowMode ? <span className="hidden">{tagContent}</span> : null}
+  {tagShowMode === "inline" || !tagShowMode ? renderTagGroup() : null}
+</div>
+```
+
 ## 总结
 
 这种混排模式确实很复杂了，也是搜索了半天才找到解决方法，好评！
