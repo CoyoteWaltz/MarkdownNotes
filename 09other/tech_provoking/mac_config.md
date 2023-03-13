@@ -175,6 +175,20 @@ node 的包管理器，不多说了
 
 > https://github.com/jaywcjlove/awesome-mac上有非常棒的软件推荐
 
+### obsidian
+
+不多说了 [[try_obsidian]]
+
+### rectangle
+
+[下载](https://rectangleapp.com/)
+
+快捷键控制窗口在屏幕的位置，好用！也是[开源的](https://github.com/rxhanson/Rectangle)
+
+### espanso
+
+[官网](https://espanso.org/)，开源的 snippet 工具，[github](https://github.com/espanso/espanso)，rust 写的，很好用，值得[展开说说](try_espanso)
+
 ### A 区账号获取教程
 
 [苹果 A 区账号搞定教程](https://zhuanlan.zhihu.com/p/156908712)
@@ -210,6 +224,18 @@ http://xnipapp.com/
 ~~在`.zshrc`中加入`alias code=/Applications/Visual\ Studio\ Code.app/Contents/Resources/bin/code`，source 一下之后就可以`code <path>`了~~
 
 命令行`code`指令直接[官方的操作](https://code.visualstudio.com/docs/editor/command-line#_common-questions)，`⇧ + ⌘ + p`然后输入类似`shell command install 'code'`的语句就让 vscode 自己帮我们在环境变量中加 code 指令
+
+#### 开启 semantic highlighting
+
+有什么好处，可以看这篇 [semantic highlight](https://www.stefanjudis.com/today-i-learned/how-to-enable-semantic-highlighting-in-vs-code/)
+
+Semantic syntax highlighting makes sure your source code is not only beautifully colored, but that used the colors are logical, too.
+
+[vscode 如何开启 & 如何制作 theme](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide)，在设置里搜 `semanticHighlighting` 可以一键全开启（默认是按照 theme 配置的，需要到 theme 里面去开）
+
+搜了下并且看了下自己已经下载的主题，one dark pro 和 Monokai 系列是都支持的
+
+![image-20230313132738697](_imgs/mac_config.assets/image-20230313132738697.png)
 
 #### 代码 snippet 后依旧可以联想
 
@@ -347,6 +373,8 @@ sudo chown -R $USER $(brew --prefix)
 
 `ssh-keygen -t rsa -C "${你的邮箱地址}"`
 
+[gci](https://www.npmjs.com/package/git-checkout-interactive) 可交互式切分支
+
 ### docker
 
 [官网](https://www.docker.com/get-started)下载 dmg 安装 or [阿里云 Docker dmg 镜像](http://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/stable/)
@@ -367,7 +395,21 @@ sudo chown -R $USER $(brew --prefix)
   - 选中单词 `⌃ + G`，这里和平时的 `⌘ + D` 不一样
 - History：可视化的搜索 history，比 history 指令配合 ! 来用方便多了
 
-[gci](https://www.npmjs.com/package/git-checkout-interactive) 可交互式切分支
+### Starship
+
+[官网](https://starship.rs/guide/#%F0%9F%A4%9D-contributing)，开源的 rust 写的自定义 prompt for 所有终端，有好看的 git status 提示器，虽然 warp 已经[默认支持了一套](https://github.com/warpdotdev/Warp/issues/67)，但是这个更好看些
+
+需要让 warp 开启自定义 prompt，[很简单](https://docs.warp.dev/features/prompt#how-to-access-it)，只有右键 `use my own prompt`
+
+通过官网安装，可以选择直接安装 preset，简单粗暴
+
+若是不懂 prompt 的含义，可以 `starship explain` 来了解 :D
+
+P.S. 来自社区的[配置](https://gist.github.com/philpicton/a232b9662f07e8ce44409f7a03fed8b9) and [这个](https://gist.github.com/ryo-ARAKI/48a11585299f9032fa4bda60c9bba593)，之后体验下
+
+记得将 `warp` 的字体也设置成 Nerd Fonts 字体（比如 `MesloLGS NF` 字体）
+
+自己的配置：[gist](https://gist.github.com/CoyoteWaltz/03012f85507b7459c0032337ecb6005a)
 
 ### Iterm2
 

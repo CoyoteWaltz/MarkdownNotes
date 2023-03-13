@@ -19,7 +19,7 @@
 - 光的强度（单位立体角上的 flux Intensity）
 - 微分立体角：角度在三维空间的扩展，定义方向的两个角，在各自方向上极小的变化
 
-![image-20210310190120003](imgs/CG-intro-15-16.assets/image-20210310190120003.png)
+![image-20210310190120003](_imgs/CG-intro-15-16.assets/image-20210310190120003.png)
 
 和 sin(t) 还是有关系的！
 
@@ -29,13 +29,13 @@
 
 单位：和面积相关那就是 W / m^2 或者 lm / m^2 => lux
 
-![image-20210310193446056](imgs/CG-intro-15-16.assets/image-20210310193446056.png)
+![image-20210310193446056](_imgs/CG-intro-15-16.assets/image-20210310193446056.png)
 
 #### Lambert’s Cosine Law
 
 在 phong shading 那块也讲过，为什么需要用 cos 一下，其实就是投影
 
-![image-20210310190854830](imgs/CG-intro-15-16.assets/image-20210310190854830.png)
+![image-20210310190854830](_imgs/CG-intro-15-16.assets/image-20210310190854830.png)
 
 这也和为啥我们有冬季和夏季有关哈哈哈，有夹角。
 
@@ -47,7 +47,7 @@
 
 _angular_
 
-![image-20210310191350676](imgs/CG-intro-15-16.assets/image-20210310191350676.png)
+![image-20210310191350676](_imgs/CG-intro-15-16.assets/image-20210310191350676.png)
 
 ### Radiance
 
@@ -55,7 +55,7 @@ _angular_
 
 Radiance is the fundamental field quantity that describes the distribution of light in an environment
 
-![image-20210310191836863](imgs/CG-intro-15-16.assets/image-20210310191836863.png)
+![image-20210310191836863](_imgs/CG-intro-15-16.assets/image-20210310191836863.png)
 
 好复杂啊。。
 
@@ -76,13 +76,13 @@ _Incident radiance is the irradiance per unit solid angle arriving at the surfac
 
 可以理解为 irradiance 是一块面积上任何方向（立体角）的强度之和（积分），我们现在关注一个单位立体角上的强度（微分），就是 Radiance，换句话说是一个光线沿着某一个方向到达表面的强度
 
-![image-20210310192514572](imgs/CG-intro-15-16.assets/image-20210310192514572.png)
+![image-20210310192514572](_imgs/CG-intro-15-16.assets/image-20210310192514572.png)
 
 ### Exiting Radiance
 
 可以理解为光线从某一个方向（立体角）过来之后，投射到表面，并且离开所发出（emit）的能量
 
-![image-20210310192854767](imgs/CG-intro-15-16.assets/image-20210310192854767.png)
+![image-20210310192854767](_imgs/CG-intro-15-16.assets/image-20210310192854767.png)
 
 很小的面，很小的范围，两部分考虑
 
@@ -96,7 +96,7 @@ Radiance：某个区域，某个方向进来收到的能量
 
 注意只有半球
 
-![image-20210310193914889](imgs/CG-intro-15-16.assets/image-20210310193914889.png)
+![image-20210310193914889](_imgs/CG-intro-15-16.assets/image-20210310193914889.png)
 
 ### BRDF
 
@@ -108,7 +108,7 @@ Radiance：某个区域，某个方向进来收到的能量
 - 镜面反射，只会反射一个方向
 - 有没有什么方法能够描述这样的情况呢：从一个方向进来的光线能量会从不同的反射方向出去分散能量？这就是 BRDF
 
-![image-20210310195305783](imgs/CG-intro-15-16.assets/image-20210310195305783.png)
+![image-20210310195305783](_imgs/CG-intro-15-16.assets/image-20210310195305783.png)
 
 也可以理解光线是 hit -> 物体 absorb -> 物体 emit
 
@@ -119,7 +119,7 @@ Radiance：某个区域，某个方向进来收到的能量
 
 **_从 dA 这块小区域得到的 irradiance（和面积有关，立体角无关）如何从各个方向/某个方向再出去所产生的能力是多少，BRDF 来描述这个如何分配到各个立体角，其实也就是一个比例值_**
 
-![image-20210310200448211](imgs/CG-intro-15-16.assets/image-20210310200448211.png)
+![image-20210310200448211](_imgs/CG-intro-15-16.assets/image-20210310200448211.png)
 
 单位是 1/sr，steradian 的倒数
 
@@ -127,11 +127,11 @@ Radiance：某个区域，某个方向进来收到的能量
 
 BRDF 告诉我们，某一个入射角度的光对出射角度的光有多少贡献，那么我们把所有方向（立体角）的光给求和（积分），就能知道出射角度（eye position）能看到的光有多强了
 
-![image-20210310200903632](imgs/CG-intro-15-16.assets/image-20210310200903632.png)
+![image-20210310200903632](_imgs/CG-intro-15-16.assets/image-20210310200903632.png)
 
 递归定义。。。其他物体也会反射光（暂时只考虑光线弹射一次。。）
 
-![image-20210310201514555](imgs/CG-intro-15-16.assets/image-20210310201514555.png)
+![image-20210310201514555](_imgs/CG-intro-15-16.assets/image-20210310201514555.png)
 
 ### 渲染方程
 
@@ -139,7 +139,7 @@ The Rendering Equation
 
 物体自己会发光怎么办呢
 
-![image-20210310201649648](imgs/CG-intro-15-16.assets/image-20210310201649648.png)
+![image-20210310201649648](_imgs/CG-intro-15-16.assets/image-20210310201649648.png)
 
 把发光 emit 的给加上，两个部分组成，这样就比较完备了
 
@@ -153,7 +153,7 @@ The Rendering Equation
 - glossy（光滑的）
 - specular（镜面，和 glossy 还有点区别）
 
-![来自 wikipedia](imgs/CG-intro-15-16.assets/image-20210311160215079.png)
+![来自 wikipedia](_imgs/CG-intro-15-16.assets/image-20210311160215079.png)
 
 结合课件 & 再看几遍[视频](https://www.bilibili.com/video/BV1X7411F744?p=15) 去理解渲染方程 -> 多次弹射光照 -> 全局光照 -> 光追和光栅化的区别
 
@@ -198,7 +198,7 @@ estimate the integral of a function by averaging **random samples of the functio
 
 随机采样的方法
 
-![image-20210311152734213](imgs/CG-intro-15-16.assets/image-20210311152734213.png)
+![image-20210311152734213](_imgs/CG-intro-15-16.assets/image-20210311152734213.png)
 
 可以看到其实是一个离散的了？
 
@@ -210,7 +210,7 @@ estimate the integral of a function by averaging **random samples of the functio
 4. 采样点越多，和真实的积分差距就越小
 5. 连续 -> 离散
 
-![image-20210311153007830](imgs/CG-intro-15-16.assets/image-20210311153007830.png)
+![image-20210311153007830](_imgs/CG-intro-15-16.assets/image-20210311153007830.png)
 
 一个简单好用的结论
 
@@ -228,17 +228,17 @@ estimate the integral of a function by averaging **random samples of the functio
 
 glossy 表面的材质
 
-![image-20210311155124257](imgs/CG-intro-15-16.assets/image-20210311155124257.png)
+![image-20210311155124257](_imgs/CG-intro-15-16.assets/image-20210311155124257.png)
 
 漫反射 diffuse
 
-![image-20210311155323158](imgs/CG-intro-15-16.assets/image-20210311155323158.png)
+![image-20210311155323158](_imgs/CG-intro-15-16.assets/image-20210311155323158.png)
 
 康奈尔 box 模型，广泛的测试全局光照效果
 
 #### 渲染方程
 
-![image-20210311155638376](imgs/CG-intro-15-16.assets/image-20210311155638376.png)
+![image-20210311155638376](_imgs/CG-intro-15-16.assets/image-20210311155638376.png)
 
 再看一眼，我们关注的两个难点
 
@@ -247,7 +247,7 @@ glossy 表面的材质
 
 看个简单的计算例子
 
-![image-20210311164006995](imgs/CG-intro-15-16.assets/image-20210311164006995.png)
+![image-20210311164006995](_imgs/CG-intro-15-16.assets/image-20210311164006995.png)
 
 1. 求 slice 1 这个简单的蒙特卡洛积分
 2. 对半球的角度（立体角）进行采样
@@ -256,7 +256,7 @@ glossy 表面的材质
 
 可以得到我们的 radiance，并且得到一个简单的算法
 
-![image-20210311164456743](imgs/CG-intro-15-16.assets/image-20210311164456743.png)
+![image-20210311164456743](_imgs/CG-intro-15-16.assets/image-20210311164456743.png)
 
 啊哈这就是 path tracing 的直接光照
 
@@ -266,25 +266,25 @@ glossy 表面的材质
 
 Q 将光也反射给了 P，贡献了光照，仿佛就是在 P 点看 Q 点的光照
 
-![image-20210311164806288](imgs/CG-intro-15-16.assets/image-20210311164806288.png)
+![image-20210311164806288](_imgs/CG-intro-15-16.assets/image-20210311164806288.png)
 
 所以从 P 出发的某个角度如果也 hit 到了物体 Q，那就求这个物体 Q 的这个角度的光源
 
-![image-20210311165007446](imgs/CG-intro-15-16.assets/image-20210311165007446.png)
+![image-20210311165007446](_imgs/CG-intro-15-16.assets/image-20210311165007446.png)
 
 问题来了，光线太多了
 
-![image-20210311165318894](imgs/CG-intro-15-16.assets/image-20210311165318894.png)
+![image-20210311165318894](_imgs/CG-intro-15-16.assets/image-20210311165318894.png)
 
 当 N = 1 的时候，光线不会爆炸，也就是蒙特卡洛的采样点为 1
 
 This is Path Tracing
 
-![image-20210311165714103](imgs/CG-intro-15-16.assets/image-20210311165714103.png)
+![image-20210311165714103](_imgs/CG-intro-15-16.assets/image-20210311165714103.png)
 
 噪声可能会很大呀，穿过一个像素的路径可以有很多，我们求个平均就行，连接 eye -> light
 
-![image-20210311165852346](imgs/CG-intro-15-16.assets/image-20210311165852346.png)
+![image-20210311165852346](_imgs/CG-intro-15-16.assets/image-20210311165852346.png)
 
 我们再从一个像素点出发，去看路径追踪
 
@@ -314,17 +314,17 @@ This is Path Tracing
 
 - 会不会运气差到 1 个像素上每个 sample 都在第一次就 0 了呢。。应该能避免的，比如限制必须直接光照，或者限制的到达一定的 bounce 数之后再进行 RR
 
-![image-20210311171749823](imgs/CG-intro-15-16.assets/image-20210311171749823.png)
+![image-20210311171749823](_imgs/CG-intro-15-16.assets/image-20210311171749823.png)
 
 到此为止，path tracing 就没毛病了！
 
 ### 遗留的问题
 
-![image-20210311172011460](imgs/CG-intro-15-16.assets/image-20210311172011460.png)
+![image-20210311172011460](_imgs/CG-intro-15-16.assets/image-20210311172011460.png)
 
 samples per pixel，采样少就快啊，但是有噪声，并且采样的光线可能会被浪费
 
-![image-20210311172256058](imgs/CG-intro-15-16.assets/image-20210311172256058.png)
+![image-20210311172256058](_imgs/CG-intro-15-16.assets/image-20210311172256058.png)
 
 光源越小，需要采样的光线就可能需要很多才能打到 light，我们之前用均匀的 PDF 采样（概率分布）
 
@@ -338,28 +338,28 @@ _蒙特卡洛的要求：在 x 上采样，在 x 上积分_
 2. 投影面积
 3. 求立体角 dw = S / r^2
 
-![image-20210311172910583](imgs/CG-intro-15-16.assets/image-20210311172910583.png)
+![image-20210311172910583](_imgs/CG-intro-15-16.assets/image-20210311172910583.png)
 
-![image-20210311173150057](imgs/CG-intro-15-16.assets/image-20210311173150057.png)
+![image-20210311173150057](_imgs/CG-intro-15-16.assets/image-20210311173150057.png)
 
 我们可以再修改一下算法：
 
 1. 光源直接对物体的贡献，上面改写的渲染方程，不用 RR（直接光）
 2. 其他间接光，用 RR
 
-![image-20210311173424080](imgs/CG-intro-15-16.assets/image-20210311173424080.png)
+![image-20210311173424080](_imgs/CG-intro-15-16.assets/image-20210311173424080.png)
 
 最后一个小问题：
 
 直接光照被挡住的情况。。。
 
-![image-20210311173634084](imgs/CG-intro-15-16.assets/image-20210311173634084.png)
+![image-20210311173634084](_imgs/CG-intro-15-16.assets/image-20210311173634084.png)
 
 一些 note
 
 点光源不好处理（没有 dA）可以建议做成小面积光
 
-![image-20210311173918462](imgs/CG-intro-15-16.assets/image-20210311173918462.png)
+![image-20210311173918462](_imgs/CG-intro-15-16.assets/image-20210311173918462.png)
 
 已经是 PHOTO-REALISTIC，可以看 Cornell box 的[网站](http://www.graphics.cornell.edu/online/box/compare.html)
 
@@ -377,6 +377,6 @@ Ray tracing：其实就是光线传播方法的大集合（path tracing、单向
 - pixel reconstruction filter，像素采样的卷积
 - radiance 到 pixel 的 gamma 变化，曲线
 
-![image-20210311174659746](imgs/CG-intro-15-16.assets/image-20210311174659746.png)
+![image-20210311174659746](_imgs/CG-intro-15-16.assets/image-20210311174659746.png)
 
 路漫漫其修远兮，fear the science

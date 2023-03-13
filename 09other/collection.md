@@ -30,11 +30,17 @@ PT Sans
 
 [nextra nextjs 的文档站](https://nextra.site/)
 
+[网易云/qq 音乐歌单迁移](https://yyrcd.com/n2s/)
+
+[Atom 作者出品 zed 编辑器 rust 写的 非常快](https://zed.dev/)（分享 link：https://zed.dev/invites/dLEb7PCmFLpZ7kdJ）
+
 ## 资源
 
 [程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
 
 ## 收藏有趣的 links
+
+https://weexpire.org/（这个项目是死了之后可以留个言给想要的人，真行）
 
 https://esm.sh/（esm import npm packages from url）
 

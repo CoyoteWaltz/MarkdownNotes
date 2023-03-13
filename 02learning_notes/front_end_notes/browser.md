@@ -1,10 +1,210 @@
 [toc]
 
+> _`API` is the acronym for Application Programming Interface which defines interactions between multiple software architecture layers. Programmers carry out complex tasks easily using APIs in software development. Without APIs, a programmer's life would have been miserable with no proper(security, for example) access to data, knowing unnecessary low level details etc._
+>
+> _When it comes to Web APIs, there are extremely useful objects, properties and functions available to perform tasks as minor as accessing DOM to as complex as managing audios, videos, graphics, etc._
+>
+> -- from https://blog.greenroots.info/10-lesser-known-web-apis-you-may-want-to-use
+
+### fullscreen 全屏 API
+
+每个元素都可以做到全屏展示
+
+```javascript
+const manageFullscreen = () => {
+  document.getElementById("fs_id").requestFullscreen();
+};
+```
+
+兼容性检查：通过 `document.fullscreenEnabled` 来检查
+
+全屏的 event handlers
+
+- `onfullscreenchange`
+- `onfullscreenerror`
+
+### Clipboard Async API
+
+copy cut paste 是最常用的剪切板操作。copy 内容到用户的剪切板是不需要用户权限的，从用户剪切板读取内容是需要用户授权的 [Permission API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API)。
+
+兼容性检查：
+
+```javascript
+if (
+  navigator.clipboard &&
+  navigator.clipboard.read &&
+  navigator.clipboard.write
+) {
+  // ...
+}
+```
+
+copy to clipboard
+
+```javascript
+async function performCopy(event) {
+  event.preventDefault();
+  try {
+    await navigator.clipboard.writeText(copyText);
+    console.log(`${copyText} copied to clipboard`);
+  } catch (err) {
+    console.error("Failed to copy: ", err);
+  }
+}
+```
+
+paste
+
+```javascript
+const text = await navigator.clipboard.readText();
+```
+
+### Resize Observer API
+
+对于元素的 resize 需要做出响应的时候，可以通过 `ResizeObserver`
+
+```jsx
+<div>
+   <input
+         onChange={(event) => resize(event)}
+         type="range"
+         min={minRange}
+         max={maxRange}
+         defaultValue={rangeValue} />
+</div>
+
+useEffect(() => {
+   try {
+            let dumbBtn = document.getElementById('dumbBtnId');
+            var resizeObserver = new ResizeObserver(entries => {
+                for(const entry of entries) {
+                    // Get the button element and color it
+                    // based on the range values like this,
+                   entry.target.style.color = 'green`;
+                }
+      });
+      resizeObserver.observe(dumbBtn);
+   } catch(e) {
+            setSupported(false);
+            console.log(e);
+   }
+}, [rangeValue]);
+
+```
+
+### Broadcast Channel API
+
+在浏览器 tabs/windows/iframes/worker 进行同源的广播消息，跨 tab 的状态同步很实用吧！
+
+用一个 name 创建一个 channel
+
+```javascript
+const CHANNEL_NAME = "greenroots_channel";
+const bc = new BroadcastChannel(CHANNEL_NAME);
+const message = "I am wonderful!";
+```
+
+Post Message!
+
+```javascript
+const sendMessage = () => {
+  bc.postMessage(message);
+};
+```
+
+receive message
+
+```javascript
+const CHANNEL_NAME = "greenroots_channel";
+const bc = new BroadcastChannel(CHANNEL_NAME);
+
+bc.addEventListener("message", function (event) {
+  console.log(
+    `Received message, "${event.data}", on the channel, "${CHANNEL_NAME}"`
+  );
+  const output = document.getElementById("msg");
+  output.innerText = event.data;
+});
+```
+
+### Battery Status API
+
+```javascript
+navigator.getBattery().then(function (battery) {
+  // handle the charging change event
+  battery.addEventListener("chargingchange", function () {
+    console.log("Battery charging? " + (battery.charging ? "Yes" : "No"));
+  });
+
+  // handle charge level change
+  battery.addEventListener("levelchange", function () {
+    console.log("Battery level: " + battery.level * 100 + "%");
+  });
+
+  // handle charging time change
+  battery.addEventListener("chargingtimechange", function () {
+    console.log("Battery charging time: " + battery.chargingTime + " seconds");
+  });
+
+  // handle discharging time change
+  battery.addEventListener("dischargingtimechange", function () {
+    console.log(
+      "Battery discharging time: " + battery.dischargingTime + " seconds"
+    );
+  });
+});
+```
+
+### Network Information API
+
+可以看当前的网络状态，根据不同的类型来决定数据、带宽的尺寸
+
+```javascript
+console.log(navigator.connection);
+```
+
+### Vibration API
+
+可以让设备开始震动。。（移动端吧）
+
+```javascript
+useEffect(() => {
+  if (start) {
+    // vibrate for 2 seconds
+    navigator.vibrate(2000);
+  } else {
+    // stop vibration
+    navigator.vibrate(0);
+  }
+}, [start]);
+```
+
+### Bluetooth API
+
+可以开启蓝牙
+
+```javascript
+navigator.bluetooth
+  .requestDevice({
+    acceptAllDevices: true,
+  })
+  .then((device) => {
+    setDeviceName(device.name);
+    setDeviceId(device.id);
+    setDeviceConnected(device.connected);
+  })
+  .catch((err) => {
+    console.log(err);
+    setError(true);
+  });
+```
+
 ### 兼容性
 
 #### [ponyfill](https://github.com/sindresorhus/ponyfill)
 
-> polyfill 会修改全局的代码，ponyfill 的目标是不污染代码，想用就用，需要指定 api 使用
+> polyfill 会修改全局的代码，ponyfill 的目标是不污染代码，想用就用，需要指定 api 使用。
+> 比如 core-js 就提供了 polyfill 和 ponyfill
 
 ### scroll
 

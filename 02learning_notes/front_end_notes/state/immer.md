@@ -1,6 +1,8 @@
 # immer 探索
 
-https://github.com/immerjs/immer
+> https://github.com/immerjs/immer
+>
+> 源码略难懂，看不下去啦嘿嘿
 
 ### 能做什么
 
@@ -29,15 +31,13 @@ const nextState = produce(baseState, (draft) => {
 });
 ```
 
-### 兼容性问题
+### [兼容性问题](https://immerjs.github.io/immer/installation/)
 
 > for old JS engine
->
-> [文档](https://immerjs.github.io/immer/installation/)
 
 若要支持 es5 需要开启 `enableES5()`
 
-使用了 `Map` 或者 `Set` 需要 `enableMapSet()`
+使用了 `Map` 或者 `Set` 需要 `enableMapSet()`！看了下源码是在 produce 的时候构造 DraftMap/DraftSet（继承了 Map/Set）
 
 使用 JSON Patch `enablePatches()`
 

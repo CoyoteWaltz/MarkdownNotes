@@ -2,6 +2,77 @@
 
 [toc]
 
+### 有用的 html 属性
+
+#### `enterkeyhint`
+
+虚拟键盘回车键的提示，移动端常见，比如回车键显示“确认”，“下一个”，“搜索”等。满足 editable 的元素都可以使用。
+
+```html
+<input type="text" enterkeyhint="done" />
+```
+
+可以是下面这些，但是自定义内容会被降级成默认（如果是 hybrid，肯定需要客户端支持啦）
+
+- `enter`
+- `done`
+- `go`
+- `next`
+- `previous`
+- `search`
+- `send`
+
+#### `<blockquote>` 的 `cite` 属性
+
+```html
+<blockquote
+  cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote#attr-cite"
+>
+  A URL that designates a source document or message for the information quoted.
+  This attribute is intended to point to information explaining the context or
+  the reference for the quote.
+</blockquote>
+```
+
+#### `<a>` 标签的 `download`
+
+```html
+<a href="/example.pdf" download>Download File</a>
+```
+
+如果没有指定 `download` 的值，则会强制下载 href 的链接页面，可以给他一个文件路径
+
+#### `<img>` 的 `decoding`
+
+新的属性，告诉浏览器如何 decode 这个图片，和 script 的 async 类似
+
+```html
+<img src="/images/example.png" alt="Example" decoding="async" />
+```
+
+可以是：
+
+- `sync`：同步解析，浏览器通常是这么做的
+- `async`：异步解析，不影响其他内容的展示
+- `auto`：交给浏览器自己来处理
+
+浏览器支持度，都支持（chrome 65 开始）
+
+#### `<iframe>` 的 `loading`
+
+img 是有 `loading` 属性来做图片[懒加载](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading)的（才知道），同样 iframe 也是可以通过 `loading` 属性来做懒加载（快进入 viewport 的时候才加载内容）
+
+```html
+<iframe src="/page.html" width="300" height="250" loading="lazy"></iframe>
+```
+
+值：
+
+- `eager` 默认行为，不会懒加载
+- `lazy`
+
+支持度：主流都支持（chrome 77
+
 ### Twitter 的前十行 html
 
 > 读文：https://css-tricks.com/explain-the-first-10-lines-of-twitter-source-code/

@@ -170,7 +170,7 @@ const arcTo = (ctx) => {
 };
 ```
 
-![image-20200705224826667](/Users/koyote/Documents/Markdown/learning_notes/front-end-notes/canvas_intro.assets/image-20200705224826667.png)
+![image-20200705224826667](_imgs/canvas_intro.assets/image-20200705224826667.png)
 
 #### Bezier 曲线
 

@@ -25,7 +25,7 @@
 
 > 控制消费欲望、尽快建立人生第二收入、把工作当作一种投资、不断提升认知
 
-[beyond 4 precent rule](https://www.schwab.com/resource-center/insights/content/beyond-4-rule-how-much-can-you-safely-spend-retirement)
+[beyond 4 percent rule](https://www.schwab.com/resource-center/insights/content/beyond-4-rule-how-much-can-you-safely-spend-retirement)
 
 > 依旧是从阮一峰的书中[这篇文章](https://survivor.ruanyifeng.com/plan-b/retire.html)看到的概念，于是就去 google 了一下
 >
@@ -576,7 +576,7 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 >   - JIT(Just in time):
 >     - 在 runtime 的时候再进行变异
 >     - source 更大，需要下载 compiler
->   - ![Image for post](imgs/reading_list.assets/1*a15BveUQ7cFyV0P8CwLUCg.png)
+>   - ![Image for post](_imgs/reading_list.assets/1*a15BveUQ7cFyV0P8CwLUCg.png)
 >   - JIT 更适合在 development 模式，AOT 更适合生产模式
 >
 > - Object-C：
@@ -722,7 +722,7 @@ https://github.com/Kaiyiwing/qwerty-learner-vscode
 >
 > btw 这篇文章文笔还挺好的
 
-![Matrix of low to high effort and low to high impact](imgs/reading_list.assets/evaluation.png)
+![Matrix of low to high effort and low to high impact](_imgs/reading_list.assets/evaluation.png)
 
 【好文】[跨平台动态化容器方案优化（非常切合工作哈哈）](https://mp.weixin.qq.com/s/0QViGHkt6R5fOZms-EpwAA)
 
@@ -741,7 +741,7 @@ https://github.com/Kaiyiwing/qwerty-learner-vscode
 > - JS 做什么
 > - Native 提供什么
 >
-> ![图片](imgs/reading_list.assets/640.png)
+> ![图片](_imgs/reading_list.assets/640.png)
 >
 > **为什么要跨平台？**
 >
@@ -750,7 +750,7 @@ https://github.com/Kaiyiwing/qwerty-learner-vscode
 >
 > 可以优化的切入点（容器 webview。。。）
 >
-> ![图片](imgs/reading_list.assets/640-20210601134025347.png)
+> ![图片](_imgs/reading_list.assets/640-20210601134025347.png)
 >
 > P.S. 结合自己的工作，公司内部的 lynx react-lynx DSL 的动态化方案，包括所学的 CG 知识，其实能看出整个大前端（App）渲染的 pipeline：
 >
@@ -870,7 +870,7 @@ https://github.com/Kaiyiwing/qwerty-learner-vscode
 
 > 没找到技术相关，都是图片，发现了帅气的波波
 
-![img](imgs/reading_list.assets/Artist-gives-human-forms-to-anime-characters-through-artificial-intelligence-6078043e1d2d8-png__880.jpg)
+![img](_imgs/reading_list.assets/Artist-gives-human-forms-to-anime-characters-through-artificial-intelligence-6078043e1d2d8-png__880.jpg)
 
 [emoji 作为 favicons](https://css-tricks.com/emojis-as-favicons/)
 
@@ -1768,9 +1768,9 @@ export default usePreloadedImage;
 >
 > 为什么没有再做一个 UI Frame：（节选）相对来说比较新的设计理念，自由简单，不想维护 XD
 
-[js is wierd](https://jsisweird.com/)
+[js is weird](https://jsisweird.com/)
 
-> JS is wierd!
+> JS is weird!
 >
 > 这是一个做题网站，测试一下对 js 各种稀奇古怪的坑是否了解
 >
@@ -1827,7 +1827,7 @@ export default usePreloadedImage;
 > - 将必要的信息序列成 html 的一部分（减少 js 的解析）
 > - 依赖于事件冒泡来拦截所有事件的全局事件处理程序
 >
-> ![img](imgs/reading_list.assets/v2-bf7e87470c1035bbf73fcbd733aae5ae_1440w.webp)
+> ![img](_imgs/reading_list.assets/v2-bf7e87470c1035bbf73fcbd733aae5ae_1440w.webp)
 >
 > 具体细节可以看文章，讲的还是比较容易懂的
 
@@ -1942,7 +1942,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > 这个图还挺不错的，摘录下
 >
-> ![image.png](imgs/reading_list.assets/74519d751863471bb877a68bd3a4644d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+> ![image.png](_imgs/reading_list.assets/74519d751863471bb877a68bd3a4644d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
 
 [前端的 Race Condition](https://juejin.cn/post/6938286092693176334)
 
@@ -2611,6 +2611,12 @@ day.js
 > rust 的生态好，有很多库是底层用 C/C++，上层暴露 Rust API
 >
 > _Happier developers deliver better software. Your brain is [better at complex problem-solving](https://www.psychologicalscience.org/news/releases/a-positive-mood-allows-your-brain-to-think-more-creatively.html) when it's happy._ 哈哈
+
+[why use border-box](https://www.quora.com/What-does-box-sizing-border-box-do-What-are-its-advantages)
+
+> 突然好奇我们实际开发中 css 的 `box-sizing` 都是统一使用 `border-box`（reset.css 之类），于是 google 了一下
+>
+> 简单来说最大的方便之处就在于不用去额外计算 content + padding = 总宽度的问题了，确实很方便！
 
 ### 【资讯 & 潮流】
 

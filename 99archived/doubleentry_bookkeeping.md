@@ -53,4 +53,4 @@
 
 > 20210101 迁移至 md 文件归档
 
-本地的 beancount 项目 [README](/Users/koyote/personal/beancount/README.md)
+本地的 beancount 项目 README

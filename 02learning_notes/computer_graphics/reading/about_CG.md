@@ -49,7 +49,7 @@
 10. Shader 中的 if、for 等语句会降低渲染效率吗？为什么？
 11. 如下图，渲染相同面积的图形，三角形数量少（左）的还是数量多（右）的效率更快？为什么？
 
-![img](imgs/about_CG.assets/v2-194986889f4cfd4f3a103b968f73cdba_1440w.jpg)
+![img](_imgs/about_CG.assets/v2-194986889f4cfd4f3a103b968f73cdba_1440w.jpg)
 
 12. GPU Context 是什么？有什么作用？
 13. 造成渲染瓶颈的问题很可能有哪些？该如何避免或优化它们？
@@ -110,12 +110,12 @@ GPCs -> SMs + 光栅化引擎 ->
 
 **GPU 逻辑管线**
 
-![img](imgs/about_CG.assets/v2-8792c13419695fd5ca051208c427dbe7_1440w.jpg)
+![img](_imgs/about_CG.assets/v2-8792c13419695fd5ca051208c427dbe7_1440w.jpg)
 
 1.
 
 Fermi 架构的运行机制总览图：
 
-![img](imgs/about_CG.assets/v2-7692eb02eeeb3ba83c0ea285944acec8_1440w.jpg)
+![img](_imgs/about_CG.assets/v2-7692eb02eeeb3ba83c0ea285944acec8_1440w.jpg)
 
 **shader 运行机制**

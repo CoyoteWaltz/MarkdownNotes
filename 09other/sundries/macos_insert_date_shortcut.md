@@ -3,6 +3,8 @@
 > 主要看了 typora 也不支持插入，看了下面的 issue 发现官方也不会支持，需要第三方软件做这个事情
 >
 > 之前在公司电脑没尝试成功，今天居然在自己的 big sur 系统上实现了
+>
+> updated on 2023.03.11 22:45:11，用了 [espanso](https://espanso.org/) rust 写的全局可配置的 snippet 工具，真香！
 
 参考：https://apple.stackexchange.com/questions/242547/how-to-automatically-paste-todays-date-with-keyboard-shortcut，[typora issue](https://github.com/typora/typora-issues/issues/1052)
 

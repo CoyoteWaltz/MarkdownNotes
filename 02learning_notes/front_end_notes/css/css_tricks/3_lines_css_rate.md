@@ -10,7 +10,7 @@
 
 最终效果：
 
-![image-20210102153946239](imgs/3_lines_css_rate.assets/image-20210102153946239.png)
+![image-20210102153946239](_imgs/3_lines_css_rate.assets/image-20210102153946239.png)
 
 需要准备的事情：
 
@@ -115,7 +115,7 @@ rate :heart: dom 结构：数量任意了
 }
 ```
 
-![image-20210102153721723](imgs/3_lines_css_rate.assets/image-20210102153721723.png)
+![image-20210102153721723](_imgs/3_lines_css_rate.assets/image-20210102153721723.png)
 
 最后，因为 `~` 选择器是选择了**后面的所有元素**，需要做一个逆序就可以让他正过来啦
 
@@ -127,7 +127,7 @@ rate :heart: dom 结构：数量任意了
 }
 ```
 
-![image-20210102153910970](imgs/3_lines_css_rate.assets/image-20210102153910970.png)
+![image-20210102153910970](_imgs/3_lines_css_rate.assets/image-20210102153910970.png)
 
 ## TODO
 

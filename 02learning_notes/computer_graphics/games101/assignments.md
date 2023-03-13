@@ -211,4 +211,4 @@ super sample anti-alias 通过超采样来消除锯齿
 
 效果：左为 ssaa
 
-![image-20210304204702541](imgs/assignments.assets/image-20210304204702541.png)
+![image-20210304204702541](_imgs/assignments.assets/image-20210304204702541.png)

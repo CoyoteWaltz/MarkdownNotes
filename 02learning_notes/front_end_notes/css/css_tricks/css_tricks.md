@@ -265,7 +265,7 @@ That's cool.
 
 ## 用伪元素给文字加边框
 
-![image-20200630151042454](imgs/css_tricks.assets/image-20200630151042454.png)
+![image-20200630151042454](_imgs/css_tricks.assets/image-20200630151042454.png)
 
 比如这个边框我们可以用
 
@@ -298,7 +298,7 @@ That's cool.
 }
 ```
 
-![image-20200630151018538](imgs/css_tricks.assets/image-20200630151018538.png)
+![image-20200630151018538](_imgs/css_tricks.assets/image-20200630151018538.png)
 
 可以看到这个伪元素的边框小了一圈
 
@@ -322,7 +322,7 @@ That's cool.
 }
 ```
 
-![image-20200701105054497](imgs/css_tricks.assets/image-20200701105054497.png)
+![image-20200701105054497](_imgs/css_tricks.assets/image-20200701105054497.png)
 
 下面绿色面积是 padding ，注意蓝色边框也被 padding 所覆盖了
 

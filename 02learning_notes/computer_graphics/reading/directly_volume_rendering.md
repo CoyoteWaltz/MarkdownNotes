@@ -19,13 +19,13 @@
 3. GPU 渲染管线
    1.
 
-![image-20210415220637917](imgs/directly_volume_rendering.assets/image-20210415220637917.png)
+![image-20210415220637917](_imgs/directly_volume_rendering.assets/image-20210415220637917.png)
 
-![image-20210415220649125](imgs/directly_volume_rendering.assets/image-20210415220649125.png)
+![image-20210415220649125](_imgs/directly_volume_rendering.assets/image-20210415220649125.png)
 
-![image-20210415220655424](imgs/directly_volume_rendering.assets/image-20210415220655424.png)
+![image-20210415220655424](_imgs/directly_volume_rendering.assets/image-20210415220655424.png)
 
-![image-20210415220700520](imgs/directly_volume_rendering.assets/image-20210415220700520.png)
+![image-20210415220700520](_imgs/directly_volume_rendering.assets/image-20210415220700520.png)
 
 ### 直接体绘制
 
