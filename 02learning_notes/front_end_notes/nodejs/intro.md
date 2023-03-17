@@ -189,8 +189,8 @@ a();
 console.log(obj.stack);
 // 下面只从 a 开始
 // oobb: FYI
-//    at a (/Users/coyote/programming/learning/learn_react/err_trace.js:3:3)
-//    at Object.<anonymous> (/Users/coyote/programming/learning/learn_react/err_trace.js:19:1)
+//    at a (../learn_react/err_trace.js:3:3)
+//    at Object.<anonymous> (../learn_react/err_trace.js:19:1)
 // ...
 ```
 

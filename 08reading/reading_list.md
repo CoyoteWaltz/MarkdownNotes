@@ -2618,7 +2618,99 @@ day.js
 >
 > 简单来说最大的方便之处就在于不用去额外计算 content + padding = 总宽度的问题了，确实很方便！
 
+2023.03.14 18:45:52
+
+[Tomohoko sakamoto algorithm 求星期几](https://www.geeksforgeeks.org/tomohiko-sakamotos-algorithm-finding-day-week/)
+
+> 最牛的求一个日期是星期几的算法：先看代码
+>
+> ```c++
+> int day_of_the_week(int y, int m, int d)
+> {
+>     int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
+>     if (m < 3)
+>         y -= 1;
+>
+>     return ((y + y / 4 - y / 100 + y / 400 + t[m - 1] + d) % 7);
+> }
+> // day_of_the_week(2023, 3, 14);
+> ```
+>
+> 很迷幻对吧，来看下[解释](https://www.quora.com/How-does-Tomohiko-Sakamotos-Algorithm-work)：
+>
+> 1. 首先需要知道日期的源头，也就是公历（Gregorian calendar）公元（AD）的 1.1 是星期几，星期一
+> 2. 先不看闰年，一月 31 天（7\*4+3），所以 2.1 会比 1.1 的星期多 3 天，3.1 比 1.1 多 3 天，以此类推得到数组 `t[] = {0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5}`
+> 3. 每一年是 365 = 52 \* 7 + 1，所以每一年都会比前一年多 1，我们需要加上 y
+> 4. 再看闰年（leap years）问题：
+>    1. 每 4 年一次闰年，会多一天，每 100 年又不会多一天，每 400 年又多一天
+>       1. 好吧每 100 年不算闰年，但每 400 年算闰年，[常识问题](https://www.quora.com/Why-do-we-skip-a-leap-year-every-100-years)：一年真实 365.24 天，所以每四年多一天（leap year）来修正（平均每年 365.25 天），于是每年就又多 0.01 天，所以每 100 年的时候，还得归还这一天，所以每 100 年的闰年就还是 365 天，但是每 4 \* 100 年，又遇到了 4 年问题，所以还得算是闰年
+>       2. _咱就是说自己也活不过百年，谁知道这事呢哈哈哈_
+>    2. 所以需要加上闰日：`+ y / 4 - y / 100 + y / 400`（都是整除）
+> 5. 例外：因为闰日（leap day）不是 1 月 0 日（d 不等于 0，如果是 0 就无脑加 d 就行了），而是 2 月 29 日，所以当年不能被算在里面（按照 4 已经算了一个闰日了），如果是 1、2 月，要将 y 减 1，y/4 这些值按照上一年算，不会多算一天（这是一种非常简洁的办法，牺牲了可读性。。）
+>    1. 这样还有个小问题，就是把非闰年也当作闰年来做了，这样 2.28 - 3.1 中间空了一天，所以作者把 2 月之后的每一天都减少了 1，这样来弥补 gap，很聪明。。
+>    2. 所以现在的数组：`t[] now becomes {0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4}`
+>
+> 最终就是以上的代码，其实还需要加上一个基数（起始的星期几，是 1，但是 d 已经是从 1 开始计数了，也就不用加了），核心思路就是计算出距离公元 1.1 的偏差，通过周期来简化。
+>
+> 解析完了，感觉很费解。。很烧脑哈哈，自己太笨了。
+>
+> [c++ playground](https://www.sololearn.com/compiler-playground/cpp)
+
+[knip 检测出项目中未用到的文件/导出](https://github.com/webpro/knip)
+
+> 很精致的项目，功能很全，插件也挺多的（Knip is Dutch for a "cut". ）
+>
+> 试了下公司的项目，效果却并不是很好（可能是使用姿势不对）
+
+[useEffect 在 SSR 的时候为什么不执行](https://codewithhugo.com/react-useeffect-ssr/)
+
+> useEffect 只会在 mount/update 之后才会执行（页面上渲染**后**）
+>
+> Your understanding is correct. useEffect happens _after_ mount/update, but the server doesn’t mount so it doesn’t happen.
+>
+> — Kent C. Dodds (@kentcdodds) [February 26, 2021](https://twitter.com/kentcdodds/status/1365359744991469570?ref_src=twsrc^tfw)
+>
+> “it [useEffect] won’t run on the server, but **it also won’t warn**.”
+>
+> — Hugo (@hugo) February 26, 2021
+
+[TS 10x faster for IntelliSense](https://github.com/johnsoncodehk/typescript-10x-faster-poc)
+
+> volar 作者对于编辑器 TS 推断重计算太慢做的优化的 POC(proof of concept)，优化方法是假定 AST Node 的所有属性一致，就复用之前缓存的计算结果，用来精细化更新。最后也说这个方法不一定能在所有场景使用，针对于特定的性能瓶颈。
+
+[World ID](https://worldcoin.org/blog/announcements/introducing-world-id-and-sdk)
+
+> _As we venture into the exciting new Age of Artificial Intelligence, solving proof of personhood is more important than ever—specifically to ensure democratic access and governance of these systems, fairly distribute the benefits generated and know who and what to trust online._
+>
+> AI 时代，需要一个真正的身份（Proof of personhood），这个公司用红膜信息生成唯一的 key。[github](https://github.com/worldcoin)
+
 ### 【资讯 & 潮流】
+
+> **需要标注收录时间**
+
+[Microsoft 365 Copilot 发布了](https://mp.weixin.qq.com/s/YgiurOE0uZ7lRDx1ehpbhQ)
+
+> 2023.03.17 13:43:38 +0800
+>
+> GPT-4 全面接入微软 office 全家桶，要失业了
+
+[永不丢失的网络身份](https://github.com/ruanyf/weekly/blob/master/docs/issue-246.md)
+
+> 2023.03.17 13:01:27 +0800
+>
+> 来自 ruanyifeng 的 weekly
+>
+> 社交网络账号、邮箱，都是所属于公司，而非属于我们自己，**有没有办法，让网络身份真正属于使用者，完全受你控制，其他任何人都无法夺走，永不丢失呢？**
+>
+> 回答是有办法的，而且已经实现了。
+>
+> 方法就是你用一个密钥对，作为自己的网络身份，公钥是你的用户 ID，私钥用来身份验证。
+>
+> 这保证了每个用户的身份都是唯一的，只要私钥不泄漏，任何人都无法夺走你的账号。
+>
+> 事实上，加密货币的身份体系就是这样设计的。用户用钱包表示身份，每个钱包的编号就是用户的公钥，必须用对应的私钥，才能往里面存取加密货币。这保证了你对钱包的绝对控制。
+>
+> OpenAI 公司的首席执行官 [WorldCoin 项目](https://worldcoin.org/)：通过虹膜信息存进区区块链生成密钥对作为网络 ID
 
 [BitTorrent 20 年的故事](https://torrentfreak.com/bittorrent-turns-20-the-file-sharing-revolution-revisited-210702/)
 

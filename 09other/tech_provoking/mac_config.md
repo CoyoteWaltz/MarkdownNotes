@@ -277,6 +277,7 @@ defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global defaul
 - javascript console utils：写 JS 的时候让`console.log`更加方便，`⌘ + ⇧ + L`生成`console.log`行（选中变量会自动填充），`⌘ + ⇧ + D`删除文档内所有的`console.log`行（但那一行不会被删。。），PS：由于删除的快捷键被 Dato 占用了，就改成了`⌘ + ⌥ + D`
 - code tour：在 vscode 中的代码指引
 - outline map：同事推荐的，好评！能够把代码结构作为目录在侧边展示，很棒！
+- inline fold：可以把 classname 给 fold 起来（安装后，在 keyboard shortcut 搜 inline cut 加了个 toggle 的快捷键 `⌘ + k ⌘ + ⌥ + f`
 
 推荐一手托尼的 [vscode settings](https://github.com/antfu/vscode-settings)
 
@@ -405,7 +406,7 @@ sudo chown -R $USER $(brew --prefix)
 
 若是不懂 prompt 的含义，可以 `starship explain` 来了解 :D
 
-P.S. 来自社区的[配置](https://gist.github.com/philpicton/a232b9662f07e8ce44409f7a03fed8b9) and [这个](https://gist.github.com/ryo-ARAKI/48a11585299f9032fa4bda60c9bba593)，之后体验下
+P.S. 来自社区的[配置](https://gist.github.com/philpicton/a232b9662f07e8ce44409f7a03fed8b9) and [这个](https://gist.github.com/ryo-ARAKI/48a11585299f9032fa4bda60c9bba593)，~~之后体验下~~
 
 记得将 `warp` 的字体也设置成 Nerd Fonts 字体（比如 `MesloLGS NF` 字体）
 

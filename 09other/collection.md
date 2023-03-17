@@ -34,11 +34,15 @@ PT Sans
 
 [Atom 作者出品 zed 编辑器 rust 写的 非常快](https://zed.dev/)（分享 link：https://zed.dev/invites/dLEb7PCmFLpZ7kdJ）
 
+[UA List](https://www.useragents.me/)
+
 ## 资源
 
 [程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
 
 ## 收藏有趣的 links
+
+[经典掌游在线](https://play.webrcade.com/)
 
 https://weexpire.org/（这个项目是死了之后可以留个言给想要的人，真行）
 

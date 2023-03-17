@@ -316,8 +316,6 @@ Gaia’s design philosophy is to **reuse existing cloud providers** and infrastr
 
 在 Gaia 系统里，用户的区块链认证路由信息 URL 指向一个 json 对象，包含了只想用户 Gaia 数据仓库的 url。当一个 app 想知道用户 Gaia data locker，通过 http 请求就可以得到一个文件。要找一个由另外的用户创建的文件，需要在整个客户端侧进行搜索时，在初识的查询会有时间的消耗，但是大部分路由信息会被缓存（浏览器，app），之后的查询会快很多。
 
-![image-20200511174400438](/Users/coyote/Library/Application Support/typora-user-images/image-20200511174400438.png)
-
 **Performance.** 这样设计的目标在于能达到传统给予云服务应用的传输效率，在保障安全和容错能力的前提下。
 
 **System Scalability.** 存储层在架构上并不是一个扩展性的瓶颈。Altas peer network 量化性非常好，因为他不存用户文件的索引，而是存指向用户存储后端的指针，而且只有在用户新增或者改变存储后端或公钥映射或者用户注册的时候才介入。目前看来容量问题还需要用大量用户来发现问题，在未来也是一个研究方向和挑战。

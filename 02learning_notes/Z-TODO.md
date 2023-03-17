@@ -16,6 +16,8 @@ Marked：
 
 Rust？
 
+- https://google.github.io/comprehensive-rust/
+
 ## 2022 learning plan
 
 > 说实话，2021 的基本没完成。
