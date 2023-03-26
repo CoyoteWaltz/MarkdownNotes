@@ -792,6 +792,22 @@ const memoizedCallback = useCallback(() => {
 
 [formik](https://formik.org/)，React 的表单 API。。可以去了解一下
 
+### useLayoutEffect
+
+a version of [`useEffect`](https://react.dev/reference/react/useEffect) that fires **before the browser repaints the screen**.
+
+[官方说明](https://react.dev/reference/react/useLayoutEffect)他其实是对性能有损失的，尽可能使用 useEffect
+
+因为：_The code inside `useLayoutEffect` and all state updates scheduled from it **block the browser from repainting the screen.** When used excessively, this makes your app slow. When possible, prefer [`useEffect`.](https://react.dev/reference/react/useEffect)_
+
+所以为什么 useEffect 是异步的，就是让出浏览器的控制权，先绘制页面
+
+什么时候用？比如一些场景：
+
+- Measuring layout before the browser repaints the screen
+  - 在 dom 变化之后，paint 之前，需要知道元素的位置/宽高来针对性的作出变化，再次 render 改变 dom，画出正确的页面
+  - 具体例子可以看官网，日常也比较实用。**\*All of this needs to happen before the browser repaints the screen.** You don’t want the user to see the component moving.\*
+
 ## Fragments
 
 `<React.Fragment>`这个标签里面可以放一组元素标签，可以不需要产生额外的 DOM 节点。

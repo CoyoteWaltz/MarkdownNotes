@@ -208,3 +208,31 @@ pie
     "Magnesium" : 10.01
     "Iron" :  5
 ```
+
+#### Mindmaps
+
+[typora 1.5 支持](https://support.typora.io/What's-New-1.5/)，很棒啊，用 mermaid 就很符合直觉
+
+```mermaid
+mindmap
+  root((mindmap))
+    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness<br/>and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid
+    Coyote
+    	What is mermaid
+    	How to use mermaid
+    	Why use mermaid
+```

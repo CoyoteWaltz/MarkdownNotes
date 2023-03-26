@@ -37,7 +37,7 @@
 }
 ```
 
-有 esm 和 cjs 两种的情况下分条件导出（build 了两份，或者 wrapper 出一份 mjs），可以通过 `require` and `import`
+有 esm 和 cjs 两种的情况下[分条件导出](https://nodejs.org/api/packages.html#imports)（build 了两份，或者 wrapper 出一份 mjs），可以通过 `require` and `import`
 
 ```json
   "exports": {
@@ -47,6 +47,44 @@
     },
   },
 ```
+
+[对于 TS package 来说](https://www.typescriptlang.org/docs/handbook/esm-node.html#packagejson-exports-imports-and-self-referencing)：
+
+- 首先也是可以用的
+- 如果 `main` 指向的是 `./lib/index.js` TS 则会去找 `./lib/index.d.ts`，同时也可以用 `"types"` 字段去指明
+- 对于 `"import"` 和 `"require"` 来说，也可以指定不同的类型路径
+
+```json
+// package.json
+{
+  "name": "my-package",
+  "type": "module",
+  "exports": {
+    ".": {
+      // Entry-point for `import "my-package"` in ESM
+      "import": {
+        // Where TypeScript will look.
+        "types": "./types/esm/index.d.ts",
+        // Where Node.js will look.
+        "default": "./esm/index.js"
+      },
+      // Entry-point for `require("my-package") in CJS
+      "require": {
+        // Where TypeScript will look.
+        "types": "./types/commonjs/index.d.cts",
+        // Where Node.js will look.
+        "default": "./commonjs/index.cjs"
+      }
+    }
+  },
+  // Fall-back for older versions of TypeScript
+  "types": "./types/index.d.ts",
+  // CJS fall-back for older versions of Node.js
+  "main": "./commonjs/index.cjs"
+}
+```
+
+_来自 [TS 4.7 log](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#packagejson-exports-imports-and-self-referencing)_
 
 ### name
 

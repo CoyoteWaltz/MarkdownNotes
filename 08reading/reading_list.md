@@ -9,6 +9,10 @@
 > 怎么感觉在做和马老师[一样的事情](https://thinking.tomotoes.com/)
 >
 > 链接/Notion 爬下来的 md + 摘要
+>
+> Dont Highlight, Do Summary!
+>
+> 用于信息收集，还未到学习阶段～真的用到再学！
 
 > TODO:
 >
@@ -2506,7 +2510,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 > - Object.keys/entries：因为 ts 是 duck deducing，在 type 之外的属性其实也是合法的，不能仅返回 `keyof T`
 > - Generics for `JSON.parse`, `Response.json` etc
 
-[状态管理 nanostores](https://github.com/nanostores/nanostores)
+【Archived to [nanostores](../02learning_notes/front_end_notes/state/nanostores.md)】[状态管理 nanostores](https://github.com/nanostores/nanostores)
 
 > 细看了源码，写的还是很有意思的，一个 atom store 完成了基础类型变量的状态系统，衍生出 map 处理对象类型，先写的 js 再加的 ts 类型，感觉写起来会方便很多（不用顾及写代码时候的类型了）
 >
@@ -2555,14 +2559,6 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 day.js
 
 > JS 时间库用 day.js
-
-[core-js 作者开源历程](https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md)
-
-> _It is not a framework or a library, whose usage requires the developer to know their API, periodically look at the documentation, or at least remember that he or she is using it._
->
-> _...in November 2014, I published `core-js` as an open-source project. Maybe it was the biggest mistake in my life._
->
-> *I didn't promote myself or the project. *This is the second mistake._ `core-js` didn't have a website or social media accounts, only GitHub. I did not show up at conferences to talk about it. I wrote almost no posts about it. I was just making a really useful and wanted part of the modern development stack, and I was happy about that. I gave developers a chance to use the most modern and really necessary JavaScript features without waiting for years until they are implemented in all required engines, without thinking about compatibility and bugs — and they started to use it. _
 
 [lerna to Nrwl](https://github.com/lerna/lerna/issues/3121)
 
@@ -2684,9 +2680,236 @@ day.js
 >
 > AI 时代，需要一个真正的身份（Proof of personhood），这个公司用红膜信息生成唯一的 key。[github](https://github.com/worldcoin)
 
+[【好文】从 rust 看编程语言](https://mp.weixin.qq.com/s/ZA-_BARVAWe0Q4eM0lYgwg)
+
+> 讲述了 rust 等不同语言的世界观，编程语言在设计上的取舍；以及 rust 语言的特性，好文，值得反复看，学 rust 之后再看看
+>
+> Rust 对我们做系统的启示：首先是把系统的运行规则清晰地定义出来，然后对其做类似从特殊化的定理到一般化的公理那样的推敲和抽象，找到满足系统运行的最小化的核心规则，最后用这些规则来限制系统的行为。
+
+[ESM 与 CJS 的 interop（互通）](https://zhuanlan.zhihu.com/p/446113714)
+
+> 来自杨健的文章
+>
+> 讲述了 ESM 模块和 CJS 模块之间是如何互通的，只需要支持个`import foo from 'bar'`这个 syntax sugar 即可满足（即`import foo from 'bar'` 等价于 `const foo = require('bar')`），然而却同时错误的支持了`export default 'xxx'`这个语法，为后续的交互性问题埋下了祸根
+>
+> Babel 将 ES 模块转成 CJS 模块，会设置 `__esModule` 属性标记是 ESM 模块，按照 `default` 导出时，能够知道使用 `module.exports.default`（可以跑下 babel 看看）
+>
+> 当 Node.js 最终发布他们的 ES 模块实现时，他们采用了原来的实现，即`default`导出总是等于`module.exports`，这打破了与现有的 ES 模块生态系统的兼容性(即和 Babel runtime 的兼容性)，这些模块已经被 Babel 交叉编译成 CommonJS 模块。为此，esbuild 做了兼容性修复...
+>
+> 其他一些：
+>
+> esbuild 0.14.4 引入的 break change
+>
+> esbuild 的 changelog 业界良心，能学到新东西
+>
+> babel 这种大工具也是会犯错（方向错了）
+>
+> js 真难写哈哈
+>
+> 杨健写了好多文章...很多都很有兴趣去看
+
+[turbowatch](https://github.com/gajus/turbowatch)
+
+> Extremely fast file change detector and task orchestrator for Node.js.
+>
+> [nodemon](https://github.com/remy/nodemon/) 的更好替代品，有更丰富的功能比如 nodejs API, retries, debounce, ...
+
+[不推荐 export default](https://zhuanlan.zhihu.com/p/97335917)
+
+> 杨健的文章，深入理解 ES Module & 编译，CJS & ESM
+>
+> 也就是 `export default` 代码在构建之后，被 node 环境引入的时候需要改写 `require('xxx').default` 这样丑陋的代码等一些问题。
+>
+> React 不支持 esm 入口，`module.exports = React.default || React` 以及错误用了 `default export`
+>
+> 推荐：
+>
+> - 不使用 `export default`
+> - 编译器使用 rollup 的 auto 模式
+
+[TS 体操：属性互斥](https://zhuanlan.zhihu.com/p/522191794)
+
+> 常见场景：其中有 a 和 b 字段是二选一的, foo 是可选的。自己也遇到过，挺棘手的。
+>
+> 文中给出了解决方案
+>
+> - 手工用 never 处理类型（也是自己用的方法，比较初级，也是核心逻辑）
+>
+> - 函数重载
+>
+> - 用体操自动加 never 字段
+>
+>   - 可以实现 `JustOne<UserConfig, ['a', 'b','c']>`
+>
+> - XOR（也见过这个体操）
+>
+>   - 什么是 [XOR](https://en.wikipedia.org/wiki/Exclusive_or)，门电路中，两个输入**互不相同**，但**只要其中一个**有 1 则输出 1，其他输出 0
+>
+>   - 在 TS 中的场景，比如 `XOR<{ a: boolean}, { b: boolean }>` 就是只能有 `a` 或者 `b` 其中一个给了值（有 1），没有给的情况就是输入 0，如果两个都输入了 1（都有值），就不符合类型
+>
+>   - ```typescript
+>     export type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never }; // => U without T, 把 T 独有的 key 都变成 never
+>     export type XOR<T, U> = T | U extends object
+>       ? (Without<T, U> & U) | (Without<U, T> & T)
+>       : T | U; // 最终生成的结果还是类似自动加 never
+>     ```
+>
+>   - 在这个[回答](https://stackoverflow.com/questions/44425344/typescript-interface-with-xor-barstring-xor-cannumber)中也看到了这段代码
+
+[聊聊前端的未来 & Vercel](https://live.juejin.cn/4354/vercel)
+
+> 我司 web infra 大咖面对面，[文字版](https://zhuanlan.zhihu.com/p/510366735)
+>
+> 介绍了现代 web 渲染的选型，CSR SSR ISR ...
+>
+> 细粒度组件渲染
+>
+> 很多 FAQ 也很有意思
+
+[web container 浅析](https://zhuanlan.zhihu.com/p/446329929)
+
+> 就是魔法站点 https://stackblitz.com/ 能在浏览器跑项目（node）所需的技术实现分析
+>
+> 浅了解一下，还是挺有意思的，很牛啊，node 模块用 wasm 来写，其他模块用 js 实现，终端的指令也用 js 来实现来模拟 命令行（工作量很大）
+>
+> 更多可看[这篇官方介绍（mark）](https://blog.stackblitz.com/posts/introducing-webcontainers/)
+
+[write own reactive signal library](https://www.lksh.dev/blog/writing-your-own-reactive-signal-library/)
+
+> 写一个响应式“signal”库，文中给的代码非常简单
+>
+> 更好的理解响应式 & signal
+>
+> 以及 Solidjs 的 signal，推荐了他们的 [playground](https://playground.solidjs.com/) 可以看到是如何编译代码的
+>
+> ```javascript
+> let currentListener = undefined;
+>
+> function createEffect(callback) {
+>   currentListener = callback;
+>   callback();
+>   currentListener = undefined;
+> }
+>
+> function createSignal(initialValue) {
+>   let value = initialValue;
+>   // a set of callback functions, from createEffect
+>   const subscribers = new Set();
+>
+>   const read = () => {
+>     if (currentListener !== undefined) {
+>       // before returning, track the current listener
+>       subscribers.add(currentListener);
+>     }
+>     return value;
+>   };
+>   const write = (newValue) => {
+>     value = newValue;
+>     // after setting the value, run any subscriber, aka effect, functions
+>     subscribers.forEach((fn) => fn());
+>   };
+>
+>   return [read, write];
+> }
+>
+> // use your signal
+> const [count, setCount] = createSignal(0);
+>
+> const button = document.createElement("button");
+> createEffect(() => {
+>   button.innerText = count();
+> });
+> button.addEventListener("click", () => {
+>   setCount(count() + 1);
+> });
+>
+> document.body.append(button);
+> ```
+
+[Visualise your app logic](https://stately.ai/)
+
+> 从 Xstate 文档跳过去的新站点，xstate 团队推出的 studio 用来通过状态机描述 app 的逻辑
+
+[React 还是不好处理 Prop-drilling](https://www.builder.io/blog/react-compiler-will-not-solve-prop-drilling)
+
+> 即使有 React-Forget（自动在编译环节给 FC 中增加 useMemo 和 useCallback），也没办法很好的处理 React prop drilling 的问题（state 变更，组件自上而下的 render）
+>
+> 而 signal 的方式能够让对应的 subscriber 更新，更加细粒度和高效
+>
+> builder.io 认为 Signal 更好
+
+[artus-cli](https://github.com/artus-cli/artus-cli)
+
+> 企业级 CLI 框架，个人目前用不到，可以作为 CLI 设计的参考学习
+
+[What is TSDoc](https://tsdoc.org/)
+
+> 微软
+>
+> 说白话就是在写函数头上的一堆 `/** @params */` 这样的注释，用于更好的生成代码文档
+>
+> [TSDoc](https://github.com/microsoft/tsdoc) 也是一个开源的库，用来解析 TS DOC 的，当然也有很多其他的工具解析了 DOC
+>
+> 三个必备条件：
+>
+> 1. **Extensibility:** Tools must be able to define their own custom tags to represent domain-specific metadata in a natural way.
+> 2. **Interoperability（互通性）:** Custom tags **must not prevent other tools from correctly analyzing the comment**. In order words, custom tags must use established syntax patterns that can be safely recognized and discarded during parsing.
+> 3. **Familiar syntax:** As much as possible, TSDoc should preserve the familiar style of JSDoc/Markdown. This also maximizes the likelihood that legacy comments will parse correctly as TSDoc.
+>
+> 为什么 JSDoc 不能成为标准？JSDoc 的语法不是严格要求的，而可以说是通过具体 API 的实现来推到出的注释，不满足 TS 强类型语言的诉求
+>
+> 有 [Playground](https://tsdoc.org/play)
+>
+> 差不多了解到这，后续需要深入再说
+
+[v8 更快的访问 super 属性](https://v8.dev/blog/fast-super)
+
+> super 关键字可以访问 class 的父类上的属性，依旧是用了 IC(inline cache)（还得去详细学习下）
+>
+> class 继承的最根本基础还是原型链！
+>
+> ```javascript
+> class A {}
+> A.prototype.x = 100;
+>
+> class B extends A {
+>   m() {
+>     return super.x;
+>   }
+> }
+> const b = new B();
+> b.m();
+> ```
+>
+> 这里的 B 继承 A，所以 `B.prototype.__proto__` 指向 `A.prototype`，b 是 B 的实例所以 `b.__proto__` 指向 `B.prototype`，执行 `m()` 寻找 `super.x` 的过程就是
+>
+> 1. 从 _home object_（这里就是 m 所定义的对象 `B.prototype`）
+
 ### 【资讯 & 潮流】
 
 > **需要标注收录时间**
+
+[electron 的十年](https://www.electronjs.org/blog/10-years-of-electron)
+
+> 2023.03.23 12:49:02 +0800
+>
+> Electron 从 2013.3.13 到现在已经十年了，是最稳定和主流的桌面应用构建工具之一。
+>
+> blog 介绍了起源，一开始叫 Atom Shell，结合了 nodejs 和 chromium 让其成为强有力的 web 技术的桌面构建工具。很多应用都是用 electron 开发的（Slack、Figma、VScode、Notion）
+>
+> Electron 的 release 节奏跟随 chromium 的发布节奏
+>
+> 通过建立 Working Group 来组织
+>
+> 自动化：_Not Goma_ 定制的 C++ 编译工具（基于 google 的 Goma）；Sheriff 开源的权限管理工具；Github Bots
+
+[改个应用名来提升性能](https://mp.weixin.qq.com/s/12bP8kEZ-FOArr3ypdtluw)
+
+> 2023.03.23 10:44:37 +0800
+>
+> Yandex 浏览器也是基于 chromium 内核的，但是他们发现即使自己的功能和 chrome 的一模一样，但是还是出现了性能问题，于是尝试把 browser.exe 改成了 chrome.exe 居然就好了。。。
+>
+> 他们发现 AMD 显卡会硬编码优化进程/程序名称列表，NVIDIA 显卡还不清楚，反正他们让 AMB 显卡也加入 Yandex 了
 
 [Microsoft 365 Copilot 发布了](https://mp.weixin.qq.com/s/YgiurOE0uZ7lRDx1ehpbhQ)
 
@@ -2711,6 +2934,16 @@ day.js
 > 事实上，加密货币的身份体系就是这样设计的。用户用钱包表示身份，每个钱包的编号就是用户的公钥，必须用对应的私钥，才能往里面存取加密货币。这保证了你对钱包的绝对控制。
 >
 > OpenAI 公司的首席执行官 [WorldCoin 项目](https://worldcoin.org/)：通过虹膜信息存进区区块链生成密钥对作为网络 ID
+
+[core-js 作者开源历程](https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md)
+
+> 2023.03
+>
+> _It is not a framework or a library, whose usage requires the developer to know their API, periodically look at the documentation, or at least remember that he or she is using it._
+>
+> _...in November 2014, I published `core-js` as an open-source project. Maybe it was the biggest mistake in my life._
+>
+> I didn't promote myself or the project. \*This is the second mistake. `core-js` didn't have a website or social media accounts, only GitHub. I did not show up at conferences to talk about it. I wrote almost no posts about it. I was just making a really useful and wanted part of the modern development stack, and I was happy about that. I gave developers a chance to use the most modern and really necessary JavaScript features without waiting for years until they are implemented in all required engines, without thinking about compatibility and bugs — and they started to use it.
 
 [BitTorrent 20 年的故事](https://torrentfreak.com/bittorrent-turns-20-the-file-sharing-revolution-revisited-210702/)
 

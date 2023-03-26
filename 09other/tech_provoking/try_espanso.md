@@ -146,7 +146,7 @@ format: "%Y.%m.%d %k:%M:%S %z"
 ```bash
 espanso install xxx
 # espanso uninstall xxx
-# espanso list
+# espanso package list
 ```
 
 更多内容用到的时候再详细看官网！package、...

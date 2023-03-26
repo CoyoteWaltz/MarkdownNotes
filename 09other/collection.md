@@ -1,3 +1,17 @@
+## CSS Magic
+
+[CSS tips 常见的 CSS 技巧](https://markodenic.com/css-tips/)
+
+[you dont need JS 纯 html/css 实现的各种特效 mark](http://youmightnotneedjs.com/)
+
+[CSS 奇技淫巧](https://github.com/chokcoco/iCSS)
+
+[来点艺术 code pan 2022 top 100 很多特效都很棒 mark 下以后借鉴](https://codepen.io/2022/popular/pens/)
+
+[css-doodle 很厉害的想法和设计](https://css-doodle.com/)
+
+[gradient-generator 渐变色 CSS 生成器](https://www.joshwcomeau.com/gradient-generator/)
+
 ## 图标 & 图片
 
 [搜索所有可用 icon](https://icones.js.org/)
@@ -41,6 +55,8 @@ PT Sans
 [程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
 
 ## 收藏有趣的 links
+
+[Awesome GPT](https://github.com/dalinvip/Awesome-ChatGPT)
 
 [经典掌游在线](https://play.webrcade.com/)
 
@@ -88,10 +104,6 @@ https://esm.sh/（esm import npm packages from url）
 
 [小红书的设计思维](https://rpdc.xiaohongshu.com/52-design-principles)
 
-[gradient-generator 渐变色 CSS 生成器](https://www.joshwcomeau.com/gradient-generator/)
-
-[css-doodle 很厉害的想法和设计](https://css-doodle.com/)
-
 [charm 命令行工具玩出花](https://charm.sh/)
 
 [awesomelist](https://awesomelists.top/#/)
@@ -121,6 +133,8 @@ https://esm.sh/（esm import npm packages from url）
 [semantic-release](https://github.com/semantic-release/semantic-release)
 
 [espanso rust 写的 snippet 工具](https://github.com/espanso/espanso)
+
+[rrweb record and replay web](https://github.com/rrweb-io/rrweb)
 
 ## 待体验
 
