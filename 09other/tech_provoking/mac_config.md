@@ -207,11 +207,27 @@ Use `brew install rar` to install both the rar and unrar binaries.
 
 命令行用`x`即可
 
+### 截图软件 Shottr
+
+https://shottr.cc/
+
+非常棒的软件，免费！当然也可以 buy coffee for 作者。
+
+功能很强大，就是从 Xnip 切换过来还需要适应一段时间。
+
+自带 OCR，滚动截图，Pin（快捷键交互没有 Xnip 丝滑），还可以模糊文字。
+
+夸一下滚动截图的思路是直接控制电脑然后自动 scroll，比 xnip 的 CV 识别强多了（经常识别失败）。。后续可以裁剪，也无所谓滚动多少。
+
+作者这个产品是 from hoppy，真的很棒。
+
+也有一些体验是不及 Xnip，比如 pin 在屏幕上的图片放大缩小不是很便捷，截图不会有预选框，尺寸也无法预先控制
+
 ### 截图软件 Xnip
 
 http://xnipapp.com/
 
-很好用啊！免费，App store 直接下载
+很好用啊！免费，App store 直接下载。高级功能需要付费（已付费）
 
 ### cleanmymac
 

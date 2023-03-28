@@ -2883,7 +2883,52 @@ day.js
 >
 > 这里的 B 继承 A，所以 `B.prototype.__proto__` 指向 `A.prototype`，b 是 B 的实例所以 `b.__proto__` 指向 `B.prototype`，执行 `m()` 寻找 `super.x` 的过程就是
 >
-> 1. 从 _home object_（这里就是 m 所定义的对象 `B.prototype`）
+> 1. 从 _home object_（这里就是 m 所定义的对象 `B.prototype`），目标就是让访问 `super.x` 的过程变得更快！
+> 2. 这个 case 中，x 是很快就能被访问到的，但是很多情况可能需要 look up 通过很长的 prototype chain 才能寻找到，此时就需要用 IC 进行加速
+> 3. 另说一下，这里即使 `B.prototype` 有 `x` 也不会去找的，因为 `super` 是从 home object 的 `__proto__`（也就是 `B.prototype.__proto__`）去找，receiver 就是访问 super 函数的调用者（receiver）
+> 4. 实现细节：
+>    1. [Ignition](https://v8.dev/docs/ignition) bytecode, `LdaNamedPropertyFromSuper`, a new IC, `LoadSuperIC`, for speeding up super property loads.
+>    2. `LoadSuperIC` reuses the existing IC machinery for property loads, just **with a different lookup start object**.
+>    3. 具体代码在 [`JSNativeContextSpecialization::ReduceNamedAccess`](https://source.chromium.org/chromium/chromium/src/+/master:v8/src/compiler/js-native-context-specialization.cc;l=1130)，chromium 项目的在线编辑器，搜索代码比较方便（虽然看不懂代码）
+> 5. 最后有一些场景可能是 vm 优化不到的，比如直接给 `super.x = ...` 修改了。或者用 mixin 方式会把 inline cache 变成全局的 cache (megamorphic)就慢了点
+
+[React 2023/3 进展](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023)
+
+> RSC React Server Component（了解不多）
+>
+> - async/await 方式来从服务端获取数据
+> - 推荐用更高级抽象的框架去使用这个特性（比如 nextjs）
+>
+> Asset Loading
+>
+> - Suspense 能够在一些组件/资源/数据加载的时候展示 loading 状态的内容
+>
+> Document Metadata
+>
+> React Optimizing Compiler
+>
+> - React Forget 编译器已经在开发中 and 重构过，能够帮助 react 团队更好的了解 React 的响应式——an automatic _reactivity_ compiler
+> - React 的问题是太响应式了（会 re-render 很多次比如深浅比较的问题），React Forget 的意义在于 apps re-render only when state values _meaningfully_ change
+> - 完全与 Babel 解耦，核心的编译 API 输入和输出都是 AST，上层可以和 Babel 等多种
+> - 更好的理解组件的语义 in JS 语言，需要不断扩展对于 JS 表达式的理解
+> - 在 Meta 内部在试点，等验证之后会公布更多细节和开源
+>
+> Offscreen Rendering
+>
+> - 很有用的特性，也是推荐通过上层框架封装后再使用，以后就可以用到 vue 中的 keep-alive 了哈哈
+
+[why react re-render](https://www.joshwcomeau.com/react/why-react-re-renders/)
+
+> 一篇很好的 react 入门/深入文章，有可交互的例子说明了 react 的 render loop，和一些我们认为 react 会 render 的误区：
+>
+> 误区 并不是所有的 props 变化才会引起组件渲染：
+>
+> - 场景：一个组件 A 的 render 中包含一个没有 props 的纯组件 B，当 A re-render 的时候，B 也会 re-render，理想情况我们直觉是认为无需改动的组件可以跳过渲染，但是作为框架，_it would be counter-productive to memoize every single component we create._ 比较每一次组件是否渲染是很费劲的，所以 react 并没有做，而是推荐用 memo 将组件包裹（之后就看 React Forget 了）
+> - context 场景，即使 memo 的组件其中用了 useContext，这个 context 也会被认作是一个 invisible state，可以理解成一个 prop，组件会随着 context 的变化而 rerender
+>
+> 文章介绍了用 react devtools，控制台的 Profiler 可以看到每次 render 的组件、render 一次所用的时间
+>
+> 以及一些性能优化的 tips
 
 ### 【资讯 & 潮流】
 
