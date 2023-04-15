@@ -171,56 +171,6 @@ type demo = ModifyPropType<{
 }, 'id', string>,
 ```
 
-### 关于 enum
-
-Enum to union：`typeof keyof ENUM`
-
-普通 enum 的真正编译结果
-
-```TypeScript
-enum K {
-    a = 1,
-    b,
-    c
-}
-```
-
-⬇️
-
-```JavaScript
-var K;
-
-(function (K) {
-    K[K["a"] = 1] = "a";
-    K[K["b"] = 2] = "b";
-    K[K["c"] = 3] = "c";
-})(K || (K = {}));
-```
-
-const enum 在编译的时候直接会把对应的值取过去
-
-### 取 enum 的 key 的 string 值
-
-（其实和 object 一样，传入对应的 key 即可）
-
-Enum 可以被 `Object.entries` 调用，返回 `[[key, value], ...]`
-
-```TypeScript
-enum GenderEnum{
-  'male' = '男生',
-  'female' = '女生'
-}
-
-interface IPerson{
-   name:string
-   gender:keyof typeof GenderEnum // 如果需要用到 枚举的 key
-}
-
-let bob:IPerson = {name:"bob",gender:'male'}
-
-<span>{Gender[bob.gender]}</span>
-```
-
 ### 封装条件守卫，便于后续不必要的断言
 
 ```TypeScript

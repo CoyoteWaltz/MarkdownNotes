@@ -1,5 +1,239 @@
 ## 指令回顾 linux & macOS
 
+[toc]
+
+### sed
+
+> [参考](https://mp.weixin.qq.com/s/cZ1zPxqTlJLoBdsVxb8rNQ)
+
+#### 简介
+
+**Stream Editor** 用程序的方式来编辑文本，非常强大的神器，功能也非常复杂
+
+使用预先设定好的编辑指令对输入的文本进行编辑，完成之后输出编辑结果。**注意：只是输出结果（stream to next pipe），而不是修改文件内容**
+
+- sed 从输入文件中读取内容，每次处理一行内容，并把当前的一行内容存储在临时的缓冲区中，称为 `模式空间`。
+- 接着用 sed 命令处理缓存区中的内容；
+- 处理完毕后，把缓存区的内容送往屏幕；
+- 接着处理下一行；
+
+基于正则表达式
+
+#### 基础用法
+
+**（一）数字定址**
+
+数字定址其实就是通过数字去指定要操作的行，有几种方式，每种方式都有不同的应用场景。
+
+```bash
+# 只将第4行中hello替换为A
+$ sed '4s/hello/A/g' file.txt
+# 将第2-4行中hello替换为A
+$ sed '2,4s/hello/A/g' file.txt
+# 从第2行开始，往下数4行，也就是2-6行
+$ sed '2,+4s/hello/A/g' file.txt
+# 将最后1行中hello替换为A
+$ sed '$s/hello/A/g' file.txt
+# 除了第1行，其它行将hello替换为A
+$ sed '1!s/hello/A/g' file.txt
+```
+
+**（二）正则定址**
+
+正则定址，是通过正则表达式的匹配来确定需要处理编辑哪些行，其它行就不需要处理
+
+```bash
+# 将匹配到hello的行执行删除操作，d 表示删除
+$ sed '/hello/d' file.txt
+# 删除空行，"^$" 表示空行
+$ sed '/^$/d' file.txt
+# 将匹配到以ts开头的行到以te开头的行之间所有行进行删除
+$ sed '/^ts/,/^te/d' file.txt
+```
+
+**（三）数字定址和正则定址混用**
+
+数字定址和正则定址可以配合使用
+
+```bash
+# 匹配从第1行到ts开头的行，把匹配的行执行删除
+$ sed '1,/^ts/d' file.txt
+```
+
+#### 子命令
+
+**替换子命令 s**
+
+```bash
+# 将每行的hello替换为HELLO，只替换匹配到的第一个
+$ sed 's/hello/HELLO/' file.txt
+# 将匹配到的hello全部替换为HELLO，g表示替换一行所有匹配到的
+$ sed 's/hello/HELLO/g' file.txt
+# 将第2次匹配到的hello替换
+$ sed 's/hello/A/2' file.txt
+# 将第2次后匹配到的所有都替换
+$ sed 's/hello/A/2g' file.txt
+# 在行首加#号
+$ sed 's/^/#/g' file.txt
+# 在行尾加东西
+$ sed 's/$/xxx/g' file.txt
+```
+
+```bash
+# 使用扩展正则表达式，结果为：A
+$ echo "hello 123 world" | sed -r 's/[a-z]+ [0-9]+ [a-z]+/A/'
+
+# <b>This</b> is what <span style="x">I</span> meant
+# 要求：去掉上述html文件中的tags
+$ sed 's/<[^>]*>//g' file.txt
+```
+
+多个匹配
+
+```bash
+# 将1-3行的my替换为your，且3行以后的This替换为That
+$ sed '1,3s/my/your/g; 3,$s/This/That/g' my.txt
+# 等价于
+$ sed -e '1,3s/my/your/g' -e '3,$s/This/That/g' my.txt
+```
+
+使用匹配到的变量
+
+```bash
+# 将匹配到的字符串前后加双引号，结果为：My "name" chopin
+# "&"表示匹配到的整个结果集
+$ echo "My name chopin" | sed 's/name/"&"/'
+
+# 如下命令，结果为：hello=world，"\1"和"\2"表示圆括号匹配到的值
+$ echo "hello,123,world" | sed 's/\([^,]\),.*,\(.*\)/\1=\2/'
+```
+
+其它几个常见用法
+
+```bash
+# 只将修改匹配到行内容打印出来，-n关闭了模式空间的打印模式
+$ sed -n 's/i/A/p' file.txt
+
+# 替换是忽略大小写，将大小写i替换为A
+$ sed -n 's/i/A/i' file.txt
+
+# 将替换后的内容另存为一个文件
+$ sed -n 's/i/A/w b.txt' file.txt
+$ sed -n 's/i/A/' file.txt > b.txt
+```
+
+**追加行子命令 a**
+
+子命令 `a` 表示在指定行下边插入指定的内容行；
+
+```bash
+# 将所有行下边都添加一行内容A
+$ sed 'a A' file.txt
+# 将文件中1-2行下边都添加一行内容A
+$ sed '1,2a A' file.txt
+```
+
+**插入行子命令 i**
+
+子命令 `i` 和 `a` 使用基本一样，只不过是在指定行上边插入指定的内容行
+
+```
+# 将文件中1-2行上边都添加一行内容A
+$ sed '1,2i A'
+```
+
+**替换行子命令 c**
+
+子命令 `c` 是表示把指定的行内容替换为自己需要的行内容
+
+``` bash
+# 将文件所有行都分别替换为A
+$ sed 'c A' file.txt
+# 将文件中1-2行内容替换为A，注意：两行内容变成了一行A
+$ sed '1,2c A' file.txt
+# 将1-2行内容分别替换为A行内容
+$ sed '1,2c A\nA' file.txt
+```
+
+**删除行子命令 d**
+
+子命令 `d` 表示删除指定的内容行，这个很容理解
+
+```bash
+# 将文件中1-3行内容删除
+$ sed '1,3d' file.txt
+# 将文件中This开头的行内容删除
+$ sed '/^This/d' file.txt
+```
+
+**设置行号子命令=**
+
+子命令 `=`，可以将行号打印出来
+
+```bash
+# 将指定行上边显示行号
+$ sed '1,2=' file.txt  # 貌似这个不太对
+# 可以将行号设置在行首
+$ sed '=' file.txt | sed 'N;s/\n/\t/'
+```
+
+**子命令 N**
+
+子命令 `N`，把下一行内容纳入当缓存区做匹配，注意的是第一行的 `\n` 仍然保留
+
+其实就是当前行的下一行内容也读进缓存区，一起做匹配和修改，举个例子吧
+
+```bash
+# 将偶数行内容合并到奇数行
+$ sed 'N;s/\n//' file.txt
+```
+
+基本语法是：指令，正则，replacer，等 用 `/` 连接
+
+#### 实战操作
+
+1. 删除文件每行的第二个字符
+
+```bash
+$ sed -r 's/(.)(.)(.*)$/\1\3/' file.txt
+```
+
+2. 交换每行的第一个字符和第二个字符
+
+```bash
+$ sed -r ‘s/(.)(.)(.*)/\2\1\3/’ file.txt
+```
+
+3. 删除文件中所有的数字
+
+```bash
+$ sed 's/[0-9]//g' file.txt
+```
+
+4. 用制表符替换文件中出现的所有空格
+
+```bash
+$ sed -r 's/ +/\t/g' file.txt
+```
+
+5. 把所有大写字母用括号**()**括起来
+
+```bash
+$ sed -r 's/([A-Z])/(\1)/g'
+```
+
+6. 隔行删除
+
+```bash
+$ sed '0~2{d}' file.txt
+```
+
+7. 删除所有空白行
+
+```bash
+$ sed '/^$/d' file.txt
+```
+
 ### tree
 
 > 注意，macOS 需要用 brew 来安装 `brew install tree`

@@ -9,6 +9,8 @@
 
 ### 前端
 
+### 其他
+
 Marked：
 
 - OCaml
@@ -19,6 +21,8 @@ Marked：
 Rust？
 
 - https://google.github.io/comprehensive-rust/
+- https://github.com/rust-lang/rustlings
+- https://github.com/plabayo/learn-rust-101
 
 ## 2022 learning plan
 

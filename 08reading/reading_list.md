@@ -206,6 +206,18 @@
 >
 > 好好学习底层的知识！
 
+2023.04.04 20:51:42 +0800
+
+[前端已死？](https://www.zhangxinxu.com/life/2023/03/fe-dead/)
+
+> _提高个人的核心竞争力。_
+>
+> - 比他人涉猎更广，例如音视频处理、图形表现实现或者 Node 开发有较多经验；
+> - JS、CSS 等前端**基本功扎实**，积累深厚，各种 API 特性了然于心，最佳实践信手捏来；
+> - 具有设计审美或者产品嗅觉灵敏，开发的产品体验非常好，干活很细。（**踏实靠谱，脚踏实地干活**）
+>
+> 给自己打打鸡血吧哈哈
+
 ---
 
 ### 【个人】
@@ -465,6 +477,19 @@
 > Generally, positive mood has been found to enhance creative problem solving and flexible yet careful thinking
 >
 > And music is an easy way to get into a good mood.
+
+2023.03.30 14:43:23 +0800
+
+[Aaron Swartz' Quotes](https://www.goodreads.com/author/quotes/6893150.Aaron_Swartz)
+
+> “People shouldn’t be forced to categorize themselves as “gay,” “straight,” or “bi.” People are just people. Maybe you’re mostly attracted to men. Maybe you’re mostly attracted to women. Maybe you’re attracted to everyone. These are historical claims — not future predictions. If we truly want to expand the scope of human freedom, we should encourage people to date who they want; not just provide more categorical boxes for them to slot themselves into. A man who has mostly dated men should be just as welcome to date women as a woman who’s mostly dated men.
+>
+> So that’s why I’m not gay. I hook up with people. I enjoy it. Sometimes they’re men, sometimes they’re women. I don’t see why it needs to be any more complicated than that.”
+> ― **Aaron Swartz**
+>
+> 搜了下作者，好家伙 [Aaron Swartz](https://en.wikipedia.org/wiki/Aaron_Swartz#) 神仙程序员，开发了 RSS、web.py 和 Markdown。OMG。不过他 1986 年生，2013 年就去世了。He is often credited as a martyr and a prodigy。去世后被加入 Internet Hall of Fame.
+>
+> [github](https://github.com/aaronsw)
 
 ---
 
@@ -1304,6 +1329,8 @@ export default usePreloadedImage;
 > - Colorable，纯色图标用 mask 和 `background-color: currentColor`
 >
 > 使用：unocss 的 preset
+>
+> 以及 egoist 他是[怎么用](https://egoist.dev/using-unocss-for-icons)的（updated on 2023.03.30 19:13:28 +0800）
 
 [hide a photo inside another](https://avestura.dev/blog/hide-a-photo-inside-another-photo)
 
@@ -2030,15 +2057,31 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 > - Nodejs：
 >   - 内置了 test 能力，无需引入 jest 之类的
 
-[high performance ts backend framework](https://github.com/deepkit/deepkit-framework)
+[deepkit framework: high performance ts backend framework](https://github.com/deepkit/deepkit-framework)
 
 > Mark 一下
+>
+> 2023.04.04 19:32:22 +0800
+>
+> 看了一下 [intro](https://deepkit.io/blog/introducing-deepkit-framework)，直呼太牛了。属于 Web 服务框架，最大化利用了 TS 的特性，简述下框架的几个特性：
+>
+> - Runtime Types：在 runtime 加入 type 信息会翻天覆地（对于 JS），deepkit 包含了很多好用的基础函数用来做运行时类型检查
+> - Type Decorators：框架采用了 Branded Types，TS 自己的一种模式。可以将类型附加各种装饰信息，`type Username = string & MinLength<3> & MaxLength<23> & Alphanumeric;` 很直观有木有！而且很好的配合类型检查
+> - Database Schemas：Deepkit ORM，支持所有 TS 类型
+> - Router：HTTP API Routes 会自动根据所声明的类型做检查 params, body 等！
+> - Dependency Injection：依赖注入问题，框架能够很好的解耦依赖（通过 implements interface，只要是满足类型的即可，而不是强耦合实现）（_In backend frameworks it was not possible until recently to write properly modular applications and libraries, because as soon as a dependency injection container is used with TypeScript, one is more or less forced to develop against implementations instead of abstractions._）
+> - Configuration：应用的配置通常是单调无味的，在这里可以用一种很新的方法来写配置
+> - High Performance：不仅是运行效率（ORM 效率很高，因为有自己的 js vm 包含了很多运行时的 JIT 优化），开发效率也很重要，在 Fully TS 的加持下，能够让项目长期保持高效的开发（感觉有点像 rust，能让所有人写的代码都符合高质量水平，而不会随着代码膨胀而变得难维护）
+>
+> 框架是如何工作的，有一个 type 编译器，将类型信息抽离成二进制码，会在 runtime 的时候通过一个小 vm 来执行，在 `{kind: ReflectionKind.string}` 中。细节在 [TypeScript Bytecode Interpreter / Runtime Types](https://github.com/microsoft/TypeScript/issues/47658) 非常长的文章。。之后再读读看吧，也不一定看得懂。
+>
+> 框架能力也非常的完善。也包括一个 debugger 工具？
 
 [Minimize state](https://www.worldofbs.com/minimize-state/)
 
 > _All Programming Philosophies Are About State_
 >
-> *What this means is that there is no "one true way" to deal with state, and that each programming philosophy is useful and important in the correct domain. It also shows how important *minimizing* state is.*
+> What this means is that there is no "one true way" to deal with state, and that each programming philosophy is useful and important in the correct domain. It also shows how important _minimizing_ state is.
 
 [SQLite 文艺复兴](https://www.bmpi.dev/dev/renaissance-sqlite/)
 
@@ -2930,9 +2973,191 @@ day.js
 >
 > 以及一些性能优化的 tips
 
+[shadcn/ui](https://github.com/shadcn/ui)
+
+> 2023 年初开始就很火的一个 ui 库？框架？star 数一路飙升（目前 2023.03.30 13:03:57 +0800 已经 10.1k）
+>
+> 作者也是 vercel 的，可以直接通过模版 create next app [构建新项目](https://ui.shadcn.com/docs/installation)
+>
+> - 如果是已有项目，需要手动加一些配置才能更好配合 ui 库
+>
+> 理念：
+>
+> - This is **NOT** a component library.
+> - It's a collection of re-usable components built using [Radix UI](https://radix-ui.com/) and [Tailwind CSS](https://tailwindcss.com/).
+> - 不发布 npm 包，而是自己 **copy** 代码到项目，自定义样式
+>
+> [组件](https://ui.shadcn.com/docs/primitives/accordion)也挺好看的，组件的[源码](https://github.com/shadcn/ui/tree/main/apps/www/components/ui)都在文档中～
+
+[Radix UI](https://www.radix-ui.com/)
+
+> 那就再来看一下 Radix UI 是什么
+>
+> [目标 & Vision](https://www.radix-ui.com/docs/primitives/overview/introduction)
+>
+> - a low-level UI component library with a focus on accessibility, customization and developer experience.
+> - Radix UI 实际上是为当下我们普遍已经[熟悉](https://www.w3.org/WAI/ARIA/apg/#aria_ex)的 UI 组件（checkbox、slider、toast ...）做了一层更好的抽象，但目前的 Web 平台并没有这些交互组件很好的实现（不一致性问题肯定也存在），所以码农们会自己去实现各种组件（项目里写的、好一些的开源的库）但并没那么“完美”（无障碍、功能、样式），所以 Radix 的目标就是构建一套更完备的组件库
+>
+> 特性：
+>
+> - Accessible，无障碍很完善
+> - Unstyled，无预设样式，可以完全自定义
+> - Opened，灵活开放
+> - Uncontrolled
+> - DX
+
+[tsup](https://github.com/egoist/tsup)
+
+> 好家伙，又是 [egoist](https://github.com/egoist) 的库，真神人
+>
+> 底层是 esbuild，能够打包 js, ts, tsx
+
+[浅学分布式系统的服务发现](https://juejin.cn/post/6844903937653342216)
+
+> 为什么需要服务发现？
+>
+> - 通常我们访问服务是需要知道服务实例的 IP 地址和端口，固定的我们便可以直接写在配置文件中，但大多数线上环境尤其是容器部署的情况下，实例地址都是动态分配的，只有实际部署之后才能得到地址，只能通过服务发现组件解析服务名来获取地址和端口
+>   - 这里的服务名应该就是自己定义的（比如我司的 `p.s.m`）
+>
+> 一个标准的服务发现架构主要有三部分组成分别是服务注册中心、服务调用者、服务提供者
+>
+> 三者关系也就是：
+>
+> ```mermaid
+> flowchart TB
+>     服务提供者 --> |注册| 服务注册中心
+>     服务调用者 --> 服务提供者
+>     服务调用者 --> |服务订阅| 服务注册中心
+>     服务提供者 -.-> |变更通知| 服务调用者
+> ```
+>
+> 服务注册中心是核心组件：
+>
+> - 容错（Fault Tolerance）：服务注册中心保存了分布式系统中所有服务名与服务实例地址映射，一旦故障必将导致整个系统不可用，是整个分布式系统核心，必须具备高可用性；
+> - 服务健康检查（Service Health Check）：服务注册中心必须要能及时发现故障实例并将其注销以防止被错误访问；
+> - 监视器（Watcher）：服务注册中心必须具备及时通知服务调用者服务实例注册或注销的能力，以便服务调用者及时采取措施。
+>
+> 其实和域名很相似
+>
+> 文中介绍了现有的一些方案：DNS，mDNS，Zookeeper，Etcd，Consul
+
+[aPaaS 入门](https://zhuanlan.zhihu.com/p/69168598)
+
+> 互联网行业就喜欢搞一些单词的缩写，SaaS、PaaS、IaaS。都属于云计算
+>
+> 能够打包这些技术/装备，开发者（用户）都无需自建和维护了，公司提供
+>
+> 1. 应用（application）
+> 2. 数据（data）
+> 3. 运行库（runtime）
+> 4. 中间件（middleware）
+> 5. 操作系统（OS）
+> 6. 虚拟化技术（virtualization）
+> 7. 服务器（servers）
+> 8. 存储（storage）
+> 9. 网络（networking）
+>
+> aPaaS 可以理解为 PaaS 的一种子形式。application Platform as a Service，和 PaaS 的区别是非技术人员可以直接在云端完成应用的搭建、部署、使用、更新和管理
+>
+> 厂商有 Redmine，Jira，Odoo，Smartsheet, Airtable 和 Zoho Creator（文章是 2019 年的）
+>
+> 国外的 [retool](https://retool.com/) 也非常牛
+>
+> 好处：
+>
+> - 零代码/低代码
+> - 可扩展性
+> - 云服务
+>
+> 当然也有局限性，不适合一些企业
+
+[How Warp Works](https://www.warp.dev/blog/how-warp-works)
+
+> Warp 的实现（纯 Rust + Metal，performance first）
+>
+> Terminal → Shell
+>
+> 文章讲的还算是挺细节的
+>
+> - Warp 的一些特性/目标（现代性）：速度/性能；和现有的 shell 兼容（zsh、Bash、Fish）；多平台（还需要支持 web）；支持 blocks；任意的 UI 元素了；native and intuitive editing
+> - 选择了 Rust + Metal for 性能，直接选择 Metal GPU 渲染是因为快 and 只想做 Mac 系统；选择 Rust 因为他快并且[社区](https://crates.io/)还不错，对跨平台的支持也很好（也能编译到 WASM）。
+> - 为什么直接渲染到 GPU 呢：主要还是快，写 shader 代码封装了少量的基础元素（rectangle、image、glyphs），和 [Nathan Sobo](https://github.com/nathansobo)（Atom、zed）的作者一起开发了一个 **Rust 的 UI 框架**（之后也许会开源出来，很期待）
+> - Blocks 的实现，为什么看不到其他 terminal 有 block 这个 feature，因为终端其实不知道到底是什么程序在跑，不知道在 shell 内部发生了什么。Warp 是通过 custom DCS(Device Control String) 包含了 metadata 来渲染一个 session 的内容（具体没怎么看）（顺带提到了 [upterm](https://github.com/railsware/upterm)）
+> - Input Editor，也是和 atom 的作者一起，相当于重新实现了一个编辑输入栏，包含了很多使用的快捷键（通过一个事件分发系统实现）,We intentionally designed our editor to be an Operation-based [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) from the start。为了之后可以实时合作。（BTW CRDT 真的出现太多次了，只要是实时编辑就有，该去看看了）
+>
+> 未来的一些方向就不提了，因为这个 bog 已经是比较久的了（21 年的）
+>
+> Performance is one of our most important features
+>
+> Warp 社区好多 issues，甚至 [powerlevel10k 的作者都希望他直接集成](https://github.com/warpdotdev/Warp/issues/2851)
+>
+> BTW 从 upterm 看到了 [hyper](https://github.com/vercel/hyper)。。vercel 公司的 web 技术 terminal（基于 electron）
+
+2023.4
+
+[Linter?](https://twitter.com/dan_abramov/status/1086215004808978434)
+
+> 来自 Dan 的 Twitter 吐槽
+>
+> 同样也有 Dan 的这篇[文章](https://overreacted.io/goodbye-clean-code/)，做些摘录：
+>
+> Obsessing with “clean code” and removing duplication is a phase many of us go through.
+>
+> Coding is a journey. Think how far you came from your first line of code to where you are now.
+>
+> **Don’t be a clean code zealot.**
+>
+> It’s a defense mechanism when you’re not yet sure how a change would affect the codebase but you need guidance in a sea of unknowns.
+>
+> Let clean code guide you. **Then let it go.**
+
+[Optimize for Change](https://overreacted.io/optimized-for-change/)
+
+> Dan 的文章
+>
+> _Good_ API design is memorable and unambiguous. It encourages readable, correct and performant code, and helps developers fall into [the pit of success](https://blog.codinghorror.com/falling-into-the-pit-of-success/).
+>
+> A slight change in requirements can make the most elegant code fall apart.
+>
+> _Great_ APIs not only let you fall into a pit of success, but help you _stay_ there.
+
+[JSON URL](https://twitter.com/housecor/status/1555555629351198721?s=12&t=dXathnvNfnF_vdpC1hrLdQ)
+
+> 推荐的 [JSONCrush](https://github.com/KilledByAPixel/JSONCrush) 这个库，能很高效的压缩 JSON String，让通常放在 URL 上的 JSON 数据变小（头疼问题）
+
+[2023 年学传统软件开发还有意义吗](https://anduin.aiursoft.cn/post/2023/3/31/classic)
+
+> Anduin Xue 大佬的博文
+>
+> _只是不要把重心放在传统软件工程上了，就像我的学习重心也不是汇编。但是绝对不是不学，而是对整个宏观知识都要有更高的要求的同时，将侧重点放在 AI 的研究方向上。_
+>
+> _例如，把 70%的精力放在 AI 相关领域，20%的精力放在传统软件工程（面向对象程序设计，MVVM，依赖注入，数据结构，算法，前后端分离，组件化开发，依赖管理，包管理，操作系统，虚拟化，云计算，分布式系统，数据库等），10%的精力放在考古技术上（C、汇编、计算机组成原理，数字电路）。_
+>
+> [计算机底层知识到底值得学么](https://www.zhihu.com/question/264426279/answer/1840524133) 的这个回答，提到的 [Hyrum's Law](https://www.hyrumslaw.com/)：
+>
+> 大意是指，如果一个接口存在足够多的用户，不论你在接口层面做出何种“契约”，整个系统每一个可观测行为都可能会被某个用户所依赖。
+>
+> 某种意义上计算机中的许多顶层抽象是“不完全成功”的，虽然它确实能够降低编程的门槛，但事实上作为专业程序员所需要掌握的底层知识并没有因此减少多少。
+
+[Chrome112 支持 CSS 嵌套 document.domain 禁用](https://zhuanlan.zhihu.com/p/620412706)
+
+> CSS 嵌套不多说了，就是 less 等后处理器的特性，但是为了兼容老版本，还是不要纯 CSS 了吧
+>
+> document.domain 正式禁用，为了更加安全
+>
+> - 之前可以在 iframe 跨域通信的场景，将主 frame 和 iframe 的 `document.domain` 都设置成相同的域名，但是不够安全，跨域通信方案还是选用 `postMessage` 或其他
+
 ### 【资讯 & 潮流】
 
 > **需要标注收录时间**
+
+[字节海外版小红书 lemon8 在美国火了](https://36kr.com/p/2209297991414400)
+
+> 2023.04.12 13:20:39 +0800
+
+2023.3.28 坂本龙一教授去世
+
+> Sad. R.I.P
 
 [electron 的十年](https://www.electronjs.org/blog/10-years-of-electron)
 
@@ -3069,10 +3294,6 @@ https://garryui.cn/
 
 [新技术学习不完全指北：以 Rust 为例](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E6%96%B0%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8C%97%EF%BC%9A%E4%BB%A5%20Rust%20%E4%B8%BA%E4%BE%8B%205a04875dff844f358c7e4cab99680e28.md)
 
-[react-virtualized](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/react-virtualized%209e2dd9b793724914850c3d6c5a896c52.md)
-
-[react-window](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/react-window%20a036e3847b3649f487f57f99f3ec10b9.md)
-
 [Use React.memo() wisely](<Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/Use%20React%20memo()%20wisely%2000903348fad6471abc54ef23ed5a6bfd.md>)
 
 [9 Ways To Implement CSS in React JS | by Dmitry Nozhenko | Medium](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/9%20Ways%20To%20Implement%20CSS%20in%20React%20JS%20by%20Dmitry%20Nozh%2046b33adf80724da6a2555302acaee27f.md)
@@ -3080,7 +3301,5 @@ https://garryui.cn/
 [Quick Start | Redux Toolkit](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/Quick%20Start%20Redux%20Toolkit%2009ebca7c69a94600be5590ecb7ac48ba.md)
 
 [关于 monorepo 的一些尝试 - 知乎](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E5%85%B3%E4%BA%8E%20monorepo%20%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%9D%E8%AF%95%20-%20%E7%9F%A5%E4%B9%8E%20c3307682d9644cb280c8e36dea1cb988.md)
-
-https://medium.com/free-code-camp/typescript-curry-ramda-types-f747e99744ab
 
 [nginx 入门](https://juejin.cn/post/6844904144235413512)

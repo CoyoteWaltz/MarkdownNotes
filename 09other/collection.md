@@ -1,3 +1,25 @@
+## AI/ChatGPT 相关
+
+[eslint-gpt](https://github.com/ycjcl868/eslint-gpt)
+
+[awesome-chatgpt-prompts-zh](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)
+
+[chatgpt-vercel 挺不错的个人部署 ChatGPT 网站方案](https://github.com/ourongxing/chatgpt-vercel)
+
+- BTW，vercel.app 这个域名居然已经被 q 了
+
+- API Key 已经被封完了，请自行部署。现在 OpenAI 的 5d 免费账号巨容易封，不建议再部署到 Vercel 或者其他平台上了，要部署请直接国外 VPS。切记一个 IP 一个 Key，不要搞轮询。18d 或者绑卡账号目前还没有这些问题。
+
+自定义部署
+
+- https://github.com/mckaywrigley/chatbot-ui
+
+买 SMS 账号
+
+- https://sms-activate.org/getNumber
+
+[待阅读 chatgpt 相关](https://writings.stephenwolfram.com/2023/01/wolframalpha-as-the-way-to-bring-computational-knowledge-superpowers-to-chatgpt/)
+
 ## CSS Magic
 
 [CSS tips 常见的 CSS 技巧](https://markodenic.com/css-tips/)
@@ -13,6 +35,8 @@
 [gradient-generator 渐变色 CSS 生成器](https://www.joshwcomeau.com/gradient-generator/)
 
 ## 图标 & 图片
+
+[lucide 社区开源图标库](https://lucide.dev/)
 
 [搜索所有可用 icon](https://icones.js.org/)
 
@@ -109,6 +133,8 @@ https://esm.sh/（esm import npm packages from url）
 [awesomelist](https://awesomelists.top/#/)
 
 ## github
+
+[github stars trends](https://star-history.com/blog/how-to-use-github-star-history)
 
 [chroma.js 颜色处理库](https://github.com/gka/chroma.js)
 

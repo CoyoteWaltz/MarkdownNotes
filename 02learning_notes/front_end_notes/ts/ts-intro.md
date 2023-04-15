@@ -63,6 +63,66 @@ console.log(Gender[2.2]); // Girl
 console.log(Gender[3.2]); // Alien
 ```
 
+#### 深入 enum
+
+**Enum to Union** 可以通过：`typeof keyof ENUM`
+
+**普通 enum 的真正编译结果**
+
+```TypeScript
+enum K {
+    a = 1,
+    b,
+    c
+}
+```
+
+⬇️ 双向赋值 key value
+
+```JavaScript
+var K;
+
+(function (K) {
+    K[K["a"] = 1] = "a";
+    K[K["b"] = 2] = "b";
+    K[K["c"] = 3] = "c";
+})(K || (K = {}));
+
+// K 其实长这样
+{
+  "1": "a",
+  "2": "b",
+  "3": "c",
+  "a": 1,
+  "b": 2,
+  "c": 3
+}
+```
+
+const enum 在编译的时候直接会把对应的值取过去
+
+**取 enum 的 key 的 string 值**
+
+（其实和 object 一样，传入对应的 key 即可）
+
+Enum 可以被 `Object.entries` 调用，返回 `[[key, value], ...]`（**但注意上头的双向 key value 情况，不是常规的对象！用 findIndex 之类的可能会不符合预期**）
+
+```TypeScript
+enum GenderEnum{
+  'male' = '男生',
+  'female' = '女生'
+}
+
+interface IPerson{
+   name:string
+   gender:keyof typeof GenderEnum // 如果需要用到 枚举的 key
+}
+
+let bob:IPerson = {name:"bob",gender:'male'}
+
+<span>{Gender[bob.gender]}</span>
+```
+
 ### Void
 
 `any`的反面， the absence of having any type at all

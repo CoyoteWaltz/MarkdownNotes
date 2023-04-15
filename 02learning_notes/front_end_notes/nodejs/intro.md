@@ -1,5 +1,11 @@
 关于面试可以看：https://juejin.im/post/5e53cf886fb9a07c91101642
 
+## Node 版本的命名
+
+https://nodejs.org/en/download/releases
+
+每个 LTS 版本都是元素周期。。从 A 开始
+
 ## Event Loop
 
 为什么要有事件循环机制？

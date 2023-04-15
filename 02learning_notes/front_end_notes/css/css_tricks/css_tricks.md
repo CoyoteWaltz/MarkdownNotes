@@ -5,6 +5,8 @@
 > https://github.com/AllThingsSmitty/css-protips
 >
 > https://markodenic.com/css-tips/
+>
+> [45 个 CSS 形状](https://segmentfault.com/a/1190000018922732)
 
 [toc]
 

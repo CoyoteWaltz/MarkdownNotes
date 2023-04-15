@@ -9,9 +9,25 @@
 
 [toc]
 
+### npmrc
+
+https://pnpm.io/next/npmrc
+
 ### 如何处理 peer dependencies
 
 > https://pnpm.io/how-peers-are-resolved，一遍看不明白，就多看几遍，结合自己项目的 `pnpm.lock` 和 `node_modules`
+
+一些 npmrc [配置](https://pnpm.io/next/npmrc#peer-dependency-settings)
+
+#### strict-peer-dependencies
+
+- Default: false
+
+If this is enabled, commands will fail if there is a missing or invalid peer dependency in the tree.
+
+#### auto-install-peers
+
+- Default: true
 
 ### `node_modules` 的结构
 
