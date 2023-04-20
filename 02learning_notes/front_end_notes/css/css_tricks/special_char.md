@@ -27,3 +27,20 @@
 
 - 可以用来计算一行文字初始的高度，比较 tricky
 - ...
+
+### 踩坑
+
+#### 零宽字符 + url
+
+在 js 中零宽字符可以通过 `\u200B` 字面量生成
+
+如果 url 的开头包含了零宽字符，很难察觉，而且会直接 window.open 的行为
+
+```javascript
+let s = "\u200B"; // s.length => 0
+window.open(s + "https://www.baidu.com");
+```
+
+我们看到的 url 是 `https://www.baidu.com` 因为零宽字符不可见
+
+但 window.open 看到的是 `\u200Bhttps://www.baidu.com`，不是一个合法的 url，所以会当成是当前域名下的 path 去打开新的窗口，最终打开的是 `${originURL}/%E2%80%8Bhttps://www.baidu.com` 直接寄了。

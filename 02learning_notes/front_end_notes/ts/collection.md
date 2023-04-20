@@ -2,6 +2,37 @@
 
 > 通常，体操只是图一乐，实战用不太到
 
+### 一种 Map 方法
+
+将一个对象类型的属性 map 成标准格式
+
+```typescript
+type Field<Form = Record<string, unknown>> = {
+  [K in keyof Form]: {
+    field: K;
+    value: Form[K];
+  };
+}[keyof Form];
+
+interface Form {
+  name: string;
+  age: number;
+}
+const fieldA: Field<Form> = {
+  field: "name",
+  value: " ", // must be string since Form['name'] is string
+};
+const fieldB: Field<Form> = {
+  field: "age",
+  value: 123, // must be number since Form['age'] is number
+};
+
+const wrong: Field<Form> = {
+  field: "age",
+  value: "sdfs",
+};
+```
+
 ### 加减乘除
 
 获得数字，通过元组

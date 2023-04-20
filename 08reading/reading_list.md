@@ -17,7 +17,7 @@
 > TODO:
 >
 > - [ ] 文章类型分类 or Tag
-> - [ ] 定期整理！
+> - [ ] 定期整理！归档标注：【Archived】
 
 ## Viewed
 
@@ -711,7 +711,7 @@ https://github.com/Kaiyiwing/qwerty-learner-vscode
 >   - 最近点、box filter、gaussian filter
 > - 三线性插值（第三重在 level 直接插值），更加平滑
 
-[Tiff](https://www.programmersought.com/article/8912800630/)
+【Archived to [about_imgs](../02learning_notes/about_imgs.md)】[Tiff](https://www.programmersought.com/article/8912800630/)
 
 > **Tag Image File Format**
 >
@@ -759,7 +759,7 @@ https://github.com/Kaiyiwing/qwerty-learner-vscode
 >
 > 摘录一些：
 >
-> 开头：\*随着互联网红利的消失，整个移动市场的关注从“流量”转成了“留量”，大部分的移动产品也都告别了初期的抢占市场，**进入了 A/B 实验和快速试错的阶段，迭代速度、效果验证的压力与日俱增，效率变成了移动 App 的核心竞争力。\***
+> 开头：随着互联网红利的消失，整个移动市场的关注从“流量”转成了“留量”，大部分的移动产品也都告别了初期的抢占市场，**进入了 A/B 实验和快速试错的阶段，迭代速度、效果验证的压力与日俱增，效率变成了移动 App 的核心竞争力。**
 >
 > - 动态化 UI 方案
 > - 平台化 App
@@ -2701,7 +2701,7 @@ day.js
 >
 > 试了下公司的项目，效果却并不是很好（可能是使用姿势不对）
 
-[useEffect 在 SSR 的时候为什么不执行](https://codewithhugo.com/react-useeffect-ssr/)
+【Archived in [ssr](../02learning_notes/front_end_notes/frameworks/react/ssr/intro.md)】[useEffect 在 SSR 的时候为什么不执行](https://codewithhugo.com/react-useeffect-ssr/)
 
 > useEffect 只会在 mount/update 之后才会执行（页面上渲染**后**）
 >
@@ -3146,6 +3146,109 @@ day.js
 > document.domain 正式禁用，为了更加安全
 >
 > - 之前可以在 iframe 跨域通信的场景，将主 frame 和 iframe 的 `document.domain` 都设置成相同的域名，但是不够安全，跨域通信方案还是选用 `postMessage` 或其他
+
+[Hyrum's Law](https://www.hyrumslaw.com/)
+
+> _With a sufficient number of users of an API,_ > _it does not matter what you promise in the contract:_ > _all observable behaviors of your system_ > _will be depended on by somebody._
+>
+> 什么意思呢？作者在多年的软件工程生涯中，得到了一个 interface 和 implementation 之间的观察。
+>
+> 通常我们认为 interface 是对复杂系统的抽象，他一旦被定义了就是确认的，可以理解是在消费者和实现者之间的一个分隔。但在实际中，这个理论经常会失败，因为当使用者增加后，他们会越来越倾向直接依赖从接口暴露的**实现细节**。
+>
+> “The Law of Implicit Interfaces”，有了足够多的用户，实现中的每一个细节都会被被依赖（代码覆盖），既包含了 explicitly documented interface, as well as the implicit interface captured by usage.
+>
+> 所以往往随着时间的推移，系统增长，用户量的增大，一个系统/API 的设计就需要考虑这些 implicit interface，也需要意识到 interface 会触达的深度比想象的更深（复杂系统中）。
+
+[推特开源推荐算法](https://blog.twitter.com/engineering/en_us/topics/open-source/2023/twitter-recommendation-algorithm)
+
+> GitHub 代码 [here](https://github.com/twitter/the-algorithm) (and [here](https://github.com/twitter/the-algorithm-ml)
+>
+> 推特的推荐算法是应用在“For You”的 tab，推荐出 tweets
+>
+> blog 中讲了大致的推荐流程、如何选择 tweets
+>
+> - 理论上，一半和用户关注的相关（In Network，社交网内），一半是 Out Of Network
+> - 链路流程：候选推 -> Ranking -> 启发/过滤/特征 -> 混排 -> 下发
+> - In-Network 用的 Real Graph 模型来预测两个用户之间有关联/会交互的可能性
+> - Out-of-Network，开发了 GraphJet 图处理引擎用来实时维护用户和推之间的关系
+> - Ranking 是用的大约 48M 参数的神经网络模型，通过学习推之间的正向交互（点赞、转推、回复等），得出每个推之间的标签分数
+> - 启发/过滤其实就是对于排序结果进行微调，可见性、内容是否丰富、作者是否丰富、基于推文的反馈是否良好等规则
+> - 最后就是再将推文混合一些广告啊、好友推荐等非推文的内容，给到服务下发
+>
+> 总的来说还是挺有意思的，流程概念也比较清晰
+
+[字节 serverless 高密度部署与 Winter 实践](https://mp.weixin.qq.com/s/dkEgmep_9m05yXCN00NCsA)
+
+> 传统 serverless 的调度（二层心型网络）：统一网关 -> FaaS 网关 -> Pod（函数）
+>
+> 进程高密度调度（三层）：在容器内部多了一个进程级别的调度
+>
+> 通过 Winter 作为函数运行时（interoperable 互通性）
+>
+> - 降低成本
+> - 流程编排
+>
+> _相较于 Node.js 来说，有一些很好的优势，比如低门槛，因为写 JS 的前端开发者们更熟悉浏览器 API。选择 Node.js 你要自己实现一个服务器，你要监听端口，自己去实现整个 HTTP 服务器，除此之外，你还要搞它的 PM2、运维、部署，等等。如果上了 Winter 就简单了，我们不需要监听端口，只需要监听 Fetch 事件，之后直接把它上到高密度部署，其他什么事都不需要管，它直接会触发事件，我们只要写里面的逻辑就可以了。_
+
+[how search works](https://web.dev/how-search-works/)
+
+> 非常简单了解搜索引擎是如何收集网页信息，爬虫，排序。下一步需要 SEO
+>
+> As of now, Google and Bing can index synchronous JavaScript applications just fine. Synchronous being the key word there. from [vue-ssr](https://vuejs.org/guide/scaling-up/ssr.html#why-ssr)
+
+[1x1 大小色块的 base64 data url 字符串](https://stackoverflow.com/questions/5845238/javascript-generate-transparent-1x1-pixel-in-dataurl-format/33919020#33919020)
+
+> 在看 nextjs [文档](https://nextjs.org/docs/api-reference/next/image)中的一个 [demo](https://image-component.nextjs.gallery/color)，通过色块 blur 作为 image 加载时的 placeholder。
+>
+> 里面用到的算法来自 stackoverflow，方法还是蛮离谱的。。
+>
+> ```typescript
+> // Pixel GIF code adapted from https://stackoverflow.com/a/33919020/266535
+> const keyStr =
+>   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+>
+> const triplet = (e1: number, e2: number, e3: number) =>
+>   keyStr.charAt(e1 >> 2) +
+>   keyStr.charAt(((e1 & 3) << 4) | (e2 >> 4)) +
+>   keyStr.charAt(((e2 & 15) << 2) | (e3 >> 6)) +
+>   keyStr.charAt(e3 & 63);
+>
+> const rgbDataURL = (r: number, g: number, b: number) =>
+>   `data:image/gif;base64,R0lGODlhAQABAPAA${
+>     triplet(0, r, g) + triplet(b, 255, 255)
+>   }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
+> ```
+>
+> 使用方法：`rgbDataURL(2, 129, 210)`
+>
+> 应该是掌握了生成这个 base64 的规律，直接可以替换 RGB/HEX
+
+[HTTP 状态码 307/308](https://nextjs.org/docs/api-reference/next.config.js/redirects)
+
+> 在 nextjs 中看到重定向所返回给浏览器的状态码不再是 301/302 了，而是用 307/308
+>
+> 原因是，很多浏览器对于 301（永久重定向）和 302（临时重定向）提供的二次定向地址会无脑采用 GET 方法去请求。。。
+>
+> 而 307（临时重定向）和 308（永久重定向）是可以保留原始请求方法的
+>
+> 对于爬虫而言，即使你的 url 是永久重定向到另一个，也并不希望损失这部分访问的用户，所以比如 GoogleBot 还是会将这个 url 加入索引的
+
+[网页 SEO 入门](https://nextjs.org/learn/seo/introduction-to-seo)
+
+> 依旧是 nextjs 的官方文档，对于 SEO 的了解还是很值得一读的。
+>
+> - SEO 的重要性不言而喻，让你的网站在搜索结果中更多的曝光
+> - 搜索引擎（例如 Googlebot）是如何工作的
+>   - 爬虫：有特定的 UA，比如 Googlebot Desktop 和 Googlebot Smartphone，根据 HTTP 状态码进行响应
+>     - robots.txt 文件，告诉爬虫什么能进行爬虫，什么不能
+>     - xml sitemaps，告诉爬虫哪些 URL 是属于你的站点的，当这个文件更新之后，谷歌也能更高效的判断出新的内容（适用于超大规模站点）
+>     - `<meta>` 标签，控制爬虫/浏览器的一些行为，比如不要让谷歌浏览器自动翻译或者不让爬虫将网站加入搜索排名
+>     - canonical URL，官方 URL，用来去除重复的 URL（多个站点内容一样，URL 很多），可以指定一个 URL 代表是一个官方的。
+>   - 存档（index）
+>   - 渲染
+>   - 排名
+>
+> 最后，nextjs 提供了便捷的 API 在 SSR 去做这些
 
 ### 【资讯 & 潮流】
 

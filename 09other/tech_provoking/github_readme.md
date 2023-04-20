@@ -32,6 +32,12 @@ T
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=CoyoteWaltz&layout=compact&theme=highcontrast&bg_color=0,D5B43D,EE9CA7,FFDDE1&line_height=20)](https://github.com/anuraghazra/github-readme-stats)
 
+### 部署自己的
+
+https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own
+
+TODO: 自己尝试一下
+
 ## 语言/工具
 
 icon 库：[devicon](https://github.com/devicons/devicon)

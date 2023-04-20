@@ -20,6 +20,8 @@
 
 [待阅读 chatgpt 相关](https://writings.stephenwolfram.com/2023/01/wolframalpha-as-the-way-to-bring-computational-knowledge-superpowers-to-chatgpt/)
 
+[GPT 论文解读 from 李沐](https://github.com/mli/paper-reading)
+
 ## CSS Magic
 
 [CSS tips 常见的 CSS 技巧](https://markodenic.com/css-tips/)
@@ -73,6 +75,8 @@ PT Sans
 [Atom 作者出品 zed 编辑器 rust 写的 非常快](https://zed.dev/)（分享 link：https://zed.dev/invites/dLEb7PCmFLpZ7kdJ）
 
 [UA List](https://www.useragents.me/)
+
+[网速查询](https://www.itdog.cn/ping/)
 
 ## 资源
 
@@ -165,3 +169,19 @@ https://esm.sh/（esm import npm packages from url）
 ## 待体验
 
 https://nx.dev/（monorepo 方案）
+
+## Lacrosse Stringing
+
+[top string](https://stringerssociety.com/lacrosse-stringing/tutorials/top-strings/)
+
+[stringking](https://stringking.com/ustring/pockets/stringking-mark-2v-m/)
+
+[Toturial](https://stringerssociety.com/lacrosse-stringing/mens-stick-stringing/)
+
+https://www.youtube.com/watch?v=demodictYeY
+
+[Mark2V side wall](https://www.youtube.com/watch?v=4NV1FTVeqUQ&t=28s)
+
+[Top string start at middle](https://www.youtube.com/watch?v=meW4-eCKG2Q)
+
+- https://www.youtube.com/watch?v=5WBNEQix6Y4

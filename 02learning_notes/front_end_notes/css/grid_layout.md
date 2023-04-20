@@ -2,7 +2,10 @@
 
 ## 网格布局
 
-> 参考：https://ishadeed.com/article/grid-layout-flexbox-components/
+> 参考：
+>
+> - https://ishadeed.com/article/grid-layout-flexbox-components/
+> - [阮一峰](https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)
 >
 > grid for layout and flexbox for components，文章介绍了 flex 和 grid 布局的一些差异，给出了如何结合两者布局的更好的建议
 
@@ -18,6 +21,16 @@
 
 告诉 css 如何计算每个 column 之间的距离
 
+```css
+.container {
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%; // 百分比宽度
+  grid-template-columns: 100px 100px 100px; // 固定宽度
+  grid-template-columns: auto 50px auto; // 自动宽度（auto）
+  grid-template-columns: 150px 1fr 2fr; // 比例宽度（fr）
+}
+```
+
 定义 grid 的个数以及他们的长度 `grid-template-columns: 1fr 2fr;`
 
 - none：表示没有任何 grid
@@ -25,11 +38,22 @@
 - 长度单位
 - 百分比：grid 容器的百分比
 - 自适应单位：fr
+- auto：自动宽度，让浏览器自己去算/平分宽度
 - minmax 函数：`minmax(100px, 1fr)`，可以定义一个范围 >= min && <= max，这个 grid 的宽度就会被这两个给限制
   - `minmax(10px, auto)`：最小 10px 宽度，最大自动计算
 - repeat()：CSS 函数，生成一个 track list
-  - auto-fill
-  - auto-fit
+- auto-fill
+  - 有时，单元格的宽度是固定的，但是容器的宽度不确定，会随着窗口宽度的变化而变化。如果希望每一行容纳尽可能多的单元格，这时可以使用`auto-fill`关键字表示自动填充。
+- auto-fit
+
+#### tricks：auto-fill & minmax
+
+既然 auto-fill 配合 repeat 可以尽可能填充单元格列，minmax 又能提供一个浮动范围。那我们只需要将二者结合起来
+
+```css
+grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); // 等价
+```
 
 #### grid-template-rows
 

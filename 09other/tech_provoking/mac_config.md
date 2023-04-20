@@ -633,6 +633,8 @@ git 符号的含义：https://github.com/romkatv/powerlevel10k#what-do-different
 - clipboard history
 - ...
 
+### [glow 命令行 Markdown Renderer](https://github.com/charmbracelet/glow)
+
 ## OS stuff
 
 > just like linux/unix

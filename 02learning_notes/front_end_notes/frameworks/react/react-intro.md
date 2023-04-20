@@ -808,6 +808,76 @@ a version of [`useEffect`](https://react.dev/reference/react/useEffect) that fir
   - 在 dom 变化之后，paint 之前，需要知道元素的位置/宽高来针对性的作出变化，再次 render 改变 dom，画出正确的页面
   - 具体例子可以看官网，日常也比较实用。**\*All of this needs to happen before the browser repaints the screen.** You don’t want the user to see the component moving.\*
 
+### [useDeferredValue](https://react.dev/reference/react/useDeferredValue)
+
+lets you defer updating a part of the UI.
+
+能够将一部分 UI 更新推迟。
+
+#### 用法
+
+```javascript
+const deferredValue = useDeferredValue(value);
+```
+
+可以是任意类型的 value，最好是用 state / memo，会随着交互而改变的对象，不然毫无意义。。
+
+返回：
+
+- 在首次 render，返回值和 value 是一致的
+- 变更 render 时（value 发生变化），在 re-render 的时候会返回旧的值并渲染，同时 React 会在后台用新的值进行渲染，渲染完后再改变 UI；如果是 Suspense 的内容，React 会放弃这次渲染，在数据获取之后再次渲染
+
+注意
+
+- 传入的值应该是**基础类型**，或者在 render 外部创建的对象，不然每次新对象传入在每次 render 都会是最新的，会导致不必要的后台渲染。
+- 由于值变化（`Object.is` 判断）触发的后台渲染是可以被打断的：如果渲染期间 value 的又变化（比如键盘输入）；每次都是用最新的 value 进行后台渲染
+- 和 `<Suspense>` 的集成：通过 useDeferredValue 的后台渲染的结果是一个 suspend 的部分，此时不会出现 fallback 元素，会一直渲染旧的值，直到新的数据加载完。（换句话说，Suspense 和 useDeferredValue 一起之后，Suspense 的 fallback 能力会被 old value 的渲染给替代了）
+- 后台渲染不会触发 Effects，直到被画在屏幕上才会。
+
+#### 使用场景
+
+> 官网的例子非常生动
+
+1. 在新数据加载的时候，可以渲染旧数据
+2. 表示内容是过时的
+   1. 在 deferred 的过程中，可以改变样式
+
+```jsx
+import { Suspense, useState, useDeferredValue } from "react";
+import SearchResults from "./SearchResults.js";
+
+export default function App() {
+  const [query, setQuery] = useState("");
+  const deferredQuery = useDeferredValue(query);
+  const isStale = query !== deferredQuery;
+  return (
+    <>
+      <label>
+        Search albums:
+        <input value={query} onChange={(e) => setQuery(e.target.value)} />
+      </label>
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <div
+          style={{
+            opacity: isStale ? 0.5 : 1,
+            transition: isStale
+              ? "opacity 0.2s 0.2s linear"
+              : "opacity 0s 0s linear",
+          }}
+        >
+          <SearchResults query={deferredQuery} />
+        </div>
+      </Suspense>
+    </>
+  );
+}
+```
+
+3. 推迟一部分 UI 的 re-render
+   1. **建议直接看官网例子**，对于跟随频繁交互（比如键盘输入）而重新渲染的复杂组件（比如长列表），可以用 deferred value 去优化
+      1. 优化前：键盘输入事件的响应会被长列表的渲染给阻塞，导致用户输入卡顿
+      2. 优化后：通过后台渲染，交还控制权给浏览器响应和渲染，让输入和渲染不会冲突/卡顿，同时其实也做到了长列表的 debounced render
+
 ## Fragments
 
 `<React.Fragment>`这个标签里面可以放一组元素标签，可以不需要产生额外的 DOM 节点。
