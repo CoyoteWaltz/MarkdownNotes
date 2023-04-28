@@ -50,7 +50,7 @@
 
 可以看一下详细的过程（不解释了，很好理解）：
 
-![img](./scp.assets/scp-2.png)
+![img](./_imgs/scp.assets/scp-2.png)
 
 ### SCP 存在的问题
 

@@ -4,6 +4,8 @@
 
 Mermaid-js: [github](https://github.com/mermaid-js/mermaid)、[官方文档](https://mermaid-js.github.io/mermaid/#/)
 
+[一定要会画 UML 图](https://juejin.cn/post/7199321655733551164) powered by mermaid
+
 在 Typora 上画各种图？显然 typora 编辑器没那么强大的功能（拖拖拽拽），内部是集成了 mermaid-js 来实现的。
 
 ### Mermaid-js

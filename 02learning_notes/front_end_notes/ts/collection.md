@@ -1,8 +1,43 @@
 # 收集一些有用/有趣的 types/体操
 
 > 通常，体操只是图一乐，实战用不太到
+>
+> [TS Challenges](https://github.com/type-challenges/type-challenges)
+
+### 推断 readonly satisfies
+
+> 告诉编译器是 const，告诉程序员是某个 type
+
+```typescript
+interface RouteItem { readonly path: string };
+export const routes = [
+    { path: '/abc/:bcd' }
+] as const satisfies readonly RouteItem[];
+
+type R = typeof routes;
+
+let ee = routes[0].path // let ee: "/abc/:bcd"
+```
+
+### 去掉一个类型中的可选属性
+
+```typescript
+type RemoveOptional<T> = {
+    [k in keyof T as T[k] extends Required<T>[k] ? k : never]: T[k]
+}
+
+interface A {
+    value?: string;
+    type: number;
+}
+
+type DA = RemoveOptional<A>; // { type: number }
+
+```
 
 ### 一种 Map 方法
+
+> 映射类型
 
 将一个对象类型的属性 map 成标准格式
 

@@ -136,6 +136,8 @@ https://esm.sh/（esm import npm packages from url）
 
 [awesomelist](https://awesomelists.top/#/)
 
+[fuckjs 将 js 代码转换成很奇怪的符号哈哈](http://www.jsfuck.com/)
+
 ## github
 
 [github stars trends](https://star-history.com/blog/how-to-use-github-star-history)

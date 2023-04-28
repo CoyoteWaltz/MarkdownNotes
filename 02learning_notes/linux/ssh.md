@@ -68,7 +68,7 @@ $ ssh user@host
 
 这个图可以解释：[来自](https://www.cnblogs.com/276815076/p/10449354.html)
 
-![img](./ssh.assets/1093209063-5c7673e3a12f9.png)
+![img](./_imgs/ssh.assets/1093209063-5c7673e3a12f9.png)
 
 也就是 server 需要验证 client 就是公钥的拥有者。
 

@@ -1,6 +1,9 @@
 # `@layer`
 
 > [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) 教程
+>
+> [张鑫旭文章](https://www.zhangxinxu.com/wordpress/2022/05/css-layer-rule/)
+>
 > 一个 CSS 的新特性（浏览器支持的版本都比较高，Chrome 要 99）
 > 能够更好的通过声明层级（layer）来解决 CSS 样式覆盖的问题
 

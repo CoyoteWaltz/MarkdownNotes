@@ -2,11 +2,28 @@
 
 [toc]
 
+## [Array]Change array by copy(ES2023)
+
+组数老头疼的问题就是 sort, splice, reverse 会改变原来的对象，这个 [proposal](https://github.com/tc39/proposal-change-array-by-copy) 提出了
+
+- toSorted
+- toReversed
+- toSpliced
+- [with](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/with)：`array.with(index, value)` 将一个数组的某下标的值改成新的 value
+
+这几个方法来 copy 数组
+
+Stage 4，corejs 也有对应的 polyfill 了。
+
+Node 尚未支持（v18）
+
 ## Top-Level await(ES2022)
 
 > [tc39](https://github.com/tc39/proposal-top-level-await)
 
-可以在一个 module 的顶层就使用 `await` 了，解决什么问题可以详细看 issue
+可以在一个 module 的顶层就使用 `await` 了，解决什么问题可以详细看 issue，内容比较详细
+
+BTW：Nodejs 也支持(>= 14.8，并且声明模块是 esm 的情况 type: module 文件后缀 `.js`)
 
 ## hasOwn(ES2022)
 
