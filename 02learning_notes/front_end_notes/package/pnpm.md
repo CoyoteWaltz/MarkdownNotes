@@ -9,6 +9,18 @@
 
 [toc]
 
+### npm 安装 pnpm 找不到
+
+MacOS 通过 nvm 管理 node，切换到新的 node 版本然后 `npm i -g pnpm` 之后执行 `pnpm` 指令 not found
+
+参考这篇[回答](https://juejin.cn/post/7067462048656916493)
+
+发现是 `.npmrc` 中的 `prefix` 然后导致在不同 Node 版本找不到全局命令
+
+删除 prefix 之后重新切换版本并且安装 pnpm 就可以解决
+
+并且在 nvm 官方 Readme 中也[说明](https://github.com/nvm-sh/nvm#important-notes)了，if you have/had a "system" node installed and want to install modules globally 需要注意不需要用 `sudo` 全局安装模块，**`~/.npmrc` 文件中不需要 `prefix`，会和 nvm 冲突**
+
 ### npmrc
 
 https://pnpm.io/next/npmrc

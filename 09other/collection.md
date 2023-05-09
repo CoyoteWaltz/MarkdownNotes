@@ -22,7 +22,13 @@
 
 [GPT 论文解读 from 李沐](https://github.com/mli/paper-reading)
 
+[langchain LLM 集成](https://github.com/hwchase17/langchain)
+
+- https://js.langchain.com/docs/
+
 ## CSS Magic
+
+[前端动效合集](https://github.com/hepengwei/visualization-collection)
 
 [CSS tips 常见的 CSS 技巧](https://markodenic.com/css-tips/)
 
@@ -187,3 +193,9 @@ https://www.youtube.com/watch?v=demodictYeY
 [Top string start at middle](https://www.youtube.com/watch?v=meW4-eCKG2Q)
 
 - https://www.youtube.com/watch?v=5WBNEQix6Y4
+
+## knots
+
+[学绳结的好地方](https://www.animatedknots.com/)
+
+[bowline-knot](https://www.animatedknots.com/bowline-knot) 非常简单但是好用的绳结

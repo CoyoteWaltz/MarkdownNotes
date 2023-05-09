@@ -35,3 +35,59 @@
 这个[例子](https://github.com/ant-design/ant-design-icons/pull/479)是 antd-icons 库重复的 types 导致产物 emit 的 ts 文件过大（具体是因为 React.forwardRef 会生成很多匿名的中间 types，ts 输出类型的时候会转成 inline），PR 中重新定义了一个类型来进行复用，大幅的减少了产物大小。
 
 同样 `import()` 导入的类型也会带来很大开销，因为 TS 会判断类型是否可用、目标位置的类型、计算文件导入路径、生成新的类型引用节点、打印。这几个步骤在复杂的大项目每个模块都会经历一遍，会带来非常大的开销。
+
+### Preferring Base Types Over Unions
+
+```typescript
+declare function printSchedule(schedule: WeekdaySchedule | WeekendSchedule);
+```
+
+Union 类型有非常好的表达力，能够明确的告诉类型的范围，但是在将参数传入给这个 `printSchedule` 的时候，TS 会比较每一个类型的每一个元素，并且在消除 union 类型的重复元素时，编译期间也会造成很大的开销（n 方）
+
+更推荐用 subtype 的形式去拓展（常见的 Dom `HtmlElement` type with common members which `DivElement`, `ImgElement`）
+
+```typescript
+interface Schedule {
+  day:
+    | "Monday"
+    | "Tuesday"
+    | "Wednesday"
+    | "Thursday"
+    | "Friday"
+    | "Saturday"
+    | "Sunday";
+  wake: Time;
+  sleep: Time;
+}
+
+interface WeekdaySchedule extends Schedule {
+  day: "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday";
+  startWork: Time;
+  endWork: Time;
+}
+
+interface WeekendSchedule extends Schedule {
+  day: "Saturday" | "Sunday";
+  familyMeal: Time;
+}
+
+declare function printSchedule(schedule: Schedule);
+```
+
+### Naming Complex Types
+
+复杂的类型会让 TS 在每次调用 foo 的时候都去运行一遍条件判断，如果用 type alias 抽象一层则能更好的被 TS 缓存，节省运行成本。
+
+```typescript
+type FooResult<U, T> = U extends TypeA<T>
+  ? ProcessTypeA<U, T>
+  : U extends TypeB<T>
+  ? ProcessTypeB<U, T>
+  : U extends TypeC<T>
+  ? ProcessTypeC<U, T>
+  : U;
+
+interface SomeType<T> {
+  foo<U>(x: U): FooResult<U, T>;
+}
+```

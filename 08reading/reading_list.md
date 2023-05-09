@@ -499,6 +499,12 @@
 >
 > 知道事情并不会那么完美，但是也要有终将克服困难的信念，建立积极的形象帮助他人，不必当一个总想着能成功的乐观主义者
 
+[我们时代的精神危机](https://weizhou.substack.com/p/d33)
+
+> 《浮士德》第一部里，有一句著名的哀叹：“我的心中盘踞着两种精神”，一个贴紧凡尘，一个则想要脱离尘世。然而在中国，大部分人只是抱紧第一个，“脱离尘世”？那就意味着自我边缘化。
+>
+> 现实生活当然是我们无法离开的，但只有贫瘠的现实取向却是危险的，那会让所有人都走投无路，造成普遍的物欲横流和一言难尽的平庸，只留下一地垃圾。你怎么能相信一个没想过超越限制的人，能留下超越时空限制的非物质遗产？
+
 ---
 
 ### 【技术】
@@ -3394,9 +3400,105 @@ day.js
 >
 > 知道如何访问属性是在 V8 中优化的关键，可以知道为什么某些代码写出来就是快！
 
+[react wrap balancer](https://github.com/shuding/react-wrap-balancer)
+
+> 又是 Shuding 的，太牛了。[在线 demo](https://react-wrap-balancer.vercel.app/)
+>
+> 核心功能是能够在容器宽度减少时，单行文字发生换行之后，让其更有可读性
+>
+> 比如 `React: A JavaScript library for building user interfaces` 这行标题
+>
+> 宽度很窄的时候，最好的换行时这样折叠（举个例子，意思差不多，具体可看 demo）
+>
+> ```json
+> |      React: A JavaScript library       |
+> |      for building user interfaces      |
+> ```
+>
+> 而不是
+>
+> ```json
+> | React: A JavaScript library for building|
+> | user interfaces                         |
+>
+> ```
+>
+> 看了下源码，不多，也不难读
+>
+> 核心思路小结下：
+>
+> 1. relayout 函数
+>    1. 初始化会执行
+>    2. 元素 resize 发生变化会执行（**ResizeObserver**）
+>    3. 干了什么？计算出一个最合适的 max-width 然后作用到文本元素（span）上
+>       1. 二分法：取当前容器元素的 clientWidth 作为 upper，他的一半作为 lower，取中点 middle，将 middle 作为 max-width 更新 dom 的 style，此时检查容器的 clientHeight 是否改变，如果变了，就将 middle 作为下一次的 lower 进行计算，直到 lower 和 upper 逼近。
+>       2. 其实就是取到了一个临界宽度，这个宽度能满足当前文字不会换行，但是再小一点，就换行了（宽度大了），二分法就是不断在试探当宽度减少时是否会发生高度的变化
+>       3. 最后将这个宽度结合给定的 ratio 作为 max-width 设置给元素
+> 2. 兼容 next.js SSR
+>    1. 一些 props 直接挂在 dom 的 dataset 上
+>    2. 通过 React.useId API 得到组件渲染的唯一 id，用于绑定这个元素独有的 relayout 方法
+>    3. 将 relayout 方法 toString 后，render 的时候直接插入 script 标签注入
+>
+> 总之还是挺有意思的。
+>
+> 也得到个结论：换行后，单词越少其实越不好读？
+>
+> _React Wrap Balancer avoids single hanging word on the last line_
+>
+> 最后也提到这个项目也是收到 adobe 等项目的启发，还有 CSS [text-wrap: balance](https://drafts.csswg.org/css-text-4/#text-wrap) 这个提案可以深入了解
+
+[ni use the right package manager](https://github.com/antfu/ni)
+
+> 今天被公司的 n 个项目给“折磨”到了，不同的项目不同的包管理器装的依赖，npm/yarn/pnpm，每次都得看一眼 lock 文件是啥，于是就想着自己搞一个命令行工具检查当前的 lock 文件，执行对应的命令，想的挺美 `just dev/start`
+>
+> 于是回家打开 GitHub，用了 fu 哥的模版，琢磨着里头的 `ni` 是啥库，结果就是我想要的哈哈哈哈，太牛了。哎。
+>
+> 拿 npm 举例子：`ni` → `npm install`, `nr` → `npm run`
+
+[web worker 综述](http://www.alloyteam.com/2020/07/14680/)
+
+> Web worker 的深入好文，从几个方面展开
+>
+> 背景 & 发展历史：浏览器单线程机制，独立的 worker 线程能够带来的好处
+>
+> 运用场景、语言、环境、数据通信
+>
+> 兼容性、调试方法、配套工具
+>
+> 第三方库、业界实践案例
+
+[造一个 copy-to-clipboard 轮子](https://github.com/haixiangyan/my-copy-to-clipboard)
+
+> 封装一个复制到剪切板的功能，还是挺有意思的
+>
+> 作者也是参考[这个 npm 库](https://github.com/sudodoki/copy-to-clipboard/blob/main/index.js)的代码做了详细的解释，一个简单的复制方法东西也不少
+>
+> - 考虑用 span 解决兼容性问题，textContent 和 innerText 的区别
+> - 复制时需要清空 selection range
+> - 还原用户当时的选中交互（输入框聚焦、选中还原等）
+> - 兼容 IE
+> - 触发回调方法 `e.clipboardData` format 为了不让复制带有原来的样式
+> - 样式兼容
+>
+> 最后  **Clipboard API**。Clipboard API 是下一代的剪贴板操作方法，比传统的 document.execCommand() 方法更强大、更合理。它的所有操作都是异步的，返回 Promise 对象，不会造成页面卡顿。而且，它可以将任意内容（比如图片）放入剪贴板。**另外还有一个问题，使用 clipboard API 需要从权限  [Permissions API](https://developer.mozilla.org/zh-CN/docs/Web/API/Permissions_API)  获取权限**
+
 ### 【资讯 & 潮流】
 
 > **需要标注收录时间**
+
+[The End of Frontend Development?](https://www.joshwcomeau.com/blog/the-end-of-frontend-development/)
+
+> 2023.05.05 12:45:10 +0800
+>
+> Gradient Color Generator 的作者
+>
+> 作者对关于如今大火的 AI（ChatGPT）是否会取代前端开发者的 online FUD(Fear, Uncertainty, and Doubt)发表的一些自己的观点
+>
+> 讨论了如今在 AI Power 下，可以不用懂 Web 知识去开发一个网站，但是他的正确性、可用性、安全性、无障碍等做的真的够好吗。AI 写完一个应用就好比写完一个从没 run 过的应用，debug 维护难度可想而知。
+>
+> 服务端在变得愈加容易（severless），前端变得更加复杂（App/桌面应用般）
+>
+> 如何利用 AI、LLM 作为工具，提效，更加开放的接受，用 LLM 帮助自己学习、快速理解不懂的点，但不要无脑依赖（比如 GPS）
 
 i18n a11y
 
