@@ -505,6 +505,10 @@
 >
 > 现实生活当然是我们无法离开的，但只有贫瘠的现实取向却是危险的，那会让所有人都走投无路，造成普遍的物欲横流和一言难尽的平庸，只留下一地垃圾。你怎么能相信一个没想过超越限制的人，能留下超越时空限制的非物质遗产？
 
+[Cant explain that attraction in terms of anything else that's familiar to you](https://youtu.be/MO0r930Sn_8)
+
+> 在解释 why 之前，必须知道他是 what
+
 ---
 
 ### 【技术】
@@ -2814,6 +2818,24 @@ day.js
 >     ```
 >
 >   - 在这个[回答](https://stackoverflow.com/questions/44425344/typescript-interface-with-xor-barstring-xor-cannumber)中也看到了这段代码
+>
+> 具体使用场景，拿 XOR 做例子
+>
+> ```typescript
+> /**
+>  * 有 error 的时候 就是异常了 必然有 description 且 data 是 error 真实的值 可能是 字符串 or 对象
+>  * 没有 error (if (!error) 的 else 情况) data 就是 API 的类型
+>  */
+> export type SDKApiResponseWrapper<T> = XOR<
+>   {
+>     error: SDKApiErrResp;
+>     data: RawSDKApiErrResp;
+>   },
+>   {
+>     data?: T;
+>   }
+> >;
+> ```
 
 [聊聊前端的未来 & Vercel](https://live.juejin.cn/4354/vercel)
 
@@ -3482,9 +3504,74 @@ day.js
 >
 > 最后  **Clipboard API**。Clipboard API 是下一代的剪贴板操作方法，比传统的 document.execCommand() 方法更强大、更合理。它的所有操作都是异步的，返回 Promise 对象，不会造成页面卡顿。而且，它可以将任意内容（比如图片）放入剪贴板。**另外还有一个问题，使用 clipboard API 需要从权限  [Permissions API](https://developer.mozilla.org/zh-CN/docs/Web/API/Permissions_API)  获取权限**
 
+[css @property 让不可能变成可能](https://juejin.cn/post/6951201528543707150)
+
+> [MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@property) @property CSS at-rule 是 CSS Houdini API 的一部分, 它允许开发者显式地定义他们的 CSS 自定义属性，允许进行属性类型检查、设定默认值以及定义该自定义属性是否可以被继承。
+>
+> `CSS Houdini` 开放 CSS 的底层 API 给开发者，使得开发者可以通过这套接口自行扩展 CSS，并提供相应的工具允许开发者介入浏览器渲染引擎的样式和布局流程中，使开发人员可以编写浏览器可以解析的 CSS 代码，从而创建新的 CSS 功能。
+>
+> 能够自定义属性，增强能力，比如让渐变色也可以进行 transition
+
+[skia 剖析（深入 flutter）](https://segmentfault.com/a/1190000038827450)
+
+> 移动 App：UI 库 -> 图形库 -> 低级图形接口 -> 硬件设备层
+>
+> Skia 的框架分析，字体、图片解析
+
+[React FC 真的需要用吗](https://www.harrymt.com/blog/2020/05/20/react-typescript-react-fc.html)
+
+>
+
+[JS Ecosystem Is Delightfully Weird](https://fly.io/blog/js-ecosystem-delightfully-wierd/)
+
+> 作者讲了 JS 的生态非常怪，但也是好的
+>
+> 不写纯 JS（框架、TS、...）、RSC 的 `'use server'` 这类让 JS 变成 meta programming language
+
+[new in Web UI](https://www.youtube.com/watch?v=buChHSdsF9A)
+
+> Now: 2023.05.16 18:48:15 +0800
+>
+> 谷歌团队介绍 web ui 新技术，个人比较关注的是 container query,`text-wrap: balance`, 新的 viewport 单位, cascade layer, popover, view transition（让 SPA 体验更接近原生！）
+
+[Bun Bundler](https://bun.sh/blog/bun-bundler)
+
+> _JavaScript started as autofill for form fields, and today it powers the instruments that launch rockets to space._
+>
+> bun 运行时推出的内置构建器，非常快，等啥时候用了在体验吧
+
+[useIsomorphicLayoutEffect?](https://usehooks-ts.com/react-hook/use-isomorphic-layout-effect)
+
+> 好奇的搜一下之前看到的 `useIsomorphicLayoutEffect` 到底意义何在，起初只是认为是做 SSR/CSR 的兼容
+>
+> 包括 dan 的 [gist](https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85) 也解答了，如果在 CSR 非常需要 `useLayoutEffect` 在 dom 变化后立即需要的 effect，但是又是 SSR 场景，会在服务端渲染的时候报错，所以可以在服务端使用 `useEffect`（即使这两个在服务端都不会执行），来满足这个场景。
+>
+> 代码非常简单
+>
+> ```jsx
+> import { useEffect, useLayoutEffect } from "react";
+>
+> const useIsomorphicLayoutEffect =
+>   typeof window !== "undefined" ? useLayoutEffect : useEffect;
+>
+> export default useIsomorphicLayoutEffect;
+> ```
+
+[what happens when...](https://github.com/alex/what-happens-when)
+
+> 老问题：当在浏览器的地址栏中输入 url 按回车发生了什么
+>
+> 这个仓库回答的非常详细，除了传统的流程，甚至还提到了硬件（键盘）。还是挺值得收藏和回顾的。
+
 ### 【资讯 & 潮流】
 
 > **需要标注收录时间**
+
+[coolshell 作者离世](https://blog.kevinzhow.com/posts/in-memory-of-haoel/zh)
+
+> 2023.05.16 12:47:52 +0800
+>
+> 前一天得知的消息，心梗走的很突然，也是听震惊和可惜，之前也看了不少他的文章，很钦佩的一个人
 
 [The End of Frontend Development?](https://www.joshwcomeau.com/blog/the-end-of-frontend-development/)
 

@@ -171,6 +171,36 @@ node 的包管理器，不多说了
 
 `alias mysql="/usr/local/MySQL/bin/mysql"`
 
+## 命令行工具
+
+### espanso
+
+[官网](https://espanso.org/)，开源的 snippet 工具，[github](https://github.com/espanso/espanso)，rust 写的，很好用，值得[展开说说](
+
+### ouch 更好的压缩/解压工具
+
+比 `extract` 更好用
+
+https://github.com/ouch-org/ouch
+
+### 解压 rar
+
+Use `brew install rar` to install both the rar and unrar binaries.
+
+添加 oh-my-zsh 的插件`extract`
+
+命令行用 `x` 即可
+
+### zoxide
+
+https://github.com/ajeetdsouza/zoxide
+
+比 autojump 好用，增强你的内置 cd 吧
+
+add the following to zshrc：
+
+`eval "$(zoxide init zsh --cmd cd)"`
+
 ## Softwares
 
 > https://github.com/jaywcjlove/awesome-mac上有非常棒的软件推荐
@@ -185,10 +215,6 @@ node 的包管理器，不多说了
 
 快捷键控制窗口在屏幕的位置，好用！也是[开源的](https://github.com/rxhanson/Rectangle)
 
-### espanso
-
-[官网](https://espanso.org/)，开源的 snippet 工具，[github](https://github.com/espanso/espanso)，rust 写的，很好用，值得[展开说说](try_espanso)
-
 ### A 区账号获取教程
 
 [苹果 A 区账号搞定教程](https://zhuanlan.zhihu.com/p/156908712)
@@ -198,14 +224,6 @@ node 的包管理器，不多说了
 filezilla，还挺好用的，和 win-scp 差不多，拖来拖去传文件
 
 去官网 https://filezilla-project.org/ 下载就好
-
-### 解压 rar
-
-Use `brew install rar` to install both the rar and unrar binaries.
-
-添加 oh-my-zsh 的插件`extract`
-
-命令行用`x`即可
 
 ### 截图软件 Shottr
 

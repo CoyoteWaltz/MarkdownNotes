@@ -19,6 +19,37 @@ type R = typeof routes;
 let ee = routes[0].path // let ee: "/abc/:bcd"
 ```
 
+另一个例子
+
+```typescript
+export enum FormType {
+  LOGIN_PWD,
+  LOGIN_SMS_CODE,
+}
+export interface PageConfig {
+  routers: Readonly<FormType[]>;
+  title: string;
+  showBack?: boolean;
+}
+
+export const PageConfigMap = {
+  [FormType.LOGIN_SMS_CODE]: {
+    routers: [FormType.LOGIN_SMS_CODE, FormType.LOGIN_PWD] as const,
+    title: '验证码登录',
+    showBack: true,
+  },
+  [FormType.LOGIN_PWD]: {
+    routers: [FormType.LOGIN_PWD] as const,
+    title: '密码登录',
+    showBack: true,
+  },
+} as const satisfies Record<FormType, PageConfig>;
+
+const s = PageConfigMap[FormType.LOGIN_SCAN];
+s.title;
+
+```
+
 ### 去掉一个类型中的可选属性
 
 ```typescript

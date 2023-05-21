@@ -91,3 +91,41 @@ interface SomeType<T> {
   foo<U>(x: U): FooResult<U, T>;
 }
 ```
+
+### 拆分大项目
+
+You can [read up more about project references here](https://www.typescriptlang.org/docs/handbook/project-references.html).
+
+## 配置 `tsconfig.json` or `jsconfig.json`
+
+> 这两个编译相关的配置
+
+### 声明文件
+
+能确保一次不要 include 太多文件
+
+在 `tsconfig.json` 中可以用：
+
+- `files` list
+- `include` 和 `exclude` list 字段
+
+两者最主要的区别就是 `files` 预期的是源文件的目录；`include`/`exclude` 用的是 glob pattern 来匹配文件
+
+For best practices, we recommend the following:
+
+- 只引入入口文件
+- 不要把源文件和其他项目代码放在一起
+- 如果有 test 文件，给一个特殊的名字用来被 exclude
+- 避免大量编译产物或者依赖（`node_modules`）被放在源文件中
+
+**`node_modules` is excluded by default，但是一旦在 `exclude` 字段中加了新的，`node_modules` 需要被显式的加入**
+
+```json
+{
+  "compilerOptions": {
+    // ...
+  },
+  "include": ["src"],
+  "exclude": ["**/node_modules", "**/.*/"]
+}
+```

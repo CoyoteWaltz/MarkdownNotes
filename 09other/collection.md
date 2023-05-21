@@ -17,6 +17,7 @@
 买 SMS 账号
 
 - https://sms-activate.org/getNumber
+  - 2 USD 起充，还挺方便
 
 [待阅读 chatgpt 相关](https://writings.stephenwolfram.com/2023/01/wolframalpha-as-the-way-to-bring-computational-knowledge-superpowers-to-chatgpt/)
 
@@ -90,6 +91,8 @@ PT Sans
 
 ## 收藏有趣的 links
 
+[自然语言画动画 背后当然是 ChatGPT](https://github.com/360macky/generative-manim)
+
 [Awesome GPT](https://github.com/dalinvip/Awesome-ChatGPT)
 
 [经典掌游在线](https://play.webrcade.com/)
@@ -144,6 +147,8 @@ https://esm.sh/（esm import npm packages from url）
 
 [fuckjs 将 js 代码转换成很奇怪的符号哈哈](http://www.jsfuck.com/)
 
+[开源指南](https://opensource.guide)
+
 ## github
 
 [github stars trends](https://star-history.com/blog/how-to-use-github-star-history)
@@ -193,6 +198,8 @@ https://www.youtube.com/watch?v=demodictYeY
 [Top string start at middle](https://www.youtube.com/watch?v=meW4-eCKG2Q)
 
 - https://www.youtube.com/watch?v=5WBNEQix6Y4
+
+[What is WHIP in lacrosse](https://laxweekly.com/whip/)
 
 ## knots
 
