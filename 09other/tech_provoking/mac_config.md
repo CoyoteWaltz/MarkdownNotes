@@ -313,7 +313,28 @@ defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global defaul
 - outline map：同事推荐的，好评！能够把代码结构作为目录在侧边展示，很棒！
 - inline fold：可以把 classname 给 fold 起来（安装后，在 keyboard shortcut 搜 inline cut 加了个 toggle 的快捷键 `⌘ + k ⌘ + ⌥ + f`
 
+#### settings 文件配置
+
 推荐一手托尼的 [vscode settings](https://github.com/antfu/vscode-settings)
+
+```json
+// 能够让一些本是 json 的文件解析成 jsonc（with comment 能再 json 文件中写 // 注释）
+"files.associations": {
+    ".code-workspace": "jsonc",
+    ".babelrc": "json",
+    ".eslintrc": "jsonc",
+    ".eslintrc*.json": "jsonc",
+    ".stylelintrc": "jsonc",
+    "stylelintrc": "jsonc",
+    ".htmlhintrc": "jsonc",
+    "htmlhintrc": "jsonc",
+    "Procfile*": "shellscript",
+    "README": "markdown"
+},
+// 可以在界面上画位置
+"editor.rulers": [80, 120],
+
+```
 
 #### 如何干光 vscode（macos）
 

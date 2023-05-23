@@ -150,9 +150,9 @@
 > - 问自己一些已有的问题
 >   - 遇到 bug
 >   - 写函数
->     - **contingent designs** for errors like `try/catch` and logs?
->     - **preventive designs** for errors like `pre` condition or `assert`?
->     - Should the function name describe **the purpose**?
+>     - **contingent designs** for errors like `try/catch` and logs?
+>     - **preventive designs** for errors like `pre` condition or `assert`?
+>     - Should the function name describe **the purpose**?
 >     - Do I add some suitable doc strings on functions?
 >   - 写模块
 >     - api 声明
@@ -356,18 +356,18 @@
 >
 > Realize that every code has a life cycle and will die. Sometimes it dies in its infancy before seeing the light of production. Be OK with letting go. Know the difference between 4 categories of features and where to put your time and energy:
 >
-> - **Core:** like an engine in a car. The product is meaningless without it.
-> - **Necessary:** like a car’s spare wheel. It’s rarely used but when needed, its function decides the success of the system.
-> - **Added value:** like a car’s cup-holder. It’s nice to have but the product is perfectly usable without it.
-> - **Unique Selling Point:** the main reason people should buy your product instead of your rivals. For example, your car is the best off-road vehicle.
+> - **Core:** like an engine in a car. The product is meaningless without it.
+> - **Necessary:** like a car’s spare wheel. It’s rarely used but when needed, its function decides the success of the system.
+> - **Added value:** like a car’s cup-holder. It’s nice to have but the product is perfectly usable without it.
+> - **Unique Selling Point:** the main reason people should buy your product instead of your rivals. For example, your car is the best off-road vehicle.
 >
-> When making decisions about the solution all things equal, go for this priority: **Security** > **Reliability** > **Usability (Accessibility & UX)** > **Maintainability** > **Simplicity (Developer experience/DX)** > **Brevity (code length)** > **Finance** > **Performance**，But don’t follow that blindly because it is dependent on the nature of the product. Like any career, the more experience you earn, the more you can find the right balance for each given situation.
+> When making decisions about the solution all things equal, go for this priority: **Security** > **Reliability** > **Usability (Accessibility & UX)** > **Maintainability** > **Simplicity (Developer experience/DX)** > **Brevity (code length)** > **Finance** > **Performance**，But don’t follow that blindly because it is dependent on the nature of the product. Like any career, the more experience you earn, the more you can find the right balance for each given situation.
 >
-> Get out of your comfort zone. Learn every day. **Teach** what you learn. If you’re the master, you’re not learning. Expose yourself to other languages, technologies, culture and stay curious.
+> Get out of your comfort zone. Learn every day. **Teach** what you learn. If you’re the master, you’re not learning. Expose yourself to other languages, technologies, culture and stay curious.
 >
-> Don’t do **speculative programming**.
+> Don’t do **speculative programming**.
 >
-> Software is more fun when it’s made together. Build a sustainable **community**. Listen. Inspire. Learn. Share.
+> Software is more fun when it’s made together. Build a sustainable **community**. Listen. Inspire. Learn. Share.
 
 [Life is not short](https://dkb.show/post/life-is-not-short)
 
@@ -509,6 +509,32 @@
 
 > 在解释 why 之前，必须知道他是 what
 
+[zettelkasten method](https://www.youtube.com/watch?v=GpV47rUYk8I)
+
+> zettel → slip ,kasten → box 是德语 slip of paper box 的意思( note box )
+>
+> - Fleeting notes: walking thoughts, showering thoughts, …
+> - Literature notes: thoughts while consuming content( books, articles, podcast … )
+> - Permanent notes: The output, review
+>
+> 1, 2:
+>
+> - One atomic content each
+> - re-describe in your own words
+> - write down the references
+>
+> 3:
+>
+> - One atomic idea per note
+> - Express the idea assuming the readers have no context(make ur system future prove)
+> - Connect with other notes in the system
+>
+> Two Boxes(literature and permanent)
+>
+> Not a top-down organizing system!
+>
+> 这个博主 focus on clear thinking and clear communicating，有关 obsidian 的后续[继续看](https://www.youtube.com/watch?v=HSTOSWOhNo4)！
+
 ---
 
 ### 【技术】
@@ -578,7 +604,7 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 > - faker.js：造假数据的库
 > - editor.js：编辑器
 > - popper.js：tips 库
-> - ## three.js：webgl
+> - three.js：webgl
 
 [Youtube design trending in 2021](https://www.youtube.com/watch?v=5RluSnRPRbI)
 
@@ -3502,7 +3528,7 @@ day.js
 > - 触发回调方法 `e.clipboardData` format 为了不让复制带有原来的样式
 > - 样式兼容
 >
-> 最后  **Clipboard API**。Clipboard API 是下一代的剪贴板操作方法，比传统的 document.execCommand() 方法更强大、更合理。它的所有操作都是异步的，返回 Promise 对象，不会造成页面卡顿。而且，它可以将任意内容（比如图片）放入剪贴板。**另外还有一个问题，使用 clipboard API 需要从权限  [Permissions API](https://developer.mozilla.org/zh-CN/docs/Web/API/Permissions_API)  获取权限**
+> 最后 **Clipboard API**。Clipboard API 是下一代的剪贴板操作方法，比传统的 document.execCommand() 方法更强大、更合理。它的所有操作都是异步的，返回 Promise 对象，不会造成页面卡顿。而且，它可以将任意内容（比如图片）放入剪贴板。**另外还有一个问题，使用 clipboard API 需要从权限 [Permissions API](https://developer.mozilla.org/zh-CN/docs/Web/API/Permissions_API) 获取权限**
 
 [css @property 让不可能变成可能](https://juejin.cn/post/6951201528543707150)
 
@@ -3562,6 +3588,12 @@ day.js
 > 老问题：当在浏览器的地址栏中输入 url 按回车发生了什么
 >
 > 这个仓库回答的非常详细，除了传统的流程，甚至还提到了硬件（键盘）。还是挺值得收藏和回顾的。
+
+[HTTP3](https://en.wikipedia.org/wiki/HTTP/3)
+
+> 也是从左耳朵耗子在字节内的演讲中听到的，目前基于 tcp 协议的网络传输已经到达一定的天花板，性能受到 tcp 的拥塞控制（congestion control）限制，Http3 协议是基于 [QUIC](https://quicwg.org/) 协议，基于 UDP 的多路复用（multiplexed transport protocol）
+>
+> [这一篇](https://www.debugbear.com/blog/http3-quic-protocol-guide)后续可以深入看 HTTP3 和 QUIC
 
 ### 【资讯 & 潮流】
 

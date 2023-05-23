@@ -53,6 +53,11 @@ div::-webkit-scrollbar {
 
 图文合一
 
+和 `inherit` 的[区别](https://stackoverflow.com/questions/65591442/whats-the-difference-between-color-inherit-vs-color-currentcolor)？
+
+- `inherit` 只是继承父元素上相同属性的值
+- `currentColor` 是可以跟随最近的颜色，可以跨属性，比如取 border/background 的颜色
+
 ## 干掉点击 div 的效果（H5）
 
 ```css
