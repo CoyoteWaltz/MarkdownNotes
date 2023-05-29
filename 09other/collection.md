@@ -65,8 +65,6 @@ PT Sans
 
 [浏览器窗口同步测试工具](https://github.com/Browsersync/browser-sync)
 
-[代码行数 counter](https://github.com/AlDanial/cloc)
-
 [免费开源的在线简历制作](https://rxresu.me/)
 
 [doctoc 为 markdown 文件添加通用的 toc（好用可以加在工作流）](https://github.com/thlorenz/doctoc)

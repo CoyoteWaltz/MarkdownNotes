@@ -23,7 +23,7 @@ The name of the project will be _Portfolio_.
 1. Play with Nextra
 2. **Design the content of the site**
 3. Deploy online(Vercel)
-4. Migrate MD files or Make synchronization action or Convert MD repo
+4. Migrate MD files or Make synchronization action or Convert MD repo( Automation for syncing MD repo and publish action)
 5. Learn MDX & adapt MDX with local editor(Typora/Obsidian)
 6. Polishing content!
 

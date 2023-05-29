@@ -506,6 +506,31 @@ Linux 内核的信号量用来操作系统进程间同步访问共享资源。
 
 `!!`执行上一条
 
+[让 history 更好用的 tips](https://cyb.org.uk/2021/05/03/bash-productivity.html)
+
+> 使用命令行的时候，经常会反复的敲出之前的命令，这篇文章讲了一些 tips，让我们更高效的使用 history
+>
+> 1. Use HISTIGNORE to remove pointless commands from history
+>    1. 目标：减少一些无用的指令出现在 history 中（无用：常用的，不需要在 history 里面找）
+>    2. 例子：`export HISTIGNORE='pwd:exit:fg:bg:top:clear:history:ls:uptime:df'`
+> 2. Recalling commands effectively
+>    1. `!!` recalls the previous line，加上 `:p` 可以仅展示而不立即执行（等同于按上箭头）
+>    2. `!ping` 可以展示上一条 `ping` 命令的历史
+> 3. Using parameters from the previous line with `!$` and `!*`
+>    1. 上一条指令参数的简写变量
+>    2. 例子：
+>
+> ```
+> $ rm /var/log/httpd/access.log /var/log/httpd/error.log
+> $ touch !*
+> touch /var/log/httpd/access.log /var/log/httpd/error.log
+> ```
+>
+> 4. Use readline for partial history search
+>    1. `ssh <up arrow>` 提示上一条执行 ssh 的命令参数（warp 支持）
+>
+> 总结下：很实用，现在用的 warp 也有很多好用的提效功能，包括智能命令搜索 `⌃ + ~`
+
 ### scp
 
 详见 _scp_ 那篇文章

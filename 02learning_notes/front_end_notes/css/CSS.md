@@ -842,7 +842,7 @@ clip-path: unset;
 
 ### object-fit
 
-这个属性适用于可*替换元素（replaced element）*比如 `<img>` `<video>`，让替换的元素处于合适的位置展示
+[这个属性](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)适用于可*替换元素（replaced element）*比如 `<img>` `<video>`，让替换的元素处于合适的位置展示
 
 `contain`：
 
@@ -859,6 +859,8 @@ re-adjust the image to fill the space. This causes the image to be squished and 
 _有点像 background ?_
 
 _IE 不支持_
+
+同样还有 [object-position](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position) 配合使用，决定了 replaced element 的位置
 
 ### aspect-ratio
 

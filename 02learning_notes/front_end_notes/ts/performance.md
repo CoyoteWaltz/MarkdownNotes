@@ -129,3 +129,25 @@ For best practices, we recommend the following:
   "exclude": ["**/node_modules", "**/.*/"]
 }
 ```
+
+### 控制 `@types` 的引入
+
+TS 会默认自动加载所有 `node_modules` 中包的 `@types`（类型文件），这样就能很好的在没有引入这些包的情况下就用到他们的类型（比如 nodejs，jest，mocha 等），他们都是全局的类型。
+
+但这样也会带来比如逻辑足够复杂导致的性能问题，所以可以通过 `types` 字段来控制
+
+```json
+// src/tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+
+    // Don't automatically include anything.
+    // Only include `@types` packages that we need to import.
+    "types": []
+  },
+  "files": ["foo.ts"]
+}
+```
+
+按需引入需要的类型（比如：`"types" : ["node", "mocha"]`）

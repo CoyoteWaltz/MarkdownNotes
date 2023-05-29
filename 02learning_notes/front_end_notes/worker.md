@@ -27,3 +27,5 @@
 ### 怎么用
 
 > 具体 api 看文章吧，用的时候在学
+
+Lib 推荐：https://github.com/GoogleChromeLabs/comlink

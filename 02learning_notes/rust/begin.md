@@ -250,3 +250,125 @@ let five_three = [3; 5]; // [3, 3, 3, 3, 3]
 Rust will panic if the index is out of the range. And that is _memory safe_ in Rust. In many low-level languages, this kind of check is not done, and when you provide an incorrect index, **invalid memory can be accessed**.
 
 ### Functions
+
+_snake case as the conventional style_: `name_convention`
+
+The order of defining functions doesn't matter as long as it is called with the scope.
+
+**Statements & Expressions is distinct in Rust!**
+
+- **Statements** are instructions that perform some action and do not return a value.(Do sth)
+  - which means assignment doesn't return a value. `let x = (let y = 6);` will fail to compile
+- **Expressions** evaluate to a resultant value.
+  - a function call is an expression
+
+```rust
+let y = {
+	let x = 3;
+	x + 1
+};
+// if you add a semicolon to the end of an expression, you turn it into a statement, and it will then not return a value.
+```
+
+Functions return type must be declare by `->`. Return value can be the final **expression** of the function or use `return`.
+
+```rust
+fn five() -> i32 {
+	5   // no `;` so it's an expression
+}
+```
+
+BTW, Rust compiler is friendly haha.
+
+### Control Flow
+
+#### `if` expression
+
+There is no implicit type conversion in Rust!( in javascript if (1) or if (!'')).
+
+if is an expression, so it can be used to assign value. (Each block should be the same type. Variables must have a single type.)
+
+```rust
+let real_time = if time > 1 { 10 } else { 0 };
+```
+
+#### loops
+
+Rust has three kinds of loops: `loop`, `while`, and `for`.
+
+**loop**
+
+```rust
+fn loop_fn(time: i32) {
+    let mut i = 0;
+    loop {
+        if i > time {
+            break;  // jump out of loop until u tell
+        }
+        i += 1;
+      	// continue;
+        println!("in the loop, {}", i);
+    }
+}
+```
+
+loop with return value
+
+```rust
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");  // 20
+}
+```
+
+**Conditional Loops with `while`**
+
+```rust
+fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+```
+
+**for in collect**
+
+```rust
+
+fn buy_four() {
+    let items = [1, 2, 3, 4];
+    for item in items {
+        println!("buy {}", item);
+    }
+}
+```
+
+use a `Range`, provided by the standard library, which generates all numbers in sequence starting from one number and ending before another number.
+
+```rust
+fn buy_four() {
+    let items = [1, 2, 3, 4];
+    for item in items {
+        for i in (1..20).rev() {  // prettier simple
+            println!("buy {} with {}", item, i);
+        }
+    }
+}
+```
+
+## Ownership

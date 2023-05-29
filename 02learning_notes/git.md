@@ -413,6 +413,16 @@ to show a log of all the actions that have been taken
 
 ### clone
 
+#### --depth
+
+```bash
+git clone --depth 1 --branch main --single-branch
+```
+
+使用 `--depth 1` 会让 clone 下来的仓库只包含最新的一个 commit，默认是 master 分支
+
+有什么好处？通常在 CI/CD 只需要根据某一个 commit 构建的时候，和我们平时开发的时候不同，并不需要仓库完整的所有 commit，所以这样能快速的 clone 仓库，而不用费大劲 clone 完整仓库。
+
 ### tag
 
 通常在发布软件的时候打一个 tag，tag 会记录版本的 commit 号，方便后期回溯。

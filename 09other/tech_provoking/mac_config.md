@@ -173,9 +173,11 @@ node 的包管理器，不多说了
 
 ## 命令行工具
 
+### [glow 命令行 Markdown Renderer](https://github.com/charmbracelet/glow)
+
 ### espanso
 
-[官网](https://espanso.org/)，开源的 snippet 工具，[github](https://github.com/espanso/espanso)，rust 写的，很好用，值得[展开说说](
+[官网](https://espanso.org/)，开源的 snippet 工具，[github](https://github.com/espanso/espanso)，rust 写的，很好用，值得[展开说说](./try_espanso)
 
 ### ouch 更好的压缩/解压工具
 
@@ -201,176 +203,67 @@ add the following to zshrc：
 
 `eval "$(zoxide init zsh --cmd cd)"`
 
-## Softwares
+### exa for `ls`
 
-> https://github.com/jaywcjlove/awesome-mac上有非常棒的软件推荐
+Rust 写的，ls 的现代替换方案。[github](https://github.com/ogham/exa)
 
-### obsidian
+比 `ls` 爽太多了吧，赶紧 alias ls 吧。
 
-不多说了 [[try_obsidian]]
-
-### rectangle
-
-[下载](https://rectangleapp.com/)
-
-快捷键控制窗口在屏幕的位置，好用！也是[开源的](https://github.com/rxhanson/Rectangle)
-
-### A 区账号获取教程
-
-[苹果 A 区账号搞定教程](https://zhuanlan.zhihu.com/p/156908712)
-
-### 远程连接文件传输
-
-filezilla，还挺好用的，和 win-scp 差不多，拖来拖去传文件
-
-去官网 https://filezilla-project.org/ 下载就好
-
-### 截图软件 Shottr
-
-https://shottr.cc/
-
-非常棒的软件，免费！当然也可以 buy coffee for 作者。
-
-功能很强大，就是从 Xnip 切换过来还需要适应一段时间。
-
-自带 OCR，滚动截图，Pin（快捷键交互没有 Xnip 丝滑），还可以模糊文字。
-
-夸一下滚动截图的思路是直接控制电脑然后自动 scroll，比 xnip 的 CV 识别强多了（经常识别失败）。。后续可以裁剪，也无所谓滚动多少。
-
-作者这个产品是 from hoppy，真的很棒。
-
-也有一些体验是不及 Xnip，比如 pin 在屏幕上的图片放大缩小不是很便捷，截图不会有预选框，尺寸也无法预先控制
-
-### 截图软件 Xnip
-
-http://xnipapp.com/
-
-很好用啊！免费，App store 直接下载。高级功能需要付费（已付费）
-
-### cleanmymac
-
-### vscode
-
-不多说了官网直接下载解压就是 app 了
-
-记得拖到应用程序
-
-~~在`.zshrc`中加入`alias code=/Applications/Visual\ Studio\ Code.app/Contents/Resources/bin/code`，source 一下之后就可以`code <path>`了~~
-
-命令行`code`指令直接[官方的操作](https://code.visualstudio.com/docs/editor/command-line#_common-questions)，`⇧ + ⌘ + p`然后输入类似`shell command install 'code'`的语句就让 vscode 自己帮我们在环境变量中加 code 指令
-
-#### 开启 semantic highlighting
-
-有什么好处，可以看这篇 [semantic highlight](https://www.stefanjudis.com/today-i-learned/how-to-enable-semantic-highlighting-in-vs-code/)
-
-Semantic syntax highlighting makes sure your source code is not only beautifully colored, but that used the colors are logical, too.
-
-[vscode 如何开启 & 如何制作 theme](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide)，在设置里搜 `semanticHighlighting` 可以一键全开启（默认是按照 theme 配置的，需要到 theme 里面去开）
-
-搜了下并且看了下自己已经下载的主题，one dark pro 和 Monokai 系列是都支持的
-
-![image-20230313132738697](_imgs/mac_config.assets/image-20230313132738697.png)
-
-#### 代码 snippet 后依旧可以联想
-
-目的是用一些代码片段之后，能够立即输入联想的变量（or 其他），比如：输入 `log` 的代码片段是 `console.log()`
-
-操作：**settings -> Snippets Prevent Quick Suggestions 关闭这个选项即可**
-
-#### 开启 TS 的引用计数
-
-在 settings 中搜索 `codelens`，在 extensions 中找到 TypeScript，开启 `References Code Lens`
-
-开启之后就能看到每个变量/属性被引用的次数啦，很方便。
-
-#### 开启长按键盘
+#### 安装
 
 ```bash
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+brew install exa
 ```
 
-让 vim 插件按着 j 可以一路往下
+#### Display Options
 
-mac 下全局，不建议这么做
+- **-1**（数字 1）, **--oneline**: display one entry per line
+- **-G**, **--grid**: display entries as a grid (**default**)
+- ==**-l**, **--long**==: display extended details and attributes
+- ==**-R**, **--recurse**==: recurse into directories
+- ==**-T**, **--tree**==: recurse into directories as a tree
+- **-x**, **--across**: sort the grid across, rather than downwards
+- **-F**, **--classify**: display type indicator by file names
+- **--colo[u]r**: when to use terminal colours (auto, auto, never)
+- **--colo[u]r-scale**: highlight levels of file sizes distinctly
+- **--icons**: display icons 酷，太酷了
 
-```bash
-defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global default
-```
+#### Filtering Options
 
-#### 工具插件推荐
+- **-a**, **--all**: show hidden and 'dot' files
+- **-d**, **--list-dirs**: list directories like regular files
+- **-L**, **--level=(depth)**: limit the depth of recursion
+- **-r**, **--reverse**: reverse the sort order
+- **-s**, **--sort=(field)**: which field to sort by
+- **--group-directories-first**: list directories before other files
+- **-D**, **--only-dirs**: list only directories
+- **--git-ignore**: ignore files mentioned in `.gitignore`
+- **-I**, **--ignore-glob=(globs)**: glob patterns (pipe-separated) of files to ignore
 
-- 主题啥的自己挑吧
-- gitlens：git 必用，特别好用
-- rainbow bracket：彩虹色括号
-- rainbow indent：彩虹色锁进
-- polacode：分享代码的好插件`⌘ + ⇧ + p` -> polacode
-- code spell checker：检查拼写`⌘ + .` to fix spelling
-- leetcode：刷 leetcode 适合装这个，按照教程登陆
-- Prettier: 可以用`.prettierrc.js`文件自定义格式要求，是一个 module，也可以在设置里面配置
-- code runner：跑代码的，推荐
-- javascript console utils：写 JS 的时候让`console.log`更加方便，`⌘ + ⇧ + L`生成`console.log`行（选中变量会自动填充），`⌘ + ⇧ + D`删除文档内所有的`console.log`行（但那一行不会被删。。），PS：由于删除的快捷键被 Dato 占用了，就改成了`⌘ + ⌥ + D`
-- code tour：在 vscode 中的代码指引
-- outline map：同事推荐的，好评！能够把代码结构作为目录在侧边展示，很棒！
-- inline fold：可以把 classname 给 fold 起来（安装后，在 keyboard shortcut 搜 inline cut 加了个 toggle 的快捷键 `⌘ + k ⌘ + ⌥ + f`
+#### Long View Options
 
-#### settings 文件配置
+只有`-l`模式下可以用
 
-推荐一手托尼的 [vscode settings](https://github.com/antfu/vscode-settings)
+- ==**-h**, **--header**==: add a header row to each column
+- **-b**, **--binary**: list file sizes with binary prefixes
+- **-B**, **--bytes**: list file sizes in bytes, without any prefixes
+- ==**--git**==: list each file's Git status, if tracked or ignored
 
-```json
-// 能够让一些本是 json 的文件解析成 jsonc（with comment 能再 json 文件中写 // 注释）
-"files.associations": {
-    ".code-workspace": "jsonc",
-    ".babelrc": "json",
-    ".eslintrc": "jsonc",
-    ".eslintrc*.json": "jsonc",
-    ".stylelintrc": "jsonc",
-    "stylelintrc": "jsonc",
-    ".htmlhintrc": "jsonc",
-    "htmlhintrc": "jsonc",
-    "Procfile*": "shellscript",
-    "README": "markdown"
-},
-// 可以在界面上画位置
-"editor.rulers": [80, 120],
+还有好多 long 模式下展示的选项，详见 [github](https://github.com/ogham/exa#long-view-options)
 
-```
+### cloc
 
-#### 如何干光 vscode（macos）
+[代码行数 counter](https://github.com/AlDanial/cloc)
 
-统统删光
+### SCC
 
-```bash
-#!/bin/sh
+[github](https://github.com/boyter/scc)
 
-rm -rfv "$HOME/.vscode"
-rm -rfv "$HOME/Library/Application Support/Code"
-rm -rfv "$HOME/Library/Caches/com.microsoft.VSCode"
-rm -rfv "$HOME/Library/Saved Application State/com.microsoft.VSCode.savedState"
-```
+> A tool similar to **cloc**, sloccount and tokei. For counting physical the lines of code, blank lines, comment lines, and physical lines of source code in many programming languages.
+>
+> succinct code counter
 
-```bash
-#!/bin/sh
-
-rm -rfv "$HOME/.vscode-insiders"
-rm -rfv "$HOME/Library/Application Support/Code - Insiders"
-rm -rfv "$HOME/Library/Caches/com.microsoft.VSCodeInsiders"
-rm -rfv "$HOME/Library/Saved Application State/com.microsoft.VSCodeInsiders.savedState"
-```
-
-#### 去掉窗口的下波浪线
-
-在 `.vscode/settings.json` 中加入以下这些修改下划波浪线的颜色，不然太难看了
-
-```json
-{
-  "workbench.colorCustomizations": {
-    "editorError.foreground": "#00000000",
-    "editorWarning.foreground": "#00000000",
-    "editorInfo.foreground": "#00000000"
-  }
-}
-```
+Go 写的，cloc 平替，确实比 cloc 快很多。。
 
 ### homebrew
 
@@ -400,7 +293,7 @@ sudo chown -R $USER $(brew --prefix)
 
 `brew cask install firefox`能省去拖动图标到 Application 的操作哟
 
-这个 cask，木桶，装入桶内，有趣的词语（这个 cask 其实也是一个包，可以下载的）
+这个 cask，木桶，装入桶内，有趣的词语（这个 cask 其实也是一个包，可以下载的）
 
 卸载一个包（下面两个是一样的效果。。。）
 
@@ -430,10 +323,6 @@ sudo chown -R $USER $(brew --prefix)
 `ssh-keygen -t rsa -C "${你的邮箱地址}"`
 
 [gci](https://www.npmjs.com/package/git-checkout-interactive) 可交互式切分支
-
-### docker
-
-[官网](https://www.docker.com/get-started)下载 dmg 安装 or [阿里云 Docker dmg 镜像](http://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/stable/)
 
 ### Warp
 
@@ -642,6 +531,181 @@ git 符号的含义：https://github.com/romkatv/powerlevel10k#what-do-different
 
 如果在 vscode 中也要用 iterm2，记得配置一下默认 shell，**并且在字体 family 中加**`MesloLGS NF`
 
+## Softwares
+
+> https://github.com/jaywcjlove/awesome-mac上有非常棒的软件推荐
+
+### obsidian
+
+不多说了 [[try_obsidian]]
+
+### rectangle
+
+[下载](https://rectangleapp.com/)
+
+快捷键控制窗口在屏幕的位置，好用！也是[开源的](https://github.com/rxhanson/Rectangle)
+
+### A 区账号获取教程
+
+[苹果 A 区账号搞定教程](https://zhuanlan.zhihu.com/p/156908712)
+
+### 远程连接文件传输
+
+filezilla，还挺好用的，和 win-scp 差不多，拖来拖去传文件
+
+去官网 https://filezilla-project.org/ 下载就好
+
+### 截图软件 Shottr
+
+https://shottr.cc/
+
+非常棒的软件，免费！当然也可以 buy coffee for 作者。
+
+功能很强大，就是从 Xnip 切换过来还需要适应一段时间。
+
+自带 OCR，滚动截图，Pin（快捷键交互没有 Xnip 丝滑），还可以模糊文字。
+
+夸一下滚动截图的思路是直接控制电脑然后自动 scroll，比 xnip 的 CV 识别强多了（经常识别失败）。。后续可以裁剪，也无所谓滚动多少。
+
+作者这个产品是 from hoppy，真的很棒。
+
+也有一些体验是不及 Xnip，比如 pin 在屏幕上的图片放大缩小不是很便捷，截图不会有预选框，尺寸也无法预先控制
+
+### 截图软件 Xnip
+
+http://xnipapp.com/
+
+很好用啊！免费，App store 直接下载。高级功能需要付费（已付费）
+
+### cleanmymac
+
+### vscode
+
+不多说了官网直接下载解压就是 app 了
+
+记得拖到应用程序
+
+~~在`.zshrc`中加入`alias code=/Applications/Visual\ Studio\ Code.app/Contents/Resources/bin/code`，source 一下之后就可以`code <path>`了~~
+
+命令行`code`指令直接[官方的操作](https://code.visualstudio.com/docs/editor/command-line#_common-questions)，`⇧ + ⌘ + p`然后输入类似`shell command install 'code'`的语句就让 vscode 自己帮我们在环境变量中加 code 指令
+
+#### 开启 semantic highlighting
+
+有什么好处，可以看这篇 [semantic highlight](https://www.stefanjudis.com/today-i-learned/how-to-enable-semantic-highlighting-in-vs-code/)
+
+Semantic syntax highlighting makes sure your source code is not only beautifully colored, but that used the colors are logical, too.
+
+[vscode 如何开启 & 如何制作 theme](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide)，在设置里搜 `semanticHighlighting` 可以一键全开启（默认是按照 theme 配置的，需要到 theme 里面去开）
+
+搜了下并且看了下自己已经下载的主题，one dark pro 和 Monokai 系列是都支持的
+
+![image-20230313132738697](_imgs/mac_config.assets/image-20230313132738697.png)
+
+#### 代码 snippet 后依旧可以联想
+
+目的是用一些代码片段之后，能够立即输入联想的变量（or 其他），比如：输入 `log` 的代码片段是 `console.log()`
+
+操作：**settings -> Snippets Prevent Quick Suggestions 关闭这个选项即可**
+
+#### 开启 TS 的引用计数
+
+在 settings 中搜索 `codelens`，在 extensions 中找到 TypeScript，开启 `References Code Lens`
+
+开启之后就能看到每个变量/属性被引用的次数啦，很方便。
+
+#### 开启长按键盘
+
+```bash
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+```
+
+让 vim 插件按着 j 可以一路往下
+
+mac 下全局，不建议这么做
+
+```bash
+defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global default
+```
+
+#### 工具插件推荐
+
+- 主题啥的自己挑吧
+- gitlens：git 必用，特别好用
+- rainbow bracket：彩虹色括号
+- rainbow indent：彩虹色锁进
+- polacode：分享代码的好插件`⌘ + ⇧ + p` -> polacode
+- code spell checker：检查拼写`⌘ + .` to fix spelling
+- leetcode：刷 leetcode 适合装这个，按照教程登陆
+- Prettier: 可以用`.prettierrc.js`文件自定义格式要求，是一个 module，也可以在设置里面配置
+- code runner：跑代码的，推荐
+- javascript console utils：写 JS 的时候让`console.log`更加方便，`⌘ + ⇧ + L`生成`console.log`行（选中变量会自动填充），`⌘ + ⇧ + D`删除文档内所有的`console.log`行（但那一行不会被删。。），PS：由于删除的快捷键被 Dato 占用了，就改成了`⌘ + ⌥ + D`
+- code tour：在 vscode 中的代码指引
+- outline map：同事推荐的，好评！能够把代码结构作为目录在侧边展示，很棒！
+- inline fold：可以把 classname 给 fold 起来（安装后，在 keyboard shortcut 搜 inline cut 加了个 toggle 的快捷键 `⌘ + k ⌘ + ⌥ + f`
+
+#### settings 文件配置
+
+推荐一手托尼的 [vscode settings](https://github.com/antfu/vscode-settings)
+
+```json
+// 能够让一些本是 json 的文件解析成 jsonc（with comment 能再 json 文件中写 // 注释）
+"files.associations": {
+    ".code-workspace": "jsonc",
+    ".babelrc": "json",
+    ".eslintrc": "jsonc",
+    ".eslintrc*.json": "jsonc",
+    ".stylelintrc": "jsonc",
+    "stylelintrc": "jsonc",
+    ".htmlhintrc": "jsonc",
+    "htmlhintrc": "jsonc",
+    "Procfile*": "shellscript",
+    "README": "markdown"
+},
+// 可以在界面上画位置
+"editor.rulers": [80, 120],
+
+```
+
+#### 如何干光 vscode（macos）
+
+统统删光
+
+```bash
+#!/bin/sh
+
+rm -rfv "$HOME/.vscode"
+rm -rfv "$HOME/Library/Application Support/Code"
+rm -rfv "$HOME/Library/Caches/com.microsoft.VSCode"
+rm -rfv "$HOME/Library/Saved Application State/com.microsoft.VSCode.savedState"
+```
+
+```bash
+#!/bin/sh
+
+rm -rfv "$HOME/.vscode-insiders"
+rm -rfv "$HOME/Library/Application Support/Code - Insiders"
+rm -rfv "$HOME/Library/Caches/com.microsoft.VSCodeInsiders"
+rm -rfv "$HOME/Library/Saved Application State/com.microsoft.VSCodeInsiders.savedState"
+```
+
+#### 去掉窗口的下波浪线
+
+在 `.vscode/settings.json` 中加入以下这些修改下划波浪线的颜色，不然太难看了
+
+```json
+{
+  "workbench.colorCustomizations": {
+    "editorError.foreground": "#00000000",
+    "editorWarning.foreground": "#00000000",
+    "editorInfo.foreground": "#00000000"
+  }
+}
+```
+
+### docker
+
+[官网](https://www.docker.com/get-started)下载 dmg 安装 or [阿里云 Docker dmg 镜像](http://mirrors.aliyun.com/docker-toolbox/mac/docker-for-mac/stable/)
+
 ### 字由&字魂
 
 都是可以获取免费商用字体的软件
@@ -672,8 +736,6 @@ git 符号的含义：https://github.com/romkatv/powerlevel10k#what-do-different
 - clipboard history
 - ...
 
-### [glow 命令行 Markdown Renderer](https://github.com/charmbracelet/glow)
-
 ## OS stuff
 
 > just like linux/unix
@@ -703,54 +765,6 @@ lsof -i :<port>
 关闭它的生成：`defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE`
 
 恢复：`defaults delete com.apple.desktopservices DSDontWriteNetworkStores`
-
-### exa for `ls`
-
-Rust 写的，ls 的现代替换方案。[github](https://github.com/ogham/exa)
-
-比 `ls` 爽太多了吧，赶紧 alias ls 吧。
-
-#### 安装
-
-```bash
-brew install exa
-```
-
-#### Display Options
-
-- **-1**（数字 1）, **--oneline**: display one entry per line
-- **-G**, **--grid**: display entries as a grid (**default**)
-- ==**-l**, **--long**==: display extended details and attributes
-- ==**-R**, **--recurse**==: recurse into directories
-- ==**-T**, **--tree**==: recurse into directories as a tree
-- **-x**, **--across**: sort the grid across, rather than downwards
-- **-F**, **--classify**: display type indicator by file names
-- **--colo[u]r**: when to use terminal colours (auto, auto, never)
-- **--colo[u]r-scale**: highlight levels of file sizes distinctly
-- **--icons**: display icons 酷，太酷了
-
-#### Filtering Options
-
-- **-a**, **--all**: show hidden and 'dot' files
-- **-d**, **--list-dirs**: list directories like regular files
-- **-L**, **--level=(depth)**: limit the depth of recursion
-- **-r**, **--reverse**: reverse the sort order
-- **-s**, **--sort=(field)**: which field to sort by
-- **--group-directories-first**: list directories before other files
-- **-D**, **--only-dirs**: list only directories
-- **--git-ignore**: ignore files mentioned in `.gitignore`
-- **-I**, **--ignore-glob=(globs)**: glob patterns (pipe-separated) of files to ignore
-
-#### Long View Options
-
-只有`-l`模式下可以用
-
-- ==**-h**, **--header**==: add a header row to each column
-- **-b**, **--binary**: list file sizes with binary prefixes
-- **-B**, **--bytes**: list file sizes in bytes, without any prefixes
-- ==**--git**==: list each file's Git status, if tracked or ignored
-
-还有好多 long 模式下展示的选项，详见 [github](https://github.com/ogham/exa#long-view-options)
 
 ### 如何剪切
 

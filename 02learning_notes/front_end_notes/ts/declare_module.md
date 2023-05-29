@@ -118,3 +118,5 @@ declare module "xx/index" {
 import { Boo } from "xx/index";
 // let b: Boo;
 ```
+
+其实这个也是因为多处同名的 `interface` 在声明 module 之后会提升到全局，是会合并属性，最终合成一个 `interface`

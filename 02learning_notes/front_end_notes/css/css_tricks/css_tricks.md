@@ -10,6 +10,16 @@
 
 [toc]
 
+### CSS 希望 height 100% 但外层仅用了 min-height
+
+此时 height 不会生效
+
+[stackoverflow 给出了答案](https://stackoverflow.com/questions/6995581/css-100-height-of-container-with-min-height)
+
+外层用 `position: relative`，内层 absolute 定位即可。
+
+或者用 `min-height: inherit;` 也行。
+
 ### IOS 手机容器滚动条滑动不顺畅
 
 ```css
