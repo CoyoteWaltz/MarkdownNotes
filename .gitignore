@@ -14,7 +14,7 @@ obsidian/
 07work/
 08reading/*
 # except reading_list
-!08reading/reading_list.md
+!08reading/literature_notes/
 !08reading/_imgs/
 
 # 09other/
