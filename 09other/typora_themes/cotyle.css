@@ -399,7 +399,7 @@ tt {
   top: -1px;
   appearance: none;
   -webkit-appearance: none;
-  background-color: #eafaf5;
+  background-color: transparent;
 }
 
 /* 重新画 checkbox mac 下的渲染有问题... */

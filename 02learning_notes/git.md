@@ -1,7 +1,5 @@
 # Git
 
-[toc]
-
 ## 安装
 
 mac：（貌似内置的 git）
@@ -156,7 +154,7 @@ ref: refs/heads/master
 
 至此我们知道了 Git 是什么储存一个文件的内容、目录结构、commit 信息和分支的。**其本质上是一个 key-value 的数据库加上默克尔树（Merkle Tree）形成的有向无环图（DAG）**。
 
-其实还有第四种 Git object，类型是 tag，在添加含附注的 tag（git tag -a <test>）的时候会新建，是带有备注信息的 tag，会生成一个 tag object 放在 .git/objects 下。
+其实还有第四种 Git object，类型是 tag，在添加含附注的 tag（`git tag -a <test>`）的时候会新建，是带有备注信息的 tag，会生成一个 tag object 放在 .git/objects 下。
 
 ```bash
 ❯ tree .git/refs

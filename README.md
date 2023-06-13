@@ -1,6 +1,6 @@
 # Markdown Repo
 
-> I am using Markdown files to recording everthing right now with _[Typora](https://typora.io/)_
+> I am using Markdown files to recording everything right now both with _[Typora](https://typora.io/)_ and _[Obsidian](https://obsidian.md/)_.
 >
 > README is WIP because I'm not ready for how to describe this repo...
 

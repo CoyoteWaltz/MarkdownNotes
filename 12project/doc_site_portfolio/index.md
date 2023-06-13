@@ -64,9 +64,9 @@ Interleaving: use markdown “inlines” but not “blocks”(markdown block lin
 <div>This is a `p`.</div>
 ```
 
-#### [GFM](https://github.github.com/gfm/)
+#### GFM
 
-Created by Github, a markdown extension, support strikethrough, task lists, tables, and more.
+Created by [Github](https://github.github.com/gfm/), a markdown extension, support strikethrough, task lists, tables, and more.
 
 #### Autolinks
 
@@ -159,7 +159,9 @@ Config top navigation bar, search bar, pages sidebar...
 
 Lets step into the layout of a doc site.
 
-## [Theme Config](https://nextra.site/docs/docs-theme/theme-configuration)
+## Theme Config
+
+https://nextra.site/docs/docs-theme/theme-configuration
 
 ## Deploy
 
@@ -168,3 +170,52 @@ I just followed the documentation and created a repo from vercel and it is prett
 Use `pnpm next` to publish locally.
 
 Vercel Bot?
+
+## Site Layout
+
+I would like to split the content of this site into several categories as **_Navigations_**:
+
+- _Learning Notes_
+- _Reading_
+- _Collections/Articles/..._
+- _About_
+
+### Navigations
+
+#### Menu
+
+### Pages
+
+### Article
+
+### Homepage
+
+theme config...
+
+## Files Processing
+
+### Universal Rules
+
+1. Cloning Markdown Repo into the project(level 1).
+2. File naming convention should be `snake_case`.
+3. Each directory better contain a `index` page for introduction.
+
+### Each Category
+
+#### For learning notes
+
+Every subject directory(depth 1) inside the `02learning_notes` should be flatten to the `pages/` in the project.(Because pages of items in _menu layout_ should be at the first level in Nextra docs)
+
+Then make each subject a `_meta.json` regarding their title & path & hidden route & ...
+
+Important: If a `index` file exists in a directory, there will be the homepage of that directory(topic). And this `index` should be **hidden** in `_meta.json` of that directory.
+
+## Repo Sundries
+
+eslint-config: https://github.com/antfu/eslint-config
+
+zx with typescript:
+
+- see [issue](https://github.com/google/zx/issues/467#issuecomment-1272383105)
+- [tsx](https://github.com/esbuild-kit/tsx)
+-

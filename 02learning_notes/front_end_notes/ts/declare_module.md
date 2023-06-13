@@ -14,7 +14,7 @@
 
 在[官方指南](https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules)中说到，如果需要声明一个 ambient module，我们可以在每个 module 的 `.d.ts` 里面写类型，但也可以全部写到一个大的 `.d.ts`，更加方便。
 
-可以在这个声明文件中声明不同 module（起到 namespace 的作用）
+可以在这个声明文件中声明不同 module（外部 module）（起到 namespace 的作用）
 
 ```typescript
 // test.d.ts

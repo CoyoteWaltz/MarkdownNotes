@@ -878,6 +878,65 @@ export default function App() {
       1. 优化前：键盘输入事件的响应会被长列表的渲染给阻塞，导致用户输入卡顿
       2. 优化后：通过后台渲染，交还控制权给浏览器响应和渲染，让输入和渲染不会冲突/卡顿，同时其实也做到了长列表的 debounced render
 
+### [useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
+
+目前大部分的状态管理库都在用这个作为 hooks 的连接。
+
+这个 hook 的作用就是能够让外部 store 和当前组件产生订阅关系，也可以订阅 store、browser API、自定义 hook 逻辑、支持 server rendering
+
+_[React discussion](https://github.com/reactwg/react-18/discussions/86)_
+
+`useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot?)`
+
+- subscribe：用来订阅到一个 store 的**方法**并且返回 unsubscribe 方法，**这个方法接受一个参数是函数，需要在 store 数据发生变化的时候调用，会触发组件的 re-render**
+- getSnapshot：返回 store 当前数据的**方法**，需要是幂等的（store 没发生变化的时候，每次调用获取的数据都是一致），如果 store 发生变化，并且比较之后不一致（`Object.is`）也会 re-render
+
+看下 zustand 中是如何将 store 作为 hook 输出的（selector）
+
+```typescript
+import { useSyncExternalStoreWithSelector } from "use-sync-external-store/shim/with-selector";
+
+export function useStore<TState, StateSlice>(
+  api: WithReact<StoreApi<TState>>,
+  selector: (state: TState) => StateSlice = api.getState as any,
+  equalityFn?: (a: StateSlice, b: StateSlice) => boolean
+) {
+  const slice = useSyncExternalStoreWithSelector(
+    api.subscribe,
+    api.getState,
+    api.getServerState || api.getState,
+    selector,
+    equalityFn
+  );
+  useDebugValue(slice);
+  return slice;
+}
+```
+
+订阅 browser API（react 官网例子）
+
+```typescript
+import { useSyncExternalStore } from "react";
+
+export default function ChatIndicator() {
+  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
+  return <h1>{isOnline ? "✅ Online" : "❌ Disconnected"}</h1>;
+}
+
+function getSnapshot() {
+  return navigator.onLine;
+}
+
+function subscribe(callback) {
+  window.addEventListener("online", callback);
+  window.addEventListener("offline", callback);
+  return () => {
+    window.removeEventListener("online", callback);
+    window.removeEventListener("offline", callback);
+  };
+}
+```
+
 ## Fragments
 
 `<React.Fragment>`这个标签里面可以放一组元素标签，可以不需要产生额外的 DOM 节点。

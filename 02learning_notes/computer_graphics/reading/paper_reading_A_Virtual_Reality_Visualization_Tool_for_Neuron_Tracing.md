@@ -11,7 +11,7 @@ _搞清楚在计算机渲染的过程，CPU 和 GPU 分别干了什么事情？_
 - 海量的数据集大小 terabytes
 - 神经元重建，人工 & 半自动
 
-![image-20210305112550661](_imgs/paper_reading_A_Virtual_Reality_Visualization_Tool_for_Neuron_Tracing.assets/image-20210305112550661.png)
+![image-20210305112550661](./_imgs/paper_reading_A_Virtual_Reality_Visualization_Tool_for_Neuron_Tracing.assets/image-20210305112550661.png)
 
 ## 背景
 
@@ -73,7 +73,7 @@ Streamlining rendering performance requires **pushing all non- rendering or non-
 
 看一下下图，一帧图被渲染的流程
 
-![image-20210305104112853](_imgs/paper_reading.assets/image-20210305104112853.png)
+![image-20210305104112853](./_imgs/paper_reading.assets/image-20210305104112853.png)
 
 _下摘自论文_
 

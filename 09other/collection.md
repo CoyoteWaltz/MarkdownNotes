@@ -27,6 +27,10 @@
 
 - https://js.langchain.com/docs/
 
+[GPT Reader 部署教程](https://gpt4all.pro/chatgpt-in-slack-mygptreader-deployment-to-fly-io-tutorial-complete-documentation-all-features/)
+
+- 作者是 madawei，能够总结网页/视频的 slack 机器人，mark 下
+
 ## CSS Magic
 
 [前端动效合集](https://github.com/hepengwei/visualization-collection)
@@ -59,6 +63,10 @@ PT Sans
 
 ## 产品/工具
 
+[QR Code 自定义设计，nuxt 写的](https://github.com/kochrt/qr-designer)
+
+[pag 腾讯开源的动效工作流解决方案](https://pag.art/)
+
 [flowus 国产 notion 在线合作工具](https://flowus.cn/product)
 
 [side ideas 教程](https://sideproject.guide/build)
@@ -77,11 +85,15 @@ PT Sans
 
 [网易云/qq 音乐歌单迁移](https://yyrcd.com/n2s/)
 
-[Atom 作者出品 zed 编辑器 rust 写的 非常快](https://zed.dev/)（分享 link：https://zed.dev/invites/dLEb7PCmFLpZ7kdJ）
+[Atom 作者出品 zed 编辑器 rust 写的 非常快](https://zed.dev/)（分享 link https://zed.dev/invites/dLEb7PCmFLpZ7kdJ）
 
 [UA List](https://www.useragents.me/)
 
 [网速查询](https://www.itdog.cn/ping/)
+
+## 设计
+
+[苹果官方 IOS 设计 Figma 组件](https://www.figma.com/community/file/1248375255495415511/Apple-Design-Resources-%E2%80%93-iOS-17-and-iPadOS-17)
 
 ## 资源
 
@@ -147,7 +159,9 @@ https://esm.sh/（esm import npm packages from url）
 
 [开源指南](https://opensource.guide)
 
-## github
+## Github
+
+[console-ban 禁用控制台，原理没看明白](https://github.com/fz6m/console-ban)
 
 [github stars trends](https://star-history.com/blog/how-to-use-github-star-history)
 

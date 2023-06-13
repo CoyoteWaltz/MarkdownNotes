@@ -242,7 +242,7 @@ declare module "*.xml" {
 }
 ```
 
-### 推断 readonly satisfies
+### 推断 readonly [satisfies](./satisfies_operator)
 
 > 告诉编译器是 const，告诉程序员是某个 type
 

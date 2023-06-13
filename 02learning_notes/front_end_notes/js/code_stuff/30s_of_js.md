@@ -1,6 +1,6 @@
 ### Weighted sample
 
-![image-20210112003814650](_imgs/30s_of_js.assets/image-20210112003814650.png)
+![image-20210112003814650](./_imgs/30s_of_js.assets/image-20210112003814650.png)
 
 ```js
 const weightedSample = (arr, weights) => {
@@ -20,7 +20,7 @@ console.log(res);
 
 ### chunk
 
-![image-20210112003753678](_imgs/30s_of_js.assets/image-20210112003753678.png)
+![image-20210112003753678](./_imgs/30s_of_js.assets/image-20210112003753678.png)
 
 ```js
 const chunk = (arr, size) =>
@@ -34,4 +34,4 @@ console.log(res2);
 
 ### Fibonacci
 
-![image-20210112003834127](_imgs/30s_of_js.assets/image-20210112003834127.png)
+![image-20210112003834127](./_imgs/30s_of_js.assets/image-20210112003834127.png)

@@ -872,3 +872,63 @@ interface Point3d extends Point {
 
 let point3d: Point3d = { x: 1, y: 2, z: 3 };
 ```
+
+## Namespace
+
+> [文档](https://www.typescriptlang.org/docs/handbook/namespaces.html)
+
+TS1.5 之前是叫做内部模块，后续改成了 `namespace` 关键字
+
+目的也比较明确：分割类型/变量/方法/...的作用域，在 `namespace` 里面导出的通过 `Namespage.xxx` 引入
+
+第二就是对于大项目需要拆分文件的情况，
+
+```typescript
+// Validation.ts
+namespace Validation {
+  export interface StringValidator {
+    isAcceptable(s: string): boolean;
+  }
+}
+
+// LettersOnlyValidator.ts
+/// <reference path="Validation.ts" />
+namespace Validation {
+  const lettersRegexp = /^[A-Za-z]+$/;
+  export class LettersOnlyValidator implements StringValidator {
+    isAcceptable(s: string) {
+      return lettersRegexp.test(s);
+    }
+  }
+}
+```
+
+用的时候
+
+```typescript
+// <reference path="Validation.ts" />
+
+/// <reference path="LettersOnlyValidator.ts" />
+// ...
+```
+
+## Project References
+
+> [文档](https://www.typescriptlang.org/docs/handbook/project-references.html)
+>
+> TypeScript 3.0 that allow you to structure your TypeScript programs into smaller pieces.
+
+拆分多个项目后（多个项目都包含 tsconfig.json），在 tsconfig.json，references 配置中可以配置多个其他项目的路径，path 指向包含 tsconfig.json 的目录或者直接指向 tsconfig 文件，`"path"` 可以是对于其他项目的名称，比如 `"apple" : "../packages/apple"`
+
+```json
+{
+  "compilerOptions": {
+    // The usual
+  },
+  "references": [{ "path": "../src" }]
+}
+```
+
+这样之后，从 path 导入的项目就会直接用他的 `.d.ts` 类型文件了
+
+说实话，文章后面一半没怎么看明白。

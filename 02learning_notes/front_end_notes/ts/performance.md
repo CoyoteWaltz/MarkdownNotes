@@ -14,6 +14,7 @@
 - type Foo = Bar & Baz & {
 -     someProp: string;
 - }
+
 + interface Foo extends Bar, Baz {
 +     someProp: string;
 + }
@@ -151,3 +152,76 @@ TS 会默认自动加载所有 `node_modules` 中包的 `@types`（类型文件�
 ```
 
 按需引入需要的类型（比如：`"types" : ["node", "mocha"]`）
+
+### Skipping `.d.ts` Checking
+
+设置 `compilerOptions.skipDefaultLibCheck` 为 true
+
+可以让 TS 跳过 `.d.ts` 的检查，因为他们一般都是没问题的
+
+也可以设置 `skipLibCheck` 跳过所有的 `.d.ts` 检查
+
+### 更快的协变逆变（variance）检查
+
+开启 `strictFunctionTypes`
+
+The compiler can only take full advantage of this potential speedup if the `strictFunctionTypes` flag is enabled (otherwise, it uses the slower, but more lenient, structural check).
+
+意思是默认的类型能否赋值比较是通过结构对比，开了之后会用协变/逆变来对比？反正开了之后会快就对了。。
+
+## 配合其他构建工具
+
+我们在项目中也会用构建器去完成 ts 的编译，比如在 web app 中的打包器，一些 lib 的构建器（swc/tsup），理想情况下这些工具对于 ts 编译性能的提升是可以泛化的知识。
+
+文章只推荐了 [ts-loader fast build](https://github.com/TypeStrong/ts-loader#faster-builds) 等
+
+## 并行的 type 检查
+
+另开一个线程去做类型检查，不阻塞当前的产物输出，[文章也介绍了](https://github.com/microsoft/TypeScript/wiki/Performance#concurrent-type-checking)两个工具
+
+## Isolated File Emit
+
+和之前提过的 [isolatedModules](./ts-config.md) 有关。检查 `const enum` 和  `namespace` 的时候，是需要上下文的类型信息，也相对比较耗时，并且对于单文件处理的工具（比如 babel）不友好，所以推荐开启 `isolatedModules` 开关，让你的代码更加安全。
+
+可以在深入下为什么是 `const enum` 和 `namespace`？
+
+- `const enum` 会在编译的时候直接 inline 处理，把对应的值替换在引用的地方（[TS Playground](https://www.typescriptlang.org/play?ts=5.0.2&ssl=7&ssc=19&pln=1&pc=1#code/MYewdgzgLgBApmArgWxgMRCGBvAUDAmAMwBp9CBzMwmAa1wF9ddRIQAbOAOnZAoAoMILkQCUQA)）
+- `namespace` TODO
+
+文章还介绍了一些工具是如何利用这个开关（`--isolatedModules`）让 ts 构建加速的
+
+## 查看编译效率的一些方法
+
+### 关掉编辑器的一些插件
+
+本身就会拉垮速度
+
+### `--extendedDiagnostics`
+
+这个开关让编译器输出编译所花费的时间
+
+### `--showConfig`
+
+不确定具体 tsc 是用那个 config 的时候可开这个开关
+
+### `--listFilesOnly`
+
+输出哪些文件被读取了
+
+### `--explainFiles`
+
+解释为什么这些文件被读取了
+
+```shell
+tsc --explainFiles > explanations.txt
+```
+
+### `--traceResolution`
+
+追踪 import 文件的过程是否有异常
+
+```shell
+tsc --traceResolution > resolutions.txt
+```
+
+剩余部分是一些建议，比如不正确的配置 `include` and `exclude` 可能会导致 ts 检查更深层级的目录文件，以及如何找性能问题，后续在看！

@@ -599,7 +599,7 @@ Semantic syntax highlighting makes sure your source code is not only beautifully
 
 搜了下并且看了下自己已经下载的主题，one dark pro 和 Monokai 系列是都支持的
 
-![image-20230313132738697](_imgs/mac_config.assets/image-20230313132738697.png)
+![image-20230313132738697](./_imgs/mac_config.assets/image-20230313132738697.png)
 
 #### 代码 snippet 后依旧可以联想
 

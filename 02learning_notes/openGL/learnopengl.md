@@ -112,9 +112,9 @@ glDrawArrays 和 glDrawElements。前者对应的就是没有索引数据的情�
 4. alpha test, depth test
 5. Color attachment to frame buffer -> blending
 
-![img](_imgs/learnopengl.assets/v2-10b0501e08f34ea61123e57c3ffa318c_1440w.jpg)
+![img](./_imgs/learnopengl.assets/v2-10b0501e08f34ea61123e57c3ffa318c_1440w.jpg)
 
-![img](_imgs/learnopengl.assets/v2-518ff2c9807baad703bbc66cc4dd1f2c_1440w.jpg)
+![img](./_imgs/learnopengl.assets/v2-518ff2c9807baad703bbc66cc4dd1f2c_1440w.jpg)
 
 #### VertexShader
 
@@ -140,7 +140,7 @@ shader 输入的数据：
 
 #### Per-Fragment Operation
 
-![img](_imgs/learnopengl.assets/v2-9c632bf829727003f0b8e2cb478b68ac_1440w.jpg)
+![img](./_imgs/learnopengl.assets/v2-9c632bf829727003f0b8e2cb478b68ac_1440w.jpg)
 
 #### 测试（Test）
 

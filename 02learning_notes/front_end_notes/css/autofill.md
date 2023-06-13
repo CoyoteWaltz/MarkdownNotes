@@ -12,6 +12,28 @@
 
 > 参考 [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
 
+浏览器可能会保存用户之前填写过的 name、address、phone number、email 信息（需要权限，用户可以在设置中关闭）
+
+`autocomplete` 属性在 `input` `textarea` `select` `form` 元素上都可以作用，前三者如果没有开启这个属性，会去找他们各自上层所属的 `form` 元素（内部的 or 他们的 `form` 属性指向的 form 元素）的 `autocomplete`
+
+> **Note:** In order to provide autocompletion, user-agents might require `<input>`/`<select>`/`<textarea>` elements to:
+>
+> 1. Have a `name` and/or `id` attribute
+> 2. Be descendants of a `<form>` element
+> 3. The form to have a submit button
+
+具体值：
+
+- off
+- on：开启，没有任何引导，由浏览器自己决定信息
+- name：预期是用户完整的名字，但是也可以细化到 honorific-prefix、given-name 等，但不推荐
+- username
+- email
+- new-password：创建新账户的时候通常浏览器可以避免输入老密码，并且提供一个更安全的加密过的密码选择
+- ... 还有非常多的选项，具体看 MDN 吧
+
+[如何关闭](https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion)
+
 ### 样式问题
 
 但是浏览器提供的自动填充菜单的样式我们是不能控制的，同样选中完内容后，input 的样式也发生了变化，这是浏览器自带的样式（可能变成黄色/蓝色背景）

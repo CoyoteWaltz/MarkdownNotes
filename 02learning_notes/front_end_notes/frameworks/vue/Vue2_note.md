@@ -79,8 +79,6 @@ btnClick(v1, event) {
 - 获取对象的属性:(value, key, index) in obj
 - 给循环的对象绑定一个 key，key 和元素一一对应，为了更好的复用，不给 key 的话，插入一个 array 之后会效率差，diff 的时候只看 li 的值会全部替换，如果有 key，diff 先检查 key，key 没问题之后，在插入
 
-![vue_for_key](C:\Users\LokiJW\Desktop\vue_for_key.png)
-
 - 不能使得数组实现响应式的情况：
   - 修改数组中的某个元素
 - 可以响应式的：
@@ -210,8 +208,6 @@ v-model 和多选框
 - 父组件通过子组件标签中的属性传递值，对应的属性名就是子组件 props 里面的 name，用 bind
 - 注意下面那个自定义的验证函数！！
 
-![image-20200203165210617](C:\Users\LokiJW\AppData\Roaming\Typora\typora-user-images\image-20200203165210617.png)
-
 子--->父: 自定义事件 emit 向父组件发送，父组件监听子组件，捕获事件
 
 - 小组件切换的时候，告诉父组件，换一批数据在另一个组件中展示
@@ -242,10 +238,6 @@ v-model 和多选框
 ## slot 插槽
 
 使得组件有扩展性
-
-![image-20200203181515205](C:\Users\LokiJW\AppData\Roaming\Typora\typora-user-images\image-20200203181515205.png)
-
-![image-20200203181600924](C:\Users\LokiJW\AppData\Roaming\Typora\typora-user-images\image-20200203181600924.png)
 
 说白了就是留个空，这个空叫`<slot>`他有默认值的，然后再用组件的时候把所需要插入的模板 template 传入，**非常实用！**不给的时候就用默认值
 
@@ -400,8 +392,6 @@ router 对象中的 children
 
 传递对象，path，query，params。。。
 
-![image-20200204154411230](C:\Users\LokiJW\AppData\Roaming\Typora\typora-user-images\image-20200204154411230.png)
-
 ### route 路由对象，router 路由器
 
 ### 全局钩子(见 newt 项目，学过了)
@@ -428,8 +418,6 @@ exclude="cName1,cName2, ..."传入组件的 name。**这里不能加空格正则
 
 ## document 对象。Html 的对象
 
-![image-20200204160252671](C:\Users\LokiJW\AppData\Roaming\Typora\typora-user-images\image-20200204160252671.png)
-
 meta 数据 描述数据的数据
 
 ## 项目文件
@@ -445,8 +433,6 @@ meta 数据 描述数据的数据
 公共的组件放在 components 里面
 
 ## v-bind 绑定 class
-
-![image-20200204182153615](C:\Users\LokiJW\AppData\Roaming\Typora\typora-user-images\image-20200204182153615.png)
 
 ## cli3/4 的配置去哪了
 
@@ -509,8 +495,6 @@ new Promise((resolve) => {
 
 只要有异步操作的时候就封装到 Promise 里面
 
-![image-20200204194830026](C:\Users\LokiJW\AppData\Roaming\Typora\typora-user-images\image-20200204194830026.png)
-
 看源码。在 new 构造一个 Promise 的时候，会保存一些状态信息，并且执行传入的这个函数 executor，就是上面的函数原型，有两个参数 resolve 和 reject 都是函数。
 
 ```javascript
@@ -534,8 +518,6 @@ reject 就是我不想继续操作，可能网络请求失败了，就去 catch 
 所以报错，NavigationDuplicated，出现在`$router.push()`返回的是 Promise 对象，如果报错了就用 catch 来处理
 
 ### 三种状态
-
-![image-20200204200217649](C:\Users\LokiJW\AppData\Roaming\Typora\typora-user-images\image-20200204200217649.png)
 
 将异步操作，包裹入 Promise，然后进入了 pending 就是操作时间。。。
 

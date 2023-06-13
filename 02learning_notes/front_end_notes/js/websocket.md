@@ -161,7 +161,7 @@ ws.onmessage = function (e) {
 
 服务器的实现可以分为服务器和网关
 
-![websocket-architecture](_imgs/websocket.assets/websocket-architecture.jpg)
+![websocket-architecture](./_imgs/websocket.assets/websocket-architecture.jpg)
 
 > One of the more unique features WebSockets provide is its ability to traverse firewalls and proxies, a problem area for many applications.
 
