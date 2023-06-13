@@ -3172,3 +3172,7 @@ clientWidth clientHeight 耗时那么久？是在计算样式？
 [H5 性能极致优化](https://mp.weixin.qq.com/s/zJMM4SF7pc6LZPCsQfWOxw)
 
 > 比较全面的 端 → 页面加载/渲染/CDN 优化手段说明，挺好的，收藏
+
+ffmpeg 踩坑
+
+> 写脚本批量压缩图片的时候，发现 ffmpeg 会把输入的文件名的第一个字符干掉，[这个回答](https://stackoverflow.com/questions/60766097/bash-deletes-the-first-letter-from-line-ffmpeg)解答了
