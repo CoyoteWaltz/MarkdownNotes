@@ -18,6 +18,7 @@ TS 体操比较多，难懂。核心 store 的代码很简单。
 
 - https://tkdodo.eu/blog/working-with-zustand
 - https://betterprogramming.pub/harness-state-management-using-zustand-5f2ee597d1c1
+- 可以不在 store 里定义 action. 可以结合业务自己组织一层 https://github.com/pmndrs/zustand/blob/main/docs/guides/practice-with-no-store-actions.md （确实很清晰且也不和 hook 耦合）
 
 源码深入：
 

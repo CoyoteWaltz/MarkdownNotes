@@ -642,6 +642,7 @@ defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global defaul
 - code tour：在 vscode 中的代码指引
 - outline map：同事推荐的，好评！能够把代码结构作为目录在侧边展示，很棒！
 - inline fold：可以把 classname 给 fold 起来（安装后，在 keyboard shortcut 搜 inline cut 加了个 toggle 的快捷键 `⌘ + k ⌘ + ⌥ + f`
+- [Error lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) 能够直接在编辑窗口展示错误信息，不用 hover，但是满屏的红色还挺打扰的
 
 #### settings 文件配置
 

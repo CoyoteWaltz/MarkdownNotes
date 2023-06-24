@@ -3057,6 +3057,8 @@ day.js
 > 也是从左耳朵耗子在字节内的演讲中听到的，目前基于 tcp 协议的网络传输已经到达一定的天花板，性能受到 tcp 的拥塞控制（congestion control）限制，Http3 协议是基于 [QUIC](https://quicwg.org/) 协议，基于 UDP 的多路复用（multiplexed transport protocol）
 >
 > [这一篇](https://www.debugbear.com/blog/http3-quic-protocol-guide)后续可以深入看 HTTP3 和 QUIC
+>
+> 在来一篇[交互式 QUIC 协议说明](https://cangsdarm.github.io/illustrate/quic)，非常好的教材，阐述了每一个字节的解释和再现，[英文版](https://quic.xargs.org/)（[github](https://github.com/syncsynchalt/illustrated-quic)）
 
 2023.05.25 13:41:11 +0800
 
@@ -3173,6 +3175,105 @@ clientWidth clientHeight 耗时那么久？是在计算样式？
 
 > 比较全面的 端 → 页面加载/渲染/CDN 优化手段说明，挺好的，收藏
 
-ffmpeg 踩坑
+[ffmpeg](https://ffmpeg.org/) 踩坑
 
 > 写脚本批量压缩图片的时候，发现 ffmpeg 会把输入的文件名的第一个字符干掉，[这个回答](https://stackoverflow.com/questions/60766097/bash-deletes-the-first-letter-from-line-ffmpeg)解答了
+
+[using prettier wrong?](https://www.youtube.com/watch?v=Cd-gBxzcsdA)
+
+> theo 的视频
+>
+> 简单 sum 一下，观点是 formatting 和 linting 就是两个独立的事情，eslint 和 prettier 独立的两个工具
+>
+> - linter 会分析代码逻辑、有一套套规则
+> - formatter 就是根据规则
+>
+> eslint 推荐用 eslint 去配置 prettier，而 format 的工作交给 prettier（我司内部的研发框架里面就是这样做的，vscode 配置默认的 formatter 是 prettier）
+>
+> Prettier 只需要一趟就可以完成 format，eslint 可能需要多 pass（分析）
+>
+> _Use prettier for code formatting concerns, and linters for code-quality concerns._
+>
+> 但是回想 antfu 就直接用 eslint [一起做了两件事](https://antfu.me/posts/why-not-prettier)（之前也记录过这篇阅读），原因有几个一个是 prettier 不可关闭的 printwidth 换行会造成 git diff 看不出真正的 diff（但其实可以有其他[工具](https://dandavison.github.io/delta/introduction.html)看出，但 github 貌似还没集成？公司里面是有的），还有就是两者都需要很多配置，而 eslint 能够完全配置（prettier 主打一个开箱即用，配置预设）
+>
+> 后续再深入了解两者吧。。个人感觉就是配置都很繁琐，哪个方便用哪个，团队统一配置即可。
+
+[obsidian 结合 gatsby 制作 digital garden](https://dev.to/joeholmes/creating-a-diy-digital-garden-with-obsidian-and-gatsby-378e)
+
+> 在搜 obsidian 支持 mdx 的[官方论坛](https://forum.obsidian.md/t/expand-the-plugin-surface-by-using-mdx/5925/6)讨论中看到的，还挺有意思的，主要是实现静态文档站点（JAMStack，javascript & API & Markup）具有双链文档的能力，但是 gatsby 确实不太了解。感觉也要写不少代码哈哈。
+
+[flexsearch](https://github.com/nextapps-de/flexsearch)
+
+> 应该是最快的 full-text search library，比之前用的 fusejs 应该厉害不少，也是 extra 用的
+>
+> 还有 https://docusaurus.io/ 用的是 [Algolia](https://github.com/algolia) 也很牛，但也不了解，收藏下。
+
+2023.06.21 19:04:25 +0800
+
+[queue 任务队列控制器](https://github.com/jessetane/queue)
+
+> 源码很精简，非常简单。可以控制并发数、异步（Promise）任务、数组控制、支持超时、结果收集，挺牛的！
+>
+> 通过 event 的形式通知是否结束、异常
+>
+> - Event 是直接继承的 [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget)
+>   - Node 和 浏览器都支持
+>   - 一个能监听/发出事件的对象
+> - 自定义了 QueueEvent，增加了 detail 的 caller 和 error
+
+[apply vs ... 解构](https://www.measurethat.net/Benchmarks/Show/25806/0/apply-vs)
+
+> `a.fn.apply(a, args);`
+>
+> `a.fn(...args);`
+>
+> `a.fn(args[0], args[1], args[2], args[3])`
+>
+> 三种方式的执行效率，居然用解构是最快的，神奇，不知道为什么，还是得深入 v8 啊，写符合 vm 优化的 js 代码
+>
+> “对性能已经如此敏感，js 这门语言本身就有大问题了” 哈哈
+
+[ls-lint](https://github.com/loeffel-io/ls-lint)
+
+> 挺不错的工具！能够扫描文件名是否满足命名规范
+
+[v8 shape inline cache](https://mathiasbynens.be/notes/shapes-ics)
+
+> 视频来自 JS Conf EU 2018
+>
+> Chrome、Firefox、Edge、Safari 都有各自的 js engine
+>
+> 还是聚焦于 js 的对象，js 引擎可以通过对象的“形状（shape）”，也叫 hidden class
+>
+> 对象的基本操作就是访问属性了，在引擎层是一个寻址的过程，多个结构相同的对象之间可以共享一个 shape，这样就能节省很多空间
+>
+> transition chain：当对象的结构（shape）发生变化时，会通过一个链式的结构去记录**增量**的变化，每个结点会指向他前一次变化的节点，每一个节点都包含了新增的属性和他们所在的 offset，通过这个 offset 就可以寻址到 value
+>
+> transition tree：相同结构开始的不同对象，分别增加不同的属性，构造一棵树的 transition chain
+>
+> 属性访问过程：
+>
+> `a = {x: 1}; a.x = 6; b = {p: 12, x: 3};` 这样的情况，其实就有两颗根节点（`{x}` 和 `{x, p}`）
+>
+> 当继续添加 `b.y = 4; b.z = 3` b 的 chain 就会从 `{x, p} -> {y} -> {z}`，同理 a 也增加 z 和 y 和 p 属性 `{x} -> {y} -> {z} -> {p}`，访问 `a.z` 的时候，就从 p 一路向上寻找到 z，其实会比 `b.z` 访问多一次，也就慢一些
+>
+> 访问 `b.z`：
+>
+> 1. 找到 b 对象对应的 hiddenClass（shape）
+> 2. 在 shape 上寻找他的 z（back chain look up）
+> 3. 找到 z 属性的 offset 信息
+> 4. 通过 offset 找到对应的 value
+>
+> inline-cache：**记忆从哪里去寻找 js 对象属性的信息**，不用每次都进行很复杂的向上寻找
+>
+> - 对于 Object：根据相同的 shape 缓存每个属性的 offset 信息，直接寻址
+> - 对象的 shape 变化，就会导致 IC 失败，需要重新进行缓存
+> - 对于 Array：之前也学到过数组的 shape 会有 `length` 属性，其元素是放在 elements store 去存储的，不会存储属性值
+>   - 如果用了 `Object.defineProperty` 在数组上（别这么做！），Elements store 实际上会变成一个 dictionay，key 是数组下标，value 是对应元素（常规的属性，enumable/configurable/writable）
+>
+> 视频也只是对 hiddenClass 和 inline cache 的概念做一个初步的介绍，并且给出了一些编码建议（基于 vm 优化特性）：
+>
+> - 让 js 对象的 shape（结构）尽可能保持不变，让 hiddenClass 保持不变
+> - `Object.defineProperty` 别在数组上使用
+>
+> BTW 视频还是非常不错的！

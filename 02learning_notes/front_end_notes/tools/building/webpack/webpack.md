@@ -4,9 +4,7 @@ learn from https://github.com/dykily/simple_webpack
 
 and YouTube [Build your own bundler](https://www.youtube.com/watch?v=Gc9-7PBqOC8&list=LLHK1mTHpwrUeYgF5gu-Kd4g)
 
-以及一个大佬 tomotoes 的[博客](https://tomotoes.com/blog/webpack-flight-manual/)
-
-[toc]
+And from tomotoes's [blog](https://tomotoes.com/blog/webpack-flight-manual/)
 
 ## What is a bundler
 
@@ -99,7 +97,9 @@ module.exports = {
 
 #### Mode
 
-Invoking webpack's built-in optimizations when setting `development`, `production` or `none` to `mode`.
+Invoking webpack's **built-in optimizations** when setting `development`, `production` or `none` to `mode`.
+
+And will set `process.env.NODE_ENE` on `DefinePlugin` to corresponding value.
 
 #### Browser Compatibility
 
@@ -318,7 +318,7 @@ entry: {
   index: { import: './src/index.js', dependOn: 'shared' },
   polyfills: './src/polyfills.js',
   hello: { import: './src/hello.js', dependOn: 'shared' },
-  shared: 'lodash',		// 这里是 shared
+  shared: 'lodash',		// shared
 },
 ```
 

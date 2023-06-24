@@ -61,6 +61,8 @@
 
 PT Sans
 
+Space Grotesk
+
 ## 产品/工具
 
 [QR Code 自定义设计，nuxt 写的](https://github.com/kochrt/qr-designer)
@@ -147,7 +149,7 @@ https://esm.sh/（esm import npm packages from url）
 
 [消失的音乐](http://savethesounds.info/)
 
-[缓动效果](https://easings.net/cn)
+[缓动效果](https://easings.net/)
 
 [小红书的设计思维](https://rpdc.xiaohongshu.com/52-design-principles)
 
@@ -194,6 +196,8 @@ https://esm.sh/（esm import npm packages from url）
 ## 待体验
 
 https://nx.dev/（monorepo 方案）
+
+[学习 bash programming](https://linuxhint.com/category/bash-programming/)
 
 ## Lacrosse Stringing
 

@@ -1,6 +1,8 @@
 # 层叠上下文
 
 > 参考来自张鑫旭大佬的[文章](https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/)
+>
+> 以及[这篇](https://www.joshwcomeau.com/css/stacking-contexts/)
 
 ## 是什么？
 
@@ -68,10 +70,24 @@ CSS3 的出现除了带来了新属性，同时还对过去的很多规则发出
 3. 元素的`transform`值不是`none`.
 4. 元素`mix-blend-mode`值不是`normal`.
 5. 元素的`filter`值不是`none`.
-6. 元素的`isolation`值是`isolate`.（和 `mix-blend-mode` 配合，如果某个元素不需要在 z 轴 blend 颜色的话，就设置 `isolation` 独立）
+6. 元素的`isolation`值是`isolate`.
 7. `will-change`指定的属性值为上面任意一个。
 8. 元素的`-webkit-overflow-scrolling`设为`touch`.
 
 文中每个都举例子了。。确实看傻眼，上面这些条件触发层叠上下文之后，会完全改变常规对层级的认知，以后遇到了就知道怎么找问题了。
 
 定位元素为什么会自动在上一层，其根本原因就在于，元素一旦成为定位元素，其`z-index`就会自动生效，此时其`z-index`就是默认的`auto`，也就是`0`级别，根据上面的层叠顺序表，就会覆盖`inline`或`block`或`float`元素。
+
+## isolation
+
+上文提到的 CSS [isolation 属性](https://developer.mozilla.org/en-US/docs/Web/CSS/isolation)，determines whether an element must create a new **层级上下文**。在配合  [`mix-blend-mode`](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode) and [`z-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index) 这两个属性非常有用。
+
+- 和 `mix-blend-mode` 配合，如果某个元素不需要在 z 轴 blend 颜色的话，就设置 `isolation` 独立
+
+```css
+.wrapper {
+  isolation: isolate;
+}
+```
+
+此时 wrapper 元素就是一个层级上下文容器，无需 z-index/fixed/absolute 等方式创建，这样是最纯粹的层级上下文创建方式。就能够让 children 元素的层级关系在这个独立的层级上下文中生效。

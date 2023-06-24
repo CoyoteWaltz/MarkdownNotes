@@ -52,6 +52,8 @@ Can also be nested.
 
 #### About MDX
 
+> Currently I wont use MDX for my Markdown learning notes. And I will use mdx to render some delicate React components for Home/Index/About page directly in the _nextra_ roject.
+
 [MDX](https://mdxjs.com/docs/what-is-mdx/). Writing JSX in markdown for custom components. UI framework agnostic?
 
 Markdown & JSX & JS Expression & ESM & Interleaving.
@@ -219,3 +221,5 @@ zx with typescript:
 - see [issue](https://github.com/google/zx/issues/467#issuecomment-1272383105)
 - [tsx](https://github.com/esbuild-kit/tsx)
 -
+
+Reference: https://github.com/aidenybai/million/tree/main/website

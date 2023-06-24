@@ -532,6 +532,10 @@ target.m(); // false
 proxy.m(); // true
 ```
 
+### polyfill
+
+core-js 是不支持 Proxy 的（[Readme](https://github.com/zloirock/core-js#missing-polyfills) 最后写了），并推荐使用了 [`proxy-polyfill`](https://github.com/GoogleChrome/proxy-polyfill) 作为 polyfill**（但也是只提供了核心功能）**
+
 ## Reflect
 
 `Reflect`对象与`Proxy`对象一样，也是 ES6 为了**操作对象**而提供的新 API

@@ -1,4 +1,4 @@
-[toc]
+# Browser APIs
 
 > _`API` is the acronym for Application Programming Interface which defines interactions between multiple software architecture layers. Programmers carry out complex tasks easily using APIs in software development. Without APIs, a programmer's life would have been miserable with no proper(security, for example) access to data, knowing unnecessary low level details etc._
 >
@@ -665,9 +665,11 @@ repaint 会在一个元素外观样式发生改变的时候触发，如果元素
 
 #### defer
 
-异步下载脚本文件，在文档渲染完成之后，DOMContentLoaded 事件之前按原始顺序执行所有被 defer 的脚本文件
+异步下载脚本文件，在文档渲染完成之后，DOMContentLoaded 事件之前按原始**顺序执行所有被 defer 的脚本文件**
 
-顾名思义放到最后执行嘛
+比如 polyfill
+
+顾名思义放（defer）到最后执行嘛
 
 #### async
 
