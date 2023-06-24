@@ -8,9 +8,7 @@ NumPy(Numerical Python 的简称)是 Python 数值计算最重要的基础包。
 import numpy as np
 ```
 
-+++
-
-[TOC]
+---
 
 ## ndarray
 

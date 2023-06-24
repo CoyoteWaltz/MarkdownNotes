@@ -199,7 +199,7 @@ theme config...
 ### Universal Rules
 
 1. Cloning Markdown Repo into the project(level 1).
-2. File naming convention should be `snake_case`.
+2. File naming convention better be `snake_case`.
 3. Each directory better contain a `index` page for introduction.
 
 ### Each Category
@@ -211,6 +211,12 @@ Every subject directory(depth 1) inside the `02learning_notes` should be flatten
 Then make each subject a `_meta.json` regarding their title & path & hidden route & ...
 
 Important: If a `index` file exists in a directory, there will be the homepage of that directory(topic). And this `index` should be **hidden** in `_meta.json` of that directory.
+
+details:
+
+- subject: first level files/directories under `02learning_notes/`
+  - file:
+  -
 
 ## Repo Sundries
 
