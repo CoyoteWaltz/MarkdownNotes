@@ -372,3 +372,162 @@ fn buy_four() {
 ```
 
 ## Ownership
+
+> *Ownership* is a set of rules that govern how a Rust program **manages memory**.
+
+Programming languages have ways to manage memory on users' computers like GC(JS, Go, ...) or explicitly allocate memory(C, C++).
+
+Rust: memory is managed through _a system of ownership_ with a set of rules that the compiler checks.
+
+- _ownership_ features wont slow down the speedy
+- as long as rules are valid, the complier will work
+
+Recap: Stacks and Heap
+
+- Stack: store data with known, fixed size in the order it gets them and removes the values in the opposite order
+- Heap: less organized. Require a certain amount of space and get a pointer to the slot of the space.(_Think of being seated at a restaurant. When you enter, you state the number of people in your group, and the host finds an empty table that fits everyone and leads you there. If someone in your group comes late, they can ask where you’ve been seated to find you._)
+
+Pushing to stack is faster than allocating on the heap. Get the data from heap is slower than accessing stack data.
+
+#### Ownership rules
+
+- Each value in Rust has an *owner*.
+- There can only be one owner at a time.
+- When the owner goes out of scope, the value will be dropped.
+
+#### String Type
+
+More complex type. Data is store on the heap. `String` manages data allocated on the heap and as such is able to store an amount of text that is unknown to us at compile time.
+
+```rust
+let mut s = String::from("yes ok"); // instance from a string literal
+
+s.push_str("! no"); // append a literal string
+
+println!("{}", s);
+```
+
+String and be mutated but literals cannot.
+
+#### Memory and allocation
+
+The memory is **automatically** returned once the variable that owns it goes out of scope.
+
+```rust
+    {
+        let s = String::from("hello"); // s is valid from this point forward
+        // do stuff with s
+    }                                  // this scope is now over, and s is no longer valid
+```
+
+When a variable goes out of a scope, rust will call `drop` function.
+
+> Note: In C++, this pattern of deallocating resources at the end of an item’s lifetime is sometimes called *Resource Acquisition Is Initialization (RAII)*. The `drop` function in Rust will be familiar to you if you’ve used RAII patterns.
+>
+> Like Destructor in C++!
+
+Data Move:
+
+```rust
+let s1 = String::from("hello");
+let s2 = s1;
+```
+
+String contains a length, a pointer to the string data, a capacity. When assign `s1` to `s2`, wont copy the pointer data!(Not really a **Shallow copy**, but **move**)
+
+Rust considers `s1` as no longer valid. Rust wont free `s1` when going out of scope. Only `s2` is valid and will be freed after scope.
+
+```rust
+let s1 = String::from("hello");
+let s2 = s1;
+
+println!("{}, world!", s1); // error!
+```
+
+Rust will never automatically create “deep” copies of your data.
+
+Clone:(expensive)
+
+```rust
+let s2 = s1.clone();  // deep copy with heap data
+```
+
+Stack-only data copy:
+
+```rust
+let x = 4;
+let y = x; // simply data copy
+```
+
+Copy:
+
+If a type implements the `Copy` trait(covered later), variables that use it do not move, but rather are trivially copied, making them still valid after assignment to another variable.
+
+_Rust won’t let us annotate a type with `Copy` if the type, or any of its parts, has implemented the `Drop` trait._ `Drop` trait is like `destructor` or `defer` in Go or `Symbol.dispose` in JS?
+
+Summary of `Copy`: if a type implement `Copy` trait, the value can be simply assign to another variable as another copied value.
+
+- All the integer types, such as `u32`.
+- The Boolean type, `bool`, with values `true` and `false`.
+- All the floating-point types, such as `f64`.
+- The character type, `char`.
+- Tuples, if they only contain types that also implement `Copy`. For example, `(i32, i32)` implements `Copy`, but `(i32, String)` does not.
+
+Ownership and Functions:
+
+Passing variable to functions is just like assignment(move or copy).
+
+```rust
+fn test() {
+	let s1 = String::from("hello");
+	take_string_ownership(s1);
+	let s2 = s1.clone(); // error!
+	println!("{} {}, world!", s1, s2);
+}
+fn take_string_ownership(sx: String) {
+	println!("{}", sx);
+	// sx leaves and drop!
+}
+```
+
+Return values and scope:
+
+```rust
+fn test() {
+	let s1 = give_string_ownership();
+	let s1 = take_string_ownership(s1);
+	let s2 = s1.clone();
+	println!("{} {}, world!", s1, s2);
+}
+
+fn take_string_ownership(sx: String) -> String {
+	println!("{}", sx);
+	sx   // give back
+}
+
+fn give_string_ownership() -> String {
+	let s = String::from("yes ok");
+	s
+}
+
+```
+
+A bit tedious...
+
+```rust
+fn main() {
+    let s1 = String::from("hello");
+
+    let (s2, len) = calculate_length(s1);
+
+    println!("The length of '{}' is {}.", s2, len);
+}
+
+fn calculate_length(s: String) -> (String, usize) {
+    let length = s.len(); // len() returns the length of a String
+
+    (s, length)
+}
+```
+
+Introduce _references_

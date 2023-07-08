@@ -1,6 +1,16 @@
 # html 各种标签
 
-[toc]
+### 标签属性的 boolean 类型
+
+```html
+<script src="xxx" defer=""></script>
+```
+
+注意看，这个 `defer=""`，实际上 defer 的属性还是生效的
+
+因为：如果是 boolean attribute，这个属性存在即是 true value，这个属性缺失才代表是 false value
+
+（[w3c](https://www.w3.org/TR/2010/WD-html5-20100624/author/common-microsyntaxes.html#boolean-attributes): The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.)
 
 ### 有用的 html 属性
 

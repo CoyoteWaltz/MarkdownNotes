@@ -31,6 +31,8 @@
 
 - 作者是 madawei，能够总结网页/视频的 slack 机器人，mark 下
 
+[vercel AI SDK](https://github.com/vercel-labs/ai)
+
 ## CSS Magic
 
 [前端动效合集](https://github.com/hepengwei/visualization-collection)
@@ -64,6 +66,8 @@ PT Sans
 Space Grotesk
 
 ## 产品/工具
+
+[NodeJS tools](https://nodejstoolbox.com/)
 
 [QR Code 自定义设计，nuxt 写的](https://github.com/kochrt/qr-designer)
 
@@ -102,6 +106,8 @@ Space Grotesk
 [程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
 
 ## 收藏有趣的 links
+
+[网页嵌入/notion 小组件](https://indify.co/)
 
 [自然语言画动画 背后当然是 ChatGPT](https://github.com/360macky/generative-manim)
 
@@ -192,6 +198,10 @@ https://esm.sh/（esm import npm packages from url）
 [espanso rust 写的 snippet 工具](https://github.com/espanso/espanso)
 
 [rrweb record and replay web](https://github.com/rrweb-io/rrweb)
+
+[Meta-tpying 体操](https://github.com/ronami/meta-typing)
+
+[zod TypeScript-first schema validation 非常多项目在用 校验用户输入的神器](https://zod.dev/)
 
 ## 待体验
 

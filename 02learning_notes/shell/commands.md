@@ -1,6 +1,27 @@
 ## 指令回顾 linux & macOS
 
-[toc]
+### caffeinate
+
+> MacOS/Linux
+>
+> prevent the system from sleeping.
+>
+> 防止系统进入睡眠模式的工具指令
+
+` caffeinate [-disu] [-t timeout] [-w pid] [utility arguments...]`
+
+options:
+
+- `-w`: `caffeinate -w <pid>` 配合指定 pid，保持不睡眠到待该进程退出后
+- `-d`: 防止显示器进入睡眠
+- `-i`: 防止系统进入睡眠
+- `-m`: 防止磁盘进入睡眠
+
+```bash
+# 会 fork 出进程 执行后面的命令并且防止进入睡眠知道执行完毕
+caffeinate -i make
+
+```
 
 ### sed
 

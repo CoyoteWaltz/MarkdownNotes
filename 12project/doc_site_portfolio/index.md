@@ -33,7 +33,7 @@ The name of the project will be _Portfolio_.
 
 Files(`.md` or `.mdx`) inside `pages` directory will be resolved to a path map which is consumed by the sidebar.
 
-The page title is generate by [link](https://github.com/vercel/title) package or specified in `_meta.json` available in each directory.
+The page title is generate by [title](https://github.com/vercel/title) package or specified in `_meta.json` available in each directory.
 
 Can also be nested.
 
@@ -202,6 +202,18 @@ theme config...
 2. File naming convention better be `snake_case`.
 3. Each directory better contain a `index` page for introduction.
 
+### Types
+
+Since the config of `meta.json` is complex and abundant, hard for memorizing and batch files manipulate. I need types for precise file-meta generation.
+
+#### Types from Nextra
+
+Found in nextra libs. `packages/nextra/src/normalize-pages.ts`
+
+```typescript
+import { PageItem } from "nextra/normalize-pages";
+```
+
 ### Each Category
 
 #### For learning notes
@@ -216,7 +228,7 @@ details:
 
 - subject: first level files/directories under `02learning_notes/`
   - file:
-  -
+    -
 
 ## Repo Sundries
 
@@ -226,6 +238,5 @@ zx with typescript:
 
 - see [issue](https://github.com/google/zx/issues/467#issuecomment-1272383105)
 - [tsx](https://github.com/esbuild-kit/tsx)
--
 
 Reference: https://github.com/aidenybai/million/tree/main/website

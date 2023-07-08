@@ -2,8 +2,6 @@
 
 看的是[这个教程](http://learnyouahaskell.com/)，在线免费，但是觉得有点 out of date
 
-[toc]
-
 ## 简介
 
 ### 特性

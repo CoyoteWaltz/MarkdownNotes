@@ -3,8 +3,10 @@
 > 一篇[图解](http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html)
 >
 > 以及参考[这篇](https://dev.to/joelnet/functional-javascript---functors-monads-and-promises-1pol)讲的还是挺好的
+>
+> 2023.06.27 20:09:37 +0800 看了这个[视频](https://www.youtube.com/watch?v=dkZFtimgAcM)，Douglas Crockford（虽然我也不认识是谁）十年前对于 Monad 的解释，很棒，玩了一些哏
 
-首先，知道 Monad 是什么之前还需要
+首先，知道 Monad 是什么之前还需要知道
 
 ### Functors, Monads, and Promises
 

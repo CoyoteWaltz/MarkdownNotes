@@ -1,4 +1,4 @@
-# Package.json stuff
+# package.json stuff
 
 ## package.json 字段
 
@@ -85,6 +85,16 @@
 ```
 
 _来自 [TS 4.7 log](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#packagejson-exports-imports-and-self-referencing)_
+
+### type
+
+在 [nodejs](https://nodejs.org/api/packages.html#type) 中使用 esm 作为 js 模块的时候（使用 `import/export` 语法）
+
+此时 `type` 字段需要指定为 `"module"`，否则就会认为 `.js`/`.ts` 文件默认是 CommonJS，需要用 `require`
+
+但是如果不考虑用 `type` 这个字段，那就直接使用后缀 `.mjs`/`.mts` 表示 ES Module，用 `.cjs` 表示 CommonJS module
+
+_同样在 [js module](../js/module)、[webpack](../tools/building/webpack/webpack) 中提到过_
 
 ### name
 

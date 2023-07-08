@@ -1,4 +1,4 @@
-### 【技术】
+# 【技术】
 
 [(80 封私信 / 81 条消息) 2020 国内公司前端团队都在搞些什么? - 知乎](<Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/(80%20%E5%B0%81%E7%A7%81%E4%BF%A1%2081%20%E6%9D%A1%E6%B6%88%E6%81%AF)%202020%20%E5%9B%BD%E5%86%85%E5%85%AC%E5%8F%B8%E5%89%8D%E7%AB%AF%E5%9B%A2%E9%98%9F%E9%83%BD%E5%9C%A8%E6%90%9E%E4%BA%9B%E4%BB%80%E4%B9%88%20-%20%E7%9F%A5%E4%B9%8E%20e86ca9b16d4047499354a9195bcd6371.md>)
 
@@ -47,9 +47,8 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 > 值得继续深入的：
 >
 > - [CSS Houdini](https://developer.mozilla.org/en-US/docs/Web/Houdini)：一套底层的 API 提供给开发者写 js in css，来创建一些浏览器未支持的自定义特性
->
->   - https://slides.iamvdo.me/css-houdini/#/ 上面很多有趣的特效！
->   - https://iamvdo.me/en/blog/css-houdini 博客介绍
+> - https://slides.iamvdo.me/css-houdini/#/ 上面很多有趣的特效！
+> - https://iamvdo.me/en/blog/css-houdini 博客介绍
 >
 > - CSS 界的 Babel -- [PostCSS](https://preset-env.cssdb.org/)
 > - 强大的网格系统 -- [LostGrid](https://github.com/peterramsing/lost)
@@ -3277,3 +3276,202 @@ clientWidth clientHeight 耗时那么久？是在计算样式？
 > - `Object.defineProperty` 别在数组上使用
 >
 > BTW 视频还是非常不错的！
+
+[Million.js block](https://million.dev/blog/virtual-dom)
+
+> [github](https://github.com/aidenybai/million) 已经 10k 的 star 了（2023.06.26 17:15:41 +0800）
+>
+> 是一个 react/preact 的 virtual dom 的替代方案，并不是一个完整的 UI 框架，而是在 React Component 上 hook 一层，来接管渲染，让组件渲染更快。
+>
+> link 的 blog 也是 block（million js 的核心组件）背后的原理
+>
+> - virtual dom 在某些场景上的性能确实不太行 diff 一整棵 vdom 树消耗很大（reconciliation），从而催生了 nodiff 的一些框架比如 svelte、solidjs
+> - Block Virtual Dom：**Diff the data, not the DOM.**
+>   - **Static Analysis**: 在编译阶段分析模版结构，记录动态的部分，生成一个 Edit Map 结构
+>   - **Dirty Checking**: 运行时 diff state，根据 Edit Map 变更对应 dom 即可，无需 diff tree
+> - 不是银弹，这样的 dom 改动方法并不一定在所有场景都会比 virtual dom 快
+>   - 更加适合：
+>     - 静态内容多，动态内容少的组件。这样就无需关注大量不会改动的内容（no diff）
+>     - 列表结构
+>   - 不适合：
+>     - state 比 dom 还多的组件
+>     - 非 stable 的组件，返回结构不稳定
+>   - 细粒度的使用，而不是所有组件全都用
+>
+> Despite its potential, **it is not a one-size-fits-all solution, and developers should evaluate the specific needs and performance requirements** of their applications before deciding whether to adopt this approach.
+>
+> 一些启发：web 的渲染效率意味着 dom 的变更效率，不同算法对于不同的 dom 结构也有其优势所在，所以精细化优化最终也近似于手动 dom 优化 hah
+
+[2023 前端开发者重点](https://zhuanlan.zhihu.com/p/631879733)
+
+> 重点速览：（摘录一些自己觉得重要和感兴趣的）
+>
+> - 重新思考 web 兼容性：主流浏览器推出了一个 [web 基线](https://web.dev/baseline/)的东西，用这个去替代 browser-list？不用再以老的浏览器作为兼容性标准了
+> - web 平台：
+>   - dialog 标签：原生的对话框（自动展示在所有元素前）
+>   - SVH，LVH：`Small Viewport` 和 `Large viewport`
+>   - structuredClone
+>   - Import Maps：你指定模块名称并将它映射到 `URL` 上。当你在代码中使用 `import` 语句时，浏览器会自动查找 `Import Map`，并从 `URL` 中加载相应的模块。
+> - 性能：
+>   - LCP 优化建议：静态 `HTML` 中的图片资源更易于被发现，这有可以让浏览器的预加载扫描程序更早的找到并加载它。
+>   - fetch proirity：允许标记资源的优先级，能够让浏览器更早的开始下载他们
+>   - [CLS](https://web.dev/i18n/en/cls/) 优化建议：网页视觉稳定性的度量指标，页面有新增内容时，是否会经常跳动。保持内容能够被显示的缩放
+>   - 去除不必要的 JS：devtool 自带了 coverage 能力？
+> - chrome devtools 调试新姿势
+> - 第三方 cookie 的终结：chrome 将在未来停止支持第三方 cookie
+> - Passkeys 可能淘汰传统的 Web 密码登陆方式
+
+[INP(interaction to next paint)](https://web.dev/inp/)
+
+> 虽然还是说 pending Core Web Vital metric（核心性能指标），会在 2024 年 3 月替换 FID(First Input Delay)
+>
+> 这个指标是测量交互事件的响应性能的，一个网站最后上报的数值是一个，会取所有交互响应速率的最大值（公式）
+>
+> 比较好理解，就是让网页有一个好的响应性能，比如点击、键盘敲击之后，不能让浏览器渲染下一帧太慢（js 计算别太久），这样用户的连贯体验就很好，不会卡
+>
+> 如何计算：会收集一个页面上所有的交互响应，然后根据不同交互复杂度的页面按照不同百分位进行取值，有一个特定的算法（交互很少的页面，就去 100 分位，多一些交互的就取 99 或者 98 分位）
+>
+> 如何界定：给了一个标准，`不错 <- 200ms <-需要提升-> 500ms -> 不太行`
+>
+> **只有点击、键盘输入、tap，滚动和 hover 不会算入 INP**
+>
+> 和 FID 的差异：FID 只会记录第一次交互，可以算是一个 load responsiveness metric，INP a more reliable indicator of overall responsiveness than FID.
+>
+> JS 中如何计算：
+>
+> ```javascript
+> new PerformanceObserver((entryList) => {
+>   for (const entry of entryList.getEntries()) {
+>     if (entry.interactionId) {
+>       const duration = entry.processingEnd - entry.startTime;
+>       console.log("Interaction:", entry.name, duration, entry);
+>     }
+>   }
+> }).observe({ type: "event", buffered: true, durationThreshold: 16 });
+> ```
+>
+> or
+>
+> ```javascript
+> import { onINP } from "web-vitals";
+>
+> onINP(({ value }) => {
+>   // Log the value to the console, or send it to your analytics provider.
+>   console.log(value);
+> });
+> ```
+>
+> further reading → [如何优化 INP](https://web.dev/optimize-inp/)
+>
+> 个人感觉就是不要执行长任务阻塞线程渲染，拆任务；不要 enqueue 很多微任务，拆成宏任务；还有类似 isinputpending 的机制，交还给浏览器执行权
+
+[2023 web framework 性能报告](https://astro.build/blog/2023-web-framework-performance-report/)
+
+> astro 3 月的 blog
+>
+> 通过 [Core Web Vitals](https://web.dev/learn-core-web-vitals/)（LCP、FID、INP、CLS）对各个主流建站框架 Astro、Nextjs、Nuxt、Remix、Gatsby、SvelteKit（非 React/Vue 这类 UI 渲染框架）进行性能测试
+>
+> 效果确实是 Astro/Sveltekit/Remix 会更好些（个人感觉是因为 no diff）
+>
+> 除此之外还有 lighthouse 测试和 JS payload 测试（astro 几乎可以是 0 js 的）
+>
+> 用的数据是
+>
+> - [The Chrome User Experience Report (CrUX)](https://developer.chrome.com/docs/crux/)
+> - [The HTTP Archive](https://httparchive.org/)，能看有多少 url/请求/js/图片等，还是很有意思的
+> - [The Core Web Vitals Technology Report](https://discuss.httparchive.org/t/new-dashboard-the-core-web-vitals-technology-report/2178)
+
+[（SSR）hydration tree/resumability map](https://www.builder.io/blog/hydration-tree-resumability-map)
+
+> 分析了现代 SSR hydration 的模式
+>
+> 所谓 hydration 的定义：
+>
+> - 在 SPA 框架中让页面变得可交互，需要重新从 root 节点开始执行 app，覆盖在服务端生成的纯 HTML 上的 state 和 event handlers
+> - O(n) 的算法效率（N 是组件数，遍历每个组件）
+>
+> Partial hydration：
+>
+> - Astro 框架的核心架构：会构成多个 root（island）组件进行水合，但是组件之间是独立的，不方便数据通信
+>
+> RSC（React Server Component）：
+>
+> - **Sparse Hydration**，using 'use server' or 'use client' 来定义客户端组件边界
+>
+> Resumability：（QWIK 的架构，builder.io 的）
+>
+> - 完全不一样的算法，[O(1) 的效率](https://www.builder.io/blog/our-current-frameworks-are-on-we-need-o1)
+>   - 读了这篇继续讲 QWIK 的新算法，背景是随着页面交互不断复杂和丰富（and JS UI 框架），网站请求的 JS 资源量越来越多（httparchive.org 的统计）
+>   - 执行 JS 变得高效吗？CPU 虽然每年都在变快（摩尔定律）但是 JS 是单线程，分配给 CPU 的也只有一个内核，繁重的 JS 工作并不能利用 CPU 的并行提高效率。
+>   - UI 框架随着组件增多（复杂交互）对于 JS 产物的体积也是线性增长（y = mx + b）
+>   - O(1) 的目标：懒加载水合，思路和 SPA 路由拆 chunk 懒加载一样，把懒加载放到了交互层 hydration 上。这样首屏仅需很少的 js 进行渲染，用户交互要发生了才加载对应的 hydration code
+>   - **_frameworks are O(n). This is not scalable._**
+>   - 最后问题来了，如何实现的？（之前有记录过，可以搜搜看）文章只是简单介绍
+
+[对 React 和 Vue 的看法](https://cali.so/blog/react-or-vue-my-take-on-web-dev)
+
+> 前端真的太多框架了！太多工具了！（一个项目的配置文件就有一大堆！）
+>
+> 这篇 blog 也是从几个方面对比了 React 和 Vue：
+>
+> - 产品现状：国内外大项目对 React/Vue 的使用情况，Vue 还是少
+> - 设计工程师：例举了挺多人的（有 shuding），大多都是 React，Vue 只有 anthfu
+> - 多用性：React Netive 不必多说；命令行应用 [ink](https://github.com/vadimdemedes/ink) 以后可以详细了解下
+> - 开发者体验：anthfu 新出的 [NuxtDevTools](https://nuxt.com/blog/introducing-nuxt-devtools) 很强大，以后试一下
+> - 生态：两个都不错
+>
+> [作者](https://cali.so/)看着也是个大佬，收藏下
+
+[Web Cache API](https://web.dev/cache-api-quick-guide/)
+
+> 从 Qwik 框架看到说利用了 cache api（service worker），于是乎看了下 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
+>
+> 发现并不能完全看下去。。找了 quick intro 看看
+>
+> 浏览器将缓存能力暴露成 API 给 javascript 使用，能够更加自定义的使用缓存，读取缓存。
+>
+> 主流浏览器都支持了这个 API（全场景可用：window, iframe, worker, or service worker.）
+>
+> `const cacheAvailable = 'caches' in self;`
+>
+> 可缓存：
+>
+> - 一组 `Request` 和 `Response` 对象（http 的请求/返回，即 http 可传输的任何类型的数据）
+>
+> 缓存大小：很大
+>
+> 创建/打开一个缓存：
+>
+> - `caches.open(name)` 给一个缓存名，如果不存在这个 namespace 则会新建一个，return 的是一个 Promise
+>
+> 添加缓存：
+>
+> - `cache.add(URL or Request)`：对某个网络请求进行缓存，请求失败（非 200），不会存储任何东西并且 Promise reject
+> - `cache.addAll([])`：类似，如果其中一个失败，Promise 就 reject
+> - `cache.put(Request or URL, Response)`：允许创建任意的 Response 缓存
+>
+> Response 对象：
+>
+> - 可以是 Blob、ArrayBufer、FormData
+>
+> - 可以设置 MIME type
+>
+> - ```javascript
+>   const options = {
+>     headers: {
+>       "Content-Type": "application/json",
+>     },
+>   };
+>   const jsonResponse = new Response("{}", options);
+>   ```
+>
+> 获取缓存 `cache.match`
+>
+> 搜索缓存：API 没有直接的能力，但是可以自己实现（文章给了搜 png 缓存的例子）
+>
+> 删除：
+>
+> - 删除一个缓存 item：`.delete(Request)`
+> - 删除一个缓存 namespace：`caches.delete(name)`
+>
+> 问题来了：缓存是有同源策略的吗？Yes，在 MDN 能找到“An origin can have multiple, named `Cache` objects.”

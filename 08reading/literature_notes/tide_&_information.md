@@ -2,6 +2,14 @@
 
 > **需要标注收录时间**
 
+[Kindle 退出中国市场](https://www.zhihu.com/tardis/zm/art/524985134)
+
+> 2023.06.30 13:21:23 +0800
+>
+> kindle 书店 6.30 正式退出中国市场了，只能下载书，24 年 6.30 也不可下载
+>
+> 辉煌已去
+
 [Tiktok 站点的黑客问题](https://medium.com/@mrhavit/breaking-tiktok-our-journey-to-finding-an-account-takeover-vulnerability-b0646aba1c4b)
 
 > 2023.06.08 12:47:57 +0800

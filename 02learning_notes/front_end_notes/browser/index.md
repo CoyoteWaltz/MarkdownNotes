@@ -1,5 +1,7 @@
 # Browser APIs
 
+> 渲染：和 [html](../html) 紧密相关
+
 > _`API` is the acronym for Application Programming Interface which defines interactions between multiple software architecture layers. Programmers carry out complex tasks easily using APIs in software development. Without APIs, a programmer's life would have been miserable with no proper(security, for example) access to data, knowing unnecessary low level details etc._
 >
 > _When it comes to Web APIs, there are extremely useful objects, properties and functions available to perform tasks as minor as accessing DOM to as complex as managing audios, videos, graphics, etc._

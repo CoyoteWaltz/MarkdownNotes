@@ -643,6 +643,9 @@ defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global defaul
 - outline map：同事推荐的，好评！能够把代码结构作为目录在侧边展示，很棒！
 - inline fold：可以把 classname 给 fold 起来（安装后，在 keyboard shortcut 搜 inline cut 加了个 toggle 的快捷键 `⌘ + k ⌘ + ⌥ + f`
 - [Error lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) 能够直接在编辑窗口展示错误信息，不用 hover，但是满屏的红色还挺打扰的
+- [Pretty TS Error](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors)：让 ts 错误变得可读！推荐！！
+- Toggle Quote：非常方便切换引号，使用 `⌘ + '` 即可在一个字符串上切换
+- Random everything：非常方便生成随机内容的插件！
 
 #### settings 文件配置
 

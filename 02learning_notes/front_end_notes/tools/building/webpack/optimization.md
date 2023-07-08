@@ -40,16 +40,48 @@ concatenateModules 是 webpack 安全的将一些模块提升组合到一个单�
 
 ### optimization.splitChunks
 
+> 大背景是 webpack4 从 `CommonsChunkPlugin` 切到了 `SplitChunksPlugin`（[这篇官方文章](https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366)），并且引入了 `ChunkGroup` 这个新对象，简单来说有几个原因：
+>
+> - 从老的 chunk 图模型（chunk graph）的缺点
+>
+>   - parent-child 关系（一个 chunk 所属一个 chunk）
+>   - 如果一个 chunk 有 parents，则可以认为这个 chunk load 完，至少一个 parent 是加载了的，这样在优化阶段就可以利用这个假设信息，做到（比如）：如果 chunk 中的某个模块在所有的 parents 都可用，那就可以将这个模块直接在 chunk 中移除
+>   - 从一个 entrypoint 开始加载的一系列 chunk 会并行的加载
+>   - CommonsChunkPlugin 在处理将模块提升到 chunk 之后，会错误的将其作为 parent chunk（会影响后续的优化）（其实这里还并不是很理解说的是什么情况，总之意思就是**很难去表达一个 chunk 到底是如何 split 的**）
+>
+> - 新的对象 `ChunkGroup` 包含很多 chunk，相当于是用一个集合去包含 chunk，不存在父子层级关系，当然加载的时候从一个 entrypoint 开始指向一个 chunkgroup，其中 chunks 也是并行加载
+>
+>   - 所以现在 chunk 的拆分就很好去表达了：一个 chunk 拆分出来之后，所有所需的 chunkgroup 只要去把他的引用加入到自己的 group 即可！
+>   - 推出了 `SplitChunksPlugin` 内置在 webpack 中做优化
+>
+> - 举几个例子：
+>
+>   - Vendors：
+>
+>   - ```js
+>     `chunk-a`: react, react-dom, some components
+>     `chunk-b`: react, react-dom, some other components
+>     `chunk-c`: angular, some components
+>     `chunk-d`: angular, some other components
+>
+>     webpack would automatically create two vendors chunks, with the following result:
+>     `vendors~chunk-a~chunk-b`: react, react-dom
+>     `vendors~chunk-c~chunk-d`: angular
+>     `chunk-a` to `chunk-d`: Only the components
+>     ```
+>
+>   - 还有 vendors overlap/share 等情况见文章。。
+
 将代码拆分成块，按需使用。
 
 对于动态引入的模块，可以采用 split chunk 的策略，在用到的时候才 import 模块代码。
 
 _Since webpack v4, the `CommonsChunkPlugin` was removed in favor of `optimization.splitChunks`._
 
-`SplitChunksPlugin` 默认的配置已经足够用了（out of box），会按照下面的条件自动拆分 chunk
+`SplitChunksPlugin` **默认的配置已经足够用了**（out of box），会按照下面的条件自动拆分 chunk
 
 - New chunk can be shared OR modules are from the `node_modules` folder
-- New chunk would be bigger than 20kb (before min+gz)
+- New chunk would be bigger than 20kb (before min+gz)（文章中写的是 30kb 可能后面改过）
 - Maximum number of parallel requests when loading chunks on demand would be lower or equal to 30
 - Maximum number of parallel requests at initial page load would be lower or equal to 30
 
