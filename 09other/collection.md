@@ -101,6 +101,8 @@ Space Grotesk
 
 [苹果官方 IOS 设计 Figma 组件](https://www.figma.com/community/file/1248375255495415511/Apple-Design-Resources-%E2%80%93-iOS-17-and-iPadOS-17)
 
+[deekaykwon 有意思的小动效设计](https://deekaykwon.com/)
+
 ## 资源
 
 [程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
@@ -168,6 +170,10 @@ https://esm.sh/（esm import npm packages from url）
 [开源指南](https://opensource.guide)
 
 ## Github
+
+[PAG 腾讯开源 AE 动效跨平台方案](https://github.com/Tencent/libpag)
+
+[Markdown 解析](https://github.com/markdown-it/markdown-it)
 
 [console-ban 禁用控制台，原理没看明白](https://github.com/fz6m/console-ban)
 

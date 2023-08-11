@@ -368,3 +368,11 @@
 > **_To become a digital nomad you have to learn how to live holding hands with the uncomfortable. Fall in love with the constant change and not let fear guide you._**
 >
 > 国内数字游民[最大部落（hash node 写的博客站）](https://jarodise.com/)，荷兰的 [nomad list](https://nomadlist.com/)
+
+[从上海润去英国工作](https://www.v2ex.com/t/955368)
+
+> [上篇](https://www.v2ex.com/t/955368)
+>
+> [中篇](https://www.v2ex.com/t/956323)
+>
+> [下篇](https://www.v2ex.com/t/959091)

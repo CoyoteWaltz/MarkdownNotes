@@ -173,6 +173,30 @@ node 的包管理器，不多说了
 
 ## 命令行工具
 
+### fzf
+
+> 来自 warp [推荐](https://twitter.com/warpdotdev/status/1679184088509603840)
+>
+> [github](https://github.com/junegunn/fzf) 高达 53k star
+>
+> 非常牛的通用命令行 fuzzy 文件查找工具，不仅限于文件/历史/git 指令 等
+>
+> mac 下载：`brew install fzf`
+
+#### 通过 fzf cd 进目录
+
+来自推特的推荐，也是结合了 chatGPT 得到的答案 hh
+
+在 `.zshrc` 中输入
+
+```shell
+# fzf
+fcd() {
+    local dir
+    dir=$(find ${1:-.} -type d -not -path '*/\.*' 2> /dev/null | fzf +m) && cd "$dir"
+}
+```
+
 ### [glow 命令行 Markdown Renderer](https://github.com/charmbracelet/glow)
 
 ### espanso

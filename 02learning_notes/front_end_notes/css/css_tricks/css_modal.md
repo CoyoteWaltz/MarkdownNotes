@@ -1,4 +1,4 @@
-# CSS modals
+# 纯 CSS 实现 modals
 
 > 用 CSS 来实现对话框，没想到吧
 >

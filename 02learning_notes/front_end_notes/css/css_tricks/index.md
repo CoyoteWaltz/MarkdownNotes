@@ -8,8 +8,6 @@
 >
 > [45 个 CSS 形状](https://segmentfault.com/a/1190000018922732)
 
-[toc]
-
 ### CSS 希望 height 100% 但外层仅用了 min-height
 
 此时 height 不会生效

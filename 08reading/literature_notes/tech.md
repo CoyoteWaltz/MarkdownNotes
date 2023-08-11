@@ -158,7 +158,7 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 
 > js 相关工具生态一年的上升趋势
 
-https://github.com/Kaiyiwing/qwerty-learner-vscode
+[摸鱼练单词插件](https://github.com/Kaiyiwing/qwerty-learner-vscode)
 
 > 分享个 vscode 插件 可以摸鱼的时候练单词
 
@@ -3475,3 +3475,230 @@ clientWidth clientHeight 耗时那么久？是在计算样式？
 > - 删除一个缓存 namespace：`caches.delete(name)`
 >
 > 问题来了：缓存是有同源策略的吗？Yes，在 MDN 能找到“An origin can have multiple, named `Cache` objects.”
+
+[Waterloo Style](https://theprogrammersparadox.blogspot.com/2023/04/waterloo-style.html)
+
+> "The primary understanding is that you should ignore the code. It doesn’t matter. It is just a huge list of instructions for the stupid computer to follow."
+>
+> "Instead, focus on the data. Figure out how it should flow around."
+>
+> Programming == Data Structure + Algorithm
+
+[Batch updates in React 18](https://github.com/reactwg/react-18/discussions/21)
+
+> 依旧是 Dan 写的 discussion about Automatic batching
+>
+> batch update 能够避免多次 setState 导致重复 render，从而提升性能和体验
+>
+> 在 react 17 已经在浏览器点击事件的 callback 中自动做了 batch update
+>
+> react 18 更是自动的在所有场景都进行了 batch，不过需要通过使用 [`ReactDOM.createRoot`](https://github.com/reactwg/react-18/discussions/5)（替换 render）开启，在所有的 callback 中都是自动 batch 的，意味着
+>
+> ```tsx
+> function handleClick() {
+>   setCount((c) => c + 1);
+>   setFlag((f) => !f);
+>   // React will only re-render once at the end (that's batching!)
+> }
+> ```
+>
+> 如果不需要 batch，需要用 `flushSync`（`react-dom`）来包裹
+>
+> 同样 `unstable_batchedUpdates` 这个 API 在 React18 中还是保留
+
+[new root API in React 18](https://github.com/reactwg/react-18/discussions/5)
+
+> 依然保留了 17 之前的渲染方法 `ReactDOM.render`
+>
+> 新增了 React18 `ReactDOM.createRoot`
+>
+> - 先 create root，再 render：相比 `render` 来说可以不用每次都传入 container 了（`ReactDOM.render(<App tab="home" />, container)`），可以更方便的改动 render 的内容
+> - 去掉了 render 之后的 callback：为了在部分/渐进 SSR 这个 callback 的时机是不太对的，推荐这么做 ⬇️
+>
+> ```jsx
+> import * as ReactDOMClient from "react-dom/client";
+>
+> function App({ callback }) {
+>   // Callback will be called when the div is first created.
+>   return (
+>     <div ref={callback}>
+>       <h1>Hello World</h1>
+>     </div>
+>   );
+> }
+>
+> const rootElement = document.getElementById("root");
+>
+> const root = ReactDOMClient.createRoot(rootElement);
+> root.render(<App callback={() => console.log("renderered")} />);
+> ```
+
+[CommonJS is hurting js](https://deno.com/blog/commonjs-is-hurting-javascript)
+
+> Deno 的 blog
+>
+> 讲述了 NodeJS 推出 CommonJS 作为服务端 JS 运行时模块化的历程，以及存在的核心问题：
+>
+> - **module loading is synchronous**.
+> - **difficult to tree-shake**
+> - **not browser native**
+>
+> 以及 TC39 推出 ES Module web-first 模块化
+>
+> NodeJS 目前同时支持 CommonJS 和 ESM，但还是给开发者带了不小的问题（同时输出两种产物 & 构建过程很繁琐）
+>
+> 不过存在即合理，当时 CommonJS 确实解决了 JS 模块化很大的问题
+>
+> [Other module authors have found success supporting CommonJS and ESM](https://frontside.com/blog/2023-04-27-deno-is-the-easiest-way-to-author-npm-packages/) using [dnt](https://github.com/denoland/dnt).
+>
+> 可以深入下 node，寻找到更好的 npm 包输出姿势
+
+[Deno U don't need a build step](https://deno.com/blog/you-dont-need-a-build-step)
+
+> Deno 的 blog，围绕现代 web 构建方面的内容（编译时间摸鱼是如此常见）
+>
+> 三个部分：
+>
+> 1. **为什么前端的构建会出现：**古早的时候 js 的拆分通过 script 标签就可，当 Node 出现后，可以写非浏览器端的 JS，可以模块化、框架、CSS 后处理、编译到 es5、TS/TSX、...（列举了一系列为什么需要构建的原因），**这里的 trade-off 即 DX v.s. Build Complexity**
+> 2. 打包工具的兴起：Browserify 到 Vite、Turbopack
+> 3. 构建的四个步骤（Nextjs 举例）
+> 4. 推荐了 Deno 无需构建步骤，和 [Fresh](https://fresh.deno.dev/) 框架：Deno runtime 本身就是完全支持 web 标准（所以为啥抛弃 Node 去搞 Deno 了。。），JIT 构建，利用了直接通过 url import 的特性 + SSR 直接输出浏览器，JIT 转码，通过 deno-runtime 可以直接在浏览器中使用 TS/TSX
+>
+> Deno 看来也是很不错的，有机会尝试下！
+>
+> BTW：[依赖可视化工具](https://github.com/sverweij/dependency-cruiser)、[打包器教程（经典）](https://github.com/jamiebuilds/the-super-tiny-compiler)
+
+[【TODO】Modules In Typescript](https://gist.github.com/andrewbranch/79f872a8b9f0507c9c5f2641cfb3efa6)
+
+> 文章主要介绍 TS 是如何处理模块的
+>
+> 上古时期，JS 的拆分还是通过多个 script 标签插入到 HTML，当项目变得逐渐复杂，页面需要加载完所有的 js 才能渲染页面，并且所有的变量都是全局作用域，所以写变量/方法的时候还得非常小心
+>
+> 模块化，在自己的作用域中处理代码，并且能提供给其他文件一些代码的文件
+>
+> JS 有非常多模块化系统/方案，TS 支持输出[一部分类型](https://www.typescriptlang.org/tsconfig#module)（CommonJS(default)、UMD、amd、esNext...none）
+>
+> _The TypeScript compiler’s chief goal is to look at input code and tell the author about problems the output code might encounter at runtime._
+>
+> 编译器需要知道这些代码在 runtime 的环境，比如是否是全局的
+>
+> 编译器在处理 module 的时候概括的任务是：Understand the **rules of the host** enough
+>
+> 1. to compile files into a valid **output module format**,
+> 2. to ensure that imports in those **outputs** will **resolve successfully**, and
+> 3. to know what **type** to assign to **imported names**.
+>
+> Host 的定义，一句话来说就是真正消耗输出代码来指导模块加载行为的系统。
+>
+> 有点看不下去了。。以后再看
+
+[Use Deno author packages](https://frontside.com/blog/2023-04-27-deno-is-the-easiest-way-to-author-npm-packages/)
+
+> frontside 公司的 blog（并不太了解是什么公司）
+>
+> 介绍了从 deno 发布 package 到 deno.land 和 npm
+>
+> 文中提到 Deno 的 DX 很不错，开发 deno 会比 node 的压力少 900% 哈哈，而且发布的包版本并不是依赖 `package.json`（deno 也没有这个），而是直接用 git tag，约定俗成只有带有 tag 才认为是 release
+>
+> 具体流程：
+>
+> 1. 一次 tag 发布两次，约定带有版本号的 tag 就是需要发布的，`v1.2.3` 或者 `package-xxx-v2.3.1`
+> 2. 构建 + 发布
+>    1. 发布到 deno.land 非常自然，文中说只要注册 web hook 然后 release 带 tag 即可让 deno.land 进行发布
+>    2. 发布到 npm
+>       1. 通过脚本获取版本号，构建出 npm package
+>       2. 通过 GitHub workflow 监听 release tag 然后执行发布脚本
+>
+> 发布 npm 的工具是 deno 提供的 [dnt](https://github.com/denoland/dnt)，非常强大的工具能够通过 esm 入口生成一个完整能力的 npm 包作为输出，并且支持 ts 转码、处理依赖、生成 esm/commonjs 总之都集成好了。
+>
+> 并且给出了他们实践的例子：[构建 npm 脚本](https://github.com/thefrontside/graphgen/blob/v1.8.1/tasks/build-npm.ts)、[npm workflow](https://github.com/thefrontside/graphgen/blob/v1.8.1/.github/workflows/npm-release.yml)
+>
+> 文笔还挺不错，还是想去尝试一下 deno！
+
+[ts 迭代对象](https://fettblog.eu/typescript-iterating-over-objects/)
+
+> 一篇关于 typescript 里比较优雅姿势的对象属性访问，JS 中最简单的就是 `Object.keys`，但 ts 里的类型返回的永远是 string，这样访问对象会直接暴红，文中给出了用泛型让 TS 更好的进行类型约束
+>
+> ```typescript
+> function printPerson<T extends Person>(p: T) {
+>   for (let k in p) {
+>     console.log(k, p[k]); // This works
+>   }
+> }
+> ```
+
+[cicada CI/CD 平台](https://cicada.build/)
+
+> CI/CD platform，看了[仓库](https://github.com/cicadahq/cicada)又是 rust 写的。
+>
+> Use TypeScript SDK to write pipelines, test them locally, then run them on every PR in our ultra-fast cloud
+>
+> TS SDK 好评，不用写恶心的 yaml/toml
+>
+> 感觉是刚起步的项目？，个人是免费，团队使用就要开始收费了，不错
+
+[聊聊架构](https://juejin.cn/post/6844903801053249543)
+
+> 掘金上随便看看
+>
+> “架构是为了满足具体的业务的发展而做出的一整套的解决方案。”
+>
+> 架构就是为了实现业务而为技术实现设计的“蓝图”，这张蓝图就是上述所说的**解决方案**和**规范**。
+>
+> 业务方向：稳 & 可扩展，深入业务、更好的支撑业务扩展
+>
+> 使用者：高效 & 简洁，任何解决方案/规范肯定要考虑开发者的体验，一线员工深有体会 T_T
+>
+> 如果有更好的架构意识：
+>
+> 1. 深入业务、多积累，才能设计出更好、更强壮的架构
+> 2. 继续深入学习基础知识、了解各类其他方案/规范
+>
+> 持续学习，切勿抱着一技之长而停止学习！说的很棒
+
+[淘宝双十一 SSR 优化实践](https://juejin.cn/post/6896288990765252616)
+
+> 虽然是 2020 年的文章，但是其中的思路还是非常值得学习，做一些总结
+>
+> 0. 性能优化最重要的还是在特定的场景内定义评估标准、核心指标，并且需要结合特定业务场景去细化/补充数据指标，比如 web.dev/社区提供的 FCP、TTI 等通用指标并不适用于电商场景，我们会新增一些诸如“用户可交互”、“业务白屏”等场景闭环体验的衡量标准（之前在抖音电商也是如此实践的）
+> 1. 全链路的性能埋点（客户端、前端、服务端、...），不多说
+> 2. 阿里采用了在接口做 SSR 渲染，而不是常规的 HTML 请求的 SSR 直出，原因是能低风险、低成本，不想浪费客户端已有的各种性能优化能力（看文章是说客户端会帮 H5 预请求接口和 webview 请求资源是并行的，并且有很好的 assets 缓存能力，所以 HTML 请求一般走的都是缓存、只是接口数据是动态的）
+>    1. 这样有什么好处：
+>       1. 风险低：无缝 SSR 降级 CSR，接口有 html 字段返回就渲染在 root container 上并且进行 SSR hydrate，如果没有（说明降级了/没开启 SSR）就走常规的 JS CSR（因为无论是 CSR 还是 SSR hydrtae，JS 资源都是需要请求的）
+>       2. 利用端上成熟的性能优化能力
+> 3. 对衡量优化的价值做了进一步的拆解分析（看不同人群的优化效果）
+>    1. 体验性能
+>       1. 多维度：机型、网络条件、命中 SSR、前端其他优化
+>       2. 服务端分桶 + AB 实验
+>    2. 业务收益
+>       1. UV 点击提升 5%（还是很可观的）
+> 4. 未来的架构？
+>    1. webpack5 弱化 taget：将 web 描述为 browserlike 的环境
+>    2. service worker cache
+>    3. SSR 性能优化/安全（现在都 React18，这方面更细化了）
+>    4. 站外 H5 SSR（HTML 直出）
+> 5. 核心思路：Document 静态化（cacheable），root container 动态化（SSR）
+
+[axios-hooks](https://github.com/simoneb/axios-hooks)
+
+> axios 的 react hook 版
+>
+> 功能也挺丰富，支持 cancel、ssr、手动请求
+>
+> 看了下源码，精悍
+>
+> ssr 支持在 server 将 useAxios 中的请求适用 axios 发起，把 promise 放入一个闭包队列，然后在 render to html 的时候，await 结果，塞到 window 对象（替换字符串），在 client 用 `loadCache` 方式存在一个对象，hydrate 的时候直接进行数据渲染，无需请求接口（如果数据有问题降级还是会请求）
+
+[diff-match-patch 文本 diff 库](https://github.com/google/diff-match-patch)
+
+> google 维护的这个库的包含了所有语言的实现（底层是 myer's diff 算法）
+>
+> 包含 diff、match、patch 三种方法
+>
+> [fast-diff](https://github.com/jhchen/fast-diff) 是单独将 js 的 diff 算法独立导出的一个仓库
+
+[coroutine for Go](https://research.swtch.com/coro)
+
+> post 讲述了为什么在 go 里还需要一个 coroutine 的包来实现 coroutine，对我而言 go 还是比较深奥，但文章讲了 coroutine 是什么，coroutine 和 thread、generator 的区别，以及实现 coroutine 的背景和细节。
+>
+> 看了 1/3，剩下的没看下去了。。
