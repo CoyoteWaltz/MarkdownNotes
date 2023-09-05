@@ -1486,7 +1486,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > 这个图还挺不错的，摘录下
 >
-> ![image.png](./_imgs/reading_list.assets/74519d751863471bb877a68bd3a4644d~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+> ![image.png](./_imgs/reading_list.assets/v2-bf7e87470c1035bbf73fcbd733aae5ae_1440w.webp)
 
 [前端的 Race Condition](https://juejin.cn/post/6938286092693176334)
 
