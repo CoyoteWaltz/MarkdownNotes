@@ -376,3 +376,13 @@
 > [中篇](https://www.v2ex.com/t/956323)
 >
 > [下篇](https://www.v2ex.com/t/959091)
+
+2023.08.29 23:19:29 +0800
+
+[如何有效提问](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/tree/main)
+
+> 收藏下，建议所有人阅读
+>
+> RTFM: Read The F\*\*king Manual
+>
+> STFW: Search The F\*\*king Web

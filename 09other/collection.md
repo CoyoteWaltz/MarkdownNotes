@@ -49,14 +49,6 @@
 
 [gradient-generator 渐变色 CSS 生成器](https://www.joshwcomeau.com/gradient-generator/)
 
-## 图标 & 图片
-
-[lucide 社区开源图标库](https://lucide.dev/)
-
-[搜索所有可用 icon](https://icones.js.org/)
-
-[pixa 免费图片 可商用](https://pixabay.com/)
-
 ## 好看的字体
 
 [霞鹜文楷](https://github.com/lxgw/LxgwWenKai/)
@@ -97,17 +89,37 @@ Space Grotesk
 
 [网速查询](https://www.itdog.cn/ping/)
 
-## 设计
+## 设计 & 图标 & 图片
 
 [苹果官方 IOS 设计 Figma 组件](https://www.figma.com/community/file/1248375255495415511/Apple-Design-Resources-%E2%80%93-iOS-17-and-iPadOS-17)
 
 [deekaykwon 有意思的小动效设计](https://deekaykwon.com/)
+
+[AI powered design tools with figma](https://diagram.com/)
+
+[找设计灵感](https://dribbble.com/shots)
+
+[免费 mac/ios icon 资源](https://macosicons.com/#/)
+
+[美化图片的工具 不错](https://shots.so/)
+
+[阿里 icon](https://www.iconfont.cn/)
+
+[好看的 svg 插图](https://undraw.co/illustrations)
+
+[lucide 社区开源图标库](https://lucide.dev/)
+
+[搜索所有可用 icon](https://icones.js.org/)
+
+[pixa 免费图片 可商用](https://pixabay.com/)
 
 ## 资源
 
 [程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
 
 ## 收藏有趣的 links
+
+[unicode 字符大全](https://www.unicode.org/consortium/adopted-characters.html)
 
 [网页嵌入/notion 小组件](https://indify.co/)
 
@@ -208,6 +220,8 @@ https://esm.sh/（esm import npm packages from url）
 [Meta-tpying 体操](https://github.com/ronami/meta-typing)
 
 [zod TypeScript-first schema validation 非常多项目在用 校验用户输入的神器](https://zod.dev/)
+
+[命令行文件系统 range 的 rust 版本](https://github.com/kamiyaa/joshuto)
 
 ## 待体验
 

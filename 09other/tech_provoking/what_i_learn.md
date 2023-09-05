@@ -31,7 +31,7 @@ checklist for all
 
   - 使用语法
 
-- PNPM
+- Pnpm
 - React
 
   - 了解了 fiber 架构

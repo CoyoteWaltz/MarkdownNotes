@@ -1,5 +1,3 @@
-[toc]
-
 ## node 版本选择
 
 结论：选择偶数的 LTS 版本
@@ -7,6 +5,10 @@
 https://zhuanlan.zhihu.com/p/145243810
 
 ## npm & yarn 安装差异
+
+> - npm 的由来
+>   - 全称：a Javascript package manager，不要把它作为缩写（不是 Node Package Manager）
+>   - 如果你在创作技术文档的过程中，如果使用到这三个字母，期望也可以使用全小写。
 
 https://segmentfault.com/a/1190000017075256
 

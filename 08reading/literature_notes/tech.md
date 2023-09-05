@@ -1,5 +1,7 @@
 # 【技术】
 
+## Before
+
 [(80 封私信 / 81 条消息) 2020 国内公司前端团队都在搞些什么? - 知乎](<Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/(80%20%E5%B0%81%E7%A7%81%E4%BF%A1%2081%20%E6%9D%A1%E6%B6%88%E6%81%AF)%202020%20%E5%9B%BD%E5%86%85%E5%85%AC%E5%8F%B8%E5%89%8D%E7%AB%AF%E5%9B%A2%E9%98%9F%E9%83%BD%E5%9C%A8%E6%90%9E%E4%BA%9B%E4%BB%80%E4%B9%88%20-%20%E7%9F%A5%E4%B9%8E%20e86ca9b16d4047499354a9195bcd6371.md>)
 
 [畅销书《深入浅出 Vue.js》作者，在阿里淘系 6 个月的收获成长](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E7%95%85%E9%94%80%E4%B9%A6%E3%80%8A%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAVue%20js%E3%80%8B%E4%BD%9C%E8%80%85%EF%BC%8C%E5%9C%A8%E9%98%BF%E9%87%8C%E6%B7%98%E7%B3%BB6%E4%B8%AA%E6%9C%88%E7%9A%84%E6%94%B6%E8%8E%B7%E6%88%90%E9%95%BF%20e966e7d788784574ada3bee7411836b6.md)
@@ -25,6 +27,8 @@
 https://umaar.com/dev-tips/242-considerate-javascript/
 
 > 如何根据终端的配置来进一步优化 UX 呢?这篇文章给出了一些例子.
+
+## 2021
 
 2021.01.09 23:25:46
 
@@ -109,7 +113,7 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 >   - JIT(Just in time):
 >     - 在 runtime 的时候再进行变异
 >     - source 更大，需要下载 compiler
->   - ![Image for post](../_imgs/reading_list.assets/1*a15BveUQ7cFyV0P8CwLUCg.png)
+>   - ![Image for post](./_imgs/reading_list.assets/1*a15BveUQ7cFyV0P8CwLUCg.png)
 >   - JIT 更适合在 development 模式，AOT 更适合生产模式
 >
 > - Object-C：
@@ -254,8 +258,8 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 > - Getting your personal pet peeve（个人烦恼） fixed is powerful, often more so than new, more substantial features.
 >
 > btw 这篇文章文笔还挺好的
-
-![Matrix of low to high effort and low to high impact](../_imgs/reading_list.assets/evaluation.png)
+>
+> ![Matrix of low to high effort and low to high impact](./_imgs/reading_list.assets/evaluation.png)
 
 【好文】[跨平台动态化容器方案优化（非常切合工作哈哈）](https://mp.weixin.qq.com/s/0QViGHkt6R5fOZms-EpwAA)
 
@@ -274,7 +278,7 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 > - JS 做什么
 > - Native 提供什么
 >
-> ![图片](../_imgs/reading_list.assets/640.png)
+> ![图片](./_imgs/reading_list.assets/640.png)
 >
 > **为什么要跨平台？**
 >
@@ -283,7 +287,7 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 >
 > 可以优化的切入点（容器 webview。。。）
 >
-> ![图片](../_imgs/reading_list.assets/640-20210601134025347.png)
+> ![图片](./_imgs/reading_list.assets/640-20210601134025347.png)
 >
 > P.S. 结合自己的工作，公司内部的 lynx react-lynx DSL 的动态化方案，包括所学的 CG 知识，其实能看出整个大前端（App）渲染的 pipeline：
 >
@@ -402,8 +406,7 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 [通过 AI 将动漫人物真实化](https://designyoutrust.com/2021/04/person-uses-artificial-intelligence-to-make-anime-and-cartoon-characters-look-more-realistic/)
 
 > 没找到技术相关，都是图片，发现了帅气的波波
-
-![img](../_imgs/reading_list.assets/Artist-gives-human-forms-to-anime-characters-through-artificial-intelligence-6078043e1d2d8-png__880.jpg)
+> ![img](./_imgs/reading_list.assets/Artist-gives-human-forms-to-anime-characters-through-artificial-intelligence-6078043e1d2d8-png__880.jpg)
 
 [emoji 作为 favicons](https://css-tricks.com/emojis-as-favicons/)
 
@@ -438,6 +441,8 @@ https://umaar.com/dev-tips/242-considerate-javascript/
 [抖音国庆小游戏 cocos](https://mp.weixin.qq.com/s/cQ9S20Uxm6lir2pa1RF2cA)
 
 > cocos 做小游戏的介绍，自己也不会，看了也想象不出开发过程，不过既要兼顾业务需求也需要顾及性能，还挺难的。
+
+## 2022
 
 2022.02.07 18:25:29
 
@@ -668,27 +673,27 @@ TODO [js 中真正的 sleep](https://jasonformat.com/javascript-sleep/)
 > defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 > defaults write -g WebKitDeveloperExtras -bool YES
 > 可以在一些界面通过右键审查元素，但是目前只发现在设置中**家人共享**可以，还挺有意思的，能看到很多源码，比如 html 就是用 react 写的，有一个自定义 hook，
-
-```typescript
-import { useState, useEffect } from "react";
-
-// This hook will set a flag once the requested image is loaded. This should help with large images not being downloaded fast enough.
-const usePreloadedImage = (imageUrl: string): boolean => {
-  const [isImagePreloaded, setIsImagePreloaded] = useState(false);
-
-  useEffect(() => {
-    const preload = new Image();
-    preload.src = imageUrl;
-    preload.onload = () => {
-      setIsImagePreloaded(true);
-    };
-  }, []);
-
-  return isImagePreloaded;
-};
-
-export default usePreloadedImage;
-```
+>
+> ```typescript
+> import { useState, useEffect } from "react";
+>
+> // This hook will set a flag once the requested image is loaded. This should help with large images not being downloaded fast enough.
+> const usePreloadedImage = (imageUrl: string): boolean => {
+>   const [isImagePreloaded, setIsImagePreloaded] = useState(false);
+>
+>   useEffect(() => {
+>     const preload = new Image();
+>     preload.src = imageUrl;
+>     preload.onload = () => {
+>       setIsImagePreloaded(true);
+>     };
+>   }, []);
+>
+>   return isImagePreloaded;
+> };
+>
+> export default usePreloadedImage;
+> ```
 
 [可以检查素数的正则](https://www.noulakaz.net/2007/03/18/a-regular-expression-to-check-for-prime-numbers/)
 
@@ -865,7 +870,7 @@ export default usePreloadedImage;
 >    1. 组件名，props，变更属性，自定义的 log 信息
 > 2. 在 React 环境如何获取到当前渲染组件的信息：
 >    1. 首先是组建名，非常骚，用了 `React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED`，但这么写在生产环境大概率是会报错的（uglify js），当然它 README 的[最后](https://github.com/shuding/tilg#faq--caveats)也写了不要自己再用这种东西实现 hh
->    2. 如何统计同一个组件多次 render，用了 WeakMap（见[[../../02learning_notes/front_end_notes/js/ES6]]）存了一个数组 `WeakMap<ComponentId, HookPath[]>`，这里的 `HookPath` 就是每次调用 `useTilg` 的时候都会去看看是在哪里调用的，如果是不同的调用路径，就认为是同一个组件的另一个实例。BTW 为什么用 WeakMap，如果一个组件直接从 React 上下文去除掉了，也没必要继续存了（我猜的）
+>    2. 如何统计同一个组件多次 render，用了 WeakMap（见[es6]([../../02learning_notes/front_end_notes/js/ES6)）存了一个数组 `WeakMap<ComponentId, HookPath[]>`，这里的 `HookPath` 就是每次调用 `useTilg` 的时候都会去看看是在哪里调用的，如果是不同的调用路径，就认为是同一个组件的另一个实例。BTW 为什么用 WeakMap，如果一个组件直接从 React 上下文去除掉了，也没必要继续存了（我猜的）
 >    3. 怎么获取调用 path？给我惊到了，通过对 `new Error().stack` 的处理，能拿到当前 call 的调用栈，里面包含了 caller 和代码 path，做了正则匹配提取。
 >    4. 在组建中多次 hook 调用只会执行第一次，用了一个闭包的 id 做的。
 > 3. MarkDown 的实现
@@ -1141,6 +1146,8 @@ export default usePreloadedImage;
 > 1. **当缩放比例过大时候，字体会有一点点模糊，就一点点。**
 > 2. **当缩放比例过大时候，事件热区会偏移。**
 
+## 2023
+
 2023-1
 
 [rimraf（node 的 rm 指令）](https://github.com/isaacs/rimraf)
@@ -1364,7 +1371,7 @@ export default usePreloadedImage;
 > - 将必要的信息序列成 html 的一部分（减少 js 的解析）
 > - 依赖于事件冒泡来拦截所有事件的全局事件处理程序
 >
-> ![img](../_imgs/reading_list.assets/v2-bf7e87470c1035bbf73fcbd733aae5ae_1440w.webp)
+> ![img](./_imgs/reading_list.assets/v2-bf7e87470c1035bbf73fcbd733aae5ae_1440w.webp)
 >
 > 具体细节可以看文章，讲的还是比较容易懂的
 
@@ -3702,3 +3709,134 @@ clientWidth clientHeight 耗时那么久？是在计算样式？
 > post 讲述了为什么在 go 里还需要一个 coroutine 的包来实现 coroutine，对我而言 go 还是比较深奥，但文章讲了 coroutine 是什么，coroutine 和 thread、generator 的区别，以及实现 coroutine 的背景和细节。
 >
 > 看了 1/3，剩下的没看下去了。。
+
+[pake 介绍 from 掘金 bilibili](https://www.bilibili.com/video/BV1Cz4y1W7sy/)
+
+> tw39 开源的 pake，基于 rust tarui 的桌面应用构建工具，的视频
+>
+> 原来大佬也是在阿里的飞猪带前端团队的，居然还有时间搞这么多开源
+>
+> 前端在 rust 也能做很多事情！补齐生态，好好学
+>
+> 技术产品化，30% 技术代码、30% 产品能力、30% 营销运营
+>
+> JS 的构建慢是原罪？插件多/ast/兼容低版本/IO 操作/单线程
+>
+> Rust 的发展前景
+
+[浮点数精度损失](https://www.bilibili.com/video/BV12k4y1y7ST?t=1255.9&p=2)
+
+> 应用了 IEEE754 标准浮点数的编程语言都会有精度损失，比如 `0.1 + 0.2 !== 0.3`
+>
+> 1 位符号位：0 正 1 负
+>
+> 11 位整数：整数部分等于 2 的这个次方
+>
+> 后面都是小数位：默认是 1.0
+>
+> 所以只要不是 2 次方的数，在不同位（32/64）上的计算方式都会有损失，0.1 在 JS 中损失的就是 [`Number.EPSILON`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON)（定义的是比 1 大的最小浮点数与 1 之间的差，`2**(-52)`）
+>
+> **精度不准怎么办？**换成整数去运算，最终结果再还原到小数即可
+
+[依赖注入](https://youtu.be/J1f5b4vcxCQ)
+
+> 依赖注入模式！
+
+[react tweet](https://vercel.com/blog/introducing-react-tweet)
+
+> vercel 反向工程（reverse engineering）了 tweet embedded iframe，提供了 react 组件能够更好，更高性能的渲染推特卡片。
+
+[vscode 团队压缩变量名优化](https://code.visualstudio.com/blogs/2023/07/20/mangling-vscode)
+
+> vscode 团队通过命名压缩（name mangling）的方式减少了核心 js 代码文件的体积（workbench.js）20%的大小，提升了 app 启动时间。
+>
+> vscode 对于性能有极致的追求。命名压缩能够在不影响代码行为的情况下有效减少体积，但是风险也非常大。blog 也从一开始的试错到最后利用先构建到 ts 保证正确性，最后再打包的思路，选取了一些比较适合的场景（private properties 和内部变量）得益于团队固有的高标准编码规范。
+>
+> btw 这个优化在编译型语言来说显得有些不必要，因为最后都是会打成二进制指令码的吧……
+
+[Ai engineer](https://www.latent.space/p/ai-engineer)
+
+> AI 工程的未来
+
+[Tea.xyz 未来的打包工具](https://tea.xyz/)
+
+> 在之前的一期播客中听到，结合区块链的统一打包工具，来自 brew 的作者
+
+[about Web gpu](https://cohost.org/mcc/post/1406157-i-want-to-talk-about-webgpu)
+
+> 长文。web gpu 在 chrome 113 正式推出。
+>
+> 文章介绍了图形显卡、驱动、渲染框架的历史和由来；介绍了 WebGPU 是什么（shader 语言用 WGSL），如何使用，面向 JS/[TS](https://alain.xyz/blog/raw-webgpu)/NPM、[Rust](https://sotrh.github.io/learn-wgpu/)、C++
+>
+> 可以深入看看这几个教程
+
+2023.09.03 21:55:01 +0800
+
+[2023 前端框架和技术](https://mp.weixin.qq.com/s/GTEYKVt7GUI-OHdML2WaaQ)
+
+> 一些前端技术进展的 review
+
+[dynamic import 原理](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars)
+
+> 来自公司内部介绍 rollup 实现动态引入的原理
+>
+> - Rollup 插件构建时，动态引入（path 是动态的）是如何实现的，构建时不知道运行时的变量，通过一些特殊的手段。（[github](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars)）
+> - import( '../path/\${xx}.js' ) -> 会构造 glob path，然后编译所有的文件，再将代码转换成 switch/case 匹配
+> - [源码](https://github.com/rollup/plugins/blob/master/packages/dynamic-import-vars/src/index.js)
+> - 这个业务团队也用 [unplugin](https://github.com/unjs/unplugin) 开发了一个 vite 支持的插件
+
+[treeshaking 排查指南](https://zhuanlan.zhihu.com/p/491391823)
+
+> 也是来自公司内部杨健的文章
+>
+> - Tree shaking 是在什么环节：LTO（Link Time Optimization）的时候，检查各个模块之间的引用依赖
+> - 是什么：分析出模块中导出的被引用代码之外的代码是否有用，是否有副作用，删除这些代码
+>   - _Tree shaking_ is a term commonly used in the JavaScript context for dead-code elimination. It relies on the [static structure](http://exploringjs.com/es6/ch_modules.html#static-module-structure) of ES2015 module syntax, i.e. `import` and `export`. The name and concept have been popularized by the ES2015 module bundler [rollup](https://github.com/rollup/rollup).
+> - 每个打包工具之间的 tree shaking 算法比较固定
+> - sideEffects：具体教程可以看 webpack 的 [doc](https://webpack.js.org/guides/tree-shaking/)，
+>   - 值可以是 boolean，告诉打包工具模块里面所有的代码都是没有副作用的
+>   - 也可以是 string[]，指定有副作用的代码
+> - 误区：
+>   - 包含副作用的代码，都不能配置 sideEffects false：就是要看这个副作用设计是给模块内部还是外部的，如 vue，虽然是有副作用，但是是给内部用的，所以可以配置为 true(see [side effects in vue](https://github.com/vuejs/vue/pull/8099))。
+>   - Css 配置 sideEffects 为 false 来实现 tree shaking：直接 import 进来的 css 如果被认为是没有副作用就会被误 tree shaking 掉，导致直接引入的 css 不生效，跟着组件相关一起 shaking
+
+Signal 与响应式编程
+
+> 公司内很好的一篇文章
+>
+> - 基于 signal 的响应式编程，通过 preact、solidjs、vue、rxjs 主流的响应式框架
+> - Signal 是随着时间变化的值，signal 变化的时候，依赖他的下游也会自动作出反应（收到信号一样）
+> - Signals、Reactions（副作用）、derivations（衍生）
+> - 响应式特点：Evalution、lifting、glitch avoidance，看原文，讲的还是很生动的
+>   - 求值分 拉取和 推送，像 vue solid preact 等都是 push 体系，pull-based 就是消费方主动计算依赖方的值，需要轮询开销
+>   - lifting
+>   - 闪烁避免：Glitch avoidance 是指响应式实现需要规避一个问题：两个上游依赖拥有相同依赖，当共同依赖变更时，会产生重复的计算过程，从而暴露 inconsistent data 给下游。
+>     - 这里比较深入，先测试了下各个框架是否有 glitch 的问题
+>     - 然后讲了解决方案
+> - 响应式的问题：
+>   - Sum type 和 product type：前者就是 或 关系，后者是笛卡尔积关系
+>     - Sum type： A ｜ B
+>     - Product type：理解为 C 是 A 和 B 的组合（也就是对象）
+>   - 基于 Proxy 的响应式框架除了对基础数据类型无法很好支持外，对于 sum type 也难以处理。
+
+[React 18 concurrent](https://react.dev/blog/2022/03/29/react-v18#what-is-concurrent-react)
+
+> 来自公司内部文章
+>
+> - 浏览器处理 CPU 密集型的任务，JS 线程会占用浏览器渲染，所以会导致比如输入框延迟响应变化
+> - VDom 的计算是非常 CPU 密集的，之前的 react 是对所有组件一视同仁，不会暂停渲染
+> - 所以 concurrent mode 相当于 CPU 时间分片，或是用 startTransition API 来告诉 React 这个组件的优先级
+> - 优先计算后的 node 会被提前 render，后续任务会放入队列（微任务），交换给浏览器线程
+
+前端文件分片上传
+
+> - 分片上传的优势：多个片可以并发上传、避免代理服务器拦截请求体过大的请求、避免网络波动导致整个文件重传（只需要重传失败的分片）
+> - 前端利用 [blob.slice](https://developer.mozilla.org/en-US/docs/Web/API/Blob) 方法
+>   - 进行文件分片，同时记录顺序
+>   - 通知服务端开始上传，获得上传 id
+>   - 并发上传所有分片
+>   - 通知服务端结束上传
+>   - （文章的代码还做了最大并发数的控制。。
+> - 服务端（可以是 BFF）
+>   - 提供开始/结束的请求，个人认为开始之后会在 redis 之类的 session 存一个 UploadId，超时未结束的话需要及时清除
+>   - 需要有拼接文件的能力

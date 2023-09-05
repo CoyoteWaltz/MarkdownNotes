@@ -6,8 +6,6 @@
 
 _时过境迁，公司的 [rspack](https://github.com/web-infra-dev/rspack) 也已经开源，rust 版的 webpack，鼓掌_
 
-[toc]
-
 ## 安装
 
 `npm init `
@@ -473,6 +471,12 @@ plugins: [
 // plugins:
 new OptimizeCssAssetsWebpackPlugin();
 ```
+
+#### webpackbar
+
+https://github.com/unjs/webpackbar
+
+能够在终端展示 webpack 打包进度条，真不错
 
 ## 模式 Mode
 

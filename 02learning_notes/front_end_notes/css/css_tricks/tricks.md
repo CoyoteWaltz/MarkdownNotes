@@ -8,7 +8,7 @@
 >
 > [45 个 CSS 形状](https://segmentfault.com/a/1190000018922732)
 
-### CSS 希望 height 100% 但外层仅用了 min-height
+## CSS 希望 height 100% 但外层仅用了 min-height
 
 此时 height 不会生效
 
@@ -18,14 +18,7 @@
 
 或者用 `min-height: inherit;` 也行。
 
-### IOS 手机容器滚动条滑动不顺畅
-
-```css
-overflow: auto;
--webkit-overflow-scrolling: touch;
-```
-
-### 修改滚动条样式
+## 修改滚动条样式
 
 ```css
 div::-webkit-scrollbar {
@@ -41,11 +34,12 @@ div::-webkit-scrollbar {
 - `div::-webkit-scrollbar-corner` 边角，即两个滚动条的交汇处
 - `div::-webkit-resizer` 两个滚动条的交汇处上用于通过拖动调整元素大小的小控件注意此方案有兼容性问题，一般需要隐藏滚动条时我都是用一个色块通过定位盖上去，或者将子级元素调大，父级元素使用 `overflow-hidden` 截掉滚动条部分。暴力且直接。
 
-### 隐藏页面元素
+## 隐藏页面元素
 
 - `display-none`: 元素不存在，从 `dom` 中删除
 - `opacity-0`: 元素透明度将为 0，但元素仍然存在，绑定的事件仍旧有效仍可触发执行。
 - `visibility-hidden`：元素隐藏，但元素仍旧存在，页面中无法触发该元素的事件。
+- 同样在 html tag 直接用 `hidden` 属性也等同于 `display: none` 的效果
 
 ### CSS3 background-color: currentColor
 

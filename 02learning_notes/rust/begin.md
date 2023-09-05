@@ -407,7 +407,7 @@ s.push_str("! no"); // append a literal string
 println!("{}", s);
 ```
 
-String and be mutated but literals cannot.
+String can be mutated but literals cannot.
 
 #### Memory and allocation
 
@@ -463,7 +463,7 @@ Copy:
 
 If a type implements the `Copy` trait(covered later), variables that use it do not move, but rather are trivially copied, making them still valid after assignment to another variable.
 
-_Rust won’t let us annotate a type with `Copy` if the type, or any of its parts, has implemented the `Drop` trait._ `Drop` trait is like `destructor` or `defer` in Go or `Symbol.dispose` in JS?
+_Rust won’t let us annotate a type with `Copy` if the type, or any of its parts, has implemented the `Drop` trait._ (`Drop` trait is like `destructor` or `defer` in Go or `Symbol.dispose` in JS?)
 
 Summary of `Copy`: if a type implement `Copy` trait, the value can be simply assign to another variable as another copied value.
 
@@ -530,4 +530,108 @@ fn calculate_length(s: String) -> (String, usize) {
 }
 ```
 
+Luckily for us, Rust has a feature for using a value without transferring ownership, called *references*.
+
 Introduce _references_
+
+_Simply speaking, when a complex(type) variable is assigned to another variable, the owner is transferred!_
+
+## Reference and Borrowing
+
+Unlike a pointer, a reference is guaranteed to point to **a valid value** of a particular type for the life of that reference.
+
+Example of using reference instead of taking the ownership of the variable:
+
+```rust
+fn main() {
+	let s1 = String::from("hello");
+	let len = calculate_length(&s1);
+	println!("The length of '{}' is {}.", s1, len);
+}
+
+fn calculate_length(s: &String) -> usize {
+	s.len()
+}
+```
+
+The `&s1` syntax lets us create a reference that *refers* to the value of `s1` but does not own it. It's called _reference borrowing_.
+
+Just as variables are immutable by default, so are references. **We’re not allowed to modify something we have a reference to**.
+
+```rust
+fn main() {
+    let mut s = String::from("hello");
+
+    change(&mut s);
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+```
+
+Mutable references have one big restriction: **if you have a mutable reference to a value, you can have no other references to that value.**
+
+```rust
+    let mut s = String::from("hello");
+
+    let r1 = &mut s;
+    let r2 = &mut s;
+
+    println!("{}, {}", r1, r2);  // failed
+```
+
+The benefit of having this restriction is that Rust can prevent **data races** at compile time. A _data race_ is similar to a race condition and happens when these three behaviors occur:
+
+- Two or more pointers access the same data at the same time.
+- At least one of the pointers is being used to write to the data.
+- There’s no mechanism being used to synchronize access to the data.
+
+```rust
+    let mut s = String::from("hello");
+
+    {
+        let r1 = &mut s;
+    } // r1 goes out of scope here, so we can make a new reference with no problems.
+
+    let r2 = &mut s;
+```
+
+Remember not to use multiple reference on the same variable.
+
+```rust
+    let mut s = String::from("hello");
+
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+    println!("{} and {}", r1, r2);
+    // variables r1 and r2 will not be used after this point
+
+    let r3 = &mut s; // no problem
+    println!("{}", r3);
+```
+
+Explaination: The scopes of the immutable references `r1` and `r2` end after the `println!` where they are last used, which is before the mutable reference `r3` is created. These scopes don’t overlap, so this code is allowed: the compiler can tell that the reference is no longer being used at a point before the end of the scope.
+
+**Dangling References**
+
+In Rust, by contrast, the compiler guarantees that references will never be dangling references
+
+```rust
+fn dangle() -> &String { // dangle returns a reference to a String
+
+    let s = String::from("hello"); // s is a new String
+
+    &s // we return a reference to the String, s
+} // Here, s goes out of scope, and is dropped. Its memory goes away.
+  // Danger!
+
+// return s is valid(give new ownership)
+```
+
+Recap! Rules of reference:
+
+- At any given time, you can have _either_ one mutable reference _or_ any number of immutable references.
+- References must always be valid.
+
+## The Slice Type

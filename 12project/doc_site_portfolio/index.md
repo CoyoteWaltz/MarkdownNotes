@@ -239,4 +239,6 @@ zx with typescript:
 - see [issue](https://github.com/google/zx/issues/467#issuecomment-1272383105)
 - [tsx](https://github.com/esbuild-kit/tsx)
 
-Reference: https://github.com/aidenybai/million/tree/main/website
+Nextra Project Example Reference: https://github.com/aidenybai/million/tree/main/website
+
+replace content in file: https://github.com/adamreisnz/replace-in-file
