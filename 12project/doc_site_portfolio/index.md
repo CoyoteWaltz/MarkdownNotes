@@ -227,8 +227,17 @@ Important: If a `index` file exists in a directory, there will be the homepage o
 details:
 
 - subject: first level files/directories under `02learning_notes/`
-  - file:
-    -
+  - ## file:
+
+## Trigger Doc Site Build By Markdown Repo
+
+steps:
+
+- make github actions for _Doc Site Repo_:
+  - when PUSH to master branch
+  - trigger by _Markdown Repo_
+    - refer to [discussion](https://github.com/orgs/community/discussions/26323)
+- make github actions for _Markdown Repo_ to trigger
 
 ## Repo Sundries
 
