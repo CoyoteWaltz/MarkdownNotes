@@ -17,7 +17,7 @@ jobs:
           ls ${{ github.workspace }}
       - name: Notify
         run: |
-          curl -L -X POST -u "${{ secrets.PAT_USERNAME}}:${{ secrets.PAT_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" -H "Authorization: Bearer ${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/CoyoteWaltz/portolio/actions/workflows/build.yml/dispatches --data '{"ref": "master"}'
+          curl -L -X POST -u "${{ secrets.PAT_USERNAME}}:${{ secrets.PAT_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" -H "Authorization: Bearer ${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/CoyoteWaltz/portolio/actions/workflows/build.yml/dispatches --data '{"ref": "main", "inputs": {"name":"coyote"}}'
       - run: echo "🍏 This job's status is ${{ job.status }}."
 # curl -L \
 #   -X POST \
