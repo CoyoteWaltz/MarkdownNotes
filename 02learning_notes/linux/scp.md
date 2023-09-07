@@ -22,7 +22,7 @@
 
 如下图的过程，在另一端的 sshd 进程接收到的也只是一个指令，然后让 ssh 执行。
 
-![img](./scp.assets/scp-1.png)
+![img](./_imgs/scp.assets/scp-1.png)
 
 注意 SCP 协议是单向的，如果需要反向传递文件，需要再次执行 `scp`。
 

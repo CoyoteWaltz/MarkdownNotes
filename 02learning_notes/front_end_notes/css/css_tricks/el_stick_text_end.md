@@ -9,9 +9,9 @@
 
 ## 最终效果
 
-![image-20230222173710723](_imgs/el_stick_text_end.assets/image-20230222173710723.png)
+![image-20230222173710723](./_imgs/el_stick_text_end.assets/image-20230222173710723.png)
 
-![image-20230222183711215](_imgs/el_stick_text_end.assets/image-20230222183711215.png)
+![image-20230222183711215](./_imgs/el_stick_text_end.assets/image-20230222183711215.png)
 
 文字表述：文本最后跟随的尾部元素，文本可以进行多行省略
 
