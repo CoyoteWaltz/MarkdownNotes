@@ -756,28 +756,7 @@ PS.这个`<source>`还可以用在`<video>`和`<audio>`元素中，下次[再看
 </pre>
 ```
 
-<pre>
-  L          TE
-    A       A
-      C    V
-       R A
-       DOU
-       LOU
-       111
-       141
-      REUSE
-      QUE TU
-      PORTES
-    ET QUI T'
-    ORNE O CI
-     VILISÉ
-    OTE-  TU VEUX
-     LA    BIEN
-    SI      RESPI
-            RER       - Apollinaire
-</pre>
-
-会用`monospace`的字体来渲染，空格有多少就展示多少。
+会用 `monospace` 的字体来渲染，空格有多少就展示多少。
 
 可以在 JSX 中用 JSON.stringify 来展示对象信息
 
