@@ -227,7 +227,7 @@ Important: If a `index` file exists in a directory, there will be the homepage o
 details:
 
 - subject: first level files/directories under `02learning_notes/`
-  - ## file:
+  - file:
 
 ## Trigger Doc Site Build By Markdown Repo
 
@@ -243,10 +243,11 @@ Steps:
 
 #### Prerequisite
 
-1. [Generate personal token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). Remember grant access permission to all repos(in case of your private repos) and **save the token in somewhere safe**.
-2. [Define sercets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) in Markdown Repo.
-3. [Create a workflow dispatch event](https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#create-a-workflow-dispatch-event).
-4. [`on workflow_dispatch`](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch) to response. You can provide the `ref`(specify the branch or tag) and any `inputs`(you can retrieve the value in context and define inputs in yml)
+1. [Github workflow syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
+2. [Generate personal token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens). Remember grant access permission to all repos(in case of your private repos) and **save the token in somewhere safe**.
+3. [Define sercets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) in Markdown Repo for replace some sensetive info in the workflow dispatch event(below).
+4. [Create a workflow dispatch event](https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#create-a-workflow-dispatch-event).
+5. Write actions in Doc Site Repo with [`on workflow_dispatch`](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch) to response. You can provide the `ref`(specify the branch or tag) and any `inputs`(you can retrieve the value in context and define inputs in yml)
 
 #### Github Actions Config
 
@@ -277,6 +278,10 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
 # Documentation: https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#create-a-workflow-dispatch-event
 ```
+
+#### Actions for Vercel build
+
+> refer to [Vercel's document](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel)
 
 ## Repo Sundries
 

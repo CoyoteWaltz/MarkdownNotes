@@ -73,7 +73,7 @@ Streamlining rendering performance requires **pushing all non- rendering or non-
 
 看一下下图，一帧图被渲染的流程
 
-![image-20210305104112853](./_imgs/paper_reading.assets/image-20210305104112853.png)
+![image-20210305104112853](./_imgs/paper_reading_A_Virtual_Reality_Visualization_Tool_for_Neuron_Tracing.assets/image-20210305104112853.png)
 
 _下摘自论文_
 

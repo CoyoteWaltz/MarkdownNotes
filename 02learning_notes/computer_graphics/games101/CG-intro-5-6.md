@@ -1,5 +1,3 @@
-[toc]
-
 ## Course5 Rasterization 1 - Triangles
 
 光栅化
@@ -154,8 +152,6 @@ is ubiquitous in CG
 ![image-20201025182807629](./_imgs/CG-intro-5-6.assets/image-20201025182807629.png)
 
 摩尔纹
-
-![image-20201025182916471](./_imgs/CG-intro-5-6.assets/image-20201025182916471.png)
 
 去掉 odd 行和 odd 列之后，再次放大
 
