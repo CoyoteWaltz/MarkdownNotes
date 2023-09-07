@@ -1,5 +1,3 @@
-[toc]
-
 ## Course10 Geometry 1 intro
 
 ### general
@@ -28,8 +26,6 @@
 #### spherical map
 
 - 用球面记录环境光（spherical map），球面展开，会有扭曲
-
-![image-20201102101629746](./_imgs/CG-intro-10-12.assets/image-20201102101629746.png)
 
 #### Cube map
 
