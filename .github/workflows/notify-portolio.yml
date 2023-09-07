@@ -3,7 +3,7 @@ run-name: Notify Doc Site To Build 🔧
 on:
   push:
     branches:
-      - test-workflow
+      - master
 jobs:
   Notify:
     runs-on: ubuntu-latest
