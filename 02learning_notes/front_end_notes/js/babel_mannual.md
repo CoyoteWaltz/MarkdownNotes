@@ -1,7 +1,5 @@
 # Babel 7.x
 
-[toc]
-
 ## 前言
 
 babel 是什么？[官网](https://babeljs.io/docs/en/)

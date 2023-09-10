@@ -1,5 +1,3 @@
-[toc]
-
 ## Course7 Surface Shading (Illumination, shading and graphics pipelines)
 
 ### general

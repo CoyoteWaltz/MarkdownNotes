@@ -4,8 +4,6 @@
 
 60 分钟 blitz 快速了解
 
-[TOC]
-
 ## Tensor
 
 ### Tensor

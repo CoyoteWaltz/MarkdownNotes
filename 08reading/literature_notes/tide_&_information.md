@@ -2,6 +2,12 @@
 
 > **需要标注收录时间**
 
+[Wordpress 提供 100 年的域名](https://www.techspot.com/news/99956-wordpress-now-offers-100-year-domain-hosting-plan.html)
+
+> 2023.09.10 20:56:18 +0800
+>
+> 只要 \$38,000
+
 [Kindle 退出中国市场](https://www.zhihu.com/tardis/zm/art/524985134)
 
 > 2023.06.30 13:21:23 +0800

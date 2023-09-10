@@ -1,7 +1,5 @@
 ## Event Loop & Tasks & Microtasks
 
-[toc]
-
 > JS 基础！
 
 MDN 上有很好的文章说明了 Event Loop 和 JS Tasks Microtasks 是什么，JS 引擎是如何调度单线程的代码执行。

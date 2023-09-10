@@ -4,8 +4,6 @@
 >
 > 自己实现了一下，代码：html/3_CSS_lines_rate/3_CSS_lines_rate.html
 
-[toc]
-
 ## TL;DR
 
 最终效果：

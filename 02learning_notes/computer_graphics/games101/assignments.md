@@ -1,5 +1,3 @@
-[toc]
-
 # Games101 作业
 
 > 作业发布论坛：http://games-cn.org/forums/topic/allhw/

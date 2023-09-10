@@ -1,7 +1,5 @@
 # Typescript Advance
 
-[toc]
-
 ## Some tricks
 
 ### 指定 this 的类型

@@ -25,6 +25,6 @@ Promise.resolve("yes ok")
 
 **因此记住：永远都是往 `then()` 中传递函数！**
 
-来自：https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html（虽然是 15 年的文章，但是对 promise 的理解很好了）
+来自：[这篇](https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html)（虽然是 15 年的文章，但是对 promise 的理解很好了）
 
-译文：http://fex.baidu.com/blog/2015/07/we-have-a-problem-with-promises/
+[译文](http://fex.baidu.com/blog/2015/07/we-have-a-problem-with-promises/)

@@ -1,7 +1,5 @@
 # Tortoise and Hares Consensus: the Meshcash Framework for Incentive-Compatible, Scalable Cryptocurrencies
 
-[TOC]
-
 Tortoise and Hares Consensus: 一种共识机制（网络中的参与者对某个信息达成一致，比如谁挖到一个 block 了）
 
 the Meshcash Framework: mesh 网 cash 框架？

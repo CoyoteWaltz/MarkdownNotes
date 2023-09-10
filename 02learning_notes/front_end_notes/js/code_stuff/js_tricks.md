@@ -1,7 +1,5 @@
 记得看https://www.30secondsofcode.org/js/p/1
 
-[toc]
-
 ### `void 0`?
 
 > 起源于 [div.js](https://github.com/willmartindev/div.js) 这个库的源码（能用 `<div is="p">` 来全用 div 写 html 哈哈哈。

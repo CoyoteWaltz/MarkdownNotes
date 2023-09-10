@@ -1,7 +1,5 @@
 # Modern C++ Tutorial: C++11/14/17/20 On the Fly
 
-[toc]
-
 > 阅读笔记
 >
 > ouchangkun 大佬写的

@@ -1,5 +1,3 @@
-[toc]
-
 ## Course15 Raytracing 3
 
 > Light transport & global illumination

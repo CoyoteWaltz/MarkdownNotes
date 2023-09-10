@@ -2,8 +2,6 @@
 
 参考：[官网](http://websocket.org/)（墙了），[阮一峰老师的文章](http://www.ruanyifeng.com/blog/2017/05/websocket.html)，[MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 
-[toc]
-
 ## 背景：
 
 HTTP 协议不够用吗？确实如此，只能由客户端发起请求，服务端只能被动接受请求，返回结果。

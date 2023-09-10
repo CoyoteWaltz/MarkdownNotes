@@ -4,8 +4,6 @@
 >
 > whitted style？
 
-[toc]
-
 ### general
 
 - basic theorem

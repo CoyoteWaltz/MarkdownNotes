@@ -1,7 +1,5 @@
 # Mac Configuration For Love
 
-[TOC]
-
 ## Foreword
 
 终于投入 mac 的怀抱了，搞！

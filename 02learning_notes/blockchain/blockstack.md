@@ -1,7 +1,5 @@
 # Understanding blockstack white paper v2.0
 
-[TOC]
-
 ## 论文标题：blockstack white paper v2.0
 
 The Blockstack Decentralized Computing Network，一种区块链的分层架构设计

@@ -7,8 +7,6 @@
 > - [精读 pnpm](https://github.com/ascoders/weekly/issues/435)
 > - [官方文档](https://pnpm.io/blog)
 
-[toc]
-
 ### npm 安装 pnpm 找不到
 
 MacOS 通过 nvm 管理 node，切换到新的 node 版本然后 `npm i -g pnpm` 之后执行 `pnpm` 指令 not found

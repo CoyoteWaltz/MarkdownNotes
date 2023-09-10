@@ -119,6 +119,8 @@ Space Grotesk
 
 ## 收藏有趣的 links
 
+[emoji](https://emoji.muan.co/#)
+
 [unicode 字符大全](https://www.unicode.org/consortium/adopted-characters.html)
 
 [网页嵌入/notion 小组件](https://indify.co/)

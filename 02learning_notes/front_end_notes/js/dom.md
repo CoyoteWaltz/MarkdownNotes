@@ -1,5 +1,3 @@
-[toc]
-
 ### Input.valueAsNumber & valueAsDate
 
 > [参考](https://www.builder.io/blog/numbers-and-dates)

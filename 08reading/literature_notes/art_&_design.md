@@ -52,3 +52,11 @@ https://garryui.cn/
 > ```
 >
 > 思考摘录：没有一种工具是万能的，万能如 Excalidraw 也无法替代 Lucidchart/Draw.io/Google Drawings/Visio 这些复杂的工具（他们更适合复杂的对精确性有高度要求的图）
+
+2023.09.09 21:55:38 +0800
+
+[animated svg logo](https://antfu.me/posts/animated-svg-logo)
+
+> 来自 antfu 的 blog
+>
+> 介绍如何使用 svg 制作可动画的 logo，利用 figma 的 pen 工具，同样可以用 mask 改变笔画的粗细

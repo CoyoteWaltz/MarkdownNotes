@@ -1,7 +1,5 @@
 # React
 
-[toc]
-
 官方教程：https://reactjs.org/docs/getting-started.html
 
 https://www.taniarascia.com/getting-started-with-react/

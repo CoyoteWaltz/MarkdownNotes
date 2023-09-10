@@ -1,4 +1,4 @@
-# 理解 RSC
+# React Server Component
 
 ## Dan 文章解读
 

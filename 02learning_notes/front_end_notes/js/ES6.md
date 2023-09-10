@@ -1,7 +1,5 @@
 # ES6789?笔记
 
-[toc]
-
 ## [Array]Change array by copy(ES2023)
 
 组数老头疼的问题就是 sort, splice, reverse 会改变原来的对象，这个 [proposal](https://github.com/tc39/proposal-change-array-by-copy) 提出了

@@ -18,3 +18,7 @@
 4. 使用组件：找到组件图标，拖动到画布里面来，然后在右侧选择属性对应的具体值，就行了！
 
 有意思
+
+### Use pen tool
+
+> [link](https://blog.openreplay.com/using-the-pen-tool-in-figma/)

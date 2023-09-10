@@ -1,7 +1,5 @@
 # Go 语言学习之旅
 
-[TOC]
-
 安装过程略过
 
 官网说必看[go effective](https://golang.org/doc/effective_go.html#introduction)(科网)
