@@ -2,7 +2,7 @@
 
 面试中的一大软肋，还是认真的搞一搞
 
-大概有：CSRF, DDOS, XSS
+大概有：CSRF, DDOS, XSS, CSP
 
 ## CSRF
 
@@ -176,6 +176,11 @@ Content-Security-Policy
 "Content-Security-Policy:" 策略
 "Content-Security-Policy-Report-Only:" 策略
 ```
+
+其中 `Content-Security-Policy-Report-Only` 是仅上报，也就是浏览器不会真的拦截这些不在限制策略里的资源，会上报到指定的 endpoint api
+
+- 上报：通过策略中 `report-to xxxxxx` 字段，告诉取 header 中的那个 key
+- header 中配置 `reporting-endpoints: "xxxxxx=\"https://xxxx.api.com/path/?query=123\""`
 
 #### `<meta>`标签
 

@@ -10,3 +10,5 @@
 
 - hook XMLHttpRequest
 - hook fetch
+
+在请求中加上 csrf token

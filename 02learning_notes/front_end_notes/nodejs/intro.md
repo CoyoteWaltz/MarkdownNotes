@@ -113,7 +113,7 @@ fs.readFile("a file that does not exist", (err, data) => {
 });
 ```
 
-EventEmitter 绑定错误时间触发器的回调函数
+EventEmitter 绑定错误事件触发器的回调函数
 
 ```js
 const net = require("net");
