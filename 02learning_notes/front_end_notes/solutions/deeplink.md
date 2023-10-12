@@ -40,7 +40,7 @@ Deeplink 的核心思想是 android 的隐式启动，通过 manifest 中的 act
 
 下面这个例子表示 “example://gizmos” 和 “http://www.example.com/gizmos” 都可以唤起 GizmosActivity。
 
-![img](_imgs/deeplink.assets/test.png)
+![img](./_imgs/deeplink.assets/test.png)
 
 action.view：表示可以从 google search 唤起 activity
 
