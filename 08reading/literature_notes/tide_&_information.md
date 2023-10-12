@@ -2,6 +2,18 @@
 
 > **需要标注收录时间**
 
+[libwebp 的巨大漏洞](https://www.infoq.cn/article/Z7UuFbCM6wWeK2rVQ5QD)
+
+> 2023.10.07 19:03:43 +0800
+>
+> 关键漏洞 CVE-2023-41064 对安卓、IOS、Electron、flutter 等多个平台的应用都有影响
+>
+> 零日（0-day）漏洞，即“攻击者先于厂商所发现的软件漏洞”
+>
+> “简单讲，Webp 库中的一个 bug 似乎会导致图像解码过程时发生堆缓冲区溢出。就是说，黑客可以向目标 iPhone 发送短信，借此实现设备入侵。对，你没有看错，黑客可以向受害者发送特制的图像来访问对方 iPhone。该图像在被接收后会由 iPhone 中捆绑的 Webp 解码器负责处理，这样黑客就能在 iPhone 上执行命令，且无需用户交互或者许可。”
+>
+> 可怕。快升级软件吧！
+
 [Wordpress 提供 100 年的域名](https://www.techspot.com/news/99956-wordpress-now-offers-100-year-domain-hosting-plan.html)
 
 > 2023.09.10 20:56:18 +0800

@@ -115,6 +115,6 @@ Both take some time to learn and configure (especially if you make use of their 
 
 SCP 的实现确实比较怪异，但是作为信任电脑之间的个人简单的文件传输还是够用的，对于性能和安全的问题来说，可以有更好的选择。
 
-参考：https://gravitational.com/blog/scp-familiar-simple-insecure-slow/（墙）
+参考：[文章](https://gravitational.com/blog/scp-familiar-simple-insecure-slow/)（墙）
 
 一篇非常不错的文章

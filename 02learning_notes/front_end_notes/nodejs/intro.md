@@ -275,3 +275,43 @@ rl.question("What do you think of Node.js? ", (answer) => {
 ```
 
 ### 读取一行输入
+
+## NODE_OPTIONS
+
+> [官方文档](https://nodejs.org/api/cli.html#node_optionsoptions)：A space-separated list of command-line options.
+>
+> 作为 cli 使用 node 的 options 环境变量，在 node 环境中会读取这个变量里的配置
+
+如果配置需要空格分开，需要用引号包裹下
+
+```bash
+NODE_OPTIONS='--require "./my path/file.js"'
+```
+
+如果 node 指令后有相同的配置，_如果这个配置时单一值的_，**则会覆盖环境变量中的**
+
+```bash
+# The inspector will be available on port 5555
+
+NODE_OPTIONS='--inspect=localhost:4444' node --inspect=localhost:5555
+```
+
+_如果是可以重复的配置_，则会以环境变量 `NODE_OPTIONS` 优先，cli 配置为后
+
+```bash
+NODE_OPTIONS='--require "./a.js"' node --require "./b.js"
+# is equivalent to:
+node --require "./a.js" --require "./b.js"
+```
+
+### 比较常用的 [v8 的配置](https://nodejs.org/api/cli.html#useful-v8-options)
+
+#### `--max-old-space-size=SIZE` (in megabytes)
+
+Sets the max memory size of V8's old memory section. 当内存达到限制时，v8 会花费更多的时间进行 GC 的操作。也有情况会导致内存爆炸，js 执行直接挂掉，可以设置相对更大的这块内存空间（注意自己电脑的最大内存）
+
+```bash
+NODE_OPTIONS=--max-old-space-size=16000 eslint ...
+```
+
+P.S. 顺便提下 v8 团队对于配置并不能保证是稳定的，所以 Node 侧也无法保证他的稳定，不过除此之外一部分的 v8 配置已经被 Nodejs 广泛接受，并且记录在了官方文档

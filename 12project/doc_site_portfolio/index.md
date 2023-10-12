@@ -12,7 +12,7 @@ Why I build this project?
 
 Since falling into the programming world, I constantly write notes about What I Learn(in markdown file). Those notes are stored both locally and remotely in the Github repo.
 
-As the content become more and rich, I decided to make a online doc site for i)searching-friendly and more approachable, ii)a chance to re-organize, re-write and re-learn, re-arrange which reducing the _entropy_.
+As the content become more and rich, I decided to make a online doc site for i)searching-friendly and more approachable, ii)a chance to re-organize, re-write and re-learn, re-arrange which reduces the _entropy_.
 
 The name of the project will be _Portfolio_.
 

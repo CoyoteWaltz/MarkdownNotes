@@ -71,7 +71,7 @@ const a = function () {
 };
 ```
 
-但是，这个`const`还是 ES6 的呢！怎么办，我们是不是还需要一个`@babel/plugin-transform-block-scoping`，可以去**https://babeljs.io/docs/en/plugins**一个个找，那太麻烦了呀，这时候我们就需要用到`@babel/preset-xxx`了！
+但是，这个`const`还是 ES6 的呢！怎么办，我们是不是还需要一个`@babel/plugin-transform-block-scoping`，可以去**[官网](https://babeljs.io/docs/en/plugins)**一个个找，那太麻烦了呀，这时候我们就需要用到`@babel/preset-xxx`了！
 
 preset 预设，这是一套预定好的插件配置，只要安装`npm install --save-dev @babel/preset-env`，在编译的时候
 

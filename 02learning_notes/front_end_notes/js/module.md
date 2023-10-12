@@ -161,6 +161,63 @@ import { resolve } from "path";
 
 这样以来不仅效率高了，而且仅加载一个方法。 不过这也导致了没法引用 ES6 模块本身，因为它不是对象。
 
+### import.meta
+
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta)
+>
+> The **`import.meta`** meta-property exposes context-specific metadata to a JavaScript module. It contains information about the module, such as the module's URL.
+
+在一些库中经常看到 `import.meta.url` 这样的使用，来看看他到底是个什么东西
+
+- 只在 es module 中存在，在非 module 场景使用会报错
+- 是环境生成的一个特殊的上下文信息对象，`null-prototype`，所有属性都可写、配置、可枚举
+- 通常环境会实现 `url` 和 `resolve` 两个属性
+
+#### url
+
+The full URL to the module, includes query parameters and/or hash (following the `?` or `#`).
+
+浏览器中：either the URL from which the script was obtained (for external scripts), or the URL of the containing document (for inline scripts).
+
+nodejs 环境：是包含文件协议的路径
+
+#### resolve
+
+> 注意兼容性，版本很高
+
+[内置方法](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta/resolve)，相当于直接是 `path.resolve` 了
+
+Resolves a module specifier to a URL using the current module's URL as base.
+
+#### 使用场景
+
+node 环境，commonjs 中有 `__dirname` 包含当前模块的绝对路径，还是很好用的，但是 esm 模式下没有，不过可以使用 `import.meta.url`，这个还是非常实用的，也知道了为啥之前自己用 `__dirname` 会报错了 XD。
+
+Before (CommonJS):
+
+```javascript
+const fs = require("fs/promises");
+const path = require("path");
+
+const filePath = path.join(__dirname, "someFile.txt");
+fs.readFile(filePath, "utf8").then(console.log);
+```
+
+After (ES modules):
+
+```javascript
+import fs from "node:fs/promises";
+
+const fileURL = new URL("./someFile.txt", import.meta.url);
+fs.readFile(fileURL, "utf8").then(console.log);
+```
+
+#### 兼容性
+
+`import.meta`：chrome 64，node 10
+
+`import.meta.resolve`：chrome 105，node 20
+
 ### 严格模式（ ES5 ）
 
 ES6 的模块自动采用严格模式

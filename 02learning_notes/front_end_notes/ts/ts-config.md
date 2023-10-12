@@ -1,3 +1,9 @@
+## 阅读收录
+
+[tsconfig cheat sheet](https://www.totaltypescript.com/tsconfig-cheat-sheet)
+
+> `tsconfig.json` 真的是令人头大的配置，这篇文章给出了基础的 coding 所需配置和说明，不做翻译了，直接看吧
+
 ### [isolatedModules](https://www.typescriptlang.org/tsconfig#isolatedModules)
 
 ```json

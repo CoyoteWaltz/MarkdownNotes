@@ -411,6 +411,8 @@ a:hover::after {
 
 这里让 a 标签（行内元素）变成了`inline-block`，给了他宽度，所以伪元素就可以得到 block 元素的宽度限制了
 
+记录一下：[text-underline-offset](https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset)，能够实现原生 css 下划线和文字的间距
+
 ## 数字宽度不一致
 
 导致后边的文字不能对齐、数字列表也不好看，也就是数字**不是等宽**的（1 比较窄）

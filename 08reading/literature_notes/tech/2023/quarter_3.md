@@ -634,7 +634,7 @@ Signal 与响应式编程
 
 > 数据库简史合 Snowflake 公司
 
-[tsconfig cheat sheet](https://www.totaltypescript.com/tsconfig-cheat-sheet)
+【Archived to [ts-config](../../../../02learning_notes/front_end_notes/ts/ts-config.md)】[tsconfig cheat sheet](https://www.totaltypescript.com/tsconfig-cheat-sheet)
 
 > `tsconfig.json` 真的是令人头大的配置，这篇文章给出了基础的 coding 所需配置和说明，不做翻译了，直接看吧
 

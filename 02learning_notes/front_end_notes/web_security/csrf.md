@@ -1,9 +1,3 @@
-# 网络安全
-
-面试中的一大软肋，还是认真的搞一搞
-
-大概有：CSRF, DDOS, XSS, CSP
-
 ## CSRF
 
 Cross-Site Request Forgery，跨站点请求伪造
@@ -80,7 +74,7 @@ http 请求头中可以有一个 referer 字段，记录了该 HTTP 请求的来
 
 在 HTTP 请求中以参数的形式加入一个随机产生的 token（可以是 hash），并在服务器端建立一个拦截器来验证这个 token，如果请求中没有 token 或者 token 内容不正确，则认为可能是 CSRF 攻击而拒绝该请求。
 
-而对于 POST 请求来说，要在 form 的最后加上 `<input type="hidden" name="csrftoken" value="tokenvalue"/>`，这样就把 token 以参数的形式加入请求了。但是，在一个网站中，可以接受请求的地方非常多，要对于每一个请求都加上 token 是很麻烦的，并且很容易漏掉，通常使用的方法就是在每次页面加载时，使用 javascript 遍历整个 dom 树，对于 dom 中所有的 a 和 form 标签后加入 token。这样可以解决大部分的请求，但是对于在页面加载之后动态生成的 html 代码，这种方法就没有作用，还需要程序员在编码时手动添加 token。
+而对于 POST 请求来说，要在 form 的最后加上 `<input type="hidden" name="csrftoken" value="tokenvalue"/>` ，这样就把 token 以参数的形式加入请求了。但是，在一个网站中，可以接受请求的地方非常多，要对于每一个请求都加上 token 是很麻烦的，并且很容易漏掉，通常使用的方法就是在每次页面加载时，使用 javascript 遍历整个 dom 树，对于 dom 中所有的 a 和 form 标签后加入 token。这样可以解决大部分的请求，但是对于在页面加载之后动态生成的 html 代码，这种方法就没有作用，还需要程序员在编码时手动添加 token。
 
 #### 使用验证码
 
@@ -137,80 +131,3 @@ http 请求头中可以有一个 referer 字段，记录了该 HTTP 请求的来
 ### JWT
 
 还是看那篇[知乎](https://zhuanlan.zhihu.com/p/152224669)吧，讲的很细致了
-
-## XSS
-
-参考：[美团技术](https://tech.meituan.com/2018/09/27/fe-security.html)，写的还是很棒的，直接看就完事了
-
-Cross-Site Scripting（跨站脚本攻击），一种代码注入攻击，利用这些恶意脚本，攻击者可获取用户的敏感信息如 Cookie、SessionID 等，进而危害数据安全。
-
-很多类型，充分转译 html
-
-XSS 有哪些注入的方法：
-
-- 在 HTML 中内嵌的文本中，恶意内容以 script 标签形成注入。
-- 在内联的 JavaScript 中，拼接的数据突破了原本的限制（字符串，变量，方法名等）。
-- 在标签属性中，恶意内容包含引号，从而突破属性值的限制，注入其他属性或者标签。
-- 在标签的 href、src 等属性中，包含 `javascript:` 等可执行代码。
-- 在 onload、onerror、onclick 等事件中，注入不受控制代码。
-- 在 style 属性和标签中，包含类似 `background-image:url("javascript:...");` 的代码（新版本浏览器已经可以防范）。
-- 在 style 属性和标签中，包含类似 `expression(...)` 的 CSS 表达式代码（新版本浏览器已经可以防范）。
-
-总之，如果开发者没有将用户输入的文本进行合适的过滤，就贸然插入到 HTML 中，这很容易造成注入漏洞。攻击者可以利用漏洞，构造出恶意的代码指令，进而利用恶意代码危害数据安全。
-
-## CSP
-
-Content Security Policy——内容安全协议
-
-**开发者明确告诉客户端（制定比较严格的策略和规则），哪些外部资源是可以加载和执行的 ，即使攻击者发现漏洞，但是它是没办法注入脚本的**，简单来说，就是我们能够规定，我们的网站只接受我们指定的请求资源。
-
-也是基于浏览器同源策略的，防范**跨网站脚本 XSS**
-
-### 开启 CSP
-
-#### 响应头中添加字段：
-
-Content-Security-Policy
-
-```json
-"Content-Security-Policy:" 策略
-"Content-Security-Policy-Report-Only:" 策略
-```
-
-其中 `Content-Security-Policy-Report-Only` 是仅上报，也就是浏览器不会真的拦截这些不在限制策略里的资源，会上报到指定的 endpoint api
-
-- 上报：通过策略中 `report-to xxxxxx` 字段，告诉取 header 中的那个 key
-- header 中配置 `reporting-endpoints: "xxxxxx=\"https://xxxx.api.com/path/?query=123\""`
-
-#### `<meta>`标签
-
-```html
-<meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
-```
-
-这里的 content 就是策略，表示 script 的来源只能是自身的源
-
-### CSP 的作用
-
-防 XSS 等攻击的利器。CSP 的实质就是白名单制度，开发者明确告诉客户端，哪些外部资源可以加载和执行，等同于提供白名单。它的实现和执行全部由浏览器完成，开发者只需提供配置。CSP 大大增强了网页的安全性。攻击者即使发现了漏洞，也没法注入脚本，除非还控制了一台列入了白名单的可信主机。
-
-### 例子
-
-```json
-// 限制所有的外部资源，都只能从当前域名加载
-Content-Security-Policy: default-src 'self'
-
-// default-src 是 CSP 指令，多个指令之间用英文分号分割；多个指令值用英文空格分割
-Content-Security-Policy: default-src https://host1.com https://host2.com; frame-src 'none'; object-src 'none'
-
-// 错误写法，第二个指令将会被忽略
-Content-Security-Policy: script-src https://host1.com; script-src https://host2.com
-
-// 正确写法如下
-Content-Security-Policy: script-src https://host1.com https://host2.com
-
-// 通过report-uri指令指示浏览器发送JSON格式的拦截报告到某个地址
-Content-Security-Policy: default-src 'self'; ...; report-uri /my_amazing_csp_report_parser;
-```
-
-响应头的 CSP 字段告诉浏览器这份资源可以让符合什么策略的客户端来加载

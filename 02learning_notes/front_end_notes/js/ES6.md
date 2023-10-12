@@ -23,6 +23,23 @@ Node 尚未支持（v18）
 
 BTW：Nodejs 也支持(>= 14.8，并且声明模块是 esm 的情况 type: module 文件后缀 `.js`)
 
+### 深入了解
+
+阅读了字节内 haoli(ulivz) 深度剖析 TLA(Top-level await) 的文章后大受震撼。
+
+- [tla-fuzzer](https://github.com/evanw/tla-fuzzer) 测试各种打包器对 TLA 预期的正确性
+- Webpack Runtime 是如何处理 TLA 的，结合源码分析，非常复杂
+
+摘录一下总结部分的内容：
+
+1. TLA 诞生的目的是为了尝试解决 ES Module 的异步初始化能力
+   1. _简单来说，当一个模块导出的是一个异步初始化之后的变量，可能在初始化完成之前就已经被消费了，会存在异常_
+2. node v14.8.0 支持。如果在 UI 代码中使用（浏览器），需要借助 Bundler 打包，除非直接使用 es module 形式，一般来说需要打包成 iife
+3. 大多数 bundler 都可以在 target format 为 esm 的时候成功编译 TLA，但只有 webpack 能支持编译到 iife，**并且 webpack 是唯一一个能够正确模拟 TLA 语义的**
+   1. _webpack 5.83.0 以下需要手动开启 [experiments.topLevelAwait](https://webpack.js.org/configuration/experiments/#experimentstoplevelawait) 配置_
+4. 对于使用的建议：虽然 webpack 能够将 TLB 打包成 iife，但是产物中仍然包含 async await 的语法（具体[原因](https://github.com/webpack/webpack/pull/12529)），导致了只能在 iOS11 / Chrome 55 以上的环境运行，出于稳定性考虑，C 端项目中不该使用 TLA，B 端项目其实也尽量不使用吧
+5. TLA 和 async function 一样有传染性，使得 Dependent 也被处理为 Async Module 了，但这对开发者是无感的
+
 ## hasOwn(ES2022)
 
 > [tc39 proposal](https://github.com/tc39/proposal-accessible-object-hasownproperty)

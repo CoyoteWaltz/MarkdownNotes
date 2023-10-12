@@ -179,3 +179,19 @@
 > 公司一开始很喜欢做各种记录归档，消除新老员工之间的信息差（也是我个人比较推崇的，不会利用信息差进行管理）
 >
 > 又是一位大佬 [muan](https://muan.co/)
+
+2023.10.11 12:45:26 +0800
+
+[一个独立创造者的五年](https://hawstein.com/2023/07/12/five-years-of-an-indie-hacker/)
+
+> Hawstein 成为独立开发者一路的经历
+>
+> _用了几年 Stripe，个人觉得，如果你要出海做 SaaS，支付服务商这一块，闭眼选 Stripe 就对了。_
+>
+> _公司会越来越小，个体会越来越强。这是我坚信的一种趋势。_
+>
+> _微型公司的极致就是「一人公司」，一个人就是一家公司，个体就像传统的手艺人一样，全面参与到产品的各个环节。这正是我目前在践行的，并乐在其中。_
+>
+> _Learn to sell. Learn to build. If you can do both, you will be unstoppable._
+>
+> 作者另一篇[不上班的 613 天](https://hawstein.com/2020/02/17/be-an-indie-hacker-for-613-days/)，介绍了一个 indie hacker 的经历，值得借鉴
