@@ -512,6 +512,21 @@
 [Ai engineer](https://www.latent.space/p/ai-engineer)
 
 > AI 工程的未来
+>
+> 2023.10.18 13:17:38 +0800 再次阅读，做一些记录
+>
+> 这里定义的 AI 工程师（生成式 AI），和传统的 ML 工程师已经是完全不同了，
+>
+> - ML：Data → Model → Product
+> - LLM AI：Product Data → Model
+>
+> Python + JS
+>
+> **re-establishing the role of human-written code** to orchestrate and supplant LLM power
+>
+> 个人粗浅的理解，AI 工程师可以不需要理解数学、Deep Learning 等一些底层知识，他们就是 AI/LLM 驱动的产品的 Builder，并不是真正做大语言模型的
+>
+> 继续学习：[langchain](https://github.com/langchain-ai/langchainjs) 是干嘛的
 
 [Tea.xyz 未来的打包工具](https://tea.xyz/)
 

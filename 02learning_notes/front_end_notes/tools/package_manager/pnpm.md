@@ -7,6 +7,37 @@
 > - [精读 pnpm](https://github.com/ascoders/weekly/issues/435)
 > - [官方文档](https://pnpm.io/blog)
 
+### Workspace
+
+[pnpm](https://pnpm.io/workspaces) 内置了 monorepo 的管理能力（AKA 多包仓库）
+
+必须要有 [`pnpm-workspace.yaml`](https://pnpm.io/pnpm-workspace_yaml) 文件在根目录，同时根目录下也可能有 `.npmrc`
+
+- `pnpm-workspace.yaml`：用来定义工作区中的目录是否是 monorepo 中的 package
+- [`.npmrc`](https://pnpm.io/npmrc)：pnpm 的一些特殊配置，这里不展开了。。
+
+#### workspace 中依赖子仓的几种方式
+
+##### Workspace protocol
+
+pnpm workspace 支持通过 `workspace:` 这样的协议来链接到工作区内的包，比如 `"foo": "workspace:2.0.0"`，如果本地的包并没有这个版本，则会安装失败
+
+##### alias
+
+workspace 中有 `foo` 这个包，`"foo": "workspace:*"`
+
+或者想用不同的 alias 时可以：`"bar": "workspace:foo@*"`
+
+当发布之前会转换为：`"bar": "npm:foo@1.0.0"`
+
+##### 相对路径
+
+`"foo": "workspace:../foo"` 通过相对路径的方式也可以
+
+#### 发布流程
+
+发布是一个比较复杂的任务，所以 pnpm 目前没有支持内置的功能，推荐了：[changesets](https://github.com/changesets/changesets) 和 [rush](https://rushjs.io/) 这两个工具
+
 ### npm 安装 pnpm 找不到
 
 MacOS 通过 nvm 管理 node，切换到新的 node 版本然后 `npm i -g pnpm` 之后执行 `pnpm` 指令 not found

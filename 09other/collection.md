@@ -93,6 +93,8 @@ Space Grotesk
 
 ## 设计 & 图标 & 图片
 
+[ai 生成图片](https://ideogram.ai/t/trending)
+
 [苹果官方 IOS 设计 Figma 组件](https://www.figma.com/community/file/1248375255495415511/Apple-Design-Resources-%E2%80%93-iOS-17-and-iPadOS-17)
 
 [deekaykwon 有意思的小动效设计](https://deekaykwon.com/)
@@ -120,6 +122,8 @@ Space Grotesk
 [程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
 
 ## 收藏有趣的 links
+
+[emoji 拼接](https://tikolu.net/emojimix/%F0%9F%98%99+%F0%9F%98%99)
 
 [emoji](https://emoji.muan.co/#)
 

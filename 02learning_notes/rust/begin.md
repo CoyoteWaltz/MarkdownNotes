@@ -556,7 +556,7 @@ fn calculate_length(s: &String) -> usize {
 
 The `&s1` syntax lets us create a reference that *refers* to the value of `s1` but does not own it. It's called _reference borrowing_.
 
-Just as variables are immutable by default, so are references. **We’re not allowed to modify something we have a reference to**.
+Just as variables are **immutable by default**, so are references. **We’re not allowed to modify something we have a reference to**.
 
 ```rust
 fn main() {
@@ -635,3 +635,7 @@ Recap! Rules of reference:
 - References must always be valid.
 
 ## The Slice Type
+
+> _Slices_ let you reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership.
+>
+> **Slice is a kind of reference. It doesnt have ownership.**

@@ -650,6 +650,10 @@ function ExampleWithManyStates() {
 
 #### useEffect
 
+> effect 的执行时机：操作 dom 的时候，_异步_ 执行，相当于主线程渲染完才会执行
+>
+> 和 useLayoutEffect 的区别：useLayoutEffect 是同步执行的，会阻塞主线程
+
 给函数组件增加了副作用的功能，和 class 组件中的 `componentDidMount`、`componentDidUpdate` 和 `componentWillUnmount` 具有相同的用途，只不过被合并成了一个 API。
 
 副作用函数还可以**通过返回一个函数**来指定如何“清除”副作用。例如，在下面的组件中使用副作用函数来订阅好友的在线状态，并通过取消订阅来进行清除操作，看官网的例子
