@@ -638,4 +638,66 @@ Recap! Rules of reference:
 
 > _Slices_ let you reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership.
 >
-> **Slice is a kind of reference. It doesnt have ownership.**
+> **Slice is a kind of reference. It doesn't have ownership.**
+
+### String Slices
+
+```rust
+let s = String::from("hello world");
+let hello = &s[0..5];  // range syntax
+let world = &s[6..];
+
+println!("{}{}", hello, world);
+```
+
+Internally, the slice data structure stores the starting position and the length of the slice, which corresponds to `ending_index` minus `starting_index`.
+
+You can drop the first and last index. `&s[..3]` `&s[3..]`
+
+Drop both values `let slice = &s[..];`
+
+Just like `string.slice()` in JavaScript! But a new reference!
+
+Let's rewrite the `first_word` function:
+
+```rust
+fn new_first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
+        }
+    }
+    return &s[..];
+}
+```
+
+**Notice the type literal of String Slice is `&str`.**
+
+#### String literals as slices
+
+```rust
+let s = "Hello, world!";  // type -> &str
+```
+
+#### String literals as paramters
+
+A more experienced Rustacean would write the signature shown instead because it allows us to use the same function on both `&String` values and `&str` values. (later _deref coercions_)
+
+```rust
+fn first_word(s: &str) -> &str {
+
+```
+
+### Other Slices
+
+```rust
+    let a = [1, 2, 3, 4, 5];
+    let slice = &a[1..3];
+    assert_eq!(slice, &[2, 3]);
+```
+
+This slice has the type `&[i32]`
+
+## Structs

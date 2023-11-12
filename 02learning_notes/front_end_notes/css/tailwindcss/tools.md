@@ -6,9 +6,9 @@
 
 ### Sort Classes
 
-prettier-plugin-tailwindcss
+[prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
 
-组织 class，调整 class 的顺序，保持和 css 文件中的顺序一致
+组织 class，调整 class 的顺序，保持和 css 文件中的顺序一致（官方对此也有[说明](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted)）
 
 踩坑：vscode 使用 prettier 插件会报错
 
@@ -17,6 +17,12 @@ prettier-plugin-tailwindcss
 - Prettier 需要版本 3.x
 - prettier-plugin-tailwindcss 插件版本 0.5.x
 - 需要配置 `prettier.config.js`
+
+踩坑：基于 tailwind CSS 的 prefix 一起使用，目前还需要使用 `@insiders` 版本，详见 [issue](https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues/163)
+
+```bash
+npm install prettier-plugin-tailwindcss@insiders
+```
 
 ### Conflicting Classes
 

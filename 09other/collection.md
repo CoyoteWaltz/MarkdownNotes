@@ -59,6 +59,8 @@ Space Grotesk
 
 ## 产品/工具
 
+[图片转 svg 效果挺好](https://vectorizer.ai/)
+
 [Dev Toys for Mac 非常多使用开发工具（url/json/...）](https://github.com/ObuchiYuki/DevToysMac)
 
 [NodeJS tools](https://nodejstoolbox.com/)
@@ -120,6 +122,10 @@ Space Grotesk
 ## 资源
 
 [程序员电子书大全](https://github.com/EbookFoundation/free-programming-books)
+
+[立省 5000 元，独立开发简单简历中使用的免费工具大曝光](https://vikingz.me/free-tools/)
+
+[可视化算法学习](https://github.com/krahets/hello-algo)
 
 ## 收藏有趣的 links
 

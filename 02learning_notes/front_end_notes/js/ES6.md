@@ -25,7 +25,7 @@ BTW：Nodejs 也支持(>= 14.8，并且声明模块是 esm 的情况 type: modul
 
 ### 深入了解
 
-阅读了字节内 haoli(ulivz) 深度剖析 TLA(Top-level await) 的文章后大受震撼。
+阅读了字节内 haoli(ulivz) 深度剖析 TLA(Top-level await) 的文章后大受震撼。（[公开版](https://github.com/web-infra-dev/deep-dive-into-tla/blob/master/README-zh-CN.md)）
 
 - [tla-fuzzer](https://github.com/evanw/tla-fuzzer) 测试各种打包器对 TLA 预期的正确性
 - Webpack Runtime 是如何处理 TLA 的，结合源码分析，非常复杂

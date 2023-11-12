@@ -6,6 +6,8 @@
 >
 > 能够在对象退出作用域的时候 dispose 一些东西（执行清理函数）
 >
+> _同样我们也可以用 `Promise.resolve` 来模拟任务结束时的清理（不阻塞当前任务）_
+>
 > 对于文件处理、数据库连接等一些场景能有很有用
 >
 > 来自于这个 [proposal: explicit resource management](https://github.com/tc39/proposal-explicit-resource-management)

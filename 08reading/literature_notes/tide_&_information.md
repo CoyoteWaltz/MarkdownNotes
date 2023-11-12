@@ -2,6 +2,18 @@
 
 > **需要标注收录时间**
 
+[OpenAI 发布会](https://mp.weixin.qq.com/s/EK9j4pTAkdpNRtQZ_XwQ-w)
+
+> 2023.11.07 10:35:04 +0800
+>
+> OpenAI 下调 API 的价格近 3 倍，降到了 1000 输入/美分
+>
+> 能用自然语言构建定制化 GPT，然后，你猜到了——可以把 GPT 上传到即将发布的「GPT Store」！
+>
+> 零代码创建 AI Agent
+>
+> 发展真的太快了
+
 [libwebp 的巨大漏洞](https://www.infoq.cn/article/Z7UuFbCM6wWeK2rVQ5QD)
 
 > 2023.10.07 19:03:43 +0800
