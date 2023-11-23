@@ -60,3 +60,25 @@ https://garryui.cn/
 > 来自 antfu 的 blog
 >
 > 介绍如何使用 svg 制作可动画的 logo，利用 figma 的 pen 工具，同样可以用 mask 改变笔画的粗细
+
+2023.11.21 16:28:12 +0800
+
+[Monospace type font](https://github.com/githubnext/monaspace/blob/main/docs/Texture%20Healing.md)
+
+> GitHub 推出更适合 code 的字体 monospace，文章介绍关于 Texture healing，还是挺有意思的
+>
+> _Texture healing preserves the monospace grid, and works in most editors without needing new software or editor plugins._
+>
+> 简单概括来说，就是一些字母，比如 m 在 **monospace** 的字体下，会被压缩宽度，而一些字母，比如 i 又会被拉宽，当这些字母相遇，比如 `filming`，字体间会 conflict，可以定义窄/宽字母的字体变体（variants），宽字母可以占据窄字母的空间，窄字母也能让出空间给宽字母，这样让整体单词变得更美观一些（符合我们书写体的审美）
+>
+> 当然，具体的字体文件实现这样的效果，还是有比较复杂的 mix and match
+>
+> 同样在[官网](https://monaspace.githubnext.com/)的介绍也很全面（并且 scroll 效果做的真好看啊），主要介绍了两个 features
+>
+> 1. 上文提到的 Texture healing
+> 2. Code ligatures：代码连接，比如 `>=` 会直接展示成一个大于等于符号
+>
+> 安装
+>
+> 1. [MAC 使用 brew](https://github.com/githubnext/monaspace#macos)
+> 2. VSCode 配置也看 github 即可

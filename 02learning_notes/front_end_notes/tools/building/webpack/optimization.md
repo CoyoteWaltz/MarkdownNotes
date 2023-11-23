@@ -1,6 +1,8 @@
 # Optimization Configuration
 
 > 2023.06.21 17:06:47 +0800 粗看了一遍[optimization 配置的文档](https://webpack.js.org/configuration/optimization/)，简要摘录一些比较关键的配置
+>
+> 2023.11.20 19:27:54 +0800 开始看中文版的[文档](https://webpack.docschina.org/plugins/split-chunks-plugin/)，翻译的还不错，推荐
 
 ### optimization.chunkIds
 

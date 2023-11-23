@@ -39,7 +39,7 @@
 > - 不使用 `export default`
 > - 编译器使用 rollup 的 auto 模式
 
-[TS 体操：属性互斥](https://zhuanlan.zhihu.com/p/522191794)
+【Archived to [ts collections](../../../../02learning_notes/front_end_notes/ts/collection.md)】[TS 体操：属性互斥](https://zhuanlan.zhihu.com/p/522191794)
 
 > 常见场景：其中有 a 和 b 字段是二选一的, foo 是可选的。自己也遇到过，挺棘手的。
 >

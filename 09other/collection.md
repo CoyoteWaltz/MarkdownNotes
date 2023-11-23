@@ -143,9 +143,9 @@ Space Grotesk
 
 [经典掌游在线](https://play.webrcade.com/)
 
-https://weexpire.org/（这个项目是死了之后可以留个言给想要的人，真行）
+[g 了之后的留言](https://weexpire.org/)（这个项目是死了之后可以留个言给想要的人，真行）
 
-https://esm.sh/（esm import npm packages from url）
+[esm import npm packages from url](https://esm.sh/)
 
 [github 绿墙（vercel 部署的）](https://green-wall.vercel.app/)
 
@@ -239,7 +239,7 @@ https://esm.sh/（esm import npm packages from url）
 
 ## 待体验
 
-https://nx.dev/（monorepo 方案）
+[nx monorepo](https://nx.dev/)
 
 [学习 bash programming](https://linuxhint.com/category/bash-programming/)
 

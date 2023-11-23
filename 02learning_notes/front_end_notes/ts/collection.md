@@ -4,6 +4,55 @@
 >
 > [TS Challenges](https://github.com/type-challenges/type-challenges)
 
+### XOR
+
+即抄即用
+
+```typescript
+// => U without T, 把 T 独有的 key 都变成 never
+export type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
+
+// 最终生成的结果还是类似自动加 never
+export type XOR<T, U> = T | U extends object
+  ? (Without<T, U> & U) | (Without<U, T> & T)
+  : T | U;
+```
+
+属性互斥的常见场景：其中有 a 和 b 字段是二选一的, foo 是可选的。自己也遇到过，挺棘手的。
+
+解决方案
+
+- 手工用 never 处理类型（也是自己用的方法，比较初级，也是核心逻辑）
+- 函数重载
+- 用体操自动加 never 字段
+
+  - 可以实现 `JustOne<UserConfig, ['a', 'b','c']>`
+
+- **XOR（体操，答案）**
+  - 什么是 [XOR](https://en.wikipedia.org/wiki/Exclusive_or)，门电路中，两个输入**互不相同**，但**只要其中一个**有 1 则输出 1，其他输出 0
+  - 在 TS 中的场景，比如 `XOR<{ a: boolean}, { b: boolean }>` 就是只能有 `a` 或者 `b` 其中一个给了值（有 1），没有给的情况就是输入 0，如果两个都输入了 1（都有值），就不符合类型
+  - 在这个[回答](https://stackoverflow.com/questions/44425344/typescript-interface-with-xor-barstring-xor-cannumber)中也看到了这段代码
+
+具体使用场景：
+
+_拿 XOR 做例子_
+
+```typescript
+/**
+ * 有 error 的时候 就是异常了 必然有 description 且 data 是 error 真实的值 可能是 字符串 or 对象
+ * 没有 error (if (!error) 的 else 情况) data 就是 API 的类型
+ */
+export type SDKApiResponseWrapper<T> = XOR<
+  {
+    error: SDKApiErrResp;
+    data: RawSDKApiErrResp;
+  },
+  {
+    data?: T;
+  }
+>;
+```
+
 ### Deep Partial
 
 来自 stackoverflow 回答

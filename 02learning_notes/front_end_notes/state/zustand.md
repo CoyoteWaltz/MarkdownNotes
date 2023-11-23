@@ -24,3 +24,4 @@ TS 体操比较多，难懂。核心 store 的代码很简单。
 
 - https://github.com/ascoders/weekly/issues/392
   - 对比了一下，现在版本 v4 已经用 [useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore) 作为 hooks 的集成了，不过文章中之前到方法也值得一看
+  - force rerender 的实现：`const [, forceUpdate] = useReducer((c) => c + 1, 0) as [never, () => void]`

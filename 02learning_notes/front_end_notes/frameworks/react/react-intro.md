@@ -939,6 +939,18 @@ function subscribe(callback) {
 }
 ```
 
+### [use](https://react.dev/reference/react/use)
+
+一个还在试验中的 hook，用来在 FC 中读取 Promise/Context 资源的值，在 Promise pending 的时候会直接使用外层的 `Suspense` 渲染，rejected 的时候会触发外层 `ErrorBoundary`
+
+说实话没有太 get 到使用场景。。。后续遇到在看吧
+
+注意点：
+
+- 可以出现在 if/循环语句中（其他 hook 不行）
+- 更推荐替代 useContext，灵活度更高
+- 将 Promise 从服务端组件传递到客户端组件的时候，resolve 的数据必须是可序列化的
+
 ## Fragments
 
 `<React.Fragment>`这个标签里面可以放一组元素标签，可以不需要产生额外的 DOM 节点。
