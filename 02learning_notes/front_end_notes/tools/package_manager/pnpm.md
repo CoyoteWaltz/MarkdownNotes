@@ -7,6 +7,19 @@
 > - [精读 pnpm](https://github.com/ascoders/weekly/issues/435)
 > - [官方文档](https://pnpm.io/blog)
 
+### pnpm patch
+
+> 来自这个 [patch-package](https://github.com/ds300/patch-package) 库，能让库使用者立即修复一些问题，_It's a vital band-aid for those of us living on the bleeding edge._
+>
+> yarn v2+ 和 pnpm 都内置了这个功能
+
+可以看[官方文档](https://pnpm.io/cli/patch)
+
+1. `pnpm patch <pkg name>@<version>` 执行想要 patch 的包和版本
+2. 然后 pnpm 会创建一个 commit 文件（path），编辑这个文件里的源码
+3. `pnpm patch-commit <path>` 提交
+4. pnpm 会注册在 package.json 的 [`patchedDependencies`](https://pnpm.io/package_json#pnpmpatcheddependencies) 字段
+
 ### Workspace
 
 [pnpm](https://pnpm.io/workspaces) 内置了 monorepo 的管理能力（AKA 多包仓库）

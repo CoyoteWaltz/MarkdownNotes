@@ -715,6 +715,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > 解析版：（代码里面还有 非 class 版和非继承版的，按需～）
 >
+> - 理解什么是 LRU Cache：在**指定容量的**缓存中能找到最近使用过的数据，每次访问 key 如果有则返回数据同时更新这个 key 为最近使用的，加入数据将 key 设置成最新，若到达容量则去掉最“远”访问的数据
 > - 注意一个点是 map.keys() 返回的是一个迭代器（按照插入的 key 顺序），next() 获取的是下一个 key，这里为什么要删除第一个呢
 >
 > ```typescript
@@ -730,7 +731,8 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >       return;
 >     }
 >     const value = super.get(key);
->     // Reinsert to mark as most recently used??
+>     // Reinsert to mark as most recently used
+>     // 'cause it' ll be deleted from the start of the keys()
 >     this.delete(key);
 >     super.set(key, value!);
 >     return value;
@@ -739,7 +741,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >   set(key: string, value: T) {
 >     if (this.size >= this.maxSize) {
 >       // max size for LRU
->       // Delete the least recently used key??
+>       // Delete the least recently used key
 >       this.delete(this.keys().next().value);
 >     }
 > 
@@ -747,6 +749,13 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >   }
 > }
 > ```
+>
+> 另外看到了 tailwind-merge 的 [lru 的实现](https://github.com/dcastil/tailwind-merge/blob/v2.0.0/src/lib/lru-cache.ts)（还挺多 JavaScript 实现的），主要看[这个 hashlru](https://github.com/dominictarr/hashlru)，作者还做了一个各大 lru 库的 benchmark，用了一个比较新奇的方法（避免使用 `delete` 来实现 LRU）
+>
+> - 准备两个大小 N 的空间，当第一个满了，就赋值给第二个，并把第一个空间直接清空（重新构造），这样可以有 N-2N 的 keys
+> - 引发几个问题：
+>   - 传统 hash 使用对象，`delete` 比较慢，那么对于 `Map.delete` 呢？也很慢么
+>   - 持续 set 最大存储可达到 2N。
 
 [JS Map 的魔力](https://www.builder.io/blog/maps)
 

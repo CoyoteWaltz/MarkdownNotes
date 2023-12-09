@@ -4,6 +4,22 @@
 >
 > [TS Challenges](https://github.com/type-challenges/type-challenges)
 
+### 扩充 filter Boolean 的类型
+
+使得经过 Boolean 过滤后的数组都保持非空元素
+
+```typescript
+type Truthy<T> = T extends false | 0 | "" | null | undefined | 0n ? never : T;
+
+// 扩充 Array 方法
+interface Array<T> {
+  // 看到一个版本 对 BooleanConstructor 做扩充
+  filter(predicate: BooleanConstructor, thisArg?: any): Truthy<T>[];
+}
+
+const arr = [1, 2, undefined].filter(Boolean); // number[]
+```
+
 ### XOR
 
 即抄即用

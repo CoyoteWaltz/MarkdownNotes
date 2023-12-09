@@ -557,6 +557,10 @@ git 符号的含义：https://github.com/romkatv/powerlevel10k#what-do-different
 
 > https://github.com/jaywcjlove/awesome-mac上有非常棒的软件推荐
 
+### Monitor Control
+
+能够在软件中控制外接显示器的亮度，无需手动调整，从 [github](https://github.com/MonitorControl/MonitorControl) 上使用 brew 安装即可
+
 ### obsidian
 
 不多说了 [[try_obsidian]]

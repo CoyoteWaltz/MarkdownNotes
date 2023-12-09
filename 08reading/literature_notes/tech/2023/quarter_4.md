@@ -192,3 +192,80 @@
 >     ```
 >
 >   - `ReactNode` 虚拟 DOM 的表示方式，是 class 组件 render 函数和函数组件的返回值，因此它是组件所有可能返回值的集合。它除了可以是 ReactElement，还可以是 string, number, undefined,....
+
+[一个 JS 库 memoize-one](https://github.com/alexreardon/memoize-one)
+
+> 技术文档看到有使用这个库，看看是做啥的
+>
+> 作用：记忆一个函数，当入参和**上一次**相同的时候，直接返回上一次结果（缓存），否则重新计算。具体例子可以看 readme
+>
+> 看到一些代码挺有意思：
+>
+> ponyfill，[之前](../../../../02learning_notes/front_end_notes/browser/index.md)也遇到过，按需使用 polyfill
+>
+> ```typescript
+> // Number.isNaN as it is not supported in IE11 so conditionally using ponyfill
+> // Using Number.isNaN where possible as it is ~10% faster
+>
+> const safeIsNaN =
+>   Number.isNaN ||
+>   function ponyfill(value: unknown): boolean {
+>     // // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN#polyfill
+>     // NaN is the only value in JavaScript which is not equal to itself.
+>     return typeof value === "number" && value !== value;
+>   };
+> ```
+>
+> 回到这个功能的场景，连续相同重复输入的时候才能使用缓存结果优化，类似 LRU，并且每次计算都是幂等且无副作用的。这种场景会有哪些呢？
+>
+> 而且内部会 cache 上一次的函数参数，感觉可能会导致内存不释放。。不过可以手动调用 `clear()` 方法
+
+[Discord 服务从 Go 切换到 Rust](https://discord.com/blog/why-discord-is-switching-from-go-to-rust)
+
+> 文章是 Discord 的 Blog，介绍了他们的 Read States 服务（非常高并发，用户每次进入 Discord 都会读一次，查询已经读过的 channel 和 message）从 Go 切换到 Rust 的过程，解决了 Go 强制 2min 的一次 GC 所带来的服务端耗时（latency）尖刺（spikes），以及全面性能的提升。
+>
+> Rust 无 GC（借用特性，对比 Go stop the world）的情况下，能够很好的处理 LRU 缓存丢弃的数据（立即释放内存）
+>
+> Discord 也是一家非常拥抱前沿技术的公司，50 多个工程师，承载了 250+ million users
+
+[ahooks useMemorizedFn](https://github.com/alibaba/hooks/blob/master/packages/hooks/src/useMemoizedFn/index.ts)
+
+> WIP
+
+无聊的问题：JS 如何判断一个变量是 async function
+
+> 某天刷 B 站看到一个视频在讲这个，居然还是个面试题
+>
+> 直接上方法吧：
+>
+> 1. 通过 [`Symbol.toStringTag`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) 可以设置一个类的 toString 后的 tag
+>
+> async 函数的这个 tag 值即为 `AsyncFunction`，数组的是 `Array`，`null` 是 `Null`
+>
+> ```javascript
+> let a = async () => {};
+> Object.prototype.toString.call(a); // '[object AsyncFunction]'
+> ```
+>
+> 单独设置 Class 的 toStringTag
+>
+> ```javascript
+> class ValidatorClass {
+>   get [Symbol.toStringTag]() {
+>     return "Validator";
+>   }
+> }
+> ```
+>
+> 2. 评论区也有 `func instanceof (async () => {}).constructor` 的方法
+>
+> ```javascript
+> let a = async () => {};
+> a.__proto__ === (async () => {}).constructor.prototype; // true
+> ```
+
+[CSS open-props](https://open-props.style/)
+
+> 又一个比较火的 CSS 原子化框架，用的是原子性的 CSS variable，官网提供的预设场景还是挺丰富的
+>
+> BTW 官网的那些渐变色挺好看

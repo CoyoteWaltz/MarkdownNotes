@@ -701,3 +701,5 @@ fn first_word(s: &str) -> &str {
 This slice has the type `&[i32]`
 
 ## Structs
+
+``

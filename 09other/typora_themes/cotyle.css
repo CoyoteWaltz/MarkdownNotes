@@ -29,6 +29,7 @@
 :root {
   --side-bar-bg-color: #d4f0e9;
   --text-color: #4d5564;
+  --control-text-hover-color: #022012;
   --text-code-color: #8b8e8f;
   --item-hover-bg-color: #eafaf5;
   --window-border: 1px solid #93a1a1;
@@ -48,7 +49,7 @@ html {
 }
 
 body {
-  font-family: 'Source Code Pro', 'Microsoft YaHei', monospace;
+  font-family: "Source Code Pro", "Microsoft YaHei", monospace;
   /* 字体颜色 */
   color: var(--text-color);
   /* 背景色 */
@@ -130,7 +131,7 @@ h3:hover {
 }
 /* 新增 标题后的级别 */
 h2:hover::after {
-  content: 'h2';
+  content: "h2";
   color: #627aa7;
   font-size: 0.5em;
   font-style: italic;
@@ -140,7 +141,7 @@ h2:hover::after {
   text-shadow: none;
 }
 h3:hover::after {
-  content: 'h3';
+  content: "h3";
   color: #627aa7;
   font-size: 0.5em;
   font-style: italic;
@@ -150,7 +151,7 @@ h3:hover::after {
   text-shadow: none;
 }
 h4:hover::after {
-  content: 'h4';
+  content: "h4";
   color: #627aa7;
   font-size: 0.5em;
   font-style: italic;
@@ -160,7 +161,7 @@ h4:hover::after {
   text-shadow: none;
 }
 h5:hover::after {
-  content: 'h5';
+  content: "h5";
   color: #627aa7;
   font-size: 0.5em;
   font-style: italic;
@@ -366,7 +367,7 @@ tt {
   background-color: #e4ebe8;
   color: #848f97;
   border-radius: 2px;
-  font-family: Consolas, 'Roboto Mono', 'Liberation Mono', Courier, monospace;
+  font-family: Consolas, "Roboto Mono", "Liberation Mono", Courier, monospace;
   padding: 1px 4px 1px 4px;
   font-size: 0.9em;
 }
@@ -405,7 +406,7 @@ tt {
 /* 重新画 checkbox mac 下的渲染有问题... */
 .task-list-item > input:before,
 .task-list-done > input:before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -447,7 +448,6 @@ tt {
     word-wrap: break-word;
   }
 }
-
 
 #write pre.md-meta-block {
   padding: 1rem;
@@ -508,7 +508,7 @@ tt {
 
 .md-image > .md-meta {
   border-radius: 3px;
-  font-family: Consolas, 'Roboto Mono', 'Liberation Mono', Courier, monospace;
+  font-family: Consolas, "Roboto Mono", "Liberation Mono", Courier, monospace;
   padding: 8px 16px;
   font-size: 0.9em;
   color: inherit;
@@ -553,7 +553,7 @@ header,
 .context-menu,
 .megamenu-content,
 footer {
-  font-family: Consolas, 'Roboto Mono', 'Liberation Mono', monospace;
+  font-family: Consolas, "Roboto Mono", "Liberation Mono", monospace;
 }
 
 .file-node-content:hover .file-node-icon,
@@ -605,7 +605,7 @@ footer {
   /* 同时这里的 width 为 0 就消失了 */
   width: 0;
   border-bottom: 0.08rem solid var(--anchor-color);
-  content: '';
+  content: "";
   /* 所以只需要过渡 left 就可以实现往左走的效果 */
   transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
 }
@@ -666,7 +666,7 @@ th:hover {
   box-shadow: 0px 3px 5px 0px #adcece;
   background-color: #fffed4;
   border-radius: 5px;
-  font-family: Consolas, 'Courier New', Courier, FreeMono, monospace;
+  font-family: Consolas, "Courier New", Courier, FreeMono, monospace;
 }
 #write code {
   color: var(--text-color);

@@ -49,6 +49,8 @@
 - 开源 python 项目，可以本地运行
 - 账本是一套基于文本的语法
 
+[关于 Chrome 访问本地端口 403](https://www.tortorse.com/archives/996/)得到了解决
+
 ## 后续
 
 > 20210101 迁移至 md 文件归档
