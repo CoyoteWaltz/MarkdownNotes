@@ -82,3 +82,9 @@ https://garryui.cn/
 >
 > 1. [MAC 使用 brew](https://github.com/githubnext/monaspace#macos)
 > 2. VSCode 配置也看 github 即可
+
+2023.12.29 11:01:08 +0800
+
+[小米字体](https://www.bilibili.com/video/BV1iC4y1T745/)
+
+> 支持了很多生僻字，藏文、各类文字的字体，无极字重调节，感觉很不错

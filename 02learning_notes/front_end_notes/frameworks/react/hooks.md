@@ -1,5 +1,21 @@
 # 一些 hooks 收集
 
+## useReducer 的优雅之处
+
+基于 ref 数据的 state 更新
+
+```typescript
+const [bookList, updateBookList] = useReducer(() => {
+  return bookPageInfoRef.current.list; // 更新的都是 ref 数据
+}, []);
+```
+
+zustand 的 force rerender 的实现：
+
+```typescript
+const [, forceUpdate] = useReducer((c) => c + 1, 0) as [never, () => void];
+```
+
 ## useCallbackRef
 
 > from myself，作用是对于需要用 ref 的 callback 做了一层语法糖包裹

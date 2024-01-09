@@ -6,6 +6,22 @@
 
 _时过境迁，公司的 [rspack](https://github.com/web-infra-dev/rspack) 也已经开源，rust 版的 webpack，鼓掌_
 
+## 前言
+
+### module chunk bundle
+
+webpack 的三个基础/核心概念
+
+![image-20200518210532171](_imgs/webpack_mannual.assets/image-20200518210532171.png)
+
+_[图片来源](https://www.cnblogs.com/skychx/p/webpack-module-chunk-bundle.html)_
+
+Module：手写的源码文件、其他类库的产物/源码，即本次构建的目标代码
+
+Chunk：根据文件引用关系生成的，webpack 进行处理的对象
+
+Bundle：最终输出的产物，可以给浏览器/node/...环境运行的 JavaScript 代码
+
 ## 安装
 
 `npm init `

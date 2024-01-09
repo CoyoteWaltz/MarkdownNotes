@@ -2,6 +2,14 @@
 
 > **需要标注收录时间**
 
+[adobe 放弃收购 figma](https://moonvy.com/blog/post/2023/Adobe%E6%94%BE%E5%BC%83%E6%94%B6%E8%B4%ADFigma/)
+
+> 2024.01.06 22:19:56 +0800
+>
+> 2023 年 12 月 Adobe 放弃了收购，理由是双方一致认为对于来自 CMA（英国的竞争与市场管理局）、EC（欧盟委员会）、DOJ（美国司法部）的监管挑战，没有可行的办法能获得必要的监管批准。
+>
+> figma 的未来发展又会怎样呢，拭目以待吧
+
 [OpenAI 发布会](https://mp.weixin.qq.com/s/EK9j4pTAkdpNRtQZ_XwQ-w)
 
 > 2023.11.07 10:35:04 +0800

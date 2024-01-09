@@ -7,6 +7,16 @@
 > - [精读 pnpm](https://github.com/ascoders/weekly/issues/435)
 > - [官方文档](https://pnpm.io/blog)
 
+### pnpm why
+
+```bash
+pnpm why react
+```
+
+展示所有依赖这个包的包（最多展示 10 个）
+
+可以输出 json 格式 `--json`
+
 ### pnpm patch
 
 > 来自这个 [patch-package](https://github.com/ds300/patch-package) 库，能让库使用者立即修复一些问题，_It's a vital band-aid for those of us living on the bleeding edge._
