@@ -12,7 +12,7 @@ _时过境迁，公司的 [rspack](https://github.com/web-infra-dev/rspack) 也�
 
 webpack 的三个基础/核心概念
 
-![image-20200518210532171](_imgs/webpack_mannual.assets/image-20200518210532171.png)
+![image-20200518210532171](./_imgs/webpack_mannual.assets/image-20200518210532171.png)
 
 _[图片来源](https://www.cnblogs.com/skychx/p/webpack-module-chunk-bundle.html)_
 
