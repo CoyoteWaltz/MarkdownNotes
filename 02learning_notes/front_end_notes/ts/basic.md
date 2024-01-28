@@ -911,24 +911,3 @@ namespace Validation {
 /// <reference path="LettersOnlyValidator.ts" />
 // ...
 ```
-
-## Project References
-
-> [文档](https://www.typescriptlang.org/docs/handbook/project-references.html)
->
-> TypeScript 3.0 that allow you to structure your TypeScript programs into smaller pieces.
-
-拆分多个项目后（多个项目都包含 tsconfig.json），在 tsconfig.json，references 配置中可以配置多个其他项目的路径，path 指向包含 tsconfig.json 的目录或者直接指向 tsconfig 文件，`"path"` 可以是对于其他项目的名称，比如 `"apple" : "../packages/apple"`
-
-```json
-{
-  "compilerOptions": {
-    // The usual
-  },
-  "references": [{ "path": "../src" }]
-}
-```
-
-这样之后，从 path 导入的项目就会直接用他的 `.d.ts` 类型文件了
-
-说实话，文章后面一半没怎么看明白。

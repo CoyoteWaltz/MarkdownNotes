@@ -99,7 +99,7 @@ java Helloworld
 hello java
 ```
 
-### Node
+### Nodejs
 
 #### nvm
 
@@ -672,6 +672,7 @@ defaults delete -g ApplePressAndHoldEnabled  # If necessary, reset global defaul
 - [Pretty TS Error](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors)：让 ts 错误变得可读！推荐！！
 - Toggle Quote：非常方便切换引号，使用 `⌘ + '` 即可在一个字符串上切换
 - Random everything：非常方便生成随机内容的插件！
+- Twoslash Query Comments：在代码的下一行写 `// ^?` 即可展示箭头指向变量的 TS 类型，可直接复制文本，很有意思
 
 #### settings 文件配置
 

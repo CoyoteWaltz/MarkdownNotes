@@ -35,6 +35,8 @@
 
 ## CSS Magic
 
+[纯 CSS 画的，挺牛](https://css-only.art/)
+
 [前端动效合集](https://github.com/hepengwei/visualization-collection)
 
 [CSS tips 常见的 CSS 技巧](https://markodenic.com/css-tips/)
@@ -127,7 +129,11 @@ Space Grotesk
 
 [可视化算法学习](https://github.com/krahets/hello-algo)
 
+[发布/查找 starup/sideproject](https://www.startups.fyi/)
+
 ## 收藏有趣的 links
+
+[AGI 照片转成卡通头像](https://www.headshotpro.com/tools/free-pfp-generator)
 
 [emoji 拼接](https://tikolu.net/emojimix/%F0%9F%98%99+%F0%9F%98%99)
 

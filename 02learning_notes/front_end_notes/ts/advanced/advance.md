@@ -1,5 +1,368 @@
 # Typescript Advance
 
+> 进阶技巧的收集，适合有一定 TS 代码经验
+>
+> 参考来源：
+>
+> - [You-Might-Not-Know-TypeScript](https://github.com/darkyzhou/You-Might-Not-Know-TypeScript)
+> - [ts handbook](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)
+
+## 确保两个数组长度相同
+
+```typescript
+// 当两个数组元素类型相同时，可以直接使用可变元组类型
+declare function check<T extends unknown[]>
+  (a: [...T], b: [...T]): void;
+
+check([1], []);  // ERROR
+check([], [1]);  // ERROR
+check([1], [1]); // OK
+
+// 当两个数组元素类型不同时，可以通过对返回值类型进行检查
+declare function check2<T extends unknown[], U extends unknown[]>
+  (a: [...T], b: [...U]): T['length'] extends U['length'] ? true : false;
+
+check2([1], []) satisfies true;      // ERROR
+check2([], [1]) satisfies true;      // ERROR
+check2([1], ['foo']) satisfies true; // OK
+
+// 对返回值类型进行检验不是解决问题的唯一的办法，我们还有：
+type DoCheck<T extends unknown[], U extends unknown[]> =
+  T['length'] extends U['length'] ? unknown : never;
+
+// 考虑这样一个事实：unknown 是 top type（全集），所以其它类型对它取交都等于原类型
+// 而 never 是 bottom type（空集），其它类型对它取交都等于 never
+declare function check3<T extends unknown[], U extends unknown[]>
+  (a: [...T] & DoCheck<T, U>, b: [...U] & DoCheck<T, U>): void;
+
+check3([1], []);      // ERROR
+check3([], [1]);      // ERROR
+check3([1], ['foo']); // OK
+```
+
+## 匹配元组类型
+
+使用 `[...T]` 可以提示 TypeScript 将 `T` 推导为元组类型而不是数组类型：
+
+```typescript
+declare function test<T extends unknown[]>(_: [...T]): T;
+
+const _3 = test(["seele", 114, false]);
+//    ^? const _3: [string, number, boolean]
+```
+
+## 定制错误信息
+
+```typescript
+declare const ERROR_SYMBOL: unique symbol;
+type MyTypeError<T extends string> = { [ERROR_SYMBOL]: T };
+
+type DoCheck<T> = "foo" extends keyof T
+  ? unknown
+  : MyTypeError<"对象没有包含必须的类型 foo 哦">;
+
+// ...
+
+function check<T extends Record<string, unknown>>(input: T & DoCheck<T>) {
+  return input;
+}
+
+check({}); // ERROR
+// Property '[ERROR_SYMBOL]' is missing in type '{}'
+// but required in type 'MyTypeError<"对象没有包含必须的类型 foo 哦">'
+check({ foo: true }); // OK
+check({ foo: true, bar: false });
+```
+
+> 稍微看了一下，有人已经提了一个 [PR](https://github.com/microsoft/TypeScript/pull/40468)，实现方式是利用已有的 throw 关键字替代 never
+>
+> [playground](https://www.staging-typescript.org/play?ts=4.2.0-pr-40468-44#code/C4TwDgpgBAsgrgZ2AOTgWwEYQE4B4AqAfFALxT5QQAewEAdgCYJR3pbZQD85UAXFMAAW2APYB3KAAMAolUgBjWgwA0UDHGBQAZiLiMoAIgAkAb3zgI+EQGVg2AJZ0A5gUIBfA5IBQoSFACCpLCIKGw4uACMhD4WUABCQfBIqJjhvhAiWlBijgzihEA)
+>
+> 作者甚至持续维护了两年。可惜
+
+## 检查一个类型仅含 key foo
+
+```typescript
+type DoCheck<T> = [keyof T] extends ["foo"]
+  ? ["foo"] extends [keyof T]
+    ? unknown
+    : never
+  : never;
+
+function check<T extends Record<string, unknown>>(input: T & DoCheck<T>) {
+  return input;
+}
+
+check({}); // ERROR
+check({ foo: true }); // OK
+check({ foo: true, bar: false }); // ERROR
+```
+
+## 非空数组
+
+```typescript
+declare const TYPE_TAG: unique symbol; // 2.7+
+type NonEmptyArray<T> = readonly [T, ...T[]] & { [TYPE_TAG]: never };
+
+// 给用户提供一个函数来进行检查和类型转换
+function asNonEmptyArray<T>(array: readonly T[]): NonEmptyArray<T> {
+  if (!array.length) {
+    throw new Error(...);
+  }
+
+  return array as any;
+}
+
+declare function last<T>(array: NonEmptyArray<T>): T;
+
+// 这样，用户在调用 last 函数之前就必须先确保自己的函数非空
+const nonEmptyArray = asNonEmptyArray(myArray);
+last(nonEmptyArray);
+
+// 另一个选择：
+// asNonEmptyArray<T>(array: readonly T[]): NonEmptyArray<T> | null
+// 当输入的数组为空时返回 null，使用户强制检查这个 null 值的存在
+```
+
+为什么使用 `[T, ...T[]]` 而不是 `T[]`， tsconfig 中的 `noUncheckedIndexedAccess` 选项：
+
+```typescript
+// 当 noUncheckedIndexedAccess 打开时
+declare const arr1: number[];
+const _1 = arr1[0];
+//    ^? const _1: number | undefined
+
+declare const arr2: [number, ...number[]];
+const _2 = arr2[0];
+//    ^? const _2: number
+
+// 由于我们的「非空数组」已经暗含了数组的第一位不可能为空
+// 所以可以使用可变元组的方式让 TypeScript 相信数组的第一位不可能为 undefined
+```
+
+## 工具类型 Prettify
+
+简而言之就是拍平对象结构
+
+```typescript
+export type Prettify<T> = {
+  [K in keyof T]: Prettify<T[K]>;
+} & {};
+```
+
+这里的核心是 `& {}`，哪里不能推导出结构，就在那一层加上
+
+## [Immediately Indexed Mapped Type（IIMT）](https://www.totaltypescript.com/immediately-indexed-mapped-type)
+
+也是一个比较常用的技巧，直接映射出对象类型
+
+```typescript
+type CSSUnits = "px" | "em" | "rem" | "vw" | "vh";
+
+/**
+ * | { length: number; unit: 'px'; }
+ * | { length: number; unit: 'em'; }
+ * | { length: number; unit: 'rem'; }
+ * | { length: number; unit: 'vw'; }
+ * | { length: number; unit: 'vh'; }
+ */
+export type CSSLength = {
+  [U in CSSUnits]: {
+    length: number;
+    unit: U;
+  };
+}[CSSUnits];
+```
+
+```typescript
+type Event =
+  | {
+      type: "click";
+      x: number;
+      y: number;
+    }
+  | {
+      type: "hover";
+      element: HTMLElement;
+    };
+
+// 对某个含有 type 属性的对象类型，将它的 type 属性加上一个字符串前缀
+// 同时，其它属性保持不变
+type PrefixType<E extends { type: string }> = {
+  type: `PREFIX_${E["type"]}`;
+} & Omit<E, "type">;
+
+/**
+ * | { type: 'PREFIX_click'; x: number; y: number; }
+ * | { type: 'PREFIX_hover'; element: HTMLElement; }
+ */
+type Example = {
+//               👇 使用了「映射类型中键的重映射」
+  [E in Event as E["type"]]: PrefixType<E>;
+}[Event["type"]];
+```
+
+## Exhaustive Guard
+
+也是之前提到过 `switch case` 中检测所有 case 都处理的技巧
+
+```typescript
+function exhaustiveGuard(value: never): never {
+  throw new Error(`Exhaustive guard failed with ${value}`);
+}
+```
+
+**new：如果你不在乎运行时的兜底，可以使用 `satisfies` `4.9+` 来做到相同的事情。**
+
+```typescript
+enum MyType {
+  Foo,
+  Bar,
+  EEE
+}
+declare const getSomeValue: () => MyType;
+const val = getSomeValue();
+switch (val) {
+  case MyType.Foo:
+    // 此时 someValue 的类型为 MyType.Foo
+    break;
+  case MyType.Bar:
+    // 此时 someValue 的类型为 MyType.Bar
+    break;
+  default:
+    val satisfies never; // 确实会报错
+}
+```
+
+## 控制流中的类型具化 Discriminated Union Types
+
+可以通过单独设置一个公共属性，比如 `type` 来进行类型具化
+
+如果三个 `interface` 都含有不同的属性，那么我们通过 `in` 关键字就能够让 TypeScript 利用类型具化的机制进行区分。但是，实际情况中我们更多地会遇到一些**部分含有相同属性的类型**。
+
+```typescript
+function myFunction(value: Apple | Banana | Watermelon) {
+  // 如何类型安全地区分 value 的不同的类型？
+}
+```
+
+## 阻止联合类型的 Subtype Reduction
+
+比较实用的小技巧，能提供更好的代码补全
+
+比如如下遇到的场景，支持接受指定字符串和 `string` 全集
+
+TypeScript 会将联合类型中的 `'foo'` 约去，因为这个字面量类型是它的子类型，而且它的值可以覆盖 `'foo'`。这个过程被称为 subtype reduction。
+
+```typescript
+declare function foo(input: "a" | "b" | string): void;
+foo(""); // 什么提示都没有
+
+declare function foo2(input: "aaa" | "bbb" | (string & {})): void;
+foo2("bbb"); // 可以提示 'bbb'
+```
+
+## 阻止 Type Alias Preservation
+
+[4.2 版本引入的 Smarter Type Alias Preservation 特性](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-2.html#smarter-type-alias-preservation)，TypeScript 不会展开这些联合类型。很难看出这个类型具体是哪些类型的联合。
+
+```typescript
+type Foo = 1 | 2 | 3;
+type Bar = Foo | 4 | 5;
+//   ^? type Bar = Foo | 4 | 5
+type Bar2 = (Foo & {}) | 4 | 5;
+//   ^? type Bar2 = 1 ｜ 2 ｜ 3 | 4 | 5
+```
+
+## unique symbol
+
+```typescript
+declare const TYPE_TAG: unique symbol; // 2.7+
+// 通过 & 并入一个特殊属性来定义名义类型（一些人将这个过程称为 Tagging）
+type PositiveValue = number & { [TYPE_TAG]: "_" };
+```
+
+关键字：`unique`，[2.7 加入的](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#unique-symbol)
+
+`unique symbol` 是 `symbol` 的一个子类型
+
+上面的例子使用 `unique symbol` 而不是字符串作为属性名不是必要的，不过推荐使用这种方法，因为 Lanuage Service 提供的**自动补全不会将这个属性考虑在内**，避免对用户造成不必要的干扰，同时也能避免用户无意中访问这个「假的属性」造成运行时错误，因为这个属性只是我们在类型里附加上去的。
+
+附：一些 [well-unknown symbols](https://www.typescriptlang.org/docs/handbook/symbols.html#well-known-symbols)
+
+### 添加元信息
+
+[playground](https://www.typescriptlang.org/play?#code/CYUwxgNghgTiAEYD2A7AzgF3gFQJoAUBRAfWwEEBxALngFcUBLAR1oTQE8BbAIyQgG54AeiHwATADoA7AGoAUBnYAHBAGUMMBigDmASRQArcBmxIA1iBQAebAD54AXniZNO+ADJ4Ab3gBtPESklAC6NNjwAL78cnIi8IC58oBqsYAXNoCmioAhboC-ioAOpnKgkLAIAGb0YBgMqPBaRmU2tgAUGOaWNOqueobGphbWdgCUYfAAPvAotBACMXGAiEaAN3LpgBSugOxGgLDmgIVKgDEqgJ-agCl66Wk4zSh54NBwiNBoaPAAqmggMKoPAG4MYAg+UXLI6Fg3qoQAErEAGAgBqugAwoRHPAAOS0e6PF5vEBw+BQa5tLQdGomI5WO4PJ4wV7vWzRWKiZaAe+VAKdygCwEwDj8YB-eQWgE34wBUcvAmj14IB24MA6fqAbx9ANHqgAXjQBcnt9UJg6EiSWSEE5qsZ6v8gSCgRDoX1+EA)
+
+```typescript
+declare const TYPE_TAG: unique symbol; // 2.7+
+type StringInjectToken<T> = string & { [TYPE_TAG]: T };
+
+// 依赖注入的函数
+declare function inject<T>(token: StringInjectToken<T>): T | null;
+
+// 我们的用户服务和对应的注入 Token
+declare class UserService {}
+const USER_SERVICE = "userService" as StringInjectToken<UserService>;
+
+// 用户可以通过使用这个 token 获得类型提示
+const userService = inject(USER_SERVICE);
+```
+
+这里用了 `unique symbol` 取构造一个类型的元信息，实际上不作为一个属性存在对象上，但是可以通过类型获取到，仅供类型检查，妙啊
+
+## 类型 `{}` 到底是什么？
+
+[从 TypeScript 4.8 开始](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-8.html#improved-intersection-reduction-union-compatibility-and-narrowing)，`{}` 等价于「任何非 `null` 非 `undefined` 的类型」，并且有：`type NonNullable<T> = T extends null | undefined ? never : T` 等价于 `T & {}`。换句话说，`string`、`number`、`boolean` 等常见类型也能够被赋给 `{}`。
+
+因此，`{}` 框定的值的范围实际上要大于「任何对象类型」。如果确实想表示对象类型，`Record<string, unknown>` 一般会是更好的选择。
+
+## `string & K` 是什么意思？
+
+对象的属性名的类型可能是 `string | number | symbol` 等，而我们在这里只关心那些类型为 `string` 的属性名。可以使用交叉类型（intersection types）来实现这个功能，具体的原理是：
+
+- 当 `K` 满足 `string` 类型时，结果为 `K` 对应的字符串字面量类型
+- 否则，结果为 `never`，映射类型会过滤掉类型为 `never` 的键
+
+```typescript
+type Fe<T> = string & T;
+
+type Ef = Fe<"s">; // s
+type Eff = Fe<1>; // never
+```
+
+## 枚举成员的透明性（opaque）
+
+许多人可能遇到过这样的场景：
+
+```TypeScript
+enum MyEnum {
+  Foo = 'foo', Bar = 'bar', Baz = 'baz'
+}
+
+declare function myFunction(value: MyEnum): void;
+
+// 我们希望用户可以这样传参：
+myFunction(MyEnum.Foo); // 编译通过
+
+// 我们也希望用户不必导入 MyEnum 就能传参
+myFunction('foo'); // 编译不通过 :(
+```
+
+我们很容易认为函数参数中的 `MyEnum` 类型就是它的成员值的联合类型，即 `'foo' | 'bar' | 'baz'`，因此也就觉得 `myFunction('foo')` 的用法是符合道理的。
+
+然而，为什么 TypeScript 会报错呢？简单来说，[这是一个设计决策](https://github.com/microsoft/TypeScript/issues/17690#issuecomment-321319291)：TypeScript 的设计者希望枚举具备透明性（opaque），即枚举成员实际的值可以被修改却不会导致它的消费者出错，简单来说就是 TypeScript 不希望我们可以通过枚举的值去指代某个枚举成员，因为枚举的存在意义在于枚举成员的名字，而不是它的值
+
+TypeScript 的这种「漏洞」其实是一个重要特性带来的副作用：数字枚举可以参与数学运算，就像下面的例子。
+
+```TypeScript
+const _1 = MyEnum.Foo | MyEnum.Bar; // OK
+const _2 = MyEnum.Foo * 2; // OK
+const _3 = MyEnum.Baz & 0; // OK
+```
+
+[从 5.0 开始，只有数字枚举成员对应的值的字面量才能被赋给枚举](https://github.com/microsoft/TypeScript/pull/51561#issue-1451913116)
+
 ## Some tricks
 
 ### 指定 this 的类型

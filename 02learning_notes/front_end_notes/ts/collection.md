@@ -3,6 +3,138 @@
 > 通常，体操只是图一乐，实战用不太到
 >
 > [TS Challenges](https://github.com/type-challenges/type-challenges)
+>
+> [ts-reset](https://github.com/total-typescript/ts-reset)
+>
+> > 对一些基础类型的更好扩展，类似 CSS Reset
+>
+> [ts-essentials](https://github.com/ts-essentials/ts-essentials)
+>
+> > 有用的工具类型，包括 [XOR](https://github.com/ts-essentials/ts-essentials/tree/master/lib/xor)
+
+### 【进阶】类型安全的 Event Emitter
+
+> 其实思路和实践过的 `open(url, data)` 的类似，根据不同 url，补充 data 的类型，这里的实现比较简单，因为限制了一定存在 Event，而 url 是不限制的
+
+```TypeScript
+interface EventDefinitions {
+  // 通过将事件声明收敛到同一个 interface，能够防止事件名冲突
+  I_AM_HUNGRY: [isReallyHungry: boolean];
+}
+
+declare function emit<T extends keyof EventDefinitions>(
+  key: T,
+  ...args: EventDefinitions[T]
+): void;
+
+declare function on<T extends keyof EventDefinitions>(
+  key: T,
+  handler: (...args: EventDefinitions[T]) => void
+): void;
+
+// 🎉 正确地报错，没有提供足够的参数
+emit("I_AM_HUNGRY");
+
+// 🎉 输入逗号时，自动补全提示第二个参数叫「isReallyHungry」且类型为 boolean
+emit("I_AM_HUNGRY", true);
+
+// 🎉 输入逗号时，自动补全提示函数接收一个名为「isReallyHungry」且类型为 boolean 的参数
+on("I_AM_HUNGRY", (isReallyHungry) => {});
+
+// 🎉 正确地报错，没有这样的事件名
+on("I_AM_HUNGARY", () => {});
+
+```
+
+更好的，用上枚举和模块拓展
+
+```typescript
+// registry.ts
+export const enum EventKeys {}
+export interface EventDefinitions {}
+
+// foo.ts，是 I_AM_HUNGRY 这个事件主要触发的地方，提供了事件的注册
+declare module "./registry" {
+  export const enum EventKeys {
+    I_AM_HUNGRY,
+  }
+
+  export interface EventDefinitions {
+    [EventKeys.I_AM_HUNGRY]: [isReallyHungry: boolean];
+  }
+}
+
+emit(EventKeys.I_AM_HUNGRY, ...);
+export {};
+
+// bar.ts
+import { EventKeys } from "./registry";
+// 并不需要导入 `foo.ts`，TypeScript 知道 I_AM_HUNGRY 来自 `foo.ts`
+on(EventKeys.I_AM_HUNGRY, (isReallyHungry) => {});
+```
+
+### 【进阶】类型安全的路由器
+
+```typescript
+type ResolveRouteParam<T extends string> =
+  //                      👇 我们只判断了 number，你可以扩展其它类型！
+  T extends `${infer P}@${infer _ extends "number"}` // 这是比较复杂的写法，可以改成 @number
+    ? [P, number]
+    : [T, unknown];
+
+type ParseRouteString<
+  T extends string,
+  // 我们使用元组来承载解析出来的路由参数，当然它们还是通过联合类型去处理
+  //（为了简单，这里没有考虑去重问题）
+  Params extends [string, unknown] = never
+> = T extends `${string}:${infer P}/${infer Rest}`
+  ? ParseRouteString<Rest, Params | ResolveRouteParam<P>>
+  : T extends `${string}:${infer P}`
+    ? Params | ResolveRouteParam<P>
+    : Params;
+
+
+type MakeParamsType<
+  T extends string,
+  R extends [string, unknown] = ParseRouteString<T>
+> = {
+  // 👇 注意到 R[0] 返回 "userId" | "bookId"
+  [K in R[0]]: R extends [K, infer U] ? U : never;
+  //           👆 使用分配式条件类型找到 K 对应的元组的第二个元素，即它的路由参数类型
+  // 分配式条件类型的计算过程（当 K 为 "bookId" 时）：
+  //  1. ["userId", number] | ["bookId", number] extends ["bookId", infer U]...
+  //  2. ["userId", number] extends ["bookId", infer U]... | ["bookId", number] extends ["bookId", infer U]...
+  //  3. never | number
+  //  4. number
+} & {};
+
+interface MyRequest<T> {
+  params: T;
+}
+
+
+declare function get<T extends string>(
+  route: T,
+  handlerFn: (req: MyRequest<MakeParamsType<T>>) => void
+): void;
+
+get("/users/:userId@number/books/:bookId@number", (req) => {
+  const { params } = req;
+  //      ^? const params: { userId: number; bookId: number }
+});
+
+```
+
+### 去除空格
+
+```typescript
+type RemoveSpaces<T extends string> =
+  string extends T // 👈 通过这种方式判断它是否为 string 类型
+    ? string
+    : T extends `${infer Head}${infer Tail}`
+      ? `${Head extends ' ' ? '' : Head}${RemoveSpaces<Tail>}`
+      : '';
+```
 
 ### 扩充 filter Boolean 的类型
 

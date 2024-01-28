@@ -4,19 +4,29 @@
 
 > 业务视角看前端，比较现实，挺有启发
 
-[别让自己"墙"了自己 | | 酷 壳 - CoolShell](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E5%88%AB%E8%AE%A9%E8%87%AA%E5%B7%B1%20%E5%A2%99%20%E4%BA%86%E8%87%AA%E5%B7%B1%20%E9%85%B7%20%E5%A3%B3%20-%20CoolShell%20ea1728ca42464b43b5a16794b5f3840f.md)
+[别让自己"墙"了自己 | | 酷 壳 - CoolShell](https://coolshell.cn/articles/20276.html)
+
+<!-- (Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E5%88%AB%E8%AE%A9%E8%87%AA%E5%B7%B1%20%E5%A2%99%20%E4%BA%86%E8%87%AA%E5%B7%B1%20%E9%85%B7%20%E5%A3%B3%20-%20CoolShell%20ea1728ca42464b43b5a16794b5f3840f.md) -->
 
 > 好文，建议所有人阅读
 
-[程序员如何把控自己的职业 | | 酷 壳 - CoolShell](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8E%A7%E8%87%AA%E5%B7%B1%E7%9A%84%E8%81%8C%E4%B8%9A%20%E9%85%B7%20%E5%A3%B3%20-%20CoolShell%20c57bacbff6c341fa903a68f441fc9df8.md)
+[程序员如何把控自己的职业 | | 酷 壳 - CoolShell](https://coolshell.cn/articles/20977.html)
+
+<!--
+(Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8E%A7%E8%87%AA%E5%B7%B1%E7%9A%84%E8%81%8C%E4%B8%9A%20%E9%85%B7%20%E5%A3%B3%20-%20CoolShell%20c57bacbff6c341fa903a68f441fc9df8.md)
+-->
 
 > 好文，值得反复阅读
 
-[加班与效率 | 酷 壳 - CoolShell](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E5%8A%A0%E7%8F%AD%E4%B8%8E%E6%95%88%E7%8E%87%20%E9%85%B7%20%E5%A3%B3%20-%20CoolShell%20d465aed6fede4c488eb89dd1030107d1.md)
+[加班与效率 | 酷 壳 - CoolShell](https://coolshell.cn/articles/10217.html)
+
+<!-- (Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E5%8A%A0%E7%8F%AD%E4%B8%8E%E6%95%88%E7%8E%87%20%E9%85%B7%20%E5%A3%B3%20-%20CoolShell%20d465aed6fede4c488eb89dd1030107d1.md) -->
 
 > 效率的衡量方式
 
-[《Rework》摘录及感想 | 酷 壳 - CoolShell](Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E3%80%8ARework%E3%80%8B%E6%91%98%E5%BD%95%E5%8F%8A%E6%84%9F%E6%83%B3%20%E9%85%B7%20%E5%A3%B3%20-%20CoolShell%201f280c82fbcc49308254b6368be4f36b.md)
+[《Rework》摘录及感想 | 酷 壳 - CoolShell](https://coolshell.cn/articles/9156.html)
+
+<!-- (Reading%20List%2068c05d9b17b04eac936dcb715058a8ab/%E3%80%8ARework%E3%80%8B%E6%91%98%E5%BD%95%E5%8F%8A%E6%84%9F%E6%83%B3%20%E9%85%B7%20%E5%A3%B3%20-%20CoolShell%201f280c82fbcc49308254b6368be4f36b.md) -->
 
 [一个产品需求的研发流程是怎样的](https://mp.weixin.qq.com/s/ujfZBl9HR_0_FCr1Zz-SVQ)
 

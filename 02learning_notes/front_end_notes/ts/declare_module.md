@@ -91,7 +91,9 @@ console.log(data, fileContent);
 
 ## 神奇的用法
 
-其实想了解 `declare module` 是看到公司代码里在用，现在发现居然能够在不同地方声明某处 module 内的原始定义，并且不断扩充（merge）类型。
+其实想了解 `declare module` 是看到公司代码里在用，现在发现居然能够在不同地方声明某处 module 内的原始定义，并且不断扩充（merge）类型（其实叫做[声明合并（Declaration Merging）](https://www.typescriptlang.org/docs/handbook/declaration-merging.html)）。
+
+_模块扩充（Module Augmentation）_
 
 比如在一个文件 `xx/index.ts` 中声明了 `export interface Boo {}` 类型，作为 base。
 
