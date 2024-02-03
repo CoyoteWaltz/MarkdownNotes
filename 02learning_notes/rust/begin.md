@@ -6,7 +6,7 @@
 >
 > Write a cli to encode protobuf in Rust
 
-## installation
+## Installation
 
 Through `rustup`
 
@@ -702,4 +702,70 @@ This slice has the type `&[i32]`
 
 ## Structs
 
-``
+Define a struct like a general template for the type
+
+```rust
+struct Foo {
+    bar: i64,
+    name: String,
+    age: u64,
+    is_odd: bool,
+}
+```
+
+Create instance
+
+```rust
+    let foo = Foo {
+        bar: 123,
+        name: String::from("Yesok"),
+        age: 3333,
+        is_odd: false,
+    };
+```
+
+Retrieve value from struct using dot notation(like javascript)
+
+**Note that the entire instance must be mutable; Rust doesn’t allow us to mark only certain fields as mutable.**
+
+Using struct update syntax to create instance from another instance. Just like `...` in JavaScript but the `..foo` must come last to specify.
+
+```rust
+    let foo2 = Foo {
+        // name: String::from("foo2"),
+      	age: 123,
+        ..foo
+    };
+```
+
+Note that the _struct update syntax_ is moving the data: the type doesnt implement `Copy` trait(`String`)
+
+### Tuple structs
+
+Tuple: no named associated with fields.
+
+```rust
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+fn main() {
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+}
+```
+
+### Unit-like struct
+
+```rust
+struct AlwaysEqual;
+
+fn main() {
+    let subject = AlwaysEqual;
+}
+```
+
+Unit-like structs can be useful when you need to implement a **trait** on some type but don’t have any data that you want to store in the type itself.
+
+### Ownership of Struct Data
+
+Discuss later.

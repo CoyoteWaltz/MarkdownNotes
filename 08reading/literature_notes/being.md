@@ -386,3 +386,11 @@
 > RTFM: Read The F\*\*king Manual
 >
 > STFW: Search The F\*\*king Web
+
+2024.01.31 13:10:13 +0800
+
+【Mark】[每年给自己的 40 个提问](https://stephango.com/40-questions)
+
+> Mark 一下，年度总结的时候可以问问自己
+>
+> [github 地址](https://github.com/kepano/40-questions/blob/master/translations/zh-hans/year.md)

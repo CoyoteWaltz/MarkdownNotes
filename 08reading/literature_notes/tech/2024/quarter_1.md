@@ -125,3 +125,11 @@
 > 纯 CSS 实现，非常惊艳，太无敌了
 >
 > BTW 通过 HTML 标签 [`input type="color"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color) 也可以实现
+
+[检测字体是否加载渲染完成](https://github.com/bramstein/fontfaceobserver)
+
+> 遇到这么个问题：dom 元素获取 `scrollWidth` 的时候，没有把特殊字体的宽度计算进去，原因是浏览器计算的时间特殊字体还没有 load 并且渲染完成
+>
+> 于是 google 到了这样一个库，看了下源码是通过轮训计算判断的，**所以需要一个超时时间**，兼容了浏览器原生的 `document.font.load` api（包括 ios 10），这个 api 不存在的时候，是通过创建 div 然后计算字体尺寸
+>
+> api 简单，够用就行
