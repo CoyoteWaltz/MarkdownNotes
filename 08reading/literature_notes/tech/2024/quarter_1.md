@@ -133,3 +133,43 @@
 > 于是 google 到了这样一个库，看了下源码是通过轮训计算判断的，**所以需要一个超时时间**，兼容了浏览器原生的 `document.font.load` api（包括 ios 10），这个 api 不存在的时候，是通过创建 div 然后计算字体尺寸
 >
 > api 简单，够用就行
+
+[service mesh 和 api gateway 关系的探讨](https://skyao.io/post/202004-servicemesh-and-api-gateway/)
+
+> 蚂蚁金服的文章，中心化 AGW（API Gateway）到分布式 AGW sidecar 的架构演进，还是挺有意思的。Servicemesh 和 API Gateway 融合 + 去中心化。（大厂们都在实践了
+>
+> ![img](./_imgs/quarter_1.assets/bff-api-gateway_hufa8ab7855af0a1dbc96110c1a7ce59ae_135500_7c54efe18271ed088eccc4ddbf12c23f.webp)
+
+[bruno：postman 的开源平替](https://github.com/usebruno/bruno)
+
+> 开始在工作中使用起来，慢慢了解一下
+>
+> electron 写的，可以用文件的形式/git 管理每个请求
+
+[atuin：rust 版的 history](https://github.com/atuinsh/atuin)
+
+> sqlite 做的本地数据库，交互和搜索做的挺好
+>
+> 上箭头能直接呼出交互搜索，但是在 warp 里面 keybind 好像不太行，被 warp 自己覆盖了，详见 [issue](https://github.com/atuinsh/atuin/issues/1405)
+
+[Falsehood programmer believe about time](https://gist.github.com/timvisee/fcda9bbdff88d45cc9061606b4b923ca)
+
+> 程序员不能相信的时间的问题，关于时间多多少少会踩坑，这个列表收集了一些错误的认知
+>
+> **Don't** re-invent a date time library yourself. If you think you understand everything about time, you're probably doing it wrong.
+
+[Shuding enlightment](https://shud.in/posts/enlightment)
+
+> shuding 的一篇 blog，挺有意思的，从 query range 的离线/在线实现方案进行对比：online 实现只能对每次输入进行处理，offline 即可拿到所有输入，批量处理可以进行优化
+>
+> 那对现实的启示是什么呢 Enlightment：
+>
+> - 对于 non-chronological order 的事情，当收集所有的要素之后，再进行统一的流程编排处理，可以极大效率的进行并行的“range query”处理，是非常优雅 timeless 的
+>
+>   文章开头引用了乔布斯的话：_You can't connect the dots looking forward; you can only connect them looking backwards._
+>
+> 结尾：**_So you have to trust that the dots will somehow connect in your future. You have to trust in something — your gut, destiny, life, karma, whatever. This approach has never let me down, and it has made all the difference in my life._**
+
+[深入思考 rspack 背后的架构设计](https://mp.weixin.qq.com/s/_Ais5KF3tpVp69vyfgMM-A)
+
+> Mark 一下，日益火热的 rspack 架构设计思考

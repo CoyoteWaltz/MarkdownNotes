@@ -152,6 +152,8 @@ interface Array<T> {
 const arr = [1, 2, undefined].filter(Boolean); // number[]
 ```
 
+用 ts-reset 可以直接使用
+
 ### XOR
 
 即抄即用
