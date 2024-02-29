@@ -1,4 +1,4 @@
-[v8 shape inline cache](https://mathiasbynens.be/notes/shapes-ics)
+【Archived to [v8 articles](../../../../02learning_notes/front_end_notes/js/v8/articles_learning.md)】[v8 shape inline cache](https://mathiasbynens.be/notes/shapes-ics)
 
 > 视频来自 JS Conf EU 2018
 >

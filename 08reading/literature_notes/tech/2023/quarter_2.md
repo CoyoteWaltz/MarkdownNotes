@@ -192,7 +192,7 @@
 >
 > 差不多了解到这，后续需要深入再说
 
-[v8 更快的访问 super 属性](https://v8.dev/blog/fast-super)
+【Archived to [v8 articles](../../../../02learning_notes/front_end_notes/js/v8/articles_learning.md)】[v8 更快的访问 super 属性](https://v8.dev/blog/fast-super)
 
 > super 关键字可以访问 class 的父类上的属性，依旧是用了 IC(inline cache)（还得去详细学习下）
 >
@@ -588,7 +588,7 @@
 >
 > P.S [prerender](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/prerender) 其实已经不推荐用了
 
-[v8 对象属性访问](https://v8.dev/blog/fast-properties)
+【Archived to [v8 articles](../../../../02learning_notes/front_end_notes/js/v8/articles_learning.md)】[v8 对象属性访问](https://v8.dev/blog/fast-properties)
 
 > V8 是如何处理动态新增的属性，让其的访问也能快速
 >

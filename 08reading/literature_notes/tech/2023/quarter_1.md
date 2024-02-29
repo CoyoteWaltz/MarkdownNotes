@@ -818,7 +818,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 > // { set: new Set([1, 2]), map: new Map([['key', 'value']]) }
 > ```
 
-[v8 hash code](https://v8.dev/blog/hash-code)
+【Archived to [v8 articles](../../../../02learning_notes/front_end_notes/js/v8/articles_learning.md)】[v8 hash code](https://v8.dev/blog/hash-code)
 
 > v8 官方 blog
 >
