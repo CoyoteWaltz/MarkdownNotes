@@ -173,3 +173,115 @@
 [深入思考 rspack 背后的架构设计](https://mp.weixin.qq.com/s/_Ais5KF3tpVp69vyfgMM-A)
 
 > Mark 一下，日益火热的 rspack 架构设计思考
+
+[号称最快的终端？](https://tw93.fun/2023-02-06/alacritty.html)
+
+> 在 tw39 这篇文章「改良了下传说中最快的终端」看到的 [alacritty](https://alacritty.org/)（[github](https://github.com/alacritty/alacritty#faq)）
+>
+> rust + opengl，不过看上去比较原始。。我还是先 wrap 吧
+>
+> 对了还提到了 [fish-shell](https://github.com/fish-shell/fish-shell)，感觉是一个更快（zsh 初始化确实很慢）更容易配置的 shell，有时间尝试体验一下
+
+[2023 浏览器折腾之旅](https://tw93.fun/2023-08-20/edge.html)
+
+> 依旧是 tw39 的文章，收录了一些好用的浏览器插件、快捷键、有用的 link
+>
+> - [沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh)
+> - [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)：广告拦截
+> - [暴力猴](https://chrome.google.com/webstore/detail/jinjaccalgkegednnccohejagnlnfdag)：页面脚本注入市场
+
+[Bob 一款翻译 + OCR 神器](https://bobtranslate.com/)
+
+> 免费版就非常好用，MAC 电脑端 OCR + 翻译利器，不错
+
+[Mac App cleaner and uninstaller](https://nektony.com/mac-app-cleaner)
+
+> 作为软件体积可视化、清理的工具是还挺不错的，但是会需要很多访问权限进行扫描
+>
+> 卸载的时候可以看出软件所有涉及到的文件路径
+>
+> 付费订阅 8 刀/月/mac or 买断 35 刀/mac
+
+【Archived to [v8 articles](../../../../02learning_notes/front_end_notes/js/v8/articles_learning.md)】[v8 elements kinds](https://v8.dev/blog/elements-kinds)
+
+> v8 中是如何处理数组元素的
+>
+> 在 JavaScript 中，对象的属性名称可以是任意的字符，对于数值型的（numerically）的 key，v8 对其有特殊的优化，和属性不同，他们的值（元素）被放在另一个空间存储
+>
+> 常规的元素类型：
+>
+> ```javascript
+> const array = [1, 2, 3];
+> // elements kind: PACKED_SMI_ELEMENTS SMI -> small integer
+> array.push(4.56);
+> // elements kind: PACKED_DOUBLE_ELEMENTS
+> array.push("x");
+> // elements kind: PACKED_ELEMENTS
+> ```
+>
+> 数组的元素一旦从具象到抽象（比如从 smi 到 regular element），是不会再回去的
+>
+> `PACKED` vs. `HOLEY` kinds：
+>
+> - 连续紧密（dense）的数组：得到更好的优化
+> - 有洞的数组：可以从 packed 数组转变
+>
+> The elements kind lattice：lattice 类似网格框架，意思是从具象 -> 抽象 & 紧密 -> 稀疏这两个维度，都是单向转变的，一旦变化之后，v8 是不会回退的（即使把 double 类型都改回 int），根据这几个维度的排列组合，目前一共有 21 种元素类型（[21 different elements kinds](https://cs.chromium.org/chromium/src/v8/src/elements-kind.h?l=14&rcl=ec37390b2ba2b4051f46f153a8cc179ed4656f5d)），对应都有不同的优化手段，越具象的类型能够得到更细粒度的优化，越往 lattice 下面的，优化就越少。**所以尽可能的不要改变数组的元素类型**
+>
+> 性能优化的 tips：
+>
+> - Avoid reading beyond the length of the array：不要越界的去查询数组元素，因为这样会引起原型链的搜索，性能开销是很大的（猜测是在 element 空间找不到之后，还回去 property 空间 + 原型链遍历搜索，如果数组元素本来就很大 or 原型链上很大，那这个遍历开销也会非常大）
+>
+> - Avoid elements kind transitions：尽可能的是单一的元素类型，可以在修改数组的时候进行 normalization
+>
+>   ```javascript
+>   const array = [3, 2, 1, +0];
+>   // PACKED_SMI_ELEMENTS
+>   array.push(-0);
+>   // PACKED_DOUBLE_ELEMENTS
+>   const array = [3, 2, 1];
+>   // PACKED_SMI_ELEMENTS
+>   array.push(NaN, Infinity);
+>   // PACKED_DOUBLE_ELEMENTS  NaN 和 Infinity 都会被标记为 double 类型
+>   ```
+>
+> - Prefer arrays over array-like objects：创建了一个 array-like 的对象（length，和数字属性）也没有 Array 对象的一些遍历方法，在使用 `Array.prototype.forEach.call` 的时候实际上会比属性方法调用 `forEach` 效率更差
+>
+>   ```javascript
+>   const logArgs = (...args) => {
+>     args.forEach((value, index) => {
+>       console.log(`${index}: ${value}`);
+>     });
+>   };
+>   logArgs("a", "b", "c");
+>   // This logs '0: a', then '1: b', and finally '2: c'.
+>   // 这个例子是想说明 ES6 的 rest parameters 可以更好的代替 arguments 对象（别用啦）
+>   ```
+>
+> - Avoid polymorphism：避免数组的多态性，文中用 `each` 这个例子说明了 v8 会对同一个函数接受的数组类型进行 IC（inline-cache），不同元素类型的数组会导致调用时的额外开销，如果相同则可以通过 IC 进行代码复用（生成码）
+>
+> - Avoid creating holes：数组有 hole 实际上在生产中并不会造成很大的性能损失！尽可能的按照 literal 的方式声明，而不是用 `new Array`，因为他一开始就被定义为 holey 数组，并且不可逆转
+>
+>   ```javascript
+>   const array = new Array(3);
+>   // The array is sparse at this point, so it gets marked as
+>   // `HOLEY_SMI_ELEMENTS`, i.e. the most specific possibility given
+>   // the current information.
+>   array[0] = "a";
+>   // Hold up, that’s a string instead of a small integer… So the kind
+>   // transitions to `HOLEY_ELEMENTS`.
+>   ```
+>
+> 文章最后给了如何 debug 类型元素的方法
+
+[图形工具效率工作站 revezone](https://github.com/revezone/revezone)
+
+> local-first，集成了 tldraw、Excalidraw 白板工具 + Notion like 笔记，我感觉比较缝合怪。。
+
+[nodejs 2023 review](https://blog.rafaelgss.dev/nodejs-2023-year-in-review)
+
+> mark 一下，没有看完
+
+[Sharp: nodejs 高性能图像处理库](https://github.com/lovell/sharp)
+
+> 收藏一下

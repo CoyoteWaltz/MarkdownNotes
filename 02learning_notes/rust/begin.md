@@ -769,3 +769,91 @@ Unit-like structs can be useful when you need to implement a **trait** on some t
 ### Ownership of Struct Data
 
 Discuss later.
+
+## Method
+
+> Defined within the context of a struct (or an enum or a trait object). The first parameter always is `self`.
+
+```rust
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        return self.height * self.width;
+    }
+}
+
+```
+
+Everything within this `impl` block will be associated with the `Rectangle` type.
+
+Methods can take ownership of `self`, borrow `self` immutably.
+
+If we wanted to change the instance that we’ve called the method on as part of what the method does, we’d use `&mut self` as the first parameter.
+
+We can also choose to give the a method the same name as one of the struct's fields.
+
+```rust
+impl Rectangle {
+    fn width(&self) -> bool {
+        self.width > 0
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    if rect1.width() {
+        println!("The rectangle has a nonzero width; it is {}", rect1.width);
+    }
+}
+```
+
+### Associated Functions
+
+```rust
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        return self.height * self.width;
+    }
+    fn can_hold(&self, rect: &Rectangle) -> bool {
+        return self.width >= rect.width && self.height >= rect.height;
+    }
+    fn square(size: u32) -> Self {
+        return Self {
+            height: size,
+            width: size,
+        };
+    }
+}
+```
+
+Methods are called associated functions because they are associated to the type after the `impl`.
+
+An associated function can receives arguments without `self` which is usually used for constructors. (Rust doesn't have `new`)
+
+```rust
+impl Rectangle {
+    fn square(size: u32) -> Self {
+        return Self {
+            height: size,
+            width: size,
+        };
+    }
+}
+let sq = Rectangle::square(3)
+```
+
+### Multiple `impl` Blocks
+
+Each struct is allowed to have multiple `impl` blocks.
+
+## Enums and Pattern Matching
