@@ -241,6 +241,8 @@
 [用 github 仓库记录](https://github.com/yihong0618/gitblog/issues/209)
 
 > Mark，实践一下自己的记录工作流！
+>
+> [实操](https://github.com/yihong0618/gitblog/issues/177)
 
 [People Die, but Long Live GitHub](https://laike9m.com/blog/people-die-but-long-live-github,122/)
 

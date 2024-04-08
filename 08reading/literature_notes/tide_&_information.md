@@ -2,6 +2,14 @@
 
 > **需要标注收录时间**
 
+[Devin, the first AI software engineer](https://www.cognition-labs.com/blog)
+
+> 2024.03.13 18:51:01 +0800
+>
+> AI 工程师来了
+>
+> [twitter](https://twitter.com/cognition_labs/status/1767548763134964000)
+
 [N.B.(Nota bene)](https://en.wikipedia.org/wiki/Nota_bene)
 
 > 2024.01.22 14:14:50 +0800

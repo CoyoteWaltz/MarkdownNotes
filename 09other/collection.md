@@ -97,6 +97,8 @@ Space Grotesk
 
 ## 设计 & 图标 & 图片
 
+[UI Notes 产品设计图汇总（截图）](https://uinotes.com/)
+
 [ai 生成图片](https://ideogram.ai/t/trending)
 
 [苹果官方 IOS 设计 Figma 组件](https://www.figma.com/community/file/1248375255495415511/Apple-Design-Resources-%E2%80%93-iOS-17-and-iPadOS-17)

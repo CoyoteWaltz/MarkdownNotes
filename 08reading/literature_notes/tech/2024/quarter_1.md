@@ -285,3 +285,84 @@
 [Sharp: nodejs 高性能图像处理库](https://github.com/lovell/sharp)
 
 > 收藏一下
+
+[hjson：JSON 之上的 DSL](https://hjson.github.io/)
+
+> 一种 json 的更好写法的工具，避免 trailing comma 之类的问题，并且支持写注释
+>
+> 也有对应 [js](https://github.com/hjson/hjson-js)、go 的实现
+
+[React labs 2024 Feb 进展](https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024)
+
+> React Compiler：应该就是之前 hux 的 react-forget，已经在 ins 的网页内部投入使用了，不久之后会开源发布，通过编译器优化，无需再使用 memo 等一些方法
+>
+> React Canary 的新特性：先看看 [React Canaries](https://react.dev/blog/2023/05/03/react-canaries) 是什么，是可以单独使用新实验特性的一个发布版本
+>
+> 下一个大版本：**React 19**
+>
+> Offscreen（2023.3 有看过）：改名成 Activity
+
+[如何阅读火焰图](https://www.kawabangga.com/posts/5861)
+
+> 什么是火焰图？
+>
+> - 比如我们在浏览器 devtool 里看性能 profile 的时候看调用时长，内存占比等场景
+> - 火焰图是 Brendan Gregg 发明的，使用官方的工具 [FlameGraph](https://github.com/brendangregg/FlameGraph)，可以将文本渲染成 svg
+> - 在线的渲染工具 [speedscope](https://www.speedscope.app/)
+>
+> 阅读方法：
+>
+> - 父子之间的关系（上下），每一个块的占比（消耗的占比）
+>
+> Continuous Profiling：摘自原文
+>
+> _“持续 Profiling 也是我比较感兴趣的一个领域，很多 APM 工具都已经支持了。比如 [Datadog](https://www.datadoghq.com/product/code-profiling/) 和 [Grafana](https://grafana.com/products/cloud/profiles-for-continuous-profiling/)。简单来说，就是不断地对线上部分实例进行 Profile，然后对结果不是简单的展示，而是收集起来。将它们的 stack 都合并起来，做成一个由多个实例的 stack 组成的 Flame Graph，就可以找到集群层面的性能热点了。_
+>
+> _另外一个用处是，在发布新版本的时候，可以在灰度的时候，检查新版本的 Flame Graph 和之前的，看有没有引入新的性能热点。”_
+
+[vercel AI SDK with generative UI support](https://vercel.com/blog/ai-sdk-3-generative-ui)
+
+> v0.dev 开放的新能力，Developers can now move beyond plaintext and markdown chatbots to give LLMs rich, component-based interfaces.
+
+[AI Powered 将代码生成可视化可交互流程图](https://www.valla.ai/)
+
+> 太牛了，寻找很久的东西，先 add to wishlist！等正式发布看看
+
+[jscpd 代码重复率的检测工具](https://github.com/kucherenko/jscpd)
+
+> Rabin-karp 字符串搜索算法：
+>
+> - 利用 hash 匹配进行搜索，在目标字符串中进行窗口滑动，O(mn)
+> - 加入了滚动哈希（旋转哈希），通过增量的 hash 计算方式得到新的 hash（简单相加、乘数、取模），**O(n+m)**
+
+[mise 多语言环境/工具管理器](https://github.com/jdx/mise)
+
+> 对于日常会用多种编程语言的人来说会很好用，环境管理的集成者，支持 nodejs、bun、go、python、...
+
+[react-strict-dom](https://szymonrybczak.dev/blog/react-strict-dom)
+
+> React Native 推出的官方库，标准化了 react native 和 web 的开发，真正的跨端代码
+>
+> [github](https://github.com/facebook/react-strict-dom)
+>
+> 集成了 [StyleX](https://stylexjs.com/)
+
+[2023 前端技术总结](https://zhuanlan.zhihu.com/p/679178977)
+
+> 收录的比较全面，23 年自己也真的是看了不少 XD，明年的期待：大模型、rust、鸿蒙 Next
+>
+> 前端还是一如既往的卷啊，加油
+
+[Magic move with shiki](https://antfu.me/posts/shiki-magic-move)
+
+> 卷神 antfu 的 rework，将 ppt（Morph transition）和 keynote（Magic Move）中的渐变过渡效果进行实现并集成在 slidev 中，使得**代码的变化也能在 slides 中使用渐变效果**
+>
+> 使用浏览器比较新的 API [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)，具体实现是基于 shiki 给的过渡前/后的 token，进行 diff 和计算，应用三个过渡效果“进入”、“离开”、“移动”
+>
+> FLIP
+>
+> 还是挺有意思的
+
+[Suno AI](https://www.suno.ai/)
+
+> 正好最近有想法是做 AI 生成音乐的（LLM Music Creator），这两天就刷到了 suno.ai，很震撼，太厉害了，期待继续迭代的 v4 的效果
