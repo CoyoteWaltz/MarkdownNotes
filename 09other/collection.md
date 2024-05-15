@@ -97,6 +97,8 @@ Space Grotesk
 
 ## 设计 & 图标 & 图片
 
+[渐变色收集！](https://uigradients.com/)
+
 [UI Notes 产品设计图汇总（截图）](https://uinotes.com/)
 
 [ai 生成图片](https://ideogram.ai/t/trending)
@@ -136,6 +138,8 @@ Space Grotesk
 [发布/查找 starup/sideproject](https://www.startups.fyi/)
 
 ## 收藏有趣的 links
+
+[OSS Gallery](https://oss.gallery/)
 
 [AGI 照片转成卡通头像](https://www.headshotpro.com/tools/free-pfp-generator)
 

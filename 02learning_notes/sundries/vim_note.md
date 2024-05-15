@@ -420,9 +420,10 @@ Ctrl+v 选择块
 
 ### 复制粘贴
 
+> _yank_ ( y ), cut is called delete ( d )
+
 - yy 复制光标所在的当前行
 - p 粘贴当前缓冲区的内容
--
 
 ### 撤销、重做
 
@@ -513,6 +514,18 @@ set incsearch                        "在程序中查询一单词，自动匹配
 
 set backspace=2           " 设置退格键可用
 ```
+
+### 选择全部内容
+
+组合使用！
+
+`ggVG`
+
+### 复制到剪切板
+
+[来自](https://unix.stackexchange.com/questions/12535/how-to-copy-text-from-vim-to-an-external-program)
+
+`"+y`
 
 ## 学习
 

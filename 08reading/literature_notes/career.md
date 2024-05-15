@@ -205,3 +205,13 @@
 > _Learn to sell. Learn to build. If you can do both, you will be unstoppable._
 >
 > 作者另一篇[不上班的 613 天](https://hawstein.com/2020/02/17/be-an-indie-hacker-for-613-days/)，介绍了一个 indie hacker 的经历，值得借鉴
+
+2024.05.13 11:47:30 +0800
+
+[玉伯：我的前端成长之路](https://www.yuque.com/yubo/morning/grow-up-at-alibaba)
+
+> 三个关键词：**全情投入**、**守正出奇**、**愿等花开**。
+>
+> 发展的支点杠杆模型
+>
+> 看完还是蛮有收获的，但在现在这个互联网红利已经结束的阶段，在大厂死磕猛干，真的还能等到花开吗？

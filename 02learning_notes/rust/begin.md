@@ -50,7 +50,13 @@ cargo new hello_cargo
 
 Default with git `--vcs=git`(VCS version control system)
 
+#### Cargo.lock
+
+_When to upload your `Cargo.lock` to a git repo? It is an executable project: Yes. If it's a dependency library: add to `.gitignore`_
+
 #### Cargo.toml
+
+Specify some project data.
 
 ```toml
 [package]
@@ -61,7 +67,28 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+[source.crates-io]
+replace-with = 'rsproxy'
+
+[source.rsproxy]
+registry = "https://rsproxy.cn/crates.io-index"
+
+# cargo >= 1.68
+[source.rsproxy-sparse]
+registry = "sparse+https://rsproxy.cn/index/"
+
+[registries.rsproxy]
+index = "https://rsproxy.cn/crates.io-index"
+
+[net]
+git-fetch-with-cli = true
+
+#[registries]
+#ustc = { index = "https://mirrors.ustc.edu.cn/crates.io-index/" }
 ```
+
+Global config in `$HOME/.cargo/config.toml`
 
 #### Build and run
 
@@ -93,6 +120,16 @@ Cargo knows semantic version very well.
 `cargo update` will only check the available versions about the semantic version.
 
 `cargo doc --open` command will build documentation provided by all your dependencies locally and open it in your browser.
+
+### VSCode Extensions
+
+`rust-analyzer` Recommended
+
+Other:
+
+1. `Even Better TOML`: better support `.toml` file
+2. `Error Lens`
+3. `CodeLLDB`
 
 ## Basic
 
