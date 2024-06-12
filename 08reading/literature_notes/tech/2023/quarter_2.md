@@ -260,7 +260,7 @@
 >
 > 以及一些性能优化的 tips
 
-[shadcn/ui](https://github.com/shadcn/ui)
+[shadcn/ui](https://github.com/shadcn-ui/ui)
 
 > 2023 年初开始就很火的一个 ui 库？框架？star 数一路飙升（目前 2023.03.30 13:03:57 +0800 已经 10.1k）
 >

@@ -95,7 +95,9 @@ Space Grotesk
 
 [网速查询](https://www.itdog.cn/ping/)
 
-## 设计 & 图标 & 图片
+## 创作 & 设计 & 图标 & 图片
+
+[字幕工具箱：各种字幕处理工具](https://zm.i8k.tv/)
 
 [渐变色收集！](https://uigradients.com/)
 
@@ -286,3 +288,7 @@ https://www.youtube.com/watch?v=demodictYeY
 ## 骑行
 
 [自行车入门实践（大行 p8） by tw39](https://tw93.fun/2023-10-06/dahang.html)
+
+## Saas 相关
+
+[Lemon Squeezy all in one payment](https://www.lemonsqueezy.com/)

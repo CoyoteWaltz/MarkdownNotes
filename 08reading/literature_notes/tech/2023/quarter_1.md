@@ -42,6 +42,12 @@
 > - 小心使用（自己大概率也是用不到的）
 > - 如果是在 iframe 中的交互 target 可能一直返回的是 false
 > - 移动端比如安卓的 Chrome 不同的 page 会复用 event loop，所以 isInputPending 会不准确，需要结合 page visibility
+>
+> Updated on 2024.05.16 15:28:23 +0800：
+>
+> - 发现 [react PR 28444](https://github.com/facebook/react/pull/28444) 这个 PR 在 24 年 2 月就把 isInputPending 这个方法从 scheduler 中去掉了。。
+> - 再往前翻了几个 isInputPending 相关的 PR（[#27826](https://github.com/facebook/react/pull/27826)、[#15960](https://github.com/facebook/react/pull/15960) 等）可以看到实际上 React 团队并没有将这个已经实现的能力开放给 release，而是内部使用？
+> - 所以最后 28444 这个 PR，把这个开关的动态标识去掉了，简化 scheduler，让 frameYieldMs 变得静态（在有 iip 的时候是动态的，meta 的内部 React 版本）
 
 [字体 otf 和 ttf](https://www.makeuseof.com/tag/otf-vs-ttf-fonts-one-better/)
 

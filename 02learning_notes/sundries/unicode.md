@@ -1,6 +1,9 @@
 # About Unicode
 
-> 参考[这篇 blog](https://blog.xinshijiededa.men/unicode/)，写的很不错
+> 参考
+>
+> - [这篇 blog](https://blog.xinshijiededa.men/unicode/)，写的很不错
+> - [用正则匹配 emoji](https://taxodium.ink/post/emoji-regexp/)
 
 > 没有所谓的纯文本。
 >
@@ -133,6 +136,43 @@ var tr = new Intl.Locale("tr");
 
 代理对（surrogate pair）是用于编码单个 Unicode 码位的两个 UTF-16 单位。例如，`D83D DCA9`（两个 16 位单位）编码了一个码位，`U+1F4A9`。
 
+但是后来发现 65535 并不足以表达所有字符，16 位不够，那就需要增加 Unicode 去表达更多字符。
+
+实现的方法就是定义了 **代理对 (Surrogates pairs)** , 代理对由 20 位组成。
+
+规定前 10 位作为 **高代理位 (high-surrogate)** ，取值范围是 0xD800 - 0xDBFF。
+
+后 10 位为 **低代理位 (low-surrogate)** ，取值范围是 0xDC00 - 0xDFFF。
+
+高代理位和低代理位组成代理对 (surrogate pairs) 。
+
+由于有 20 位的长度，因此可以表达 1048576 个字符，可以在原来 65536 个字符之上，再增加 1048576 个字符。
+
+为什么 Unicode 要这么设计，可以参考 [Why does code points between U+D800 and U+DBFF generate one-length string in ECMAScript 6?](https://stackoverflow.com/questions/42181070/why-does-code-points-between-ud800-and-udbff-generate-one-length-string-in-ecm)
+
+为什么高代理和低代理这么取值，可以参考 [How was the position of the Surrogates Area (UTF-16) chosen?](https://stackoverflow.com/questions/5178202/how-was-the-position-of-the-surrogates-area-utf-16-chosen)）
+
+概括来说，就是在 JavaScript 的 String 中常用的字符（如字母，数字，汉字）是由 1 个 UTF-16 编码单元表示的。
+
+而超出 65535 (0xFFFF, U+FFFF, \uFFFF) 字符（如 Emoji），则由代理对表示（高代理+低代理，2 个 UTF-16 编码单元）。
+
+### 在 JavaScript 中 string
+
+length：要注意是不是代理对
+
+```javascript
+"🌷🉐".length; // 4 这两个 emoji 都是代理对
+```
+
+获得 utf16 编码
+
+```javascript
+"🉐".split(""); // [ '\ud83c', '\ude50' ]
+"🉐".charCodeAt(0); // 55356
+"🉐".charCodeAt(1); // 56912
+String.fromCharCode(55356, 56912); // '🉐'
+```
+
 ## 总结
 
 - Unicode 已经赢了。
@@ -146,3 +186,31 @@ var tr = new Intl.Locale("tr");
 - Unicode 字符串在比较之前需要进行归一化。
 - Unicode 在某些操作和渲染中依赖于区域设置。
 - 即使是纯英文文本，这些都很重要。
+
+## 使用正则匹配 emoji
+
+### TL;DR
+
+```typescript
+/\p{Emoji_Presentation}/gu.test("你好hello123😄hi🌷456🉐") // true
+/\p{Emoji_Presentation}/gu.test("你好hello123") // false
+```
+
+### 使用 `\p{...}`
+
+`\p{...}`, `\P{...}` 是 [Unicode character class escape](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape#browser_compatibility)，也是一种转译字符类（一类字符的集合表示，比如 `\d` 是 `[0-9]`，`\s`，`\w`），这里是可以通过设置 Unicode property 来匹配相关的字符，必须开启 `u` 这个 [unicode flag](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode)
+
+```javascript
+\p{loneProperty}
+\P{loneProperty}
+
+\p{property=value}
+\P{property=value}
+```
+
+loneProperty 可以参阅：https://tc39.es/ecma262/multipage/text-processing.html#table-binary-unicode-properties
+
+兼容性：全支持
+
+- chrome 64
+- nodejs 10

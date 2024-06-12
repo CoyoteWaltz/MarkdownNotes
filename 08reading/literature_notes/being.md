@@ -396,3 +396,17 @@
 > Mark 一下，年度总结的时候可以问问自己
 >
 > [github 地址](https://github.com/kepano/40-questions/blob/master/translations/zh-hans/year.md)
+
+2024.05.31 13:37:25 +0800
+
+[Measuring personal growth](https://huyenchip.com/2024/04/17/personal-growth.html)
+
+> 如何衡量个人成长？人的一生需要被衡量（measure）吗？_“Life is to be lived, not to be measured.”_
+>
+> 作者认为衡量人生能够 live better，提出了三个方面来衡量个人成长：
+>
+> - rate of change：3-6 年，会变成一个不一样的自己，认识不一样的朋友、做新的事情、环境等。改变不是一件坏事
+> - time to solve problems：尽可能快的解决/搞清楚遇到的问题（比如一些人生大事），这样才能有更多的注意力放在其他感兴趣的事情上
+> - number of future options：强化学习中的 empowerment maximization，图片来自一条[推特](https://twitter.com/waitbutwhy/status/1367871165319049221)，更加关注在成长过程中为你打开的门
+>
+> ![Image](./_imgs/being.assets/EvunkwFXcAAotvp.jpeg)

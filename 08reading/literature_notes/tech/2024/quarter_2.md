@@ -176,3 +176,55 @@
 > 这篇 React 架构原理教程（fiber），应该是目前我读到过比较好的中文教程了，循序渐进
 >
 > 希望是最后一次学 React！XD
+>
+> 不过最后几章节作者貌似不更新了，看了 github 的 issue 发现作者去写 React 的书和课程了。。
+
+[Tailwind CSS 颜色生成器](https://uicolors.app/create)
+
+> 不错，但是很多功能貌似要登录并升级到 pro 用户。。是在提不起氪金的兴趣
+>
+> 还有 figma 插件
+
+[radash 现代版的 lodash](https://radash-docs.vercel.app/docs/getting-started)
+
+> TypeScript 编写
+>
+> 一些 lodash 没有的 feature：`try`、`select`、`defer`、`objectify`
+>
+> Radash does not provide `_.map` or `_.filter` functions. They were helpful before optional chaining and nullish coalescing. Now, there really isn’t a need.
+>
+> 来自 TypeScript 社区的一些价值观：**deterministic is good, polymorphic is bad, strong types are everything**.
+>
+> 多态性：比如 `lodash.map` 是可以同时接受 array 和 object 的。。。
+
+[Pragmatic Drag And Drop](https://github.com/atlassian/pragmatic-drag-and-drop)
+
+> From [Atlassian](https://www.atlassian.com/) by Jira
+>
+> 各种前端技术栈都适用的 Drag and Drop
+
+[shadcn/ui 是如何 add 组件的](https://github.com/shadcn-ui/ui)
+
+> 时隔一年再去看了下 shadcn。。
+>
+> 在执行 `npx shadcn-ui@latest add button` 为项目增加 button 组件代码的过程中，内部操作已经发生了改变：源码直接写在 doc 中 → 打包在 doc 项目
+>
+> 看了下 cli 的 `add` 方法，也是挺有意思的，大概步骤是：
+>
+> 1. 读取 `config.json` 获得配置
+> 2. 拉 [registy](https://ui.shadcn.com/registry/index.json)（存储组件信息的列表）
+> 3. 拉需要下载的组件的数据（tree 结构，因为组件可能依赖其他 shadcn 组件），例如 [button.json](https://ui.shadcn.com/registry/styles/default/button.json)
+> 4. 获取项目信息（tsconfig，目录）
+> 5. 转码（用了 `ts-morph`、babel），源码的路径引用正确、css 变量、tailwind 等（为了匹配当前项目）
+> 6. 写入到本地文件
+> 7. 安装组件所需要的其他第三方依赖库（用的是 antfu 的 `ni` 来确定用什么包管理器 哈哈）
+>
+> 整个思路还是比较清晰，能学到不少
+>
+> 有机会真的想用起来，是现代化的组件方案？
+
+[cva Class Variance Authority](https://github.com/joe-bell/cva)
+
+> 在看 shadcn/ui 看到了这个库，看目的是更好的组织多个 variant 的 className，并提供很好的类型，感觉是一个强化版的 `classnames`，内置了 [`clsx`](https://github.com/lukeed/clsx)（tiny 的 classnames）
+>
+> 还出了一个 [cva 1.0](https://github.com/joe-bell/cva/discussions/205)？升级了一些[新东西](https://beta.cva.style/getting-started/whats-new)

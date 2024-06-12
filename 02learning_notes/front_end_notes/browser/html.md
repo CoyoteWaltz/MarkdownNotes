@@ -1,5 +1,17 @@
 # html 各种标签
 
+### hreflang 属性
+
+作用在 `<a>` `<link>` 上，能够更好的帮助 SEO 知道目标链接的语言，能更好的引导到对应区域的用户
+
+```html
+<a href="https://example.at" hreflang="en-GB">English Website</a>
+// x-default 默认的 fallback 链接 // rel 设置 alternate
+以指示链接的页面是当前页面的替代页面
+<link href="https://example.com" rel="alternate" hreflang="x-default" />
+<link href="https://example.com/de" rel="alternate" hreflang="de" />
+```
+
 ### script importmap
 
 [`<script type="importmap">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap)
