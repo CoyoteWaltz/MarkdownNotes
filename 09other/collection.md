@@ -61,6 +61,8 @@ Space Grotesk
 
 ## 产品/工具
 
+[视频转 gif，很好用，开源](https://gif.ski/)
+
 [图片转 svg 效果挺好](https://vectorizer.ai/)
 
 [Dev Toys for Mac 非常多使用开发工具（url/json/...）](https://github.com/ObuchiYuki/DevToysMac)

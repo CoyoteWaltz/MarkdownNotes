@@ -1,5 +1,9 @@
 # React Server Component
 
+> Reading More:
+>
+> - https://www.plasmic.app/blog/how-react-server-components-work
+
 ## Dan 文章解读
 
 > 来自 Dan 的 [RSC from scratch](https://github.com/reactwg/server-components/discussions/5)

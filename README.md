@@ -4,11 +4,11 @@
 >
 > README is WIP because I'm not ready for how to describe this repo...
 
-## 🎉 Doc Site
+## 🎉 [Doc Site](https://portfolio.coyotedemon.xyz/)
 
 > See more details in [project design](./12project/doc_site_portfolio/index.md)
 
-Some parts of this repo are synchronized(every push) to _[my portfolio site](https://portolio-livid.vercel.app/)_, an online doc site for better reading and content retrieval!
+Some parts of this repo are synchronized(every push) to [_my portfolio site_](https://portfolio.coyotedemon.xyz/), an online doc site for better reading and content retrieval!
 
 I m still beautifying and enrich the content of the site. And thanks to [Nextra](https://github.com/shuding/nextra) and [Nextjs](https://nextjs.org/) for rich features, great DX and UX.
 

@@ -6,7 +6,7 @@
 
 ## Curry Function
 
-[关于函数 currify](../js/currify)，在平时使用函数式编程都很熟悉了
+[关于函数 currify](../../js/currify)，在平时使用函数式编程都很熟悉了
 
 ## Utilities Types
 

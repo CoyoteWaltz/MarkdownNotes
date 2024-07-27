@@ -2,6 +2,14 @@
 
 > **需要标注收录时间**
 
+[YouTube 黄仁勋加州理工毕业演讲 2024](https://www.youtube.com/watch?v=Sc48ToLIQAY)
+
+> 2024.07.18 13:50:49 +0800
+>
+> Nvidia 创始人黄仁勋在加州理工 2024 毕业典礼的演讲
+>
+> 演讲词非常好啊，值的反复学习
+
 [Devin, the first AI software engineer](https://www.cognition-labs.com/blog)
 
 > 2024.03.13 18:51:01 +0800

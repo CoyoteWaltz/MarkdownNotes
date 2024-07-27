@@ -197,7 +197,7 @@ test			# add tag时候让写的备注吧
 
 当执行了一次 commit，将当前索引生成一个新的 tree，生产一个新的 commit 对象，都放到.git/objects 下，更新分支的指向（`.git/refs/heads/<当前分支name>`的 hash 值改为最近的一次 commit）
 
-## git 操作指令
+## Commands
 
 一句话：多用就顺手了！
 
@@ -576,6 +576,26 @@ btw 速度很快
   lg = !"git lg2"
 ```
 
+同样也可以 alias pretty（内置的格式化）
+
+```toml
+[pretty]
+    slog = format:%C(yellow)%h %Cred%as %Cblue%an%Cgreen%d %Creset%s
+    bw = format:%h | %as | %>(20,trunc)%d%x09%s
+```
+
+```bash
+git log --pretty=slog
+```
+
+### diff
+
+```bash
+git diff -w --word-diff=color --ignore-space-at-eol
+```
+
+能够以 word diff 的形式展示出来，非常清晰简单。记得配置 alias（e.g. `gwdiff`）
+
 ## Submodule
 
 > 当在一个仓库开发时需要用到另一个仓库的项目，复杂度过大，保持项目之间的隔离
@@ -628,6 +648,252 @@ git submodule update
 >
 > 所以还是回到了“如何评估选择使用 monorepo”的问题
 
+## alias
+
+> Git 是能够配置很多别名指令（alias）来提高我们日常使用的效率
+>
+> 参考：[10 levels of git alias](https://www.eficode.com/blog/10-levels-of-git-aliases-beginner-to-intermediate-concepts)，[part2](https://www.eficode.com/blog/10-levels-of-git-aliases-advanced-and-beyond)，这两篇能通过很多 alias 学到一些更多的 git 用法，更加深入的了解 git 的一些指令
+>
+> 以及：[git-extras](https://github.com/tj/git-extras)
+
+### 基础使用
+
+比如
+
+```bash
+git config --global alias.st status
+```
+
+此时会在 config 文件中增加一条 alias
+
+```bash
+$ cat ~/.gitconfig
+[user]
+   name = Jan Krag
+   email = jan.krag@eficode.com
+[alias]
+   st = status
+```
+
+此时执行 `git st` 就等价于 `git status`
+
+The lazy typer
+
+设置一些指令的缩写的 alias
+
+```toml
+[alias]
+    s  = status
+    st = status
+    c = commit
+    sw = switch
+    br = branch
+```
+
+同时还能设置一些 typo 场景，哈哈
+
+```toml
+[alias]
+    comit = commit
+    swicht = switch
+    statut = status
+```
+
+可以设置一条 shell 的 alias（by history）去看看我们最常用 git 指令是啥：
+
+```bash
+alias frequentgit='history | cut -c 8- | grep git | sort | uniq -c  | sort -n -r | head -n 10'
+
+```
+
+_可以根据此，来给我们设置 git alias 一些 hint_
+
+shell 的 alias 其实 oh-my-zsh 已经提供了[很多](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/#aliases)，平时主要也是用的 shell alias
+
+### 覆盖一些 git 原本的一些行为
+
+比如 `--paginate` 可以让 git 输出成一个 page（需要通过 `q` 退出）
+
+```bash
+git --paginate status
+```
+
+也可以不需要输出成 page，比如 `git --no-pager config --list`
+
+此时就可以 alias 如下：
+
+```toml
+pst = --paginate status # so that output doesn't stick around on your screen and scroll buffer when you quit less
+listconfig = --no-pager config --list # so that output stays on your screen and scroll buffer to allow copy/paste
+```
+
+git 还可以临时覆盖一些 config，通过 `-c`（感觉会很实用）
+
+```toml
+# 匿名的 commit
+annoncommit = -c user.name="Anonymous" -c user.email="notme@localhost" commit
+```
+
+More useful alias：
+
+```toml
+# Verbose commit (add diff to comments in commit text)
+vcommit = -c commit.verbose=true commit
+# Use VSCode for editing, just this once
+vscommit = -c core.editor="code --wait" commit  # or `code-insiders`
+# Use VSCode for interactive rebase
+riv = -c sequence.editor="code --wait" rebase -i # or `code-insider`
+```
+
+### 扩展更多的 ! Non-Git commands（非 git 的指令）
+
+这个能力在 [git alias 的文档最后](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)，简单描述了这个能力，是通过 alias `!` + 指令，能够让 git 知道这个指令是一个非 git 的指令，会在 shell 中执行
+
+**并且是会在当前的 git root 目录下执行**
+
+比如：
+
+```toml
+[alias]
+    rootpath = !pwd
+    rootstatus = !git status
+    sr = !git status
+    # git git git git status 也可以 work 哈哈
+    git = !git
+```
+
+### 组合 pipeline
+
+```toml
+[alias]
+  # init new git repo with empty initial commit
+  start =
+   !git init && git commit --allow-empty -m \"Initial commit\"
+
+```
+
+copy 远程 url
+
+```toml
+[alias]
+  remoteurl  = "remote get-url origin"
+  remotehttps = "!git remoteurl | sed  -e 's/git@/https:\\/\\//'"
+  remotecopy   = "!git remotehttps | pbcopy"
+```
+
+将下文自己代码变更行数的 log 进行 alias
+
+```toml
+[alias]
+  loc = "!git log --author=$(git config --get user.name) --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }'"
+```
+
+### 支持函数
+
+比如需要同时删除本地和远程的某个分支，这个分支（变量）会被用到多次
+
+```toml
+[alias]
+  rmbranch =
+  "!f(){ git branch -d ${1} && git push origin --delete ${1}; }; f"
+```
+
+### 一些更高阶的用法
+
+可以用 `\`（backslash）来换行复杂的 alias
+
+```toml
+[alias]
+  # Delete all branches merged into master.
+  # With -f also include branches merged into current
+  sweep = ! \
+        git branch --merged $( \
+        [ $1 != \"-f\" ] \\\n \
+            && git rev-parse master \
+        ) \
+        | egrep -v \"(^\\*|^\\s*(master|develop)$)\" \\\n \
+        | xargs git branch -d
+```
+
+打开浏览器中的 repo 地址
+
+```toml
+[alias]
+  # Open repo in browser
+  browse = "!f() { \
+          open `git remote -v \
+          | awk '/fetch/{print $2}' \
+          | sed -Ee 's#(git@|git://)#http://#' -e 's@com:@com/@'` \
+          | head -n1; \
+     }; f"
+```
+
+git diff 包含新文件
+
+```toml
+[alias]
+  udiff =
+    "!f() { \
+            for next in \
+                $(git ls-files --others --exclude-standard); \
+            do \
+              git --no-pager diff --no-index /dev/null $next; \
+            done;
+      }; f"
+```
+
+哪个文件大家最喜欢（改的最多）
+
+```toml
+[alias]
+  churn = !git -p log --all -M -C --name-only \
+      --format='format:' $@ \
+        | sort \
+        | grep -v '^$' \
+        | uniq -c \
+        | sort -r \
+        | awk 'BEGIN {print count,file} {print $1 , $2}'
+```
+
+why `--continue` ！作者也同样觉得每次解决完冲突后要输入 `--continue` 非常蛋疼，给了如下的 alias（monstrosity 丑陋的大东西）
+
+```toml
+[alias]
+  # merge --continue, rebase --continue
+  # whatever --continue
+  continue = "!f() { \
+        repo_path=$(git rev-parse --git-dir) && \
+        [ -d \"${repo_path}/rebase-merge\" ] && git rebase --continue && return; \
+        [ -d \"${repo_path}/rebase-apply\" ] && git rebase --continue && return; \
+        [ -f \"${repo_path}/MERGE_HEAD\" ] && git merge --continue && return; \
+        [ -f \"${repo_path}/CHERRY_PICK_HEAD\" ] && git cherry-pick --continue && return; \
+        [ -f \"${repo_path}/REVERT_HEAD\" ] && git revert --continue && return; \
+        echo \"Nothing to continue?\"; \
+    }; f"
+```
+
+### 如何导出自己的 alias（gitconfig）
+
+将自己的某个 alias 作为一句可以给其他人执行并且设置 alias 的命令直接打印出来
+
+```toml
+[alias]
+  exportalias = "!f() { in=${1}; out=$(git config --get alias.$in) ;      printf 'git config --global alias.%s %q\n' $in \"$out\";};f"
+```
+
+使用：
+
+```bash
+$ git exportalias start
+git config --global alias.start \!git\ init\ \&\&\ git\ commit\ --allow-empty\ -m\ \"Initial\ commit\"
+```
+
+### 更多
+
+使用 [git-extras](https://github.com/tj/git-extras) 这个扩展，带来了 70+ 个好用的 git 指令
+
+通过 `git help <alias>` or `git <alias> --help` 也能看到我们 alias 对应的具体指令是什么
+
 ## .gitignore
 
 ### 基本配置
@@ -669,7 +935,7 @@ git commit -m 'msg'
 ## git log 自己变更的代码行数
 
 ```bash
-git log --author="your name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }'
+git log --author=$(git config --get user.name) --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }'
 ```
 
 ## 推荐阅读

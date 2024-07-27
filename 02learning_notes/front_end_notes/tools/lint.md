@@ -44,3 +44,22 @@
         }
       ]
 ```
+
+## VSCode fix 文件
+
+工作中遇到了使用 eslint 作为 formatter 之后，不能在 vscode 使用代码块格式化（`⌘ + K, ⌘ + F`）的问题
+
+于是乎还是决定用 prettier 来作为 formatter（`js(x)/ts(x)`），同时可以将 eslint 的配置为 onsave 的时候 fix 整个文件
+
+通过 `editor.codeActionsOnSave`：
+
+```json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit", // stylelint 也是如此
+    "source.fixAll.eslint": "explicit"
+  }
+}
+```
+
+详情可看 eslint 插件的 [changelog](https://github.com/microsoft/vscode-eslint?tab=readme-ov-file#version-204)

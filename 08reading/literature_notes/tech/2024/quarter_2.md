@@ -228,3 +228,31 @@
 > 在看 shadcn/ui 看到了这个库，看目的是更好的组织多个 variant 的 className，并提供很好的类型，感觉是一个强化版的 `classnames`，内置了 [`clsx`](https://github.com/lukeed/clsx)（tiny 的 classnames）
 >
 > 还出了一个 [cva 1.0](https://github.com/joe-bell/cva/discussions/205)？升级了一些[新东西](https://beta.cva.style/getting-started/whats-new)
+
+[The beauty of Finished Software](https://josem.co/the-beauty-of-finished-software/)
+
+> a software you can use forever with no unneeded changes. 比如 `ls`
+>
+> In a world where constant change is the norm, finished software provides a breath of fresh air. It’s a reminder that reliability, consistency, and user satisfaction can coexist in the realm of software development.
+>
+> 相比 MVP 型的产品，一个完整的软件产品是真的有魅力的
+
+[Potato's blog](https://www.no.lol/2020-05-11-this-time-is-different/)
+
+> 作者是 React team 的成员
+>
+> 这篇 blog 也挺有思考启发性的，讲的是作者对写代码的“哲学”思考
+>
+> _A worse trap to fall into is taking best practices at face value and applying that everywhere across your code without further consideration._
+>
+> > “We are simply never going to realize a state of software nirvana where everything is supremely satisfying. That’s an important emotional realization. The fundamental reward of an improvement process is the experience of betterment, not some mythical destination.” - [Mark Slee](http://mcslee.com/)
+
+[Think Anything 一款 ai 搜索](https://mp.weixin.qq.com/s/25eXZi1QgGYIPpXeDzkQrg)
+
+>
+
+[Farm 前端构建工具](https://www.farmfe.org/)
+
+> 又是一个前端的 build tool 轮子，号称比 rspack 还要快，rust 写的
+>
+> 插件系统和 vite（rollup）兼容，作者是 wumingliang

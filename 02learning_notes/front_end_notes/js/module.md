@@ -218,6 +218,20 @@ fs.readFile(fileURL, "utf8").then(console.log);
 
 `import.meta.resolve`：chrome 105，node 20
 
+### `__dirname`
+
+关于在 CommonJS 中的 `__dirname` 要怎么在 ES Module 中使用（[参考](https://stackoverflow.com/questions/46745014/alternative-for-dirname-in-node-js-when-using-es6-modules)）
+
+1. 第一种 Node 20+ 可以直接用 `import.meta.dirname`
+2. 低版本就考虑 `path` 和 `import.meta` 一起
+
+```javascript
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+```
+
 ### 严格模式（ ES5 ）
 
 ES6 的模块自动采用严格模式
