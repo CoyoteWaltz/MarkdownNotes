@@ -187,7 +187,7 @@
 
 [radash 现代版的 lodash](https://radash-docs.vercel.app/docs/getting-started)
 
-> TypeScript 编写
+> TypeScript 编写（[github](https://github.com/sodiray/radash)）
 >
 > 一些 lodash 没有的 feature：`try`、`select`、`defer`、`objectify`
 >

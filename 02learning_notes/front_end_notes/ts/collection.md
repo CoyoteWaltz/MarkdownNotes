@@ -12,6 +12,19 @@
 >
 > > 有用的工具类型，包括 [XOR](https://github.com/ts-essentials/ts-essentials/tree/master/lib/xor)
 
+### 函数 Wrapper 的类型
+
+```typescript
+const wrapper: <Args extends unknown[]>(
+  fn: (...args: Args) => unknown
+) => (...args: Args) => unknown = (fn) => {
+  return (...args) => {
+    // ...
+    return fn(...args);
+  };
+};
+```
+
 ### 【进阶】类型安全的 Event Emitter
 
 > 其实思路和实践过的 `open(url, data)` 的类似，根据不同 url，补充 data 的类型，这里的实现比较简单，因为限制了一定存在 Event，而 url 是不限制的

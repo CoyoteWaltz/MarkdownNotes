@@ -615,7 +615,7 @@ Signal 与响应式编程
 
 > 挺有意思的项目，目的是干掉所有安装在本地 node 环境中的兼容低版本 node 环境的依赖，因为我们基本用的都是高版本的 node 了，一些依赖库中还会有兼容 node4 以下的 polyfill，干掉他们！
 
-[安卓能用 font-weight: 500 了吗](<[https://juejin.cn/post/7056752646283067400](https://juejin.cn/post/7056752646283067400)>)
+[安卓能用 font-weight: 500 了吗](https://juejin.cn/post/7056752646283067400)
 
 > 移动端开发的时候（以 web）为例，设计师想要 font-weight: 500，但在安卓手机上就是不能让字体变粗，只支持 700 的 bold 粗细
 >
@@ -639,7 +639,7 @@ Signal 与响应式编程
 >
 > 目前不同手机厂商的安卓系统也在努力补齐字重，有朝一日可以用上
 >
->     另外看到一种更骚的方法实现字体加粗 webkit text stroke [https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke)
+> 另外看到一种更骚的方法实现字体加粗 [webkit text stroke](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke)
 >
 > `-webkit-text-stroke: 2px red; // currentColor`
 

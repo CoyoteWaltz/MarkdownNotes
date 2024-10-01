@@ -81,7 +81,7 @@ https://garryui.cn/
 > 安装
 >
 > 1. [MAC 使用 brew](https://github.com/githubnext/monaspace#macos)
-> 2. VSCode 配置也看 github 即可
+> 2. VSCode 配置也看 [github](https://github.com/githubnext/monaspace?#visual-studio-code) 即可
 
 2023.12.29 11:01:08 +0800
 

@@ -342,7 +342,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > 这个图还挺不错的，摘录下
 >
-> ![image.png](../../_imgs/reading_list.assets/v2-bf7e87470c1035bbf73fcbd733aae5ae_1440w.webp)
+> ![image.png](./_imgs/quarter_1.assets/74519d751863471bb877a68bd3a4644d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp)
 
 [前端的 Race Condition](https://juejin.cn/post/6938286092693176334)
 
@@ -373,7 +373,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > 当然也有[工具](https://www.joshwcomeau.com/gradient-generator)能够 tweak 出自己喜欢的渐变效果，得到 CSS 代码，很棒！
 
-[精度 react hooks](https://github.com/ascoders/weekly/blob/v2/079.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%E3%80%8B.md)
+[精读 react hooks](https://github.com/ascoders/weekly/blob/v2/079.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%E3%80%8B.md)
 
 > react hooks 是什么？
 >

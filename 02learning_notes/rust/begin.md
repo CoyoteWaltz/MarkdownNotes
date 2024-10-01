@@ -38,6 +38,8 @@ exec: `./main`
 
 ### Cargo
 
+> [cargo book](https://doc.rust-lang.org/cargo/index.html)
+
 ```bash
 cargo --version
 ```
@@ -105,6 +107,12 @@ cargo run
 
 Instead of saving the result of the build in the same directory as our code, Cargo stores it in the *target/debug* directory.
 
+```bash
+cargo run [options] [-- args]
+```
+
+`--` (two dashes) as gap before args.
+
 #### build release
 
 `cargo build --release` to compile it with optimizations.
@@ -130,6 +138,49 @@ Other:
 1. `Even Better TOML`: better support `.toml` file
 2. `Error Lens`
 3. `CodeLLDB`
+
+### Use CN Rust Proxy to Install
+
+> https://rsproxy.cn/
+
+Add below into `~/.zshrc`
+
+```bash
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+```
+
+Add below into `~/.cargo/config`
+
+```bash
+[source.crates-io]
+replace-with = 'rsproxy'
+
+[source.rsproxy]
+registry = "https://rsproxy.cn/crates.io-index"
+[source.rsproxy-sparse]
+registry = "sparse+https://rsproxy.cn/index/"
+
+[registries.rsproxy]
+index = "https://rsproxy.cn/crates.io-index"
+
+[net]
+git-fetch-with-cli = true
+```
+
+And
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh
+
+source "$HOME/.cargo/env"
+```
+
+## Tools Brief
+
+rustup: Rust version manager
+
+cargo:
 
 ## Basic
 
