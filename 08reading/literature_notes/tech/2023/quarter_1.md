@@ -342,7 +342,7 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > 这个图还挺不错的，摘录下
 >
-> ![image.png](./_imgs/quarter_1.assets/74519d751863471bb877a68bd3a4644d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp)
+> ![image.png](./_imgs/quarter_1.assets/74519d751863471bb877a68bd3a4644d~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.png)
 
 [前端的 Race Condition](https://juejin.cn/post/6938286092693176334)
 
