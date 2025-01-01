@@ -1,5 +1,27 @@
 # ES6789?笔记
 
+## [Array]Array.fromAsync
+
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fromAsync)
+
+和 `Array.from` 的用法一致，只是返回值是一个 `Promise<[]>`
+
+```javascript
+Array.fromAsync(arrayLike);
+Array.fromAsync(arrayLike, mapFn);
+Array.fromAsync(arrayLike, mapFn, thisArg);
+```
+
+用途：如果数组的元素是 Promise，会等到 resolve 再处理
+
+和 `Promise.all` 的最大区别是在与，fromAsync 是按数组顺序执行的，可以作为异步任务处理器
+
+同样不能进行中断，需要使用 `for of`
+
+如果在迭代的过程中遇到了 `Promise.reject`，则也会中断操作，整个 Promise 结果也进入到 rejected 状态
+
+兼容性：Chrome 121 (Released 2024-01-23)
+
 ## [Array]Change array by copy(ES2023)
 
 组数老头疼的问题就是 sort, splice, reverse 会改变原来的对象，这个 [proposal](https://github.com/tc39/proposal-change-array-by-copy) 提出了
@@ -657,7 +679,7 @@ proxyOfObj.foo = "123123";
 // ob1: 123123
 ```
 
-## 数组 Array.from() Array.of()
+## [Array] Array.from() Array.of()
 
 ### Array.from()
 
@@ -679,7 +701,7 @@ const reverseStr = (value) => Array.from(value).reverse().join("");
 
 `Array.of`基本上可以用来替代`Array()`或`new Array()`，并且不存在由于参数不同而导致的重载。它的行为非常统一：返回的都是有值数组，而不会是 `Array(n)` 返回一个长度为 n 的空数组。
 
-## 数组 flat() flatMap()
+## [Array] flat() flatMap()
 
 第一次见到这两个函数是在一次面试题中。。。
 
@@ -700,7 +722,7 @@ const reverseStr = (value) => Array.from(value).reverse().join("");
 
 返回新的数组，不改变原数组，只能展开一层
 
-## 数组 find() findIndex()
+## [Array] find() findIndex()
 
 都接受一元谓词，还可以接受第二个参数的，一个对象，bind 给第一个方法的
 
@@ -720,7 +742,7 @@ let person = { name: "John", age: 20 };
 
 返回第一个满足条件的下标，都无则返回 -1
 
-## 数组 some() every()
+## [Array] some() every()
 
 ### some()
 
@@ -1248,6 +1270,34 @@ console.log(b); // x: 1000
 可以继承原始类型
 
 可以实现 [mixin 模式](https://es6.ruanyifeng.com/#docs/class-extends#Mixin-%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0)
+
+### 私有属性
+
+> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_properties)
+>
+> 浏览器兼容性：Chrome 74(Released 2019-04-23) 84 91
+>
+> JS 原生的私有属性 `#`
+>
+> 相比 TS 的 `private` 和用 `WeakMap` 实现（见上文），写起来更符合工效学（in terms of ergonomics.）哈哈
+
+```javascript
+class ClassWithPrivate {
+  #privateField;
+  #privateFieldWithInitializer = 42;
+
+  #privateMethod() {
+    // …
+  }
+
+  static #privateStaticField;
+  static #privateStaticFieldWithInitializer = 42;
+
+  static #privateStaticMethod() {
+    // …
+  }
+}
+```
 
 ## padStart() padEnd()
 

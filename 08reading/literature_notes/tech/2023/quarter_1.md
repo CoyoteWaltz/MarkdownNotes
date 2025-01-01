@@ -87,7 +87,7 @@
 > 原文是一篇公司内部的文章，在迁移到 vite 的时候发现历史遗留的动态引入问题，于是调研了 rollup 的动态导入。主要内容其实就是对 github readme 的翻译，和源码分析
 >
 > - Rollup 插件构建时，动态引入（path 是动态的）是如何实现的，构建时不知道运行时的变量，通过一些特殊的手段。（[github](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars)）
-> - import( '../path/\${xx}.js' ) -> 会构造 glob path，然后编译所有的文件，再将代码转换成 switch/case 匹配
+> - `import( '../path/\${xx}.js' )` -> 会构造 glob path，然后编译所有的文件，再将代码转换成 switch/case 匹配，这样所有满足 glob 表达式的模块都能被写进这个 switch/case 方法，也就能保证这些文件都能被编译器识别成动态模块而打包
 > - [源码](https://github.com/rollup/plugins/blob/master/packages/dynamic-import-vars/src/index.js)
 > - 这个业务团队也用 [unplugin](https://github.com/unjs/unplugin) 开发了一个 vite 支持的插件
 

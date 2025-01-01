@@ -1,5 +1,20 @@
 # Some code snippets
 
+### 获取最大的 Zindex 元素
+
+```typescript
+export const getMaxZIndex = () => {
+  return (
+    Array.from(document.querySelectorAll("body *"))
+      .map((a) => parseFloat(window.getComputedStyle(a).zIndex))
+      .filter((a) => !isNaN(a))
+      .sort((a, b) => a - b)
+      .pop() || 0
+  );
+};
+// getMaxZIndex() + 1
+```
+
 ### Trim End 指定字符
 
 ```ts

@@ -104,7 +104,7 @@
 > - Don’t ask AI, let AI ask you：通过 prompt 让 AI 引导你去思考，你的回答完全可以直接作为内容
 > - Don’t sell stolen goods—make your own：不要直接 copy，结合自己的思考内容
 > - Don’t pretend. Create：用自己的话去重写，不断打磨和修改
-> - Editing: Cut, clarify, simplify：让 AI 列出（list）现在文字的不足
+> - Editing: Cut, clarify, simplify：让 AI 列出（list）现在文字的不足，让 AI 去批评现在的内容
 >
 > “With every thought we outsource, we miss out on a chance to grow. Love it or hate it, AI is here to stay. However we use it, we need to think more, not less.”
 >
@@ -218,3 +218,9 @@
 > `sideEffects` is much more effective since it allows to skip whole modules/files and the complete subtree. -> [sideEffect](https://webpack.js.org/guides/tree-shaking/#root:~:text=sideEffects is much more effective since it allows to skip whole modules/files and the complete subtree.)
 >
 > 在 [stats.optimizationBailout](https://webpack.js.org/configuration/stats/#statsoptimizationbailout) 为 true 的配置下，可以看到 webpack 打印出的优化信息
+
+[YYX 的新创业公司 void0](https://voidzero.dev/posts/announcing-voidzero-inc)
+
+> 愿景是更好的统一 javascript 工具链生态
+>
+> 借此也看看现在主流工具链的发展趋势（rust 化）：rolldown、oxc、rspack、...

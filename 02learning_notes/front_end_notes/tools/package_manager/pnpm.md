@@ -189,3 +189,24 @@ Visit https://pnpm.io/7.x/cli/env for documentation about this command.
 - 得 nvm 切到 12，全局安装 pnpm6，
 - 然后再通过指令配置 14
 - 再切回 pnpm7 的 node14 环境
+
+### [--frozen-lockfile](https://pnpm.io/cli/install#--frozen-lockfile)
+
+```bash
+pnpm install --frozen-lockfile
+```
+
+在 CI 环境是默认开启的，来看下是什么作用：开启之后，pnpm 不会生成 lock 文件，并且当 lock 文件不存在 or 与 manifest（并不知道是啥）不同步 or 需要更新的时候，`pnpm install` 会失败
+
+CI 环境中的一些环境变量
+
+```javascript
+exports.isCI = !!(
+  env.CI || // Travis CI, CircleCI, Cirrus CI, GitLab CI, Appveyor, CodeShip, dsari
+  env.CONTINUOUS_INTEGRATION || // Travis CI, Cirrus CI
+  env.BUILD_NUMBER || // Jenkins, TeamCity
+  env.RUN_ID || // TaskCluster, dsari
+  exports.name ||
+  false
+);
+```

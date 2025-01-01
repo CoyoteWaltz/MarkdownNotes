@@ -1,4 +1,4 @@
-# TS 项目打包时
+# When TS project build
 
 ## package.json 的 typesVersions
 

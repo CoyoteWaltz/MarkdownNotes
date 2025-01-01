@@ -99,6 +99,8 @@ Space Grotesk
 
 ## 创作 & 设计 & 图标 & 图片
 
+[AI Logo 生成器 开源](https://github.com/Nutlope/logocreator)
+
 [字幕工具箱：各种字幕处理工具](https://zm.i8k.tv/)
 
 [渐变色收集！](https://uigradients.com/)
@@ -140,6 +142,8 @@ Space Grotesk
 [可视化算法学习](https://github.com/krahets/hello-algo)
 
 [发布/查找 starup/sideproject](https://www.startups.fyi/)
+
+[程序员动物书（动物园）](https://orlybooks.com/)
 
 ## 收藏有趣的 links
 

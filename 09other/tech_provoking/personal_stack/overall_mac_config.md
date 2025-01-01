@@ -1,6 +1,6 @@
 # 2024 My Mac Config
 
->
+> For work and personal usage.
 
 ## Foreword
 
@@ -169,15 +169,49 @@ Download from the website
 
 ### zsh
 
+Plugins:
+
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+
 ### oh my zsh
 
 ### starship
 
 ### CLI Tools
 
-#### git-extras
+#### [zoxide](https://github.com/ajeetdsouza/zoxide)
 
-> [github](https://github.com/tj/git-extras/blob/main/Installation.md)
+> Better `cd`
+
+Config in zshrc:
+
+```bash
+eval "$(zoxide init zsh --cmd cd)"  # replace original cd
+```
+
+### [eza](https://github.com/eza-community/eza)
+
+> A modern alternative to `ls`
+>
+> BTW: [exa](https://github.com/ogham/exa) is unmaintained.
+
+Config in zshrc:
+
+```bash
+alias ls="eza"
+alias tree="eza -T"
+```
+
+#### [SCC](https://github.com/boyter/scc)
+
+> A tool similar to **cloc**, sloccount and tokei. For counting physical the lines of code, blank lines, comment lines, and physical lines of source code in many programming languages.
+>
+> **S**uccinct **C**ode **C**ounter
+
+#### [git-extras](https://github.com/tj/git-extras/blob/main/Installation.md)
+
+>
 
 Install via brew
 
@@ -192,6 +226,8 @@ brew install git-extras
 ## Programming Settings
 
 ### Nodejs
+
+Use fnm to install different versions of Nodejs.
 
 ### Rust
 
@@ -210,3 +246,7 @@ brew install --cask android-platform-tools
 #### [Monaspace](https://github.com/githubnext/monaspace#macos)
 
 vscode
+
+#### Meslo Nerd Font
+
+> download source from [powerlevel10k](https://github.com/romkatv/powerlevel10k/blob/master/font.md)
