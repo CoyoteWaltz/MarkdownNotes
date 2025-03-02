@@ -215,7 +215,7 @@
 >
 > 这三个优化并不是连续进行的，是相对分散，并且互相之间也会有影响
 >
-> `sideEffects` is much more effective since it allows to skip whole modules/files and the complete subtree. -> [sideEffect](https://webpack.js.org/guides/tree-shaking/#root:~:text=sideEffects is much more effective since it allows to skip whole modules/files and the complete subtree.)
+> `sideEffects` is much more effective since it allows to skip whole modules/files and the complete subtree. -> [sideEffect](https://webpack.js.org/guides/tree-shaking/#clarifying-tree-shaking-and-sideeffects)
 >
 > 在 [stats.optimizationBailout](https://webpack.js.org/configuration/stats/#statsoptimizationbailout) 为 true 的配置下，可以看到 webpack 打印出的优化信息
 

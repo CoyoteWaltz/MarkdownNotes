@@ -555,6 +555,12 @@ git stash branch <name> stash@{1}
 
 查看当前仓库文件状态
 
+```bash
+git status -sb  # --short --branch alias gsb
+```
+
+`--porcelain`：这个命令返回 Git 的状态信息，格式化为简洁的输出（即“**porcelain**”格式）。它列出当前工作目录中的修改和待提交的文件。
+
 ### grep
 
 `git grep` grep 的方式匹配 tracked 文件，[官方文档](https://git-scm.com/docs/git-grep/2.9.5)
@@ -933,6 +939,54 @@ git commit -m 'msg'
 ```
 
 ## 奇技淫巧
+
+### Remove All Deleted Files from the Working Tree
+
+```bash
+git rm $(git ls-files -d)
+```
+
+### 切到上一个分支
+
+```bash
+git checkout -
+```
+
+### Stripspace
+
+- Strips trailing whitespace
+- Collapses newlines
+- Adds newline to end of file
+
+```bash
+git stripspace < README.md
+```
+
+### checkout 一个 PR
+
+PR 其实是作为 github 上的一个特殊分支
+
+```bash
+git fetch origin refs/pull/[PR-Number]/head
+```
+
+### 搜索曾经的 commit
+
+```bash
+git show :/query # 比如 git show :/ci 可以查到相关 commit message 中包含 ci 的 commit
+```
+
+### 查看已经合入当前分支的分支
+
+```bash
+git branch --merged
+```
+
+相对的
+
+```bash
+git branch --no-merged
+```
 
 ### git log 自己变更的代码行数
 

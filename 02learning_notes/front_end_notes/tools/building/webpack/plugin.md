@@ -5,10 +5,14 @@
 > [Github](https://github.com/webpack/tapable)
 >
 > webpack 插件是在整个编译的周期内，基于 tapable 的 hooks 进行的
+>
+> [深入理解](https://juejin.cn/post/7164175171358556173)
 
 其实 `Tapable` 本质上就是一个威力加强版的 `EventEmitter`
 
 本质上还是基于事件的方式，只是事件的执行流程加了点花样，允许同步异步和特殊的参数传递流程。
+
+为什么使用 `new Function` 来构造 `call` 方法真正执行 tap 的调用，详见 [issue](https://github.com/webpack/tapable/issues/162)
 
 ### Hook types
 

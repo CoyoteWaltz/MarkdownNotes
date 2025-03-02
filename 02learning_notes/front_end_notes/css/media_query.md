@@ -33,6 +33,20 @@ media type + media feature
 
 - `prefers-color-scheme`：检测用户是否会调用系统切换 light/dark 模式，详见 [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)，语法：`light`，`dark`
 
+  ```css
+  .theme-a {
+    background: #dca;
+    color: #731;
+  }
+  @media (prefers-color-scheme: dark) {
+    .theme-a.adaptive {
+      background: #753;
+      color: #dcb;
+      outline: 5px dashed #000;
+    }
+  }
+  ```
+
 - `orientation`：设备的方向，语法：`portrait`（肖像，就是竖屏），`landscape`（横屏），这参数名字有点意思的。
 
   ```css

@@ -86,6 +86,19 @@
 
 _来自 [TS 4.7 log](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html#packagejson-exports-imports-and-self-referencing)_
 
+在 node 执行的时候，也可以指定条件
+
+```bash
+#      "import": {
+# 			 "xxx": "./types/esm/index.ts",
+#        "types": "./types/esm/index.d.ts",
+#        // Where Node.js will look.
+#        "default": "./esm/index.js"
+#      },
+
+node --conditions=xxx ./index.js
+```
+
 ### type
 
 在 [nodejs](https://nodejs.org/api/packages.html#type) 中使用 esm 作为 js 模块的时候（使用 `import/export` 语法）

@@ -8,11 +8,45 @@
 
 [react-scan](https://github.com/aidenybai/react-scan)
 
-> millionjs 的作者
+> millionjs 的作者的又一对 react 组件性能检测的工具
+>
+> 看了下实现细节，
+>
+> 看到一段关于 equal 的判断，这里 `a !== a` 是为了识别出两个 `NaN`
+>
+> ```typescript
+> export function isEqual(a: unknown, b: unknown): boolean {
+>   // biome-ignore lint/suspicious/noSelfCompare: reliable way to detect NaN values in JavaScript
+>   return a === b || (a !== a && b !== b);
+> }
+> ```
 
 [React 19 正式发布](https://react.dev/blog/2024/12/05/react-19)
 
 > 2024/12/05
+>
+> update at: 2025.01.26 15:41:34 +0800
+>
+> 文章的内容还是挺多的，涵盖了基本上全部的 19 版本的更新内容概要，做一些摘录总结：
+>
+> - 关于异步交互的状态管理：
+>   - 在 Suspense 之上新增了 `Actions` 概念，通过 `useActionState` 来管理异步方法的数据、请求 pending 态、action
+>   - 为 `<form>` 表单元素标签增加了 `action` 属性 `<form action={actionFunction}>`，可以自动的在提交成功后，重置表单内未受控的元素值
+>   - `useFormStatus`：在 form 标签包裹内的组件中，可以用此得到当前 form 的一些状态（context），比如 `pending`
+>   - [`useOptimistic`](https://react.dev/reference/react/useOptimistic)：所谓的“乐观更新”，能够在异步请求发起的开始就将内容展示为最新的数据。在官网的例子试了下，感觉这个 hook 是比较奇妙的，感觉是在传入的 `state` 变化后，就同时更新 `optimisticState` 了（存疑），还是会自动检查是否在 pending 状态？
+>   - `use`，这个 hook 应该之前就有看过，是对于 promise state 的等待处理
+> - ReactDom 的一些静态方法 `react-dom/static`
+>   - `prerender` 在 `renderToString` 之上的优化
+> - RSC 相关
+> - API 优化：
+>   - `ref` 可以直接从组件 props 里拿到了
+>   - hydration 错误的提示更加丰富
+>   - Context 可以直接作为 Provider 了 `<XXXContext></XXXContext>`
+>   - ref 有 clean up function 了，可以在组件卸载的时候调用，以前组件卸载的时候是获取到 `null`。同时对于 ref 方法的返回值有要求
+> - Document Tags
+>   - script、style、meta 等原生标签可以被 react 直接 hoist 到 head 标签中
+>
+> 总体感受就是新的一些 API 更加贴近 web 原生开发体验，挺好。。
 
 [excalidraw 支持中/日/韩字体](https://plus.excalidraw.com/blog/adding-hand-drawn-font-for-chinese-japanese-korean)
 
