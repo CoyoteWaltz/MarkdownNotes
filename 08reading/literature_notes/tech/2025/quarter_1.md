@@ -285,3 +285,29 @@
 > BTW：`git config merge.ours.driver true` 中的 `merge.<strategy>.driver` 是什么？
 >
 > 在 git [文档](https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes)中有提及，是指导 git 如何处理 merge 的，以及这些[策略](https://git-scm.com/docs/merge-strategies)，我们也可以[自定义合并策略](https://graphite.dev/guides/git-merge-driver)
+
+[What is FE Architecture](https://ducin.dev/what-is-frontend-architecture)
+
+> 什么是前端架构？（来自团队内分享的文章）
+>
+> **decisions**、**architectural drivers**、**tradeoffs**、**limitations**
+>
+> 什么是架构？_The (**high-level, technical**) decisions you make according to business requirements that shape your system today and that are difficult to change in the future._
+>
+> 不要将架构和具体的实现方式混淆，文件夹结构也并非架构
+>
+> 提出正确的问题
+>
+> > _I would rather have questions that can't be answered than answers that can't be questioned_
+>
+> ...
+
+[Open Router](https://openrouter.ai/)
+
+> unified interface for LLMs 大模型的统一的接口，可以在 open router 用更低的价格购买，并且能有 uptime 的优化（持续检测模型 provider 的连接时延/健康度）
+
+[Desk Pad 虚拟显示器](https://github.com/Stengo/DeskPad)
+
+> MacOS app，创建了一个虚拟显示器，可以把需要投屏分享的软件拖进去进行共享，作为一个纯净的 workspace
+>
+> 个人暂时没有这种使用场景，但是很好玩哈哈

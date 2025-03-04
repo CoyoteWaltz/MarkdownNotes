@@ -1,5 +1,13 @@
 # 【职业】
 
+> Note Order:
+>
+> ⬇️ - Oldest
+>
+> ⬇️ - ...
+>
+> ⬇️ - **Latest🆕**
+
 [前端升级之路](https://www.zhihu.com/question/55058833/answer/1640978174)
 
 > 业务视角看前端，比较现实，挺有启发

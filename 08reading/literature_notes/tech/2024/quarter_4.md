@@ -8,9 +8,14 @@
 
 [react-scan](https://github.com/aidenybai/react-scan)
 
-> millionjs 的作者的又一对 react 组件性能检测的工具
+> millionjs 的作者的又一 react 组件性能检测的工具
 >
-> 看了下实现细节，
+> 看了下实现细节，基于对 React 的 global devtool 进行 hook，底层调用了作者的 [bippy](https://github.com/aidenybai/bippy) 这个库
+>
+> - Hack 进 react 的内部，可以使得我们访问到 fiber
+> - 关键点在于 `window.__REACT_DEVTOOLS_GLOBAL_HOOK__` react 组件在 runtime 都会给在这个对象上执行一些事件（这个设计是为了 react devtool，利用它实现一些 hack 手段）
+>
+> _Monkey-patching: A monkey patch is a way for a program to extend or modify supporting system software locally (affecting only the running instance of the program). This process has also been termed duck punching._
 >
 > 看到一段关于 equal 的判断，这里 `a !== a` 是为了识别出两个 `NaN`
 >
