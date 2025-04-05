@@ -311,3 +311,120 @@
 > MacOS app，创建了一个虚拟显示器，可以把需要投屏分享的软件拖进去进行共享，作为一个纯净的 workspace
 >
 > 个人暂时没有这种使用场景，但是很好玩哈哈
+
+[前端已死？](https://www.zhihu.com/question/13453534732/answer/115166055109)
+
+> 来看看狼叔对「前端已死」论调的驳论，有些启发
+>
+> Web 前端这几年的发展或许已经到瓶颈期了，目光要往 AI Web FE 看去，且要客观审视
+>
+> “客观上多用好 AI 做到最大限度的提效，主观上让 AI 辅助我思考完善个人知识体系。”
+>
+> 1、AI 工具要善于利用，2，**要愿意下笨功夫，把知识体系建立好**。（前端、AI 的知识体系）
+>
+> 给出了一些入门 AI Agent Dev 的项目：
+>
+> [vercel/ai-chatbot](vercel/ai-chatbot)、[goose](https://github.com/block/goose)、[langchain（知乎付费课程。。）](https://juejin.cn/book/7347579913702293567) 等
+>
+> BTW 包括下面 于江水 的高赞回答带来的一些启发：
+>
+> - 地理套利：利用技术优势 + 英语学习去做远程
+> - 行业套利：去其他的行业做，但是目前比较看好的就 AI 或者 Web3
+> - **了解程序之外的事情**，**例如社会运转、商业、财富管理等**：现在 AI 就是你的研发团队
+
+[brotli 压缩格式](https://github.com/google/brotli)
+
+> 来自 google 开源的网络压缩算法和格式，2015 年推出，用于替换传统的压缩算法（如 Gzip 和 Deflate），在压缩率、解压缩速度、资源消耗之间实现更好的平衡
+>
+> _下面内容来自 Deepseek_
+>
+> 1. **高压缩率**
+>    Brotli 的压缩率显著优于 Gzip（通常可减少 20%-26% 的文件体积），尤其在文本类数据（如 HTML、CSS、JavaScript）中表现突出。这使得网页加载更快，节省带宽。
+> 2. **预定义字典优化**
+>    Brotli 内置了一个静态字典，包含常见字符模式、HTML 标签和 JavaScript 关键字。这使得它对 Web 内容的压缩更加高效，无需依赖动态字典。
+> 3. **多压缩级别支持**
+>    支持 0 到 11 的压缩级别：
+>    - **低级别（0-4）**：快速压缩，适合实时动态内容（如 API 响应）。
+>    - **高级别（5-11）**：最大化压缩率，适合静态资源预压缩（如 CSS/JS 文件）。
+> 4. **解压速度快**
+>    尽管压缩速度可能慢于 Gzip（尤其在高级别下），但解压速度极快，适合客户端（如浏览器）快速解码。
+> 5. **广泛兼容性**
+>    - **浏览器支持**：Chrome、Firefox、Edge、Safari（iOS 11+ 和 macOS High Sierra+）等主流浏览器均支持。
+>    - **Web 服务器**：Nginx、Apache、CDN（如 Cloudflare）均可配置 Brotli 压缩。
+>
+> **应用场景**
+>
+> 1. **Web 性能优化**
+>    - 压缩 HTTP 响应：通过 `Content-Encoding: br` 标头传输压缩内容。
+>    - 预压缩静态资源（如 CSS、JS、字体文件），搭配缓存策略提升加载速度。
+> 2. **前端构建工具集成**
+>    - Webpack、Rollup 等工具可通过插件（如 `brotli-webpack-plugin`）生成 `.br` 文件。
+>    - 静态站点生成器（如 Next.js）默认支持 Brotli。
+> 3. **移动应用与游戏**
+>    - 压缩资源文件（纹理、配置文件），减少应用体积和下载时间。
+> 4. **CDN 与边缘计算**
+>    - 主流 CDN（Cloudflare、Akamai）默认支持 Brotli，自动为兼容客户端提供压缩内容。
+>
+> 局限性
+>
+> - **CPU 开销**：高级别压缩对服务器 CPU 压力较大，需权衡压缩率与性能。
+> - **旧浏览器兼容性**：需为不支持 Brotli 的客户端提供备用方案（如 Gzip）。
+>
+> 可以从 youtube 的 js 资源的 response header 看到 `content-encoding` 就是 `br`
+>
+> 算法概述：
+>
+> 1. LZ77 滑动窗口算法，来编码重复字符串，用`(distance, length)`，将重复字符串编码成在窗口内存在的某个位置（曾出现过的）
+> 2. **静态字典优化**，将一些常用的字符串作为字典表，遇到时直接替换成 index
+> 3. 上下文建模，块分割（Html 标签和文本分开建模），将出现频率较高的字符分配更短的哈夫曼编码
+
+[中文网字计划 关于字体分割](https://chinese-font.netlify.app/zh-cn/post/get_start)
+
+> Mark 了好久的站点，核心目的是加速 Web 网站对中文字体（或 CJK 字体）的加载/渲染效率，采用了将字体文件分割成多个 chunk（by unicode-range），利用浏览器 CSS 的 Unicode Range 特性来实现按需加载字体的能力
+>
+> - 核心依赖：[Harfbuzz](https://github.com/harfbuzz/harfbuzz)，[rust 版的](https://github.com/harfbuzz/harfbuzz_rs)
+> - 分包算法：
+>
+> TradeOff（个人结合过往经验）：
+>
+> - 完整字体文件的方案 → 首屏渲染会有字体的跳动（加载资源耗时）
+> - base64 inline 字体方案 → 首屏包提及大，代码维护不便，治理难度大
+> - **分割字体**（CDN 部署）→ 耗时和稳定性
+>
+> 相关工作原理：[cn-font-split 介绍](https://chinese-font.netlify.app/zh-cn/post/cn_font_split_design)，[github](https://github.com/KonghaYao/cn-font-split)
+>
+> 看前须知：
+>
+> - 每个字符都对应一个 [`unicode` 编码](../../../../02learning_notes/sundries/unicode.md)
+> - CSS `@font-face` 的 [unicode-range](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range) 能力
+>   - 定义一个 `font-face` 的时候 指定 `unicode-range`，当浏览器需要渲染的字在这个范围内，就会去并行的下载对应的字体资源（src），如果没用到就不会下载，通过分割，就会避免整个字体文件的下载
+>
+> 可以做的工程实践：
+>
+> - 指定字体文件，放仓库内；dev/build 执行脚本进行字体分割（cn-font-split），生成对应 result.css 代码；移动相应资源文件相应目录下，被上层业务 css（reset.css/base.css）引入；构建时，分割后的字体文件（woff2）也同步被上传到 cdn
+>
+> 个人项目：可以直接用作者提供的[中文字体 CDN](https://chinese-font.netlify.app/zh-cn/cdn)，点赞！
+>
+> 感觉是字体分割这块的天花板项目了，[wiki](https://github.com/KonghaYao/cn-font-split/wiki/Architecture#cn-font-split-%E6%9E%B6%E6%9E%84)
+
+[TypeScript Golang port](https://devblogs.microsoft.com/typescript/typescript-native-port/)
+
+> 题外话：从这篇“[为什么使用 go 而不是 rust 来重写的回答中](https://www.reddit.com/r/programming/comments/1j8s40n/comment/mh7n5n0/)”看到一个[神人](https://www.youtube.com/watch?v=0mCsluv5FXA)，用纯 types 写了一个游戏（DOOM 1993 年的），包括编译器、汇编、底层数据结构等等，令人震惊。。
+>
+> 注意这是一个新的 “**port**”（移植）通常指将一个软件系统或组件的代码从原有运行环境（如编程语言、操作系统、硬件架构等）迁移到另一个环境，同时保持其功能一致性的过程。
+>
+> TypeScript 团队选择了移植性更好的 Golang（相比 Rust），所做的操作就是将原本的 TypeScript 仓库的 js/ts 代码翻译成 go 代码（by 文件）
+>
+> [github](https://github.com/microsoft/typescript-go)
+
+[VSCode 的发展历史](https://mp.weixin.qq.com/s/FEYkzmIUCTfkc1HMza-A_w)
+
+> 超过十年的迭代，注重细节和用户反馈，追求极致性能
+>
+> 推荐看[视频](https://www.youtube.com/watch?v=hilznKQij7A)
+
+[Liquid Logo](https://github.com/collidingScopes/liquid-logo)
+
+> 大佬，用 HTML Canvas + WebGL + shader 编程，让 Logo 有液体流动的特效，很炫酷
+>
+> 这位大佬还有另一[作品](https://github.com/collidingScopes/ascii)是将视频转化成 Ascii 像素画面

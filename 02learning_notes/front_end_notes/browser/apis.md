@@ -699,7 +699,7 @@ defer 比 async 稳定吧，在 DOM tree 解析完成之前会执行所有的脚
 
 `window.location.origin`
 
-协议 + 域名 + 端口
+**协议 + 域名 + 端口**
 
 #### 跨域场景
 

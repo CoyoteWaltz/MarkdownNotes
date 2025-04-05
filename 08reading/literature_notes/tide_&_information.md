@@ -10,6 +10,12 @@
 >
 > ⬇️ - **Oldest**
 
+[号称宇宙第一 AI Agent 的 Manus](https://mp.weixin.qq.com/s/knFyCZ8MxybEDLzoyr4hJg)
+
+> 2025.03.06 13:58:10 +0800
+>
+> 大早上就是各处的 Manus 介绍，一个邀请码被炒到好几千 rmb，先插个眼观察下
+
 [YouTube 黄仁勋加州理工毕业演讲 2024](https://www.youtube.com/watch?v=Sc48ToLIQAY)
 
 > 2024.07.18 13:50:49 +0800

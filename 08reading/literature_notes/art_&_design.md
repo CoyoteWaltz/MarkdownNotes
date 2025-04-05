@@ -90,6 +90,7 @@ https://garryui.cn/
 >
 > 1. [MAC 使用 brew](https://github.com/githubnext/monaspace#macos)
 > 2. VSCode 配置也看 [github](https://github.com/githubnext/monaspace?#visual-studio-code) 即可
+>    1. **注意，就算仅使用 text healing 特性也需要开启 `editor.fontLigatures`，可以只设置 `calt`**
 
 2023.12.29 11:01:08 +0800
 
@@ -102,3 +103,11 @@ https://garryui.cn/
 [通过 AI 手撸一个游戏](https://v2ex.com/t/1102126)
 
 > 很励志，大模型生成让一些创作有了可能
+
+2025.03.18 13:54:47 +0800
+
+[The Balatro Timeline](https://localthunk.com/blog/balatro-timeline-3aarh)
+
+> 读了 2024 最佳独立游戏《小丑牌》作者的开发经历，真的很震撼，很浪漫
+>
+> 游戏非常好玩，推荐，steam 等游戏平台和 IOS（美区）都有，手机上消磨时间的好游戏

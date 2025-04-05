@@ -8,7 +8,7 @@
 
 ### [Bruno](https://www.usebruno.com/)
 
-> Replace for postman
+> Replacement for postman
 >
 > `#open_source`
 
@@ -143,6 +143,7 @@ Download from the website
   "explorer.fileNesting.enabled": true,
   // 🌟🌟
   "editor.fontLigatures": "'calt', 'ss01', 'ss02', 'ss03', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09', 'liga'",
+  // "editor.fontLigatures": "'calt'", // text healing only
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -223,7 +224,7 @@ brew install git-extras
 
 ### Terminal Prompt
 
-## Programming Settings
+## Programming Language Settings
 
 ### Nodejs
 
@@ -238,6 +239,14 @@ Use fnm to install different versions of Nodejs.
 ```bash
 brew install --cask android-platform-tools
 ```
+
+## Development Env
+
+### VS Code
+
+#### Extensions
+
+#### Themes
 
 ## Other
 

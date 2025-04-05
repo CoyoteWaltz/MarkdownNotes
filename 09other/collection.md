@@ -59,6 +59,8 @@ PT Sans
 
 Space Grotesk
 
+[Maple Mono](https://github.com/subframe7536/maple-font) 带连字和控制台图标的圆角等宽字体，中英文宽度完美 2:1，细粒度的自定义选项
+
 ## 产品/工具
 
 [视频转 gif，很好用，开源](https://gif.ski/)
@@ -97,6 +99,8 @@ Space Grotesk
 
 [网速查询](https://www.itdog.cn/ping/)
 
+[Rize 个人 time tracker 体验中](https://rize.io/)
+
 ## 创作 & 设计 & 图标 & 图片
 
 [AI Logo 生成器 开源](https://github.com/Nutlope/logocreator)
@@ -132,6 +136,8 @@ Space Grotesk
 [pixa 免费图片 可商用](https://pixabay.com/)
 
 [移动端设计案例收集](https://handheld.design/)
+
+[AI 可视化作图 很实用](https://www.napkin.ai/)
 
 ## 资源
 

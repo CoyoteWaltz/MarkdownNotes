@@ -15,3 +15,7 @@ Chinese Version: https://nomicon.purewhite.io/intro.html
 ### Rust for GUI
 
 https://raphlinus.github.io/rust/druid/2020/09/25/principled-reactive-ui.html
+
+Rry to implement Ray Tracing with Rust
+
+> https://raytracing.github.io/books/RayTracingInOneWeekend.html

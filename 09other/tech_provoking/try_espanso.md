@@ -4,6 +4,32 @@
 >
 > 比较完善、全面的全局 snippet 工具，包括插件社区，可以作用在每个 App 里的自定义。官网内容还是比较丰富的，就是个人感觉这么多文档/文字可能还是会吓到/劝退一部分使用者，不过初步体验下来真的很棒！这里就简单记录一下自己的配置和使用。
 
+## 踩坑记录
+
+### VSCode 中使用经常错乱
+
+github 有 [issue](https://github.com/espanso/espanso/issues/675) 还挺多人遇到，详细问题可以看 issue
+
+解决方案：为 VSCode/或者其他出问题的应用内单独配置一些特性
+
+（本机 MacOS）
+
+在配置目录下 `XXX/config` 新建一个 yml 文件，比如 `vscode.yml`
+
+```yaml
+filter_exec: "Visual Studio Code"
+force_mode: clipboard
+backspace_delay: 12
+```
+
+解释下：
+
+- filter_exec 是 espanso 会匹配当前所处的应用环境（exec 是执行文件，还有 title 和 class 可以用），具体可看[文档](https://espanso.org/docs/configuration/app-specific-configurations/#filters)，可以通过这个[方法](https://espanso.org/docs/configuration/app-specific-configurations/#finding-the-right-filters)来看当前的 App 的一些环境
+- force_mode: clipboard，[强制换成剪切板](https://espanso.org/docs/configuration/app-specific-configurations/#finding-the-right-filters)
+- backspace_delay，是 issue 解决者尝试出来的延迟时间
+
+总之在 VSCode 中不会有问题了，撒花
+
 ## 安装
 
 **以 mac 系统为例**，直接下载解压后拖进 Application，或者用 brew 安装都行，见官网。
