@@ -101,6 +101,8 @@ Space Grotesk
 
 [Rize 个人 time tracker 体验中](https://rize.io/)
 
+[Cursor 重置器 立省 20 刀/月](https://github.com/yeongpin/cursor-free-vip)
+
 ## 创作 & 设计 & 图标 & 图片
 
 [AI Logo 生成器 开源](https://github.com/Nutlope/logocreator)

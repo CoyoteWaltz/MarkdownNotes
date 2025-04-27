@@ -308,15 +308,15 @@ Git 此时无法判断取舍，留给开发者自行解决冲突
 
 同样也是一种将其他分支的改变应用到当前分支的操作。
 
-（**当前`dev`**）`git rebase master`将`dev`分支的根移动到`master`的最顶层 commit 节点
+（**当前`dev`**）`git rebase master` 将 `dev` 分支的根移动到 `master`的 最顶层 commit 节点
 
-发生：
+发生了什么：
 
 - 相当于 copy 当前分支的所有 commit 到目标分支的 commit 之上
 
 与 merge 相比，rebase 会改变分支的历史（commit 的 hash，copy 的时候重新计算了）
 
-如果出现冲突，解决完冲突并 commit 之后，`git rebase --continue`继续合并，或者`git rebase --abort`放弃本次操作
+如果出现冲突，解决完冲突并 commit 之后，`git add`，`git rebase --continue`继续合并，或者`git rebase --abort`放弃本次操作
 
 #### 交互式的 rebase
 
@@ -359,7 +359,7 @@ reword 0c6eb12 reword comment msg!
 # ...
 ```
 
-**注意：**vim 的保存用`:x`，反正我用`:wq`失败了。。
+**注意：**vim 的保存用`:x`，~~反正我用`:wq`失败了。。~~
 
 ### reset
 
@@ -1005,6 +1005,12 @@ git log --author=$(git config --get user.name) --pretty=tformat: --numstat | awk
 worktree：[git worktree manager](https://marketplace.visualstudio.com/items?itemName=jackiotyu.git-worktree-manager)
 
 - 因为 gitlens 的 worktree 能力是收费的。。
+
+### git who
+
+[github](https://github.com/sinclairtarget/git-who)
+
+cli 工具，能够以文件树的维度展示 git blame，可以是 table 的样式，也可以是 tree 的目录，还支持柱形图
 
 ## 推荐阅读
 
