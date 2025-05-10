@@ -70,3 +70,97 @@
 > 好东西，devin 带你剖析 github 仓库，`github.com/xxx/yyy` to `deepwiki.com/xxx/yyy`
 >
 > powered by [devin](https://devin.ai/)
+
+[【好文】jx 老师的 MCP AI Agent 应用开发实践](https://juejin.cn/post/7485691461296652338)
+
+> MCP 让 AI 应用开发与工具能力提供解耦，规定了一套协议标准，MCP Server、MCP Client 和 LLM 之间能够只根据协议通信
+>
+> 通信方式：sse/STDio/local
+>
+> 生态也日益扩大
+
+[Rspack with nextjs](https://rspack.dev/zh/blog/rspack-next-partner)
+
+> 让 nextjs 使用 rspack 进行，社区推进的插件 [next-rspack](https://www.npmjs.com/package/next-rspack)
+
+[Use react context with zustand](https://tkdodo.eu/blog/zustand-and-react-context)
+
+> 为什么用了 zustand 之后，还需要用 context/provider 呢
+>
+> _在了解 zustand 的前提下_，作者遇到几个痛点：
+>
+> 1. store 是全局的，不能通过 react 上下文的 props 进行初始化（只能写死初始值）
+> 2. 想要复用 store，并且做到隔离，比较困难，比如 router 维度
+> 3. 测试起来会比较方便
+>
+> 所以结合 context 进行简单封装，将 vanilla store 的值作为 context，再简单封装一个 useSelector 方法即可
+>
+> _用了 useState 去 stabilize 一个值，原因[在此](https://tkdodo.eu/blog/use-state-for-one-time-initializations)，useMemo 用于性能优化，但未来 react 不保证他的值的稳定性？ useState 更稳定 并且可以做到 lazy init_
+>
+> ```jsx
+> const BearStoreProvider = ({ children, initialBears }) => {
+>   const [store] = React.useState(() =>
+>     createStore((set) => ({
+>       bears: initialBears,
+>       actions: {
+>         increasePopulation: (by) =>
+>           set((state) => ({ bears: state.bears + by })),
+>         removeAllBears: () => set({ bears: 0 }),
+>       },
+>     }))
+>   )
+>
+> const useBearStore = (selector) => {
+>   const store = React.useContext(BearStoreContext)
+>   if (!store) {
+>     throw new Error('Missing BearStoreProvider')
+>   }
+>   return useStore(store, selector)
+> }
+> ```
+
+[AI 让程序员 dumb](https://eli.cx/blog/ai-is-making-developers-dumb)
+
+> 博客对现在程序员过度依赖大模型编程助手这一现象提出来自己的反思，copilot 虽然能极快的给出结果，但对于研究过程的缺失反而会使我们越来越愚笨，确实很需要思考下该如何利用大模型。
+>
+> 用 copilot-lag 这一词很有意思，指程序员在等大模型输出的时间。
+>
+> 大模型本就是一个预测模型，他并不理解，只是重复的输出训练的预料罢了。
+
+[localsend](https://github.com/localsend/localsend)
+
+> 跨平台通过连接相同 wifi 即可传输文件，加密，无需中央服务端，很好用，以及他的协议 https://github.com/localsend/protocol
+>
+> 但是对于 live 图的传输不太友好
+
+[sse 被低估](https://igorstechnoclub.com/server-sent-events-sse-are-underrated/)
+
+> sever side event，从服务端单向推送到客户端的请求，基于现有的 http 基建即可，数据格式只能是 text based，chatgpt 目前就是用 sse 完成 streaming response
+>
+> 适用场景
+>
+> 1. Real-time News Feeds and Social Updates
+> 2. Stock Tickers and Financial Data
+> 3. Progress Bars and Task Monitoring
+> 4. Server Logs Streaming
+> 5. Collaborative Editing (for updates)
+> 6. Gaming Leaderboards
+> 7. Location Tracking Systems
+
+[yt-dlp 强大的视频下载工具](https://github.com/yt-dlp/yt-dlp)
+
+> Mac 可以通过 brew 或者 pip 安装
+>
+> 下载 Youtube 视频：需要将 youtube.com 的 cookie [传递](https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp)，需要 [export cookie](https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies)，最后用命令行下载（有非常多的配置），丝滑
+
+[higgsfield AI 特效生成](https://higgsfield.ai/)
+
+> 很强，生成的视频还挺惊艳的
+
+[fellou](https://fellou.ai/)
+
+> Agentic Browser，AI 智能体浏览器，帮你进行各种 action、planing、等，值得期待下
+
+[在线表单编辑](https://tally.so/)
+
+> 挺有意思，类似 Notion 一样 block 的自定义表单的配置，完成后进行发布，并且能拿到相应的代码进行项目内的集成

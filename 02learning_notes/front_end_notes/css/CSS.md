@@ -81,6 +81,24 @@ dom.style.setProperty("height", "10px", "important");
 
 100 vh 在移动端的浏览器中的体验可能会有点不好，因为浏览器有些时候会自动隐藏顶部的地址栏，用 JS 去设置高度为 innerHeight 会更好，这个是浏览器窗口内部的可见高度。
 
+#### vh/lvh/svh/dvh
+
+移动端的浏览器界面可能会出现顶部/底部的地址栏，同时他们可能有时出现/收起
+
+所以退出了新规范的三个单位：
+
+1. The large viewport units（大视口单位）：`lvw`,`lvh`, `lvi`, `lvb`, `lvmin`, and `lvmax`
+2. The small viewport units（小视口单位）：`svw`, `svh`, `svi`, `svb`, `svmin`, and `svmax`
+3. The dynamic viewport units（动态视口单位）：`dvw`, `dvh`, `dvi`, `dvb`, `dvmin`, and `dvmax`
+
+所谓的 Large：容器 UA 界面能够收起/展开的部分，是收起的；Small 则就是都展开了，压缩了 viewport 后的长度
+
+所谓的 D：动态视窗
+
+1. 动态工具栏展开时，动态视口等于小视口的大小
+2. 当动态工具栏被缩回时，动态视口等于大视口的大小
+3. 兼容性问题：https://caniuse.com/?search=dvh，基本新版本都支持了，后面将成为主流替代 vh
+
 ### 盒子模型
 
 盒子通常由：content，margin，padding，border 组成
