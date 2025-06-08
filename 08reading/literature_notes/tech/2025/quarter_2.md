@@ -164,3 +164,11 @@
 [在线表单编辑](https://tally.so/)
 
 > 挺有意思，类似 Notion 一样 block 的自定义表单的配置，完成后进行发布，并且能拿到相应的代码进行项目内的集成
+
+[aerospace 非常棒的 mac 窗口管理工具](https://github.com/nikitabobko/AeroSpace)
+
+> 目前使用 [rectangle](https://rectangleapp.com/) 简单的管理窗口，也曾看过 [yabai](https://github.com/koekeishiya/yabai)，感觉过于繁琐且需要权限就放弃了，同事推荐了 aerospace，跟着教程视频体验了下来，感觉非常不错！
+>
+> 空间管理、窗口堆叠，自定义能力非常高，配置文件设计的也很有意思（快捷键 + 命令）
+>
+> 有了窗口管理 还需要高亮当前聚焦的窗口 可以试试 [这个](https://github.com/FelixKratz/JankyBorders) 配合使用
