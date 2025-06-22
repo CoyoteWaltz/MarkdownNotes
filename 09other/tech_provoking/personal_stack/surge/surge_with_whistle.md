@@ -44,6 +44,8 @@
 └── rule_set_common.dconf
 ```
 
+**注意，Rule 的拆分如果很细的话，需要在最后一个引入的规则文件中加上 FINAL 的规则，不然无法通过 surge 检查，同时检查下前面的 rule 配置中不要写 FINAL，不然会提前结束规则匹配**
+
 接着就可以组装出一份完整配置 `名字随意.conf`，和一份 whistle 配置 `名字也随意.conf`（需要 whistle 时切换过去用就行）
 
 ```bash
