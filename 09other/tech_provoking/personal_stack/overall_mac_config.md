@@ -6,6 +6,10 @@
 
 ## Applications
 
+### [Brew](https://brew.sh/)
+
+Install brew inside the Great Wall is sooooooo furstrating
+
 ### [Bruno](https://www.usebruno.com/)
 
 > Replacement for postman
@@ -16,7 +20,7 @@
 
 ### [Bob](https://bobtranslate.com/)
 
-> Selection, OCR Translator
+> Selection, screenshot OCR & Translator
 
 ### [Charles](https://www.charlesproxy.com/)
 
@@ -29,6 +33,8 @@
 > Menu bar calendar and world clocks, plus fullscreen meeting notifications
 >
 > `#login_start`
+
+Support multiple timezone display and time-travel!
 
 ### [Espanso](https://espanso.org/)
 
@@ -405,24 +411,48 @@ Download from the website
 
 > Yes! terminal App.
 
+Tips: Remember to set Hot Window (Setting -> Features -> Keys -> Global hotkey Dedicated hotkey window)
+
 ### [Xnip](https://xnipapp.com/)
 
 > My favourite Screenshot Tool
 >
 > `#pricing` `#mac_only`
 
+### [OmniDesktopSweeper](https://www.omnigroup.com/more)
+
+> Quickly find large, unwanted files and sweep them into the trash
+
+### [Surge](https://nssurge.com/)
+
+Remember to set proxy in terminal (.zshrc)
+
+### [Cursor](https://www.cursor.com/)
+
 ## Shell Settings
 
-### zsh
+### [zsh](https://www.zsh.org/)
+
+MacOS Built-in
 
 Plugins:
 
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
+### oh my posh
+
 ### oh my zsh
 
-### starship
+> zsh's framework
+
+### [zimfw](https://github.com/zimfw/zimfw)
+
+> Another zsh's framework
+
+### [starship](https://starship.rs/)
+
+> The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
 ### CLI Tools
 
@@ -472,6 +502,8 @@ brew install git-extras
 ## Programming Language Settings
 
 ### Nodejs
+
+#### [fnm](https://github.com/Schniz/fnm)
 
 Use fnm to install different versions of Nodejs.
 
