@@ -1,6 +1,11 @@
 # 2024 My Mac Config
 
 > For work and personal usage.
+>
+> Road Map of My Mac Mini Configuration
+>
+> - [ ] solution of backup and sync between different devices
+> - [ ] Maybe a better terminal to replace Warp ([Ghostty](https://github.com/ghostty-org/ghostty))
 
 ## Foreword
 
@@ -21,6 +26,14 @@ Install brew inside the Great Wall is sooooooo furstrating
 ### [Bob](https://bobtranslate.com/)
 
 > Selection, screenshot OCR & Translator
+
+### [Popclip](https://www.popclip.app/)
+
+> Actions for selection
+
+Extensions:
+
+- [Bob](https://bobtranslate.com/guide/integration/popclip.html): for better icon download from [here](https://github.com/ripperhe/bob-popclip/issues/3)
 
 ### [Charles](https://www.charlesproxy.com/)
 
@@ -106,7 +119,7 @@ Extension store
 >
 > `#mac_only` `#open_source`
 >
-> TODO: add focus [border](https://github.com/FelixKratz/JankyBorders)
+> Use focus borders (see next section)
 
 My Config:
 
@@ -345,6 +358,27 @@ run = "move-node-to-workspace C"
 
 ```
 
+### [Borders](https://github.com/FelixKratz/JankyBorders)
+
+> Display border on focused window
+
+I perfer creating the config in `~/.config/borders/bordersrc` and run `brew services start borders` or add this command as the startup config in aerospace.
+
+```bash
+#!/bin/bash
+
+options=(
+	style=round
+	width=6.0
+	hidpi=off
+#	active_color=0xffe2e2e3
+	active_color='gradient(top_left=0xffB3FFAB,bottom_right=0xff12FFF7)'
+#	inactive_color=0xff414550
+)
+
+borders "${options[@]}"
+```
+
 ### [Shottr](https://shottr.cc/)
 
 > Screenshot tool for developers, designers with rich features.
@@ -413,6 +447,10 @@ Download from the website
 
 Tips: Remember to set Hot Window (Setting -> Features -> Keys -> Global hotkey Dedicated hotkey window)
 
+### [Ghostty](https://github.com/ghostty-org/ghostty)
+
+> Yes! A terminal App.
+
 ### [Xnip](https://xnipapp.com/)
 
 > My favourite Screenshot Tool
@@ -428,6 +466,12 @@ Tips: Remember to set Hot Window (Setting -> Features -> Keys -> Global hotkey D
 Remember to set proxy in terminal (.zshrc)
 
 ### [Cursor](https://www.cursor.com/)
+
+Vibe coding.
+
+### [Mackup](https://github.com/lra/mackup)
+
+sync config and files ([config for custom app](https://github.com/lra/mackup/blob/master/doc/README.md))
 
 ## Shell Settings
 
@@ -455,6 +499,10 @@ Plugins:
 > The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
 ### CLI Tools
+
+#### [fzf](https://github.com/junegunn/fzf)
+
+> fuzzy finder
 
 #### [zoxide](https://github.com/ajeetdsouza/zoxide)
 
@@ -533,6 +581,8 @@ brew install --cask android-platform-tools
 
 vscode
 
-#### Meslo Nerd Font
+#### [Nerd Font](https://www.nerdfonts.com/#home)
 
-> download source from [powerlevel10k](https://github.com/romkatv/powerlevel10k/blob/master/font.md)
+> Also can download source from [powerlevel10k](https://github.com/romkatv/powerlevel10k/blob/master/font.md)
+
+[Nerd Font Icons](https://www.nerdfonts.com/cheat-sheet)

@@ -98,6 +98,51 @@ surge 提供了 http api 给外部来控制 surge，需要在「更多」-「通
 
 > Starting from Surge iOS 4.12.0 & Surge Mac 4.5.0, you can include multiple detached profiles in one section. But the section will be marked read-only and can't be edited with UI.
 
+## （推荐）保留便利性的方案
+
+还是想要保留快速切换 whistle 的便利性，可以完整配置中保留 rule，通过 ruleset 来控制流量走向 whistle
+
+1. 配置 ruleset 策略，在 Profiles 目录下可以新建一个 `rule_set_whistle.txt`
+
+   ```toml
+   PROCESS-NAME,Google Chrome*
+   OR,((PROCESS-NAME,Safari*), (PROCESS-NAME,/Library/Apple/System/Library/StagedFrameworks/Safari/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking), (PROCESS-NAME,/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking))
+   PROCESS-NAME,firefox*
+   PROCESS-NAME,Microsoft Edge*
+
+   ```
+
+2. 完整配置如下
+
+   ```toml
+   [General]
+   #!include general_common.dconf
+
+   [Proxy]
+   #!include all_whistle.dconf, AgentNEO.conf
+
+   [Proxy Group]
+   #!include proxy_group_common.dconf
+
+   [Rule]
+   # ------ 自定义 rule -----
+   # ...
+   # ------ 自定义 all_whistle -----
+   # 注意顺序 在你想走到 whistle 的地方加入这条 rule-set 内容指向定义好的文件
+   # RULE-SET,rule_set_whistle.txt,Custom-Dev-Whistle-local
+   # ------ 自定义 rule_process_common -----
+   # ...
+   # ------ 自定义 rule_set_common -----
+   # ...
+   FINAL,PROXY,dns-failed
+
+   [Host]
+   #!include host.conf
+
+   ```
+
+这样就可以只使用一份配置，然后在 surge 的规则面板上直接可以控制开关和增加策略
+
 ## 也许
 
 也许有空可以做一个 surge module for whistle？满足随开随用的便捷性，也能提供可视化工具管理一些特定的不走代理策略
