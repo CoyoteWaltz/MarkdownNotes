@@ -11,6 +11,10 @@
 
 ## Applications
 
+### {Mark}[Alcove](https://tryalcove.com/)
+
+A native Dynamıc Island App for MacBook. `$16.99`
+
 ### [Brew](https://brew.sh/)
 
 Install brew inside the Great Wall is sooooooo furstrating
@@ -451,6 +455,12 @@ Tips: Remember to set Hot Window (Setting -> Features -> Keys -> Global hotkey D
 
 > Yes! A terminal App.
 
+remember to move the config file to `$HOME/.config/ghostty/config` for mackup to backup
+
+```bash
+mv $HOME/Library/Application\ Support/com.mitchellh.ghostty/config $HOME/.config/ghostty/config
+```
+
 ### [Xnip](https://xnipapp.com/)
 
 > My favourite Screenshot Tool
@@ -472,6 +482,23 @@ Vibe coding.
 ### [Mackup](https://github.com/lra/mackup)
 
 sync config and files ([config for custom app](https://github.com/lra/mackup/blob/master/doc/README.md))
+
+### [Orbstack](https://docs.orbstack.dev/docker/)
+
+> Containers manager (Docker)
+
+remember to config [Docker Proxy](https://docs.docker.com/reference/cli/dockerd/#on-linux) when u r in the wall.
+
+_Settings -> Docker (daemon.json)_
+
+```json
+{
+  "proxies": {
+    "http-proxy": "http://127.0.0.1:7878",
+    "https-proxy": "https://127.0.0.1:7878"
+  }
+}
+```
 
 ## Shell Settings
 

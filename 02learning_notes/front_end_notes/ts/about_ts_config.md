@@ -4,6 +4,19 @@
 
 > `tsconfig.json` 真的是令人头大的配置，这篇文章给出了基础的 coding 所需配置和说明，不做翻译了，直接看吧
 
+### [exactOptionalPropertyTypes](https://www.typescriptlang.org/tsconfig/#exactOptionalPropertyTypes)
+
+1. `exactOptionalPropertyTypes: true` 是 TypeScript 的严格模式配置
+2. 在这个模式下，可选属性 `className?: string` 不允许接受 undefined 值
+3. CSS Modules 的类型定义中，类名可能是 string | undefined
+4. 当传递 undefined 给 className 时，TypeScript 会报错
+
+所以当开启这个开关之后，所有的类型定义会变的更加严格，如果不存在也不允许传递 undefined，避免一些隐藏处理 undefined 问题的出现
+
+但是大多数情况可能没那么多影响，而且一些三方库的类型定义可能都没有考虑这些，必须要手动补充 `foo.bar ?? ''` 类似这样的兜底处理
+
+看 reddit 上的[讨论](https://www.reddit.com/r/reactjs/comments/1bfe5og/exactoptionalpropertytypes_yay_or_nay/)，我个人项目还是会开启这个开关的
+
 ### [isolatedModules](https://www.typescriptlang.org/tsconfig#isolatedModules)
 
 ```json

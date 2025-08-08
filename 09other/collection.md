@@ -1,4 +1,4 @@
-## AI/ChatGPT 相关
+## AI/ChatGPT 相关 (部分已经过时)
 
 [eslint-gpt](https://github.com/ycjcl868/eslint-gpt)
 
@@ -108,6 +108,8 @@ Space Grotesk
 [AI Logo 生成器 开源](https://github.com/Nutlope/logocreator)
 
 [字幕工具箱：各种字幕处理工具](https://zm.i8k.tv/)
+
+[颜色生成器，蛮漂亮的](https://kigen.design/color)
 
 [渐变色收集！](https://uigradients.com/)
 
