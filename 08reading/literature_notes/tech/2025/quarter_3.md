@@ -52,3 +52,45 @@
 > 尝试下 [使用姿势](https://bottom.pages.dev/stable/usage/general-usage/)
 >
 > 同样还有一个比较新的 [neohtop](https://github.com/abdenasser/neohtop)，svelte + tauri 的一个 htop 的客户端，好像也不错，有空可以体验下
+
+[pnpm 10.14 替代 nvm/fnm!](https://pnpm.io/blog/releases/10.14)
+
+> ```json
+> {
+>   "devEngines": {
+>     "runtime": {
+>       "name": "node",
+>       "version": "^24.4.0",
+>       "onFail": "download" // we only support the "download" value for now
+>     }
+>   }
+> }
+> ```
+>
+> 这个思路真的不错，在 package 维度定义 [runtime engine](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#devengines)，在 lockfile 中也会存储相关信息（把 node version 也加入到了 lockfile），并且 pnpm run 等指令都会用对应的 node 版本来执行，以后可以抛弃 nvm/fnm 了
+
+[是否在线](https://antonz.org/is-online/)
+
+> 如何检测用户是否在线（online，连接到网络），可以用 google 提供的 https://google.com/generate_204，或者 http://www.gstatic.com/generate_204，速度很快。
+>
+> surge 中的检测也是配的这个地址，他会返回 http 204。小技巧 +1，可以通过 js 实现用户的断网检测，同时和 navigator.onLine（立即，更快）检测
+
+[promise.try](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/try)
+
+> 浏览器支持度：chrome 128 (24 年 8 月）
+>
+> 作用是可以立即启动一个 promise chain，并且执行里面的函数，将其返回结果包装成 promise，并且可以自动将函数的 error 包装成 promise.reject，也不用再写 try catch 了。
+>
+> 和 `Promise.resolve().then(func)` 是高度相似，但也不太一样：resolve 后的 then 里面的回调，已经是在异步微任务里面执行了，不是 new Promise 的形式同步执行的。也和 settimeout 一样支持参数 Promise.try(func, arg1, arg2);
+
+[manus 的 LLM 上下文工程中的教训经验](https://manus.im/zh-cn/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus)
+
+> AI 代理工程的一些经验教训，但是大模型厂商不断的飞速迭代，也会使得这些工程手段愈加不那么重要，等待就会白给
+
+[twoslash](https://github.com/twoslashes/twoslash)
+
+>
+
+[康威定律](https://zh.wikipedia.org/wiki/%E5%BA%B7%E5%A8%81%E5%AE%9A%E5%BE%8B)
+
+> "设计系统的架构受制于产生这些设计的组织的沟通结构。"

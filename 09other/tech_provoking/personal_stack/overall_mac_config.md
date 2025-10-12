@@ -4,7 +4,7 @@
 >
 > Road Map of My Mac Mini Configuration
 >
-> - [ ] solution of backup and sync between different devices
+> - [x] solution of backup and sync between different devices
 > - [ ] Maybe a better terminal to replace Warp ([Ghostty](https://github.com/ghostty-org/ghostty))
 
 ## Foreword
@@ -571,6 +571,29 @@ brew install git-extras
 ```
 
 [Commands](https://github.com/tj/git-extras/blob/main/Commands.md)
+
+#### [delta](https://github.com/dandavison/delta)
+
+> A syntax-highlighting pager for git, diff, grep, and blame output
+
+Install it from brew `brew install git-delta`
+
+Config in your git config
+
+```toml
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+    conflictStyle = zdiff3
+```
 
 ### Terminal Prompt
 
