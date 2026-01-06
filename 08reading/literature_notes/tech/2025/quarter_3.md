@@ -94,3 +94,11 @@
 [康威定律](https://zh.wikipedia.org/wiki/%E5%BA%B7%E5%A8%81%E5%AE%9A%E5%BE%8B)
 
 > "设计系统的架构受制于产生这些设计的组织的沟通结构。"
+
+[cool tools](https://kk.org/cooltools/)
+
+>
+
+[spec coding vs vibe coding](https://redreamality.com/cn/blog/-sddbmad-vs-spec-kit-vs-openspec-vs-promptx/)
+
+>
