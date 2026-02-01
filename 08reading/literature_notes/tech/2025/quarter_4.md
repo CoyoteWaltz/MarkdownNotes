@@ -58,3 +58,25 @@
 [蚂蚁开源 infographic](https://github.com/antvis/Infographic)
 
 > 大模型友好的声明式信息图可视化引擎，还支持流式渲染
+
+[Vercel 的野心 定义编程语言的未来](https://juejin.cn/post/7567309723478425652)
+
+> 虽然前端时间的 RSC 漏洞很令人担忧，但这里描述的编程语言特性令人着迷：
+>
+> - 可序列化闭包 (Serializable Closures)
+>   - 闭包这个函数创建时的环境，并可以被完整打包进行网络发送/数据库存储
+>   - Server action, [`use cache`](https://nextjs.org/docs/app/api-reference/directives/use-cache), `workflows`
+> - 代数效应 (Algebraic Effects)
+>   - 函数的 effect 被安全的控制在一个上下文沙箱里
+> - 增量计算 (Incremental Computation)
+>   - 只重新计算受数据变化影响的输出（turbopack，react virtual dom diff）
+>
+> 这些“编程语言”级别的特性能拓展开发者应用的边界。
+
+[学习下 Effect](https://effect.website/docs)
+
+>
+
+[了解下 shadowsocks 的历史](https://github.com/KeiKinn/ShadowsocksBio)
+
+>

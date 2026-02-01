@@ -2,6 +2,10 @@
 
 ### Rust 101
 
+Rust practice
+
+https://github.com/sunface/rust-by-practice
+
 ### How to learn Rust
 
 https://www.youtube.com/watch?v=2hXNd6x9sZs

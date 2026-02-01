@@ -111,3 +111,9 @@ https://garryui.cn/
 > 读了 2024 最佳独立游戏《小丑牌》作者的开发经历，真的很震撼，很浪漫
 >
 > 游戏非常好玩，推荐，steam 等游戏平台和 IOS（美区）都有，手机上消磨时间的好游戏
+
+2026.01.11 15:28:54 +0800
+
+[Website of the year(2025)](https://readymag.com/websites-of-the-year/)
+
+>
