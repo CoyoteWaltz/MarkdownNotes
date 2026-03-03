@@ -117,3 +117,13 @@ https://garryui.cn/
 [Website of the year(2025)](https://readymag.com/websites-of-the-year/)
 
 >
+
+2026.03.02 19:39:21 +0800
+
+[Mockdown](https://www.mockdown.design/)
+
+> 一个浏览器端的 ASCII 线框编辑器，可以拖放组件（按钮、输入框、卡片、表格等）快速画低保真原型和文本图表，免费无需注册。
+>
+> 与 asciiflow 的区别：专门为 **AI 编程工作流**设计，画完导出 Markdown 纯文本，直接粘贴给 Claude Code / Cursor / Copilot。核心理念是 "AI reads Markdown better than it reads your explanations"——一张线框图替代一堆文字描述。选择纯文本而非截图，是因为可以直接贴 GitHub issue、Slack，也能跟代码一起 commit，不会有图片链接失效的问题。
+>
+> 作者 [Mike Bespalov](https://x.com/bbssppllvv)，巴塞罗那的设计师+开发者，之前创建了 Refero（25万+用户）。开源仓库：[github.com/bbssppllvv/Mockdown](https://github.com/bbssppllvv/Mockdown)（TypeScript）。
