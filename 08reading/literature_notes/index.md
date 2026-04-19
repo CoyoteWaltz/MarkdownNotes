@@ -20,7 +20,7 @@
 信息获取、读书方法、知识管理体系。
 
 - 信息方法论 / RSS / 什么是 RSS
-- ADEPT method（类比→图表→实践→描述→技术）
+- ADEPT method（类比 → 图表 → 实践 → 描述 → 技术）
 - zettelkasten method（卡片盒笔记法）
 - 如何学习新技术（以 Rust 为例）
 - 如何有效提问 / RTFM / STFW
@@ -86,11 +86,11 @@
 
 ### 2.1 职业规划 & 成长路径
 
-- 规划三阶段（一技之长→独立做事→寻找使命）
+- 规划三阶段（一技之长 → 独立做事 → 寻找使命）
 - Engineer/Manager pendulum（manager 回归 IC 的焦虑）
 - 在工作中学习（工作效率 vs 知识效率）
 - 演进：SMART 法则（Specific, Measurable, Attainable...）
-- 玉伯：前端成长之路（全情投入→守正出奇→愿等花开）
+- 玉伯：前端成长之路（全情投入 → 守正出奇 → 愿等花开）
 
 ### 2.2 前端职业思考
 
@@ -112,7 +112,7 @@
 - 字节发展史（36kr 长文）
 - 字节跳动，"先进组织"的世界尽头（卡尔·维克理论）
 - 拼多多，理性组织的冷酷仙境（效率机器 ≠ 贬义）
-- muan 在 GitHub 的经历（扁平→微软收购的变化）
+- muan 在 GitHub 的经历（扁平 → 微软收购的变化）
 
 ### 2.5 工程师文化 & 工作方法
 
@@ -121,6 +121,8 @@
 - 做 tech leader 的 42 条经验
 - 加班与效率（有用功/总功，砍需求而非拼命做需求）
 - 欧洲求职经历 / 欧洲程序员工资地图
+- Nobody Gets Promoted for Simplicity（工程组织奖励复杂度而非简洁的激励机制反思）
+- 21 Lessons From 14 Years at Google（Addy Osmani：Google 14 年工程师经验——协作、清晰、对齐、人脉复利）
 
 ---
 
@@ -136,6 +138,8 @@
 - Mockdown（ASCII 线框编辑器，浏览器端低保真原型工具）
 - garryui.cn（卡通风炫酷网站）
 - Website of the year 2025
+- HTML Color Codes（颜色选择器/色轮/色卡等工具站，前端与设计师必备）
+- COBE（shuding 的 5kB WebGL 3D 地球可视化库，无依赖，交互式标记与连线动画）
 
 ### 3.2 字体 & 排版
 
@@ -191,7 +195,7 @@
 ### 5.3 安全 & 漏洞
 
 - libwebp 巨大漏洞（CVE-2023-41064，零日漏洞）
-- TikTok 站点 XSS 漏洞（黑客发现→修复）
+- TikTok 站点 XSS 漏洞（黑客发现 → 修复）
 
 ### 5.4 技术故事 & 人物
 
@@ -218,23 +222,24 @@
 
 ### 时间线
 
-| 时期 | 文件 | 约条目数 |
-|:-----|:-----|:---------|
-| 2021 及之前 | [[tech/2021\|2021.md]] | ~35 |
-| 2022 | [[tech/2022\|2022.md]] | ~40 |
-| 2023 Q1 | [[tech/2023/quarter_1\|Q1]] | ~55 |
-| 2023 Q2 | [[tech/2023/quarter_2\|Q2]] | ~45 |
-| 2023 Q3 | [[tech/2023/quarter_3\|Q3]] | ~50 |
-| 2023 Q4 | [[tech/2023/quarter_4\|Q4]] | ~25 |
-| 2024 Q1 | [[tech/2024/quarter_1\|Q1]] | ~40 |
-| 2024 Q2 | [[tech/2024/quarter_2\|Q2]] | ~20 |
-| 2024 Q3 | [[tech/2024/quarter_3\|Q3]] | ~10 |
-| 2024 Q4 | [[tech/2024/quarter_4\|Q4]] | ~8 |
-| 2025 Q1 | [[tech/2025/quarter_1\|Q1]] | ~25 |
-| 2025 Q2 | [[tech/2025/quarter_2\|Q2]] | — |
-| 2025 Q3 | [[tech/2025/quarter_3\|Q3]] | ~30 |
-| 2025 Q4 | [[tech/2025/quarter_4\|Q4]] | ~10 |
-| 2026 Q1 | [[tech/2026/quarter_1\|Q1]] | 进行中 |
+| 时期        | 文件                        | 约条目数 |
+| :---------- | :-------------------------- | :------- |
+| 2021 及之前 | [[tech/2021\|2021.md]]      | ~35      |
+| 2022        | [[tech/2022\|2022.md]]      | ~40      |
+| 2023 Q1     | [[tech/2023/quarter_1\|Q1]] | ~55      |
+| 2023 Q2     | [[tech/2023/quarter_2\|Q2]] | ~45      |
+| 2023 Q3     | [[tech/2023/quarter_3\|Q3]] | ~50      |
+| 2023 Q4     | [[tech/2023/quarter_4\|Q4]] | ~25      |
+| 2024 Q1     | [[tech/2024/quarter_1\|Q1]] | ~40      |
+| 2024 Q2     | [[tech/2024/quarter_2\|Q2]] | ~20      |
+| 2024 Q3     | [[tech/2024/quarter_3\|Q3]] | ~10      |
+| 2024 Q4     | [[tech/2024/quarter_4\|Q4]] | ~8       |
+| 2025 Q1     | [[tech/2025/quarter_1\|Q1]] | ~25      |
+| 2025 Q2     | [[tech/2025/quarter_2\|Q2]] | —        |
+| 2025 Q3     | [[tech/2025/quarter_3\|Q3]] | ~30      |
+| 2025 Q4     | [[tech/2025/quarter_4\|Q4]] | ~10      |
+| 2026 Q1     | [[tech/2026/quarter_1\|Q1]] | 进行中   |
+| 2026 Q2     | [[tech/2026/quarter_2\|Q2]] | 进行中   |
 
 ### 主题速查
 
@@ -264,6 +269,7 @@ React 核心机制、Hooks、并发模式、状态管理、组件库。
 - rem/vw 移动端适配 / border-box / 大屏自适应 — 2022
 - 字体：otf/ttf/WOFF2 / 中文网字计划 / 字体分割 — 2023Q1, 2024Q2, 2025Q1
 - Lottie 动画 / CSS 渐变边框 / 雪碧图动画 — 2021, 2023Q4, 2025Q1
+- Liveline（React 实时动画折线图组件，Canvas 60fps 平滑插值）— 2026Q1
 
 #### 6.3 构建工具 & 工程化
 
@@ -321,6 +327,10 @@ AI 工具、Prompt 工程、生成式 UI、Agent。
 - Is the Golden Age of Indie Software Over?（AI/LLM 冲击下独立软件开发的困境）— 2026Q1
 - Markdown for Agents（Cloudflare CDN 层自动 HTML→Markdown，为 AI Agent 服务）— 2026Q1
 - 2025 年我对 AI 编程的全部理解（Coding Agent 工作流、提示词策略、心态转变）— 2026Q1
+- Crawl4AI（开源 LLM 友好网页爬虫，网页 → 结构化 Markdown，支持 LLM 提取）— 2026Q1
+- Spec Driven Development 的缺陷（文档 ≠ 代码，规格无法替代工程隐含知识）— 2026Q1
+- Harness Engineering（OpenAI 提出 agent-first 工程方法论，工程师从写代码转向设计 agent 约束与反馈系统）— 2026Q1
+- Agentation（agent-agnostic 可视化反馈工具，点击网页元素生成 CSS selector 供 AI agent 精确定位代码）— 2026Q2
 
 #### 6.8 Rust & 系统编程
 
@@ -345,6 +355,7 @@ HTTP、DNS、负载均衡、数据库、部署。
 - JWT / 登录密码加密 / SRP — 2023Q4
 - SSE 被低估 / EventSource — 2024Q1, 2025Q3
 - SSH Tunnel 可视化指南 — 2026Q1
+- Turso（Rust 重写的 SQLite 兼容嵌入式数据库，async I/O + 向量搜索 + MVCC）— 2026Q1
 
 #### 6.10 开发工具 & 效率
 
@@ -358,6 +369,8 @@ HTTP、DNS、负载均衡、数据库、部署。
 - 翻译：MTranServer — 2025Q3
 - jj（Jujutsu 版本控制）— 2025Q3
 - Vite DevTools（构建过程可视化分析工具）— 2026Q1
+- beautiful-mermaid（Mermaid 图表 SVG/ASCII 渲染库，零 DOM 依赖，15 套主题）— 2026Q1
+- cmux（基于 Ghostty 的 macOS 终端，专为 AI coding agent 设计，垂直 Tab + 通知）— 2026Q1
 
 #### 6.11 CS 基础 & 架构
 
@@ -369,6 +382,7 @@ HTTP、DNS、负载均衡、数据库、部署。
 - 计算机领域三个重要思想：抽象、分层、高阶 — 2024Q2
 - 系统设计蓝图 / 聊聊架构 — 2023Q3
 - 设计模式为什么会流行（yinwang）— 2023Q1
+- How Terminals Work（交互式教程，终端工作流与 TUI 架构设计）— 2026Q1
 
 ---
 

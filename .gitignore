@@ -22,3 +22,6 @@ obsidian/
 10personal/
 task_board/
 pettolog/
+
+
+.claude/settings.local.json

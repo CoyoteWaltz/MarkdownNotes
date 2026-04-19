@@ -126,4 +126,18 @@ https://garryui.cn/
 >
 > 与 asciiflow 的区别：专门为 **AI 编程工作流**设计，画完导出 Markdown 纯文本，直接粘贴给 Claude Code / Cursor / Copilot。核心理念是 "AI reads Markdown better than it reads your explanations"——一张线框图替代一堆文字描述。选择纯文本而非截图，是因为可以直接贴 GitHub issue、Slack，也能跟代码一起 commit，不会有图片链接失效的问题。
 >
-> 作者 [Mike Bespalov](https://x.com/bbssppllvv)，巴塞罗那的设计师+开发者，之前创建了 Refero（25万+用户）。开源仓库：[github.com/bbssppllvv/Mockdown](https://github.com/bbssppllvv/Mockdown)（TypeScript）。
+> 作者 [Mike Bespalov](https://x.com/bbssppllvv)，巴塞罗那的设计师+开发者，之前创建了 Refero（25 万+用户）。开源仓库：[github.com/bbssppllvv/Mockdown](https://github.com/bbssppllvv/Mockdown)（TypeScript）。
+
+2026.03.03 19:38:22 +0800
+
+[HTML Color Codes](https://htmlcolorcodes.com)
+
+> 这是一个专门为前端和设计师提供的颜色工具站点
+>
+> 提供颜色选择器、色轮、色卡图表（含 Tailwind、Material Design 等预设调色板）、颜色名称库、RGB/Hex 互转、对比度检查器等一系列工具，支持直接输出 HTML/CSS/SCSS 样式代码。
+
+2026.03.19 11:36:28 +0800
+
+[COBE](https://github.com/shuding/cobe)
+
+> 来自 shuding 的 5kB WebGL 3D 地球可视化库，无依赖，支持交互式 DOM 标记（可绑定 CSS 过渡、动画、滤镜）、地理坐标连线弧线、自定义颜色和样式。极致轻量，适合需要地球可视化的 Web 项目。Vercel 官网首页的地球就是用它做的。真的是非常精致和漂亮。

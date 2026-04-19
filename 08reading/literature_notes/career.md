@@ -271,3 +271,19 @@
 [欧洲程序员工资地图](https://www.levels.fyi/heatmap/europe/)
 
 > 瑞士第一，瑞典平均 3.8w 人民币
+
+2026.03.04 14:32:57 +0800
+
+[Nobody Gets Promoted for Simplicity](https://terriblesoftware.org/2026/03/03/nobody-gets-promoted-for-simplicity/)
+
+> 工程组织在无意间奖励了复杂度而非简洁性：交付简单方案缺乏足够"分量"的晋升材料，而过度设计的复杂架构反而显得有技术含量。面试流程、设计评审也在无形中强化这种偏见（总在追问"扩展性"）。作者呼吁工程师主动记录技术决策和权衡过程，管理者在绩效评估中有意识地认可"克制"的技术判断。
+>
+> "Complexity looks smart...because our systems are set up to reward it."
+
+2026.03.06 14:01:18 +0800
+
+[【好文】21 Lessons From 14 Years at Google](https://addyosmani.com/blog/21-lessons/)
+
+> Addy Osmani 在 Google 14 年的 21 条工程师经验总结。核心是"技术之外的人文要素"：深入理解用户问题、通过协作而非争论建立共识、尽早发布以从现实中学习。代码清晰度即风险控制，兼容性工作本质上是产品开发；慢的根源往往是方向未对齐而非执行力不足。人脉和知识记录随时间产生复利效应，而时间终将比薪酬更值钱。
+>
+> 有非常大的职业上的指导性意义。

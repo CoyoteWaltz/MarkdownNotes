@@ -723,6 +723,13 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >
 > - 理解什么是 LRU Cache：在**指定容量的**缓存中能找到最近使用过的数据，每次访问 key 如果有则返回数据同时更新这个 key 为最近使用的，加入数据将 key 设置成最新，若到达容量则去掉最“远”访问的数据
 > - 注意一个点是 map.keys() 返回的是一个迭代器（按照插入的 key 顺序），next() 获取的是下一个 key，这里为什么要删除第一个呢
+>   - 这里利用了 `Map` 的一个重要特性：
+>   - **`Map` 会保持插入顺序。**
+>   - 所以：
+>     - 越早插入的 key，越靠前
+>     - 越晚插入的 key，越靠后
+>     - 访问某个 key 时，把它删掉再重新插入，就能把它移动到末尾
+>     - 当容量满时，删除最前面的 key，即“最久未使用”的 key
 >
 > ```typescript
 > // simple O(1) LRU cache least recent used
@@ -745,7 +752,9 @@ Tree shaking 问题排查指南（内部文档 docs/doccn8E1ldDct5uv1EEDQs8Ycwe�
 >   }
 > 
 >   set(key: string, value: T) {
->     if (this.size >= this.maxSize) {
+> 	if (this.has(key)) {
+> 	  this.delete(key);
+> 	} else if (this.size >= this.maxSize) {
 >       // max size for LRU
 >       // Delete the least recently used key
 >       this.delete(this.keys().next().value);
